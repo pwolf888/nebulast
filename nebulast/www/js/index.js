@@ -18,7 +18,7 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
@@ -26,12 +26,12 @@ var app = {
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         this.receivedEvent('deviceready');
     },
 
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent: function (id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -46,9 +46,61 @@ var app = {
 app.initialize();
 
 
+$(document).ready(function () {
+    console.log("ready");
+    loadScenario();
+});
+
+
+function loadScenario() {
+
+    var scenarioObj = {
+
+        dialogue: undefined,
+        options: {
+                a: undefined,
+                b: undefined
+        },
+        results: {
+                a: [
+                undefined,
+                undefined,
+                undefined
+                ],
+                b: [
+                undefined,
+                undefined,
+                undefined
+                ]
+        }
+    };
 
 
 
+    $.getJSON("json/scenario.json", function (json) {
+            
+            scenarioObj.dialogue = json.dialogue;
+            scenarioObj.options["a"] = json.options["a"];
+            scenarioObj.options["b"] = json.options["b"];
+            
+//            var i = 0
+//            for(i=0; i<=2; i++) {
+                scenarioObj.results["a"][0] = json.results["a"][0];
+                scenarioObj.results["b"][0] = json.results["b"][0];
+                scenarioObj.results["a"][1] = json.results["a"][1];
+                scenarioObj.results["b"][1] = json.results["b"][1];
+                scenarioObj.results["a"][2] = json.results["a"][2];
+                scenarioObj.results["b"][2] = json.results["b"][2];
+//            }
+              
+            
+            console.log(scenarioObj.dialogue);
+            console.log(scenarioObj.options["a"]);
+            console.log(scenarioObj.options["b"]);
+            console.log(scenarioObj.results["a"]);
+            console.log(scenarioObj.results["b"]);
 
 
+    });
 
+}
