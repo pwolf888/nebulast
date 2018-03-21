@@ -49,9 +49,19 @@ app.initialize();
 $(document).ready(function () {
     console.log("ready");
     loadScenario();
+    
+    
+    
+    
 });
 
 
+
+
+
+
+
+// Test function to load a dummy scenario
 function loadScenario() {
 
     var scenarioObj = {
@@ -76,24 +86,20 @@ function loadScenario() {
     };
 
 
-
+    // Load the json into my object
     $.getJSON("json/scenario.json", function (json) {
             
             scenarioObj.dialogue = json.dialogue;
             scenarioObj.options["a"] = json.options["a"];
             scenarioObj.options["b"] = json.options["b"];
             
-//            var i = 0
-//            for(i=0; i<=2; i++) {
                 scenarioObj.results["a"][0] = json.results["a"][0];
                 scenarioObj.results["b"][0] = json.results["b"][0];
                 scenarioObj.results["a"][1] = json.results["a"][1];
                 scenarioObj.results["b"][1] = json.results["b"][1];
                 scenarioObj.results["a"][2] = json.results["a"][2];
                 scenarioObj.results["b"][2] = json.results["b"][2];
-//            }
-              
-            
+
             console.log(scenarioObj.dialogue);
             console.log(scenarioObj.options["a"]);
             console.log(scenarioObj.options["b"]);
