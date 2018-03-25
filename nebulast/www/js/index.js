@@ -46,6 +46,22 @@ var app = {
 app.initialize();
 
 
+
+var scenarioObj = {
+
+    dialogue: undefined,
+    optionA: undefined,
+    optionB: undefined,
+    resultA_dialogue:undefined,
+    resultA_number: undefined,
+    resultA_type: undefined,
+    resultB_dialogue:undefined,
+    resultB_number: undefined,
+    resultB_type: undefined
+
+};
+
+
 $(document).ready(function () {
     console.log("ready");
     loadSpaceScreen();   
@@ -81,6 +97,8 @@ $(document).ready(function () {
 */
 
 function loadSpaceScreen() {
+
+    loadScenario();
 
     $('.page__background').css('background-color', '#000 !important');
     
@@ -146,16 +164,21 @@ function loadScenarioScreen() {
 
     $("<ons-col width='20vw'><ons-card class='scenario-portrait'><ons-icon size='30px' icon='md-face'></ons-card></ons-col>").appendTo(dialogueRow);
 
-    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'>hello i am dialogue</p></ons-card></ons-col>").appendTo(dialogueRow);
+    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p></ons-card></ons-col>").appendTo(dialogueRow);
 
     self.$container.append(self.$page);
 
+    outputText();
 
 
 
 }
 
 function outputText() {
+
+    console.log("this is the obj: " + scenarioObj.dialogue);
+
+    $("<p class=\'dialogue\'>" + scenarioObj.dialogue + "</p>").appendTo('.dialogue-box');
 
 }
             
@@ -182,52 +205,33 @@ function outputText() {
 // Test function to load a dummy scenario
 function loadScenario() {
 
-    var scenarioObj = {
-
-        dialogue: undefined,
-        options: {
-                a: undefined,
-                b: undefined
-        },
-        results: {
-                a: [
-                undefined,
-                undefined,
-                undefined
-                ],
-                b: [
-                undefined,
-                undefined,
-                undefined
-                ]
-        }
-    };
 
 
-    // Load the json into my object
-    $.getJSON("json/scenario.json", function (json) {
-            
+    var scenario = new Promise(function (resolve, reject) {
+        // Fetch the nouns
+        $.getJSON('json/scenario.json').done(function (json) {
+            // Use the closured dictionary so we can easily access later without array parsing
             scenarioObj.dialogue = json.dialogue;
-            scenarioObj.options["a"] = json.options["a"];
-            scenarioObj.options["b"] = json.options["b"];
-            
-                scenarioObj.results["a"][0] = json.results["a"][0];
-                scenarioObj.results["b"][0] = json.results["b"][0];
-                scenarioObj.results["a"][1] = json.results["a"][1];
-                scenarioObj.results["b"][1] = json.results["b"][1];
-                scenarioObj.results["a"][2] = json.results["a"][2];
-                scenarioObj.results["b"][2] = json.results["b"][2];
+            scenarioObj.optionA = json.options["a"];
+            scenarioObj.optionB = json.options["b"];
 
-            // console.log(scenarioObj.dialogue);
-            // console.log(scenarioObj.options["a"]);
-            // console.log(scenarioObj.options["b"]);
-            // console.log(scenarioObj.results["a"]);
-            // console.log(scenarioObj.results["b"]);
+            scenarioObj.resultsA_dialogue = json.results["a"][0];
+            scenarioObj.resultsA_number = json.results["a"][1];
+            scenarioObj.resultsA_type = json.results["a"][2];
+            scenarioObj.resultsB_dialogue = json.results["b"][0];
+            scenarioObj.resultsB_number = json.results["b"][1];
+            scenarioObj.resultsB_type = json.results["b"][2];
 
 
+            resolve();
+            console.log("this is the derp: " + json);
+        }).fail(function (json) {
+            // If any dictionaries fail to load, the application has failedy
+            reject();
+        });
     });
-    
-    return scenarioObj;
+
+    return scenario;
 }
 
 
