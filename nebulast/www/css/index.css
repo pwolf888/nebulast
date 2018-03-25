@@ -27,16 +27,16 @@
 */ 
 
 * {
-    color: #fff;
+
     font-size: 12px!important;
 }
 
 .space-Screen {
-     
+    color: #fff;
 }
 
 .page__background  {
-     background-color: #000 !important; 
+     background-color: #000 !important;
 }
 .space-Ship {
     position: absolute;
@@ -87,8 +87,17 @@
 *
 ***************************************
  */
-            
-            
+.scenario-portrait .ons-icon{
+    font-size: 30px !important;
+
+}
+
+.name {
+    position: absolute;
+    top: 2px;
+}
+
+
  /*        
 ***************************************
 *  

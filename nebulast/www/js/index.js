@@ -81,12 +81,14 @@ $(document).ready(function () {
 */
 
 function loadSpaceScreen() {
+
+    $('.page__background').css('background-color', '#000 !important');
     
     var self = this;
     
     self.$container = $('#spaceScreen');
     
-    self.$page = $("<ons-page class='space-Screen'><div class='space-BG'></div></ons-page>");
+    self.$page = $("<ons-page class='space-Screen'></ons-page>");
     
     $("<ons-button class='space-Ship'>Space ship</ons-button>").appendTo(self.$page);
     $("<ons-button class='space-Station'>Space station</ons-button>").appendTo(self.$page);
@@ -97,9 +99,11 @@ function loadSpaceScreen() {
                 .then(function(index) {
              if( index > 0) {
                  console.log(index);
-                 loadScenario();
+                 $('#spaceScreen').hide();
+                 loadScenarioScreen();
+
              }
-    });
+        });
             
         
                                 
@@ -129,8 +133,31 @@ function loadSpaceScreen() {
 ***************************************
 */
 function loadScenarioScreen() {
-    
-}        
+
+
+
+    var self = this;
+
+    self.$container = $('#scenarioScreen').show();
+
+    self.$page = $("<ons-page class='scenario-Screen'></ons-page>");
+
+    var dialogueRow = $("<ons-row class='scenario-dialogueRow'> </ons-row>").appendTo(self.$page);
+
+    $("<ons-col width='20vw'><ons-card class='scenario-portrait'><ons-icon size='30px' icon='md-face'></ons-card></ons-col>").appendTo(dialogueRow);
+
+    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'>hello i am dialogue</p></ons-card></ons-col>").appendTo(dialogueRow);
+
+    self.$container.append(self.$page);
+
+
+
+
+}
+
+function outputText() {
+
+}
             
 /*        
 ***************************************
@@ -191,11 +218,11 @@ function loadScenario() {
                 scenarioObj.results["a"][2] = json.results["a"][2];
                 scenarioObj.results["b"][2] = json.results["b"][2];
 
-            console.log(scenarioObj.dialogue);
-            console.log(scenarioObj.options["a"]);
-            console.log(scenarioObj.options["b"]);
-            console.log(scenarioObj.results["a"]);
-            console.log(scenarioObj.results["b"]);
+            // console.log(scenarioObj.dialogue);
+            // console.log(scenarioObj.options["a"]);
+            // console.log(scenarioObj.options["b"]);
+            // console.log(scenarioObj.results["a"]);
+            // console.log(scenarioObj.results["b"]);
 
 
     });
