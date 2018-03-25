@@ -91,7 +91,7 @@ function loadSpaceScreen() {
     $("<ons-button class='space-Ship'>Space ship</ons-button>").appendTo(self.$page);
     $("<ons-button class='space-Station'>Space station</ons-button>").appendTo(self.$page);
     $("<ons-button class='space-planet-'>Planet</ons-button>").appendTo(self.$page);
-    $("<ons-button class='blackHole'>Black hole</ons-button>").appendTo(self.$page);
+    $("<ons-button class='space-Blackhole'>Black hole</ons-button>").appendTo(self.$page);
     
     // Stat group - will be loaded in via a function
     var list = $("<ons-list class='statsGroup' modifier='inset'></ons-list>").appendTo(self.$page);
@@ -106,13 +106,11 @@ function loadSpaceScreen() {
     
     
 }
-
-
             
  /*       
 ***************************************
 *  
-* Scenario Screen
+* Scenario Screen - clicking planet
 * 
 *
 ***************************************

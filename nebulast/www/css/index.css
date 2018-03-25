@@ -38,19 +38,30 @@
 .page__background  {
      background-color: #000 !important; 
 }
-.space-ship {
-    
+.space-Ship {
+    position: absolute;
+    left: 15px;
+    top: 45%;
 }
 
 .space-Station {
-    
+    position: absolute;
+    left: 15px;
+    top: 20%;
 }
 
-.planet- {
-    
+.space-planet- {
+    position: absolute;
+    right: 150px;
+    float: right;
+    top: 40%;
 }
 
 .space-Blackhole {
+    position: absolute;
+    float: right;
+    right: 10px;
+    top: 40%;
     
 }
 
