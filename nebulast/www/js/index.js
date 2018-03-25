@@ -90,7 +90,20 @@ function loadSpaceScreen() {
     
     $("<ons-button class='space-Ship'>Space ship</ons-button>").appendTo(self.$page);
     $("<ons-button class='space-Station'>Space station</ons-button>").appendTo(self.$page);
-    $("<ons-button class='space-planet-'>Planet</ons-button>").appendTo(self.$page);
+    
+    // On click the user will be asked if they want to start a scenario
+    $("<ons-button class='space-planet-' cancelable>Planet</ons-button>").appendTo(self.$page).on('click', function() {
+            ons.notification.confirm({message: 'This is plaent Zim 34, would you like to travel there?'})
+                .then(function(index) {
+             if( index > 0) {
+                 console.log(index);
+                 loadScenario();
+             }
+    });
+            
+        
+                                
+    });
     $("<ons-button class='space-Blackhole'>Black hole</ons-button>").appendTo(self.$page);
     
     // Stat group - will be loaded in via a function
@@ -114,10 +127,12 @@ function loadSpaceScreen() {
 * 
 *
 ***************************************
- */
+*/
+function loadScenarioScreen() {
+    
+}        
             
-            
- /*        
+/*        
 ***************************************
 *  
 * Space Station Screen
@@ -176,13 +191,23 @@ function loadScenario() {
                 scenarioObj.results["a"][2] = json.results["a"][2];
                 scenarioObj.results["b"][2] = json.results["b"][2];
 
-//            console.log(scenarioObj.dialogue);
-//            console.log(scenarioObj.options["a"]);
-//            console.log(scenarioObj.options["b"]);
-//            console.log(scenarioObj.results["a"]);
-//            console.log(scenarioObj.results["b"]);
+            console.log(scenarioObj.dialogue);
+            console.log(scenarioObj.options["a"]);
+            console.log(scenarioObj.options["b"]);
+            console.log(scenarioObj.results["a"]);
+            console.log(scenarioObj.results["b"]);
 
 
     });
-
+    
+    return scenarioObj;
 }
+
+
+
+// Alert dialogue functions
+
+
+
+
+
