@@ -86,16 +86,20 @@ function loadSpaceScreen() {
     
     self.$container = $('#spaceScreen');
     
-    self.$page = $("<ons-page class='space-Screen'></ons-page>");
+    self.$page = $("<ons-page class='space-Screen'><div class='space-BG'></div></ons-page>");
     
     $("<ons-button class='space-Ship'>Space ship</ons-button>").appendTo(self.$page);
-    $("<ons-button class='spaceStation'>Space station</ons-button>").appendTo(self.$page);
-    $("<ons-button class='planet_'>Planet</ons-button>").appendTo(self.$page);
+    $("<ons-button class='space-Station'>Space station</ons-button>").appendTo(self.$page);
+    $("<ons-button class='space-planet-'>Planet</ons-button>").appendTo(self.$page);
     $("<ons-button class='blackHole'>Black hole</ons-button>").appendTo(self.$page);
     
     // Stat group - will be loaded in via a function
-    $("<div class='statsGroup'><div class='food'>Food: 3</div><div class='water'>Water: 4</div><div class='fuel'>Fuel: 10</div><div class='crew'>Crew: 4</div><div class='credits'>Credits: 5432 </div></div>").appendTo(self.$page);
+    var list = $("<ons-list class='statsGroup' modifier='inset'></ons-list>").appendTo(self.$page);
     
+    var header = $("<ons-list-header>Stats</ons-list-header>").appendTo(list);
+    
+    var listItems = $("<ons-list-item class='food'modifier='nodivider'>Food: 3</ons-list-item><ons-list-item class='water' modifier='nodivider'>Water: 4</ons-list-item><ons-list-item class='fuel' modifier='nodivider'>Fuel: 10</ons-list-item><ons-list-item class='crew' modifier='nodivider'>Crew: 4</ons-list-item><ons-list-item class='credits' modifier='nodivider'>Credits: 5432 </ons-list-item>").appendTo(list);
+ 
     self.$container.append(self.$page);
     
     

@@ -17,4 +17,81 @@
  * under the License.
  */
 
+/*      
+***************************************
+*  
+* Space Screen
+* Interact with your spaceship, planets and spacestation and a blackhole
+*
+***************************************
+*/ 
 
+* {
+    color: #fff;
+    font-size: 12px!important;
+}
+
+.space-Screen {
+     
+}
+
+.page__background  {
+     background-color: #000 !important; 
+}
+.space-ship {
+    
+}
+
+.space-Station {
+    
+}
+
+.planet- {
+    
+}
+
+.space-Blackhole {
+    
+}
+
+.statsGroup {
+    width: 120px;
+    position: absolute;
+    background-color: #000 !important;
+    bottom: 5px;
+    left: 5px;
+}
+
+.list-item {
+    color:#fff;
+    height: 30px;
+    padding: 0px;
+}
+
+/*       
+***************************************
+*  
+* Scenario Screen
+* 
+*
+***************************************
+ */
+            
+            
+ /*        
+***************************************
+*  
+* Space Station Screen
+* 
+*
+***************************************
+ */
+            
+ /* 
+***************************************
+*  
+* Ship Screen
+* 
+*
+***************************************
+*/
