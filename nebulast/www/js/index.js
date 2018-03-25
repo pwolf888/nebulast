@@ -48,16 +48,88 @@ app.initialize();
 
 $(document).ready(function () {
     console.log("ready");
-    loadScenario();
-    
-    
-    
+    loadSpaceScreen();   
     
 });
 
 
 
+/*      
+***************************************
+*  
+* Space Screen
+* Interact with your spaceship, planets and spacestation and a blackhole
+*
+***************************************
 
+<ons-page class="spaceScreen">
+    
+    <ons-button class="spaceShip">Space ship</ons-button>
+    <ons-button class="spaceStation">Space station</ons-button>
+    <ons-button class="planet_">Planet</ons-button>
+    <ons-button class="blackHole">Black hole</ons-button>
+    <div class="statsGroup">
+        <div class='food'>Food: 3</div>
+        <div class='water'>Water: 4</div>
+        <div class='fuel'>Fuel: 10</div>
+        <div class='crew'>Crew: 4</div>
+        <div class='credits'>Credits: 5432 </div>
+    </div>
+            
+</ons-page>
+
+*/
+
+function loadSpaceScreen() {
+    
+    var self = this;
+    
+    self.$container = $('#spaceScreen');
+    
+    self.$page = $("<ons-page class='space-Screen'></ons-page>");
+    
+    $("<ons-button class='space-Ship'>Space ship</ons-button>").appendTo(self.$page);
+    $("<ons-button class='spaceStation'>Space station</ons-button>").appendTo(self.$page);
+    $("<ons-button class='planet_'>Planet</ons-button>").appendTo(self.$page);
+    $("<ons-button class='blackHole'>Black hole</ons-button>").appendTo(self.$page);
+    
+    // Stat group - will be loaded in via a function
+    $("<div class='statsGroup'><div class='food'>Food: 3</div><div class='water'>Water: 4</div><div class='fuel'>Fuel: 10</div><div class='crew'>Crew: 4</div><div class='credits'>Credits: 5432 </div></div>").appendTo(self.$page);
+    
+    self.$container.append(self.$page);
+    
+    
+}
+
+
+            
+ /*       
+***************************************
+*  
+* Scenario Screen
+* 
+*
+***************************************
+ */
+            
+            
+ /*        
+***************************************
+*  
+* Space Station Screen
+* 
+*
+***************************************
+ */
+            
+ /* 
+***************************************
+*  
+* Ship Screen
+* 
+*
+***************************************
+*/
 
 
 
@@ -100,11 +172,11 @@ function loadScenario() {
                 scenarioObj.results["a"][2] = json.results["a"][2];
                 scenarioObj.results["b"][2] = json.results["b"][2];
 
-            console.log(scenarioObj.dialogue);
-            console.log(scenarioObj.options["a"]);
-            console.log(scenarioObj.options["b"]);
-            console.log(scenarioObj.results["a"]);
-            console.log(scenarioObj.results["b"]);
+//            console.log(scenarioObj.dialogue);
+//            console.log(scenarioObj.options["a"]);
+//            console.log(scenarioObj.options["b"]);
+//            console.log(scenarioObj.results["a"]);
+//            console.log(scenarioObj.results["b"]);
 
 
     });
