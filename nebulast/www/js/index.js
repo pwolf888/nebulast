@@ -152,8 +152,6 @@ function loadSpaceScreen() {
 */
 function loadScenarioScreen() {
 
-
-
     var self = this;
 
     self.$container = $('#scenarioScreen').show();
@@ -164,7 +162,7 @@ function loadScenarioScreen() {
 
     $("<ons-col width='20vw'><ons-card class='scenario-portrait'><ons-icon size='30px' icon='md-face'></ons-card></ons-col>").appendTo(dialogueRow);
 
-    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p></ons-card></ons-col>").appendTo(dialogueRow);
+    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p></ons-card></ons-col>").appendTo(dialogueRow);
 
     self.$container.append(self.$page);
 
@@ -174,14 +172,45 @@ function loadScenarioScreen() {
 
 }
 
+// Outputs text one char at a time.
 function outputText() {
 
-    console.log("this is the obj: " + scenarioObj.dialogue);
 
-    $("<p class=\'dialogue\'>" + scenarioObj.dialogue + "</p>").appendTo('.dialogue-box');
+    var text = scenarioObj.dialogue;
+    var elem = $('.dialogue');
+    var delay = 50;
+
+    // http://jsfiddle.net/8ZtqL/167/
+    var outputTextSlowly = function(text,elem,delay){
+        if(!elem){
+            elem = $("body");
+        }
+        if(!delay){
+            delay = 300;
+        }
+        if(text.length > 0){
+            //append first character
+            elem.append(text[0]);
+            setTimeout(
+                function(){
+                    //Slice text by 1 character and call function again
+                    outputTextSlowly(text.slice(1),elem,delay);
+                },delay
+            );
+        }
+    }
+
+
+    outputTextSlowly(text,elem,delay);
+
 
 }
-            
+
+
+
+
+
+
 /*        
 ***************************************
 *  
