@@ -96,9 +96,11 @@ function loadSpaceScreen() {
     // Stat group - will be loaded in via a function
     var list = $("<ons-list class='statsGroup' modifier='inset'></ons-list>").appendTo(self.$page);
     
-    var header = $("<ons-list-header>Stats</ons-list-header>").appendTo(list);
+    var header = $("<ons-list-header tappable>Stats</ons-list-header>").appendTo(list).on('click', function(){
+        $(".stat-list").toggle();
+    });
     
-    var listItems = $("<ons-list-item class='food'modifier='nodivider'>Food: 3</ons-list-item><ons-list-item class='water' modifier='nodivider'>Water: 4</ons-list-item><ons-list-item class='fuel' modifier='nodivider'>Fuel: 10</ons-list-item><ons-list-item class='crew' modifier='nodivider'>Crew: 4</ons-list-item><ons-list-item class='credits' modifier='nodivider'>Credits: 5432 </ons-list-item>").appendTo(list);
+    var listItems = $("<div class='stat-list' hidden><ons-list-item class='food'modifier='nodivider'>Food: 3</ons-list-item><ons-list-item class='water' modifier='nodivider'>Water: 4</ons-list-item><ons-list-item class='fuel' modifier='nodivider'>Fuel: 10</ons-list-item><ons-list-item class='crew' modifier='nodivider'>Crew: 4</ons-list-item><ons-list-item class='credits' modifier='nodivider'>Credits: 5432 </ons-list-item></div>").appendTo(list);
  
     self.$container.append(self.$page);
     
