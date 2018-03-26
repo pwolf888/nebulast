@@ -138,8 +138,6 @@ function loadSpaceScreen() {
 */
 function loadScenarioScreen() {
 
-
-
     var self = this;
 
     self.$container = $('#scenarioScreen').show();
@@ -158,15 +156,19 @@ function loadScenarioScreen() {
     $("<ons-col width='100vw'><ons-card><ons-button class='option-A'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
         $('.results').show();
-
+        $('ons-button.option-A.button').css('display', 'none');
+        $('ons-button.option-B.button').css('display', 'none');
         outputText(scenarioObj.resultsA_dialogue, $('.results'));
+
 
     });
 
     $("<ons-col width='100vw'><ons-card><ons-button class='option-B'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
         $('.results').show();
-        outputText(scenarioObj.resultsB_dialogue, $('.dialogue'));
+        $('ons-button.option-A.button').css('display', 'none');
+        $('ons-button.option-B.button').css('display', 'none');
+        outputText(scenarioObj.resultsB_dialogue, $('.results'));
     });
 
 
@@ -181,12 +183,6 @@ function loadScenarioScreen() {
 
 
     console.log(scenarioObj.resultsA_dialogue);
-
-
-
-
-
-
 
 }
 
