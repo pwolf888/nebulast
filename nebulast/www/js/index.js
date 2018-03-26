@@ -148,27 +148,32 @@ function loadScenarioScreen() {
 
     $("<ons-col width='20vw'><ons-card class='scenario-portrait'><ons-icon size='30px' icon='md-face'></ons-card></ons-col>").appendTo(dialogueRow);
 
-    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p></ons-card></ons-col>").appendTo(dialogueRow);
+    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p></ons-card></ons-col>").appendTo(dialogueRow);
 
 
     var optionsRow = $("<ons-row class='scenario-OptionsRow'></ons-row>").appendTo(self.$page);
 
-    $("<ons-col width='100vw'><ons-card><ons-button class='option-A'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
+    $("<ons-col class='option-A-card' width='100vw'><ons-card ><ons-button class='option-A'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
-        $('.results').show();
-        $('ons-button.option-A.button').css('display', 'none');
-        $('ons-button.option-B.button').css('display', 'none');
-        outputText(scenarioObj.resultsA_dialogue, $('.results'));
+        $('.option-A-card').hide();
+        $('.option-B-card').hide();
 
+        var resourceUpdate = "You have gained " + scenarioObj.resultsA_number + " " + scenarioObj.resultsA_type + ".";
+        outputText(scenarioObj.resultsA_dialogue, $('.results').show());
+        outputText(resourceUpdate, $('.resource-Update').show());
 
     });
 
-    $("<ons-col width='100vw'><ons-card><ons-button class='option-B'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
+    $("<ons-col class='option-B-card' width='100vw'><ons-card ><ons-button class='option-B'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
-        $('.results').show();
-        $('ons-button.option-A.button').css('display', 'none');
-        $('ons-button.option-B.button').css('display', 'none');
-        outputText(scenarioObj.resultsB_dialogue, $('.results'));
+        $('.option-A-card').hide();
+        $('.option-B-card').hide();
+
+        outputText(scenarioObj.resultsB_dialogue, $('.results').show());
+
+        var resourceUpdate = "You have lost " + scenarioObj.resultsB_number + " " + scenarioObj.resultsB_type + ".";
+
+        outputText(resourceUpdate, $('.resource-Update').show());
     });
 
 
@@ -250,12 +255,12 @@ function loadScenario() {
         dialogue: undefined,
         optionA: undefined,
         optionB: undefined,
-        resultA_dialogue:undefined,
-        resultA_number: undefined,
-        resultA_type: undefined,
-        resultB_dialogue:undefined,
-        resultB_number: undefined,
-        resultB_type: undefined
+        resultsA_dialogue:undefined,
+        resultsA_number: undefined,
+        resultsA_type: undefined,
+        resultsB_dialogue:undefined,
+        resultsB_number: undefined,
+        resultsB_type: undefined
 
     };
 
