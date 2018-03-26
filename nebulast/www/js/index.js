@@ -47,19 +47,7 @@ app.initialize();
 
 
 
-var scenarioObj = {
 
-    dialogue: undefined,
-    optionA: undefined,
-    optionB: undefined,
-    resultA_dialogue:undefined,
-    resultA_number: undefined,
-    resultA_type: undefined,
-    resultB_dialogue:undefined,
-    resultB_number: undefined,
-    resultB_type: undefined
-
-};
 
 
 $(document).ready(function () {
@@ -150,6 +138,8 @@ function loadSpaceScreen() {
 */
 function loadScenarioScreen() {
 
+
+
     var self = this;
 
     self.$container = $('#scenarioScreen').show();
@@ -160,14 +150,41 @@ function loadScenarioScreen() {
 
     $("<ons-col width='20vw'><ons-card class='scenario-portrait'><ons-icon size='30px' icon='md-face'></ons-card></ons-col>").appendTo(dialogueRow);
 
-    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p></ons-card></ons-col>").appendTo(dialogueRow);
+    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p></ons-card></ons-col>").appendTo(dialogueRow);
 
+
+    var optionsRow = $("<ons-row class='scenario-OptionsRow'></ons-row>").appendTo(self.$page);
+
+    $("<ons-col width='100vw'><ons-card><ons-button class='option-A'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
+        $('.dialogue').hide();
+        $('.results').show();
+
+        outputText(scenarioObj.resultsA_dialogue, $('.results'));
+
+    });
+
+    $("<ons-col width='100vw'><ons-card><ons-button class='option-B'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
+        $('.dialogue').hide();
+        $('.results').show();
+        outputText(scenarioObj.resultsB_dialogue, $('.dialogue'));
+    });
 
 
 
     self.$container.append(self.$page);
 
     outputText(scenarioObj.dialogue, $('.dialogue'));
+
+    outputText(scenarioObj.optionA, $('.option-A'));
+
+    outputText(scenarioObj.optionB, $('.option-B'));
+
+
+    console.log(scenarioObj.resultsA_dialogue);
+
+
+
+
 
 
 
@@ -215,9 +232,10 @@ function outputText(dialogue, element) {
 * 
 *
 ***************************************
- */
-            
- /* 
+*/
+
+
+/*
 ***************************************
 *  
 * Ship Screen
@@ -231,7 +249,19 @@ function outputText(dialogue, element) {
 // Test function to load a dummy scenario
 function loadScenario() {
 
+    window.scenarioObj = {
 
+        dialogue: undefined,
+        optionA: undefined,
+        optionB: undefined,
+        resultA_dialogue:undefined,
+        resultA_number: undefined,
+        resultA_type: undefined,
+        resultB_dialogue:undefined,
+        resultB_number: undefined,
+        resultB_type: undefined
+
+    };
 
     var scenario = new Promise(function (resolve, reject) {
         // Fetch the nouns
@@ -250,14 +280,14 @@ function loadScenario() {
 
 
             resolve();
-            console.log("this is the derp: " + json);
+            console.log("this is the derp: " + scenarioObj.resultsA_dialogue);
         }).fail(function (json) {
             // If any dictionaries fail to load, the application has failedy
             reject();
         });
     });
 
-    return scenario;
+
 }
 
 
