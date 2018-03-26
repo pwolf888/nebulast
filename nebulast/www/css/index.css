@@ -40,8 +40,10 @@
 }
 .space-Ship {
     position: absolute;
+    top: 40%;
     left: 15px;
-    top: 45%;
+
+
 }
 
 .space-Station {
@@ -74,10 +76,11 @@
 }
 
 .list-item {
-    color:#fff;
+    color:#fff !important;
     height: 30px;
     padding: 0px;
 }
+
 
 /*       
 ***************************************
