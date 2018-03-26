@@ -122,8 +122,6 @@ function loadSpaceScreen() {
 
              }
         });
-            
-        
                                 
     });
     $("<ons-button class='space-Blackhole'>Black hole</ons-button>").appendTo(self.$page);
@@ -164,20 +162,23 @@ function loadScenarioScreen() {
 
     $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p></ons-card></ons-col>").appendTo(dialogueRow);
 
+    
+
+
     self.$container.append(self.$page);
 
-    outputText();
+    outputText(scenarioObj.dialogue, $('.dialogue'));
 
 
 
 }
 
 // Outputs text one char at a time.
-function outputText() {
+function outputText(dialogue, element) {
 
 
-    var text = scenarioObj.dialogue;
-    var elem = $('.dialogue');
+    var text = dialogue;
+    var elem = element;
     var delay = 50;
 
     // http://jsfiddle.net/8ZtqL/167/
@@ -198,17 +199,13 @@ function outputText() {
                 },delay
             );
         }
-    }
+    };
 
 
     outputTextSlowly(text,elem,delay);
 
 
 }
-
-
-
-
 
 
 /*        
