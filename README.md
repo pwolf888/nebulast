@@ -2,4 +2,4 @@
 A text based space survival rpg, cordova application
 
 Jonathan Turnbull (214527872) pwolf888
-Josh Pujol (SID) 
+Josh Pujol (216189236) 

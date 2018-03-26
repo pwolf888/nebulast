@@ -162,7 +162,7 @@ function loadScenarioScreen() {
 
     $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p></ons-card></ons-col>").appendTo(dialogueRow);
 
-    
+
 
 
     self.$container.append(self.$page);
