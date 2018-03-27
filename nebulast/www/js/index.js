@@ -263,8 +263,9 @@ function loadSpaceStationScreen() {
 
     self.$page = $("<ons-page class='scenario-Screen'></ons-page>");
 
-    card('spaceScreen').appendTo(self.$page);
-
+    var table = card('spaceScreen').appendTo(self.$page);
+    paragraph('spaceScreen', 'Buy').appendTo(table);
+    paragraph('spaceScreen', 'Sell').appendTo(table);
     self.$container.append(self.$page);
 
 }

@@ -42,9 +42,12 @@
 window.card = function(screen) {
     var card = $("<ons-card class='"+ screen +"-card'></ons-card>");
     return card;
-}
+};
 
-
+window.paragraph = function(screen, content) {
+    var paragraph = $("<p class='"+ screen +"-p'>" + content + "</p>");
+    return paragraph;
+};
 /***************************************
 *
 * Ship Screen
