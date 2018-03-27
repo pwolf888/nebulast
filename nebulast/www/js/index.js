@@ -97,7 +97,7 @@ function loadSpaceScreen() {
     self.$page = $("<ons-page class='space-Screen'></ons-page>");
     
     $("<ons-button class='space-Ship'  modifier='outline'><img src='img/spaceship-gif.gif'></ons-button>").appendTo(self.$page);
-    $("<ons-button class='space-Station'>Space station</ons-button>").appendTo(self.$page);
+    $("<ons-button class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></ons-button>").appendTo(self.$page);
     
     // On click the user will be asked if they want to start a scenario
     $("<ons-button class='space-planet-' cancelable>Planet</ons-button>").appendTo(self.$page).on('click', function() {

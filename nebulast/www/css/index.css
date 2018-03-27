@@ -80,7 +80,9 @@
     height: 30px;
     padding: 0px;
 }
-
+.button--outline {
+    border: none!important;
+}
 
 /*       
 ***************************************
