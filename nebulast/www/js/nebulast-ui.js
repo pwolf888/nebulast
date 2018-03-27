@@ -39,6 +39,10 @@
 *
 ***************************************/
 
+window.card = function(screen) {
+    var card = $("<ons-card class='"+ screen +"-card'></ons-card>");
+    return card;
+}
 
 
 /***************************************

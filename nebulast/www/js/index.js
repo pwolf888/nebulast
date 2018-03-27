@@ -114,7 +114,10 @@ function loadSpaceScreen() {
     self.$page = $("<ons-page class='space-Screen'></ons-page>");
     
     $("<ons-button class='space-Ship'  modifier='outline'><img src='img/spaceship-gif.gif'></ons-button>").appendTo(self.$page);
-    $("<ons-button class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></ons-button>").appendTo(self.$page);
+    $("<ons-button class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></ons-button>").appendTo(self.$page).on('click', function () {
+        $('#spaceScreen').hide();
+        loadSpaceStationScreen();
+    });
     
     // On click the user will be asked if they want to start a scenario
     $("<ons-button class='space-planet-' cancelable>Planet</ons-button>").appendTo(self.$page).on('click', function() {
@@ -252,6 +255,19 @@ function outputText(dialogue, element) {
 ***************************************
 */
 
+function loadSpaceStationScreen() {
+
+    var self = this;
+
+    self.$container = $('#spaceStationScreen').show();
+
+    self.$page = $("<ons-page class='scenario-Screen'></ons-page>");
+
+    card('spaceScreen').appendTo(self.$page);
+
+    self.$container.append(self.$page);
+
+}
 
 /*
 ***************************************
