@@ -20,6 +20,55 @@
 *
 ***************************************/
 
+window.spaceship = function () {
+
+    var spaceship = $("<ons-button class='space-Ship'  modifier='outline'><img src='img/spaceship-gif.gif'></ons-button>");
+    return spaceship;
+};
+
+window.spaceStation = function () {
+
+    var spaceStation = $("<ons-button class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></ons-button>");
+    return spaceStation;
+};
+
+window.planet = function () {
+
+    var planet = $("<ons-button class='space-planet-' cancelable>Planet</ons-button>");
+    return planet;
+
+};
+
+window.blackHole = function () {
+    var blackHole = $("<ons-button class='space-Blackhole'>Black hole</ons-button>");
+    return blackHole;
+};
+
+window.List = function (elementClass) {
+
+    var List = $("<ons-list class='"+elementClass+"' modifier='inset'></ons-list>")
+    return List;
+};
+
+window.ListHead = function () {
+
+    var listHeader = $("<ons-list-header tappable>Stats</ons-list-header>");
+    return listHeader;
+
+};
+
+window.hidingDiv = function (elementClass) {
+
+    var hiddenDiv = $("<div class='"+elementClass+"' hidden></div>");
+    return hiddenDiv;
+};
+
+window.listItem = function (elementClass, type, data) {
+
+    var listItem = $("<ons-list-item class='"+ elementClass +"-listItem' modifier='nodivider'>"+type+": "+ data +"</ons-list-item>");
+    return listItem;
+
+};
 
 
 

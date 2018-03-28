@@ -113,14 +113,14 @@ function loadSpaceScreen() {
     
     self.$page = $("<ons-page class='space-Screen'></ons-page>");
     
-    $("<ons-button class='space-Ship'  modifier='outline'><img src='img/spaceship-gif.gif'></ons-button>").appendTo(self.$page);
-    $("<ons-button class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></ons-button>").appendTo(self.$page).on('click', function () {
+    spaceship().appendTo(self.$page);
+    spaceStation().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
         loadSpaceStationScreen();
     });
     
     // On click the user will be asked if they want to start a scenario
-    $("<ons-button class='space-planet-' cancelable>Planet</ons-button>").appendTo(self.$page).on('click', function() {
+    planet().appendTo(self.$page).on('click', function() {
             ons.notification.confirm({message: 'This is planet Zim 34, would you like to travel there?'})
                 .then(function(index) {
              if( index > 0) {
@@ -132,16 +132,23 @@ function loadSpaceScreen() {
         });
                                 
     });
-    $("<ons-button class='space-Blackhole'>Black hole</ons-button>").appendTo(self.$page);
+    blackHole().appendTo(self.$page);
     
     // Stat group - will be loaded in via a function
-    var list = $("<ons-list class='statsGroup' modifier='inset'></ons-list>").appendTo(self.$page);
+
+    var list = List('statsGroup').appendTo(self.$page);
     
-    var header = $("<ons-list-header tappable>Stats</ons-list-header>").appendTo(list).on('click', function(){
+    ListHead().appendTo(list).on('click', function(){
         $(".stat-list").toggle();
     });
-    
-    var listItems = $("<div class='stat-list' hidden><ons-list-item class='food'modifier='nodivider'>Food: 3</ons-list-item><ons-list-item class='water' modifier='nodivider'>Water: 4</ons-list-item><ons-list-item class='fuel' modifier='nodivider'>Fuel: 10</ons-list-item><ons-list-item class='crew' modifier='nodivider'>Crew: 4</ons-list-item><ons-list-item class='credits' modifier='nodivider'>Credits: 5432 </ons-list-item></div>").appendTo(list);
+
+    var statsListContainer = hidingDiv('stat-list').appendTo(list);
+
+    listItem('food', 'food', 5).appendTo(statsListContainer);
+    listItem('water', 'water', 5).appendTo(statsListContainer);
+    listItem('fuel', 'fuel', 5).appendTo(statsListContainer);
+    listItem('crew', 'crew', 5).appendTo(statsListContainer);
+    listItem('money', 'credits', 5).appendTo(statsListContainer);
  
     self.$container.append(self.$page);
     
@@ -165,19 +172,12 @@ function loadScenarioScreen() {
     self.$page = $("<ons-page class='scenario-Screen'></ons-page>");
 
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
-    //var dialogueRow = $("<ons-row class='scenario-dialogueRow'> </ons-row>").appendTo(self.$page);
-
 
     portraitCol().appendTo(dialogueRow);
-    //$("<ons-col width='20vw'><ons-card class='scenario-portrait'><ons-icon size='30px' icon='md-face'></ons-card></ons-col>").appendTo(dialogueRow);
 
     dialogueBox().appendTo(dialogueRow);
-    // $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p></ons-card></ons-col>").appendTo(dialogueRow);
-
 
     var optionsRow = uiRow('scenario-OptionsRow').appendTo(self.$page);
-    //var optionsRow = $("<ons-row class='scenario-OptionsRow'></ons-row>").appendTo(self.$page);
-    //$("<ons-col class='option-A-card' width='100vw'><ons-card ><ons-button class='option-A'></ons-button></ons-card></ons-col>")
 
     optionButton('option-A').appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
@@ -190,7 +190,6 @@ function loadScenarioScreen() {
 
     });
 
-    //$("<ons-col class='option-B-card' width='100vw'><ons-card ><ons-button class='option-B'></ons-button></ons-card></ons-col>")
     optionButton('option-B').appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
         $('.option-A-card').hide();
@@ -202,8 +201,6 @@ function loadScenarioScreen() {
 
         outputText(resourceUpdate, $('.resource-Update').show());
     });
-
-
 
     self.$container.append(self.$page);
 
