@@ -257,15 +257,39 @@ function outputText(dialogue, element) {
 
 function loadSpaceStationScreen() {
 
+    var buyData = '1 food = 50cr <br> 1 water = 40cr';
+    var sellData = '1 food = 20cr <br> 1 water = 15cr';
+
     var self = this;
 
     self.$container = $('#spaceStationScreen').show();
 
-    self.$page = $("<ons-page class='scenario-Screen'></ons-page>");
+    self.$page = $("<ons-page class='spaceStation-Screen'></ons-page>");
 
-    var table = card('spaceScreen').appendTo(self.$page);
-    paragraph('spaceScreen', 'Buy').appendTo(table);
-    paragraph('spaceScreen', 'Sell').appendTo(table);
+    // Row 1 - BUY SELL
+    var table = card('spaceStation').appendTo(self.$page);
+    var row = uiRow('spaceStation').appendTo(table);
+    var colLeft = uiCol('spaceStation').appendTo(row);
+    var colRight = uiCol('spaceStation').appendTo(row);
+    paragraph('spaceStation', 'Buy').appendTo(colLeft);
+    paragraph('spaceStation', 'Sell').appendTo(colRight);
+
+    paragraph('spaceStation', buyData).appendTo(colLeft);
+    paragraph('spaceStation', sellData).appendTo(colRight);
+
+    var foodRow = uiRow('spaceStation').appendTo(colLeft);
+    var waterRow = uiRow('spaceStation').appendTo(colLeft);
+    paragraph('spaceStation', 'Food').appendTo(foodRow);
+    uiButton('spaceStation', '-').appendTo(foodRow);
+    paragraph('spaceStation', '5').appendTo(foodRow);
+    uiButton('spaceStation', '+').appendTo(foodRow);
+
+    paragraph('spaceStation', 'water').appendTo(waterRow);
+    uiButton('spaceStation', '-').appendTo(waterRow);
+    paragraph('spaceStation', '5').appendTo(waterRow);
+    uiButton('spaceStation', '+').appendTo(waterRow);
+
+
     self.$container.append(self.$page);
 
 }

@@ -44,14 +44,14 @@ window.card = function(elementClass) {
     return card;
 };
 
-window.row = function(elementClass) {
-    var row = $("<ons-row class='"+ elementClass +"-card'></ons-row>");
-    return row;
+window.uiRow = function(elementClass) {
+    var uiRow = $("<ons-row class='"+ elementClass +"-card'></ons-row>");
+    return uiRow;
 };
 
-window.col = function(elementClass, content) {
-    var col = $("<ons-col class='"+ elementClass +"-card'>" + content + "</ons-col>");
-    return col;
+window.uiCol = function(elementClass) {
+    var uiCol = $("<ons-col class='"+ elementClass +"-card'></ons-col>");
+    return uiCol;
 };
 
 window.paragraph = function(elementClass, content) {
@@ -59,8 +59,8 @@ window.paragraph = function(elementClass, content) {
     return paragraph;
 };
 
-window.uiButton = function (elementClass) {
-    var uiButton = $("<ons-button class='" + elementClass + "-button' ></ons-button>");
+window.uiButton = function (elementClass, content) {
+    var uiButton = $("<ons-button class='" + elementClass + "-button' >"+ content +"</ons-button>");
     return uiButton;
 }
 /***************************************
