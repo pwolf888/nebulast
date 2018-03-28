@@ -31,6 +31,24 @@
 ***************************************/
 
 
+window.portraitCol = function() {
+    var portraitCol = $("<ons-col width=\'20vw\'></ons-col>");
+    var portraitCard = card('scenario-Portrait').appendTo(portraitCol);
+    $("<ons-icon size='30px' icon='md-face'>").appendTo(portraitCard);
+
+    return portraitCol;
+};
+
+window.dialogueBox = function () {
+    var dialogueBox = $("<ons-col width='80vw'></ons-card></ons-col>");
+    var dialogueCard = $("<ons-card class='dialogue-box'></ons-card>").appendTo(dialogueBox);
+
+    $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
+
+    return dialogueBox;
+};
+
+
 
 /***************************************
 *

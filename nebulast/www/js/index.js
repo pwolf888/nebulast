@@ -164,11 +164,15 @@ function loadScenarioScreen() {
 
     self.$page = $("<ons-page class='scenario-Screen'></ons-page>");
 
-    var dialogueRow = $("<ons-row class='scenario-dialogueRow'> </ons-row>").appendTo(self.$page);
+    var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
+    //var dialogueRow = $("<ons-row class='scenario-dialogueRow'> </ons-row>").appendTo(self.$page);
 
-    $("<ons-col width='20vw'><ons-card class='scenario-portrait'><ons-icon size='30px' icon='md-face'></ons-card></ons-col>").appendTo(dialogueRow);
 
-    $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p></ons-card></ons-col>").appendTo(dialogueRow);
+    portraitCol().appendTo(dialogueRow);
+    //$("<ons-col width='20vw'><ons-card class='scenario-portrait'><ons-icon size='30px' icon='md-face'></ons-card></ons-col>").appendTo(dialogueRow);
+
+    dialogueBox().appendTo(dialogueRow);
+    // $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p></ons-card></ons-col>").appendTo(dialogueRow);
 
 
     var optionsRow = $("<ons-row class='scenario-OptionsRow'></ons-row>").appendTo(self.$page);
