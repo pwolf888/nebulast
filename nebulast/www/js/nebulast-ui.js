@@ -48,7 +48,15 @@ window.dialogueBox = function () {
     return dialogueBox;
 };
 
+window.optionButton = function(elementClass) {
 
+    var option = uiCol(elementClass).attr('width', '100vw');
+    var optionCard = card(' ').appendTo(option);
+
+    $("<ons-button class='"+elementClass+"'></ons-button>").appendTo(optionCard);
+
+    return option;
+}
 
 /***************************************
 *

@@ -175,9 +175,11 @@ function loadScenarioScreen() {
     // $("<ons-col width='80vw'><ons-card class='dialogue-box'><p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p></ons-card></ons-col>").appendTo(dialogueRow);
 
 
-    var optionsRow = $("<ons-row class='scenario-OptionsRow'></ons-row>").appendTo(self.$page);
+    var optionsRow = uiRow('scenario-OptionsRow').appendTo(self.$page);
+    //var optionsRow = $("<ons-row class='scenario-OptionsRow'></ons-row>").appendTo(self.$page);
+    //$("<ons-col class='option-A-card' width='100vw'><ons-card ><ons-button class='option-A'></ons-button></ons-card></ons-col>")
 
-    $("<ons-col class='option-A-card' width='100vw'><ons-card ><ons-button class='option-A'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
+    optionButton('option-A').appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
         $('.option-A-card').hide();
         $('.option-B-card').hide();
@@ -188,7 +190,8 @@ function loadScenarioScreen() {
 
     });
 
-    $("<ons-col class='option-B-card' width='100vw'><ons-card ><ons-button class='option-B'></ons-button></ons-card></ons-col>").appendTo(optionsRow).on('click', function () {
+    //$("<ons-col class='option-B-card' width='100vw'><ons-card ><ons-button class='option-B'></ons-button></ons-card></ons-col>")
+    optionButton('option-B').appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
         $('.option-A-card').hide();
         $('.option-B-card').hide();
