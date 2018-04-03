@@ -113,7 +113,10 @@ function loadSpaceScreen() {
     
     self.$page = $("<ons-page class='space-Screen'></ons-page>");
     
-    spaceship().appendTo(self.$page);
+    spaceship().appendTo(self.$page).on('click', function () {
+        $('#spaceScreen').hide();
+        loadSpaceShipScreen();
+    });
     spaceStation().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
         loadSpaceStationScreen();
@@ -307,6 +310,18 @@ function loadSpaceStationScreen() {
 ***************************************
 */
 
+function loadSpaceShipScreen() {
+    var self = this;
+
+    self.$container = $('#spaceShipScreen').show();
+
+    self.$page = $("<ons-page class='spaceShip-Screen'></ons-page>");
+
+    self.$container.append(self.$page);
+
+
+}
+
 
 
 // Test function to load a dummy scenario
@@ -343,7 +358,7 @@ function loadScenario() {
 
 
             resolve();
-            console.log("this is the derp: " + scenarioObj.resultsA_dialogue);
+            // console.log("Output: " + scenarioObj.resultsA_dialogue);
         }).fail(function (json) {
             // If any dictionaries fail to load, the application has failedy
             reject();
