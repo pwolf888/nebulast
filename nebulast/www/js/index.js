@@ -105,6 +105,8 @@ function loadSpaceScreen() {
 
     loadScenario();
 
+
+
     $('.page__background').css('background-color', '#000 !important');
     
     var self = this;
@@ -157,7 +159,23 @@ function loadSpaceScreen() {
     
     
 }
-            
+
+// Upadate the stats to our statsgroup table
+function updateStats(result, number) {
+
+    window.stats = {
+        food: undefined,
+        water: undefined,
+        fuel: undefined,
+        crew: undefined,
+        credits: undefined
+
+    };
+
+
+}
+
+
  /*       
 ***************************************
 *  

@@ -56,4 +56,4 @@ Date:2/4/18
 Date:3/4/18
 ------------------------------------
 *Added licence.txt and changelog.txt[Jonathan Turnbull]
-
+*Added a function to keep track of stats[Jonathan Turnbull]
