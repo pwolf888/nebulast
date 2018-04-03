@@ -200,7 +200,30 @@ function loadSpaceScreen() {
 // Upadate the stats to our statsgroup table
 function updateStats(result, number) {
 
-    
+    var result = result;
+    console.log(result);
+    switch(result) {
+        case "food":
+
+            stats.food += number;
+            break;
+        case "water":
+            stats.water += number;
+            break;
+        case "crew member":
+            stats.crew += number;
+            break;
+        case "fuel":
+            stats.fuel += number;
+            break;
+        case "credits":
+            stats.credits += number;
+            break;
+        default:
+            break;
+
+    }
+
 
 
 
@@ -240,6 +263,8 @@ function loadScenarioScreen() {
         outputText(scenarioObj.resultsA_dialogue, $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
+        updateStats(scenarioObj.resultsA_type, scenarioObj.resultsA_number);
+        $('.back').prop('disabled', false);
     });
 
     optionButton('option-B').appendTo(optionsRow).on('click', function () {
@@ -247,11 +272,24 @@ function loadScenarioScreen() {
         $('.option-A-card').hide();
         $('.option-B-card').hide();
 
-        outputText(scenarioObj.resultsB_dialogue, $('.results').show());
+
 
         var resourceUpdate = "You have lost " + scenarioObj.resultsB_number + " " + scenarioObj.resultsB_type + ".";
 
+        outputText(scenarioObj.resultsB_dialogue, $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
+
+        updateStats(scenarioObj.resultsB_type, scenarioObj.resultsB_number);
+
+        $('.back').prop('disabled', false);
+
+    });
+
+    returnToShip('back').appendTo(self.$page).on('click', function () {
+        $('#scenarioScreen').hide();
+        loadSpaceScreen();
+        $('#spaceScreen').show();
+
     });
 
     self.$container.append(self.$page);

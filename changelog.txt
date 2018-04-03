@@ -57,3 +57,5 @@ Date:3/4/18
 ------------------------------------
 *Added licence.txt and changelog.txt[Jonathan Turnbull]
 *Added a function to keep track of stats[Jonathan Turnbull]
+*Data now loads in on game start, balancing will be needed later [Jonathan Turnbull]
+*Stats now update to the stats object from the scenario, basic level 1 works [Jonathan Turnbull]

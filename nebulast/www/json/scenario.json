@@ -6,13 +6,13 @@
   },
     "results": {
     "a": [ "You have consulted the locals and they have offered to take you through the jungle safely to the pilot, they are great hunters and you scored some grub, the captain is happy to see your crew and offers to join your crew", 
-          3, 
+          3,
           "food"
         
          ]
         ,
     "b": [ "After a rough and hopeless journey, losing several crew members to the local fauna you made it to the wreckage of the missing captains ship", 
-        1,
+        -1,
         "crew member"
     ]
         
