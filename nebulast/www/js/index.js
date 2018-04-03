@@ -69,10 +69,47 @@ app.initialize();
 
 $(document).ready(function () {
     console.log("ready");
-    loadSpaceScreen();   
+    loadMainMenu();
     
 });
 
+/*
+***************************************
+*
+* Menu
+* Nebulast, Hiscore, Collectibles
+*
+***************************************
+*/
+
+function loadMainMenu() {
+
+    $('.page__background').css('background-color', '#000 !important');
+
+    var self = this;
+
+    self.$container = $('#mainMenu');
+
+    self.$page = $("<ons-page class='mainMenu'></ons-page>");
+
+    // Start Button
+    spaceship().appendTo(self.$page).on('click', function () {
+        $('#mainMenu').hide();
+        loadSpaceScreen();
+    });
+
+    self.$container.append(self.$page);
+
+    window.stats = {
+        food: 5,
+        water: 5,
+        fuel: 5,
+        crew: 5,
+        credits: 200
+
+    };
+
+}
 
 
 /*      
@@ -149,11 +186,11 @@ function loadSpaceScreen() {
 
     var statsListContainer = hidingDiv('stat-list').appendTo(list);
 
-    listItem('food', 'food', 5).appendTo(statsListContainer);
-    listItem('water', 'water', 5).appendTo(statsListContainer);
-    listItem('fuel', 'fuel', 5).appendTo(statsListContainer);
-    listItem('crew', 'crew', 5).appendTo(statsListContainer);
-    listItem('money', 'credits', 5).appendTo(statsListContainer);
+    listItem('food', 'food', stats.food).appendTo(statsListContainer);
+    listItem('water', 'water', stats.water).appendTo(statsListContainer);
+    listItem('fuel', 'fuel', stats.fuel).appendTo(statsListContainer);
+    listItem('crew', 'crew', stats.crew).appendTo(statsListContainer);
+    listItem('money', 'credits', stats.credits).appendTo(statsListContainer);
  
     self.$container.append(self.$page);
     
@@ -163,14 +200,8 @@ function loadSpaceScreen() {
 // Upadate the stats to our statsgroup table
 function updateStats(result, number) {
 
-    window.stats = {
-        food: undefined,
-        water: undefined,
-        fuel: undefined,
-        crew: undefined,
-        credits: undefined
+    
 
-    };
 
 
 }
