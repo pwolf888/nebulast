@@ -1,0 +1,59 @@
+Date:20/3/18
+------------------------------------
+*initial commit [Jonathan Turnbull]
+*Committed cordova files [Jonathan Turnbull]
+*Setup html index css files etc [Jonathan Turnbull]
+*Added a scenario in JSON format for testing [Jonathan Turnbull]
+*Added Jquery [Jonathan Turnbull] 
+*Successfully outputted JSON file [Jonathan Turnbull]
+
+Date:21/3/18
+------------------------------------
+*Added static page of the space screen [Jonathan Turnbull]
+
+Date:25/3/18
+------------------------------------
+*Added in ONSEN UI FRAMEWORK [Jonathan Turnbull]
+*Space screen is now loaded dynamically[Jonathan Turnbull]
+*Statgroup section has been positioned correctly[Jonathan Turnbull]
+*Stats now hide on click [Jonathan Turnbull]
+*Planet button has a confirm notification [Jonathan Turnbull]
+*Scenario page has portrait and dialogue bubble[Jonathan Turnbull]
+*Text from JSON now ouputs to dialogue speech bubble[Jonathan Turnbull]
+*Added function to output text 1 char at a time[Jonathan Turnbull]
+*P tag is bolder [Jonathan Turnbull]
+
+Date:26/3/18
+------------------------------------
+*Updated Readme.md to include our names and SID[Jonathan Turnbull]
+*Altered output text function[Jonathan Turnbull]
+*Results now output from pressing option button[Jonathan Turnbull]
+*First scenario is almost looping[Jonathan Turnbull]
+*Added in a spaceship and space station [Josh Pujol]
+
+
+Date:27/3/18
+------------------------------------
+*Added Nebulast-ui.js file to start optimising code[Jonathan Turnbull]
+*Tested Henry's idea and it was successful[Jonathan Turnbull]
+*Adding functions to ui framework[Jonathan Turnbull]
+
+
+Date:28/3/18
+------------------------------------
+*Added in new functions to abide to new code style[Jonathan Turnbull]
+*Code had been refactored[Jonathan Turnbull]
+
+
+Date:30/3/18
+------------------------------------
+*Added spaceship div[Josh Pujol]
+
+Date:2/4/18
+------------------------------------
+*Added in the spaceship screen and button link no content[Jonathan Turnbull]
+
+Date:3/4/18
+------------------------------------
+*Added licence.txt and changelog.txt[Jonathan Turnbull]
+
