@@ -36,7 +36,11 @@
 }
 
 .page__background  {
-     background-color: #000 !important;
+     background-image: url('BG001.jpg') ;
+     background-position: center center;
+     background-repeat:  no-repeat;
+     background-attachment: fixed;
+     background-size:  cover;
 }
 .space-Ship {
     position: absolute;
@@ -62,8 +66,8 @@
 .space-Blackhole {
     position: absolute;
     float: right;
-    right: 0px;
-    top: 80%;
+    right: 5px;
+    top: 70%;
     
 }
 

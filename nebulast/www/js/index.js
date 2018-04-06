@@ -105,7 +105,7 @@ function loadSpaceScreen() {
 
     loadScenario();
 
-    $('.page__background').css('background-color', '#000 !important');
+    $('.page__background').css('background-image', 'BG001.jpg');
     
     var self = this;
     
