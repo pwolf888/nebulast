@@ -145,9 +145,13 @@ function loadSpaceScreen() {
 
     $('.page__background').css('background-image', 'BG001.jpg');
 
+    
 
+    // stars().appendTo(self.$page);
 
+    // $('.stars').css('background-image', 'stars.png');
 
+    // $('.twinkling').css('background', 'twinkling.png');
     
     var self = this;
     
@@ -178,6 +182,8 @@ function loadSpaceScreen() {
                                 
     });
     blackHole().appendTo(self.$page);
+
+
     
     // Stat group - will be loaded in via a function
 
