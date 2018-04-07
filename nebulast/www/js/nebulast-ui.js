@@ -34,13 +34,13 @@ window.spaceStation = function () {
 
 window.planet = function () {
 
-    var planet = $("<ons-button class='space-planet-' cancelable>Planet</ons-button>");
+    var planet = $("<ons-button class='space-planet-'modifier='outline' cancelable><img src='img/scenario001.gif'></ons-button>");
     return planet;
 
 };
 
 window.blackHole = function () {
-    var blackHole = $("<ons-button class='space-Blackhole'>Black hole</ons-button>");
+    var blackHole = $("<ons-button class='space-Blackhole' modifier='outline'><img src='img/blackhole.gif'></ons-button>");
     return blackHole;
 };
 
