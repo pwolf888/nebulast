@@ -1,7 +1,28 @@
 
 
 [{
+    "planetType": "Jungle",
     "dialogue": "You have just landed on ZIM 34 after receiving a destress call from a fellow pilot, who has crash landed somewhere on the dense jungle planet. The crew is ready to explore what should you do Captain? ",
+    "options": {
+      "a": "Ask the locals about the missing pilot",
+      "b": "Head towards the smoke emiting from the jungle in the distance"
+    },
+    "results": {
+      "a": [ "You have consulted the locals and they have offered to take you through the jungle safely to the pilot, they are great hunters and you scored some grub, the captain is happy to see your crew and offers to join your crew",
+        3,
+        "food"
+
+      ]
+    ,
+      "b": [ "After a rough and hopeless journey, losing several crew members to the local fauna you made it to the wreckage of the missing captains ship",
+        -1,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "dialogue": "A dingo stole my baby?",
     "options": {
       "a": "Ask the locals about the missing pilot",
       "b": "Head towards the smoke emiting from the jungle in the distance"
