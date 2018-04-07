@@ -105,7 +105,16 @@ window.optionButton = function(elementClass) {
     $("<ons-button class='"+elementClass+"'></ons-button>").appendTo(optionCard);
 
     return option;
-}
+};
+
+window.returnToShip = function(elementClass) {
+
+    var backButton = $("<ons-button class='"+elementClass+"' disabled>Back</ons-button>");
+
+    return backButton;
+};
+
+
 
 /***************************************
 *
