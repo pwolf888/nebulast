@@ -69,10 +69,47 @@ app.initialize();
 
 $(document).ready(function () {
     console.log("ready");
-    loadSpaceScreen();   
+    loadMainMenu();
     
 });
 
+/*
+***************************************
+*
+* Menu
+* Nebulast, Hiscore, Collectibles
+*
+***************************************
+*/
+
+function loadMainMenu() {
+
+    $('.page__background').css('background-color', '#000 !important');
+
+    var self = this;
+
+    self.$container = $('#mainMenu');
+
+    self.$page = $("<ons-page class='mainMenu'></ons-page>");
+
+    // Start Button
+    spaceship().appendTo(self.$page).on('click', function () {
+        $('#mainMenu').hide();
+        loadSpaceScreen();
+    });
+
+    self.$container.append(self.$page);
+
+    window.stats = {
+        food: 5,
+        water: 5,
+        fuel: 5,
+        crew: 5,
+        credits: 200
+
+    };
+
+}
 
 
 /*      
@@ -105,7 +142,12 @@ function loadSpaceScreen() {
 
     loadScenario();
 
+
     $('.page__background').css('background-image', 'BG001.jpg');
+
+
+
+
     
     var self = this;
     
@@ -147,17 +189,50 @@ function loadSpaceScreen() {
 
     var statsListContainer = hidingDiv('stat-list').appendTo(list);
 
-    listItem('food', 'food', 5).appendTo(statsListContainer);
-    listItem('water', 'water', 5).appendTo(statsListContainer);
-    listItem('fuel', 'fuel', 5).appendTo(statsListContainer);
-    listItem('crew', 'crew', 5).appendTo(statsListContainer);
-    listItem('money', 'credits', 5).appendTo(statsListContainer);
+    listItem('food', 'food', stats.food).appendTo(statsListContainer);
+    listItem('water', 'water', stats.water).appendTo(statsListContainer);
+    listItem('fuel', 'fuel', stats.fuel).appendTo(statsListContainer);
+    listItem('crew', 'crew', stats.crew).appendTo(statsListContainer);
+    listItem('money', 'credits', stats.credits).appendTo(statsListContainer);
  
     self.$container.append(self.$page);
     
     
 }
-            
+
+// Upadate the stats to our statsgroup table
+function updateStats(result, number) {
+
+    var result = result;
+    console.log(result);
+    switch(result) {
+        case "food":
+
+            stats.food += number;
+            break;
+        case "water":
+            stats.water += number;
+            break;
+        case "crew member":
+            stats.crew += number;
+            break;
+        case "fuel":
+            stats.fuel += number;
+            break;
+        case "credits":
+            stats.credits += number;
+            break;
+        default:
+            break;
+
+    }
+
+
+
+
+}
+
+
  /*       
 ***************************************
 *  
@@ -191,6 +266,8 @@ function loadScenarioScreen() {
         outputText(scenarioObj.resultsA_dialogue, $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
+        updateStats(scenarioObj.resultsA_type, scenarioObj.resultsA_number);
+        $('.back').prop('disabled', false);
     });
 
     optionButton('option-B').appendTo(optionsRow).on('click', function () {
@@ -198,11 +275,24 @@ function loadScenarioScreen() {
         $('.option-A-card').hide();
         $('.option-B-card').hide();
 
-        outputText(scenarioObj.resultsB_dialogue, $('.results').show());
+
 
         var resourceUpdate = "You have lost " + scenarioObj.resultsB_number + " " + scenarioObj.resultsB_type + ".";
 
+        outputText(scenarioObj.resultsB_dialogue, $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
+
+        updateStats(scenarioObj.resultsB_type, scenarioObj.resultsB_number);
+
+        $('.back').prop('disabled', false);
+
+    });
+
+    returnToShip('back').appendTo(self.$page).on('click', function () {
+        $('#scenarioScreen').hide();
+        loadSpaceScreen();
+        $('#spaceScreen').show();
+
     });
 
     self.$container.append(self.$page);
