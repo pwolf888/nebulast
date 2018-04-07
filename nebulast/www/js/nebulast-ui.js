@@ -20,12 +20,14 @@
 *
 ***************************************/
 
+// Space ship button
 window.spaceship = function () {
 
     var spaceship = $("<ons-button class='space-Ship'  modifier='outline'><img src='img/spaceship-gif.gif'></ons-button>");
     return spaceship;
 };
 
+//
 window.spaceStation = function () {
 
     var spaceStation = $("<ons-button class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></ons-button>");

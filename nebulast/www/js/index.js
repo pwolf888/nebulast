@@ -109,6 +109,7 @@ function loadMainMenu() {
 
     };
 
+    stats.food = 20;
 }
 
 
@@ -142,11 +143,8 @@ function loadSpaceScreen() {
 
     loadScenario();
 
-
+    // Change background
     $('.page__background').css('background-image', 'BG001.jpg');
-
-
-
 
     
     var self = this;
@@ -154,11 +152,13 @@ function loadSpaceScreen() {
     self.$container = $('#spaceScreen');
     
     self.$page = $("<ons-page class='space-Screen'></ons-page>");
-    
+
+    // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
         loadSpaceShipScreen();
     });
+    // Space station
     spaceStation().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
         loadSpaceStationScreen();
@@ -435,16 +435,17 @@ function loadScenario() {
         // Fetch the nouns
         $.getJSON('json/scenario.json').done(function (json) {
             // Use the closured dictionary so we can easily access later without array parsing
-            scenarioObj.dialogue = json.dialogue;
-            scenarioObj.optionA = json.options["a"];
-            scenarioObj.optionB = json.options["b"];
+            console.log(json);
+            scenarioObj.dialogue = json[0].dialogue;
+            scenarioObj.optionA = json[0].options["a"];
+            scenarioObj.optionB = json[0].options["b"];
 
-            scenarioObj.resultsA_dialogue = json.results["a"][0];
-            scenarioObj.resultsA_number = json.results["a"][1];
-            scenarioObj.resultsA_type = json.results["a"][2];
-            scenarioObj.resultsB_dialogue = json.results["b"][0];
-            scenarioObj.resultsB_number = json.results["b"][1];
-            scenarioObj.resultsB_type = json.results["b"][2];
+            scenarioObj.resultsA_dialogue = json[0].results["a"][0];
+            scenarioObj.resultsA_number = json[0].results["a"][1];
+            scenarioObj.resultsA_type = json[0].results["a"][2];
+            scenarioObj.resultsB_dialogue = json[0].results["b"][0];
+            scenarioObj.resultsB_number = json[0].results["b"][1];
+            scenarioObj.resultsB_type = json[0].results["b"][2];
 
 
             resolve();
