@@ -91,7 +91,13 @@
     bottom: 5px;
     left: 5px;
 }
-
+.statsGroup2 {
+    width: 120px;
+    position: absolute;
+    background-color: #000 !important;
+    bottom: 5px;
+    right: 5px;
+}
 .list-item {
     color:#fff !important;
     height: 30px;

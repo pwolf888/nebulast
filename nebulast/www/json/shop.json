@@ -1,0 +1,10 @@
+
+[
+  {
+      "dataType": ["food", "water"],
+      "quantity": 1,
+      "buyPrice": [50,40],
+      "sellPrice": [20,15]
+
+  }
+]

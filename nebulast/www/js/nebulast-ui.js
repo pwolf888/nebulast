@@ -20,12 +20,14 @@
 *
 ***************************************/
 
+// Space ship button
 window.spaceship = function () {
 
     var spaceship = $("<ons-button class='space-Ship'  modifier='outline'><img src='img/spaceship-gif.gif'></ons-button>");
     return spaceship;
 };
 
+//
 window.spaceStation = function () {
 
     var spaceStation = $("<ons-button class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></ons-button>");
@@ -107,12 +109,13 @@ window.optionButton = function(elementClass) {
     return option;
 };
 
-window.returnToShip = function(elementClass) {
+window.returnToShip = function(elementClass, active) {
 
-    var backButton = $("<ons-button class='"+elementClass+"' disabled>Back</ons-button>");
+    var backButton = $("<ons-button class='"+elementClass+"'"+active+">Back</ons-button>");
 
     return backButton;
 };
+
 
 
 
@@ -146,7 +149,10 @@ window.paragraph = function(elementClass, content) {
 window.uiButton = function (elementClass, content) {
     var uiButton = $("<ons-button class='" + elementClass + "-button' >"+ content +"</ons-button>");
     return uiButton;
-}
+};
+
+
+
 /***************************************
 *
 * Ship elementClass
