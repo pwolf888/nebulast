@@ -89,11 +89,11 @@ function loadMainMenu() {
 
     $(".asteroid").css("right", asteroidPosition)
 
-    x = 4;
+    x = 6; //seconds
 
     function asteroidPosition(){
 
-       randomNumber = Math.floor((Math.random() * 400) + 1);
+       randomNumber = Math.floor((Math.random() * 650) - 250);
 
        return randomNumber
 
