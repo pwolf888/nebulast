@@ -189,22 +189,29 @@ function loadSpaceScreen() {
     // Stat group - will be loaded in via a function
 
     var list = List('statsGroup').appendTo(self.$page);
-    
+
     ListHead().appendTo(list).on('click', function(){
         $(".stat-list").toggle();
     });
 
     var statsListContainer = hidingDiv('stat-list').appendTo(list);
 
-    listItem('food', 'food', stats.food).appendTo(statsListContainer);
-    listItem('water', 'water', stats.water).appendTo(statsListContainer);
-    listItem('fuel', 'fuel', stats.fuel).appendTo(statsListContainer);
-    listItem('crew', 'crew', stats.crew).appendTo(statsListContainer);
-    listItem('money', 'credits', stats.credits).appendTo(statsListContainer);
+    loadStats(statsListContainer);
+
  
     self.$container.append(self.$page);
     
     
+}
+
+
+// Load stats group
+function loadStats(container) {
+    listItem('food', 'food', stats.food).appendTo(container);
+    listItem('water', 'water', stats.water).appendTo(container);
+    listItem('fuel', 'fuel', stats.fuel).appendTo(container);
+    listItem('crew', 'crew', stats.crew).appendTo(container);
+    listItem('money', 'credits', stats.credits).appendTo(container);
 }
 
 // Upadate the stats to our statsgroup table
@@ -361,9 +368,9 @@ function outputText(dialogue, element) {
 
 function loadSpaceStationScreen() {
 
-    buyData = ""+ shopObj.Quantity +" "+ shopObj.dataTypeA + " = " + shopObj.buyPriceA +"cr</br>";
+    var buyData = ""+ shopObj.Quantity +" "+ shopObj.dataTypeA + " = " + shopObj.buyPriceA +"cr</br>";
     buyData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.buyPriceB +"cr</br>";
-    sellData = ""+ shopObj.Quantity +" "+  shopObj.dataTypeA + " = " + shopObj.sellPriceA +"cr</br>";
+    var sellData = ""+ shopObj.Quantity +" "+  shopObj.dataTypeA + " = " + shopObj.sellPriceA +"cr</br>";
     sellData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.sellPriceB +"cr</br>";
 
     var self = this;
@@ -383,6 +390,7 @@ function loadSpaceStationScreen() {
     paragraph('spaceStation', buyData).appendTo(colLeft);
     paragraph('spaceStation', sellData).appendTo(colRight);
 
+    // Updating shopping list
     var foodRow = uiRow('spaceStation').appendTo(colLeft);
     var waterRow = uiRow('spaceStation').appendTo(colLeft);
     paragraph('spaceStation', shopObj.dataTypeA).appendTo(foodRow);
@@ -390,26 +398,39 @@ function loadSpaceStationScreen() {
     // Minus resource button
     uiButton('spaceStation', '-').appendTo(foodRow).on('click', function () {
         creditUpdate(shopObj.dataTypeA, shopObj.sellPriceA, -1);
+        loadStats(statsListContainer);
+        loadSpaceStationScreen();
     });
-    
+
     paragraph('spaceStation', stats.food).appendTo(foodRow);
+
+
+    paragraph('stats-food', "food: " + stats.food).appendTo(colRight);
+    paragraph('stats-water', "water: " + stats.water).appendTo(colRight);
+    paragraph('stats-credits', "credits: " + stats.credits).appendTo(colRight);
 
     // Add resource button
     uiButton('spaceStation', '+').appendTo(foodRow).on('click', function () {
         creditUpdate(shopObj.dataTypeA, -shopObj.buyPriceA, 1);
+        loadSpaceStationScreen();
+
     });
 
     paragraph('spaceStation', shopObj.dataTypeB).appendTo(waterRow);
 
+
+
     // Minus resource button
     uiButton('spaceStation', '-').appendTo(waterRow).on('click', function () {
         creditUpdate(shopObj.dataTypeB, shopObj.sellPriceB, -1);
+        loadSpaceStationScreen();
     });
     paragraph('spaceStation', stats.water).appendTo(waterRow);
 
     // Add resource button
     uiButton('spaceStation', '+').appendTo(waterRow).on('click', function () {
         creditUpdate(shopObj.dataTypeB, -shopObj.buyPriceB, 1);
+        loadSpaceStationScreen();
     });
 
     // Back Button
@@ -431,9 +452,8 @@ function creditUpdate(dataType, price, qty) {
 
     updateStats(dataType, qty);
 
-
-
 }
+
 
 /*
 ***************************************

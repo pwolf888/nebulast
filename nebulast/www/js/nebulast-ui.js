@@ -149,7 +149,10 @@ window.paragraph = function(elementClass, content) {
 window.uiButton = function (elementClass, content) {
     var uiButton = $("<ons-button class='" + elementClass + "-button' >"+ content +"</ons-button>");
     return uiButton;
-}
+};
+
+
+
 /***************************************
 *
 * Ship elementClass
