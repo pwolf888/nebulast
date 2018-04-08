@@ -3,8 +3,8 @@
   {
       "dataType": ["food", "water"],
       "quantity": 1,
-      "buyPrice": ["50cr","40cr"],
-      "sellPrice": ["20cr","15cr"]
+      "buyPrice": ["50","40"],
+      "sellPrice": ["20","15"]
 
   }
 ]

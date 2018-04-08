@@ -142,7 +142,9 @@ function loadMainMenu() {
 
 function loadSpaceScreen() {
 
+    // Make sure the Json is no read each time function is called
     if(!loaded) {
+        // Preload Data
         loadScenario();
         loadShopData();
         loaded = true;
@@ -359,8 +361,10 @@ function outputText(dialogue, element) {
 
 function loadSpaceStationScreen() {
 
-    var buyData = '1 food = 50cr <br> 1 water = 40cr';
-    var sellData = '1 food = 20cr <br> 1 water = 15cr';
+    buyData = ""+ shopObj.Quantity +" "+ shopObj.dataTypeA + " = " + shopObj.buyPriceA +"cr</br>";
+    buyData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.buyPriceB +"cr</br>";
+    sellData = ""+ shopObj.Quantity +" "+  shopObj.dataTypeA + " = " + shopObj.sellPriceA +"cr</br>";
+    sellData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.sellPriceB +"cr</br>";
 
     var self = this;
 
@@ -381,14 +385,14 @@ function loadSpaceStationScreen() {
 
     var foodRow = uiRow('spaceStation').appendTo(colLeft);
     var waterRow = uiRow('spaceStation').appendTo(colLeft);
-    paragraph('spaceStation', 'Food').appendTo(foodRow);
+    paragraph('spaceStation', shopObj.dataTypeA).appendTo(foodRow);
     uiButton('spaceStation', '-').appendTo(foodRow);
-    paragraph('spaceStation', '5').appendTo(foodRow);
+    paragraph('spaceStation', stats.food).appendTo(foodRow);
     uiButton('spaceStation', '+').appendTo(foodRow);
 
-    paragraph('spaceStation', 'water').appendTo(waterRow);
+    paragraph('spaceStation', shopObj.dataTypeB).appendTo(waterRow);
     uiButton('spaceStation', '-').appendTo(waterRow);
-    paragraph('spaceStation', '5').appendTo(waterRow);
+    paragraph('spaceStation', stats.water).appendTo(waterRow);
     uiButton('spaceStation', '+').appendTo(waterRow);
 
     returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
