@@ -109,12 +109,13 @@ window.optionButton = function(elementClass) {
     return option;
 };
 
-window.returnToShip = function(elementClass) {
+window.returnToShip = function(elementClass, active) {
 
-    var backButton = $("<ons-button class='"+elementClass+"' disabled>Back</ons-button>");
+    var backButton = $("<ons-button class='"+elementClass+"'"+active+">Back</ons-button>");
 
     return backButton;
 };
+
 
 
 

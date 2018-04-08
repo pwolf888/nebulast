@@ -288,7 +288,7 @@ function loadScenarioScreen() {
 
     });
 
-    returnToShip('back').appendTo(self.$page).on('click', function () {
+    returnToShip('back', 'disabled').appendTo(self.$page).on('click', function () {
         $('#scenarioScreen').hide();
         loadSpaceScreen();
         $('#spaceScreen').show();
@@ -386,8 +386,15 @@ function loadSpaceStationScreen() {
     paragraph('spaceStation', '5').appendTo(waterRow);
     uiButton('spaceStation', '+').appendTo(waterRow);
 
+    returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
+        $('#spaceStationScreen').hide();
+        loadSpaceScreen();
+        $('#spaceScreen').show();
+
+    });
 
     self.$container.append(self.$page);
+
 
 }
 
