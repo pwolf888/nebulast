@@ -398,7 +398,6 @@ function loadSpaceStationScreen() {
     // Minus resource button
     uiButton('spaceStation', '-').appendTo(foodRow).on('click', function () {
         creditUpdate(shopObj.dataTypeA, shopObj.sellPriceA, -1);
-        loadStats(statsListContainer);
         loadSpaceStationScreen();
     });
 
