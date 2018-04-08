@@ -69,6 +69,7 @@ app.initialize();
 
 $(document).ready(function () {
     console.log("ready");
+
     loadMainMenu();
     
 });
@@ -96,6 +97,7 @@ function loadMainMenu() {
     spaceship().appendTo(self.$page).on('click', function () {
         $('#mainMenu').hide();
         loadSpaceScreen();
+
     });
 
     self.$container.append(self.$page);
@@ -108,7 +110,7 @@ function loadMainMenu() {
         credits: 200
 
     };
-
+    window.loaded = false;
 }
 
 
@@ -140,8 +142,12 @@ function loadMainMenu() {
 
 function loadSpaceScreen() {
 
-    loadScenario();
+    if(!loaded) {
+        loadScenario();
+        loadShopData();
+        loaded = true;
 
+    }
     // Change background
     $('.page__background').css('background-image', 'BG001.jpg');
 
@@ -465,7 +471,43 @@ function loadScenario() {
 
 }
 
+// Test function to load a dummy scenario
+function loadShopData() {
 
+    window.shopObj = {
+        dataTypeA: undefined,
+        dataTypeB: undefined,
+        Quantity: undefined,
+        buyPriceA: undefined,
+        buyPriceB: undefined,
+        sellPriceA: undefined,
+        sellPriceB: undefined
+
+    };
+
+    var shop = new Promise(function (resolve, reject) {
+        // Fetch the nouns
+        $.getJSON('json/shop.json').done(function (json) {
+            // Use the closured dictionary so we can easily access later without array parsing
+            console.log(json);
+            shopObj.dataTypeA = json[0].dataType[0];
+            shopObj.dataTypeB = json[0].dataType[1];
+            shopObj.Quantity = json[0].quantity;
+            shopObj.buyPriceA = json[0].buyPrice[0];
+            shopObj.buyPriceB = json[0].buyPrice[0];
+            shopObj.sellPriceA = json[0].sellPrice[1];
+            shopObj.sellPriceB = json[0].sellPrice[1];
+
+            resolve();
+            // console.log("Output: " + scenarioObj.resultsA_dialogue);
+        }).fail(function (json) {
+            // If any dictionaries fail to load, the application has failedy
+            reject();
+        });
+    });
+
+
+}
 
 // Alert dialogue functions
 
