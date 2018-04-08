@@ -59,3 +59,16 @@ Date:3/4/18
 *Added a function to keep track of stats[Jonathan Turnbull]
 *Data now loads in on game start, balancing will be needed later [Jonathan Turnbull]
 *Stats now update to the stats object from the scenario, basic level 1 works [Jonathan Turnbull]
+
+
+Date: 7/4/18
+------------------------------------
+*Merged Branches to master [Josh Pujol and Jonathan Turnbull]
+
+
+Date: 8/4/18
+------------------------------------
+*Added shop.json file [Jonathan Turnbull]
+*Data is now read in from shop.json [Jonathan Turnbull]
+*Shop is now functional[Jonathan Turnbull]
+
