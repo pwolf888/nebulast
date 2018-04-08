@@ -386,15 +386,33 @@ function loadSpaceStationScreen() {
     var foodRow = uiRow('spaceStation').appendTo(colLeft);
     var waterRow = uiRow('spaceStation').appendTo(colLeft);
     paragraph('spaceStation', shopObj.dataTypeA).appendTo(foodRow);
-    uiButton('spaceStation', '-').appendTo(foodRow);
+
+    // Minus resource button
+    uiButton('spaceStation', '-').appendTo(foodRow).on('click', function () {
+        creditUpdate(shopObj.dataTypeA, shopObj.sellPriceA, -1);
+    });
+    
     paragraph('spaceStation', stats.food).appendTo(foodRow);
-    uiButton('spaceStation', '+').appendTo(foodRow);
+
+    // Add resource button
+    uiButton('spaceStation', '+').appendTo(foodRow).on('click', function () {
+        creditUpdate(shopObj.dataTypeA, -shopObj.buyPriceA, 1);
+    });
 
     paragraph('spaceStation', shopObj.dataTypeB).appendTo(waterRow);
-    uiButton('spaceStation', '-').appendTo(waterRow);
-    paragraph('spaceStation', stats.water).appendTo(waterRow);
-    uiButton('spaceStation', '+').appendTo(waterRow);
 
+    // Minus resource button
+    uiButton('spaceStation', '-').appendTo(waterRow).on('click', function () {
+        creditUpdate(shopObj.dataTypeB, shopObj.sellPriceB, -1);
+    });
+    paragraph('spaceStation', stats.water).appendTo(waterRow);
+
+    // Add resource button
+    uiButton('spaceStation', '+').appendTo(waterRow).on('click', function () {
+        creditUpdate(shopObj.dataTypeB, -shopObj.buyPriceB, 1);
+    });
+
+    // Back Button
     returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
         $('#spaceStationScreen').hide();
         loadSpaceScreen();
@@ -403,6 +421,16 @@ function loadSpaceStationScreen() {
     });
 
     self.$container.append(self.$page);
+
+
+}
+
+function creditUpdate(dataType, price, qty) {
+
+    stats.credits += price;
+
+    updateStats(dataType, qty);
+
 
 
 }
