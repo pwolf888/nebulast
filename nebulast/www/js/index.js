@@ -85,6 +85,27 @@ $(document).ready(function () {
 
 function loadMainMenu() {
 
+   // Looping function that randomizes the position of the asteroid.
+   function refreshData(){
+
+    $(".asteroid").css("right", asteroidPosition)
+
+    x = 6; //seconds
+
+    function asteroidPosition(){
+
+       randomNumber = Math.floor((Math.random() * 650) - 250);
+
+       return randomNumber
+
+    }
+
+    setTimeout(refreshData, x*1000);
+
+   }
+
+   refreshData();
+
     $('.page__background').css('background-color', '#000 !important');
 
     var self = this;
@@ -152,7 +173,6 @@ function loadSpaceScreen() {
     }
     // Change background
     $('.page__background').css('background-image', 'BG001.jpg');
-
     
     var self = this;
     
@@ -185,6 +205,8 @@ function loadSpaceScreen() {
                                 
     });
     blackHole().appendTo(self.$page);
+
+
     
     // Stat group - will be loaded in via a function
 

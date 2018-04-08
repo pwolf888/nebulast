@@ -42,11 +42,21 @@
      background-attachment: fixed;
      background-size:  cover;
 }
+
+.spaceStation_background {
+
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-attachment: fixed;
+    z-index: 3;
+
+}
 .space-Ship {
     position: absolute;
     top: 40%;
     left: 15px;
-
+    z-index: 999;
 
 }
 
@@ -54,6 +64,7 @@
     position: absolute;
     left: 15px;
     top: 20%;
+    z-index: 999;
 }
 
 .space-planet- {
@@ -61,6 +72,7 @@
     right: 150px;
     float: right;
     top: 40%;
+    z-index: 999;
 }
 
 .space-Blackhole {
@@ -68,6 +80,7 @@
     float: right;
     right: 5px;
     top: 70%;
+    z-index: 999;
     
 }
 
