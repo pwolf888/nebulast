@@ -109,7 +109,6 @@ function loadMainMenu() {
 
     };
 
-    stats.food = 20;
 }
 
 

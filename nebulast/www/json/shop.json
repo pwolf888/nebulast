@@ -1,0 +1,17 @@
+// Shop pricing for 3 levels
+
+[
+  {
+    "dataType": ["food", "water"],
+    "buy": {
+      "quantity": 1,
+      "price": ["50cr","40cr"]
+
+    },
+    "sell": {
+      "quantity": 1,
+      "dataType": ["food", "water"],
+      "price": ["20cr","15cr"]
+    }
+  }
+]
