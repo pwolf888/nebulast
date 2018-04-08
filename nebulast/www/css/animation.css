@@ -16,13 +16,13 @@
       }
       
       @keyframes astroidDiag {
-          0%       { transform: translatex(-30px) translatey(-30px) }
+          0%       { transform: translatex(-30px) translatey(-60px) }
           100%     { transform: translatex( -2000px) translatey(2000px) }
         }
       
       
       @-moz-keyframes asteroidDiag {
-        0%       { transform: translatex(-30px) translatey(-30px) }
+        0%       { transform: translatex(-30px) translatey(-60px) }
         100%     { transform: translatex( -2000px) translatey(2000px) }
       }
 
