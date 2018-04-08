@@ -24,4 +24,13 @@
 
 // randomAseteroid();
 
-$(".asteroid").css("right, random number")
+function asteroidPosition(){
+
+    Math.floor((Math.random() * 400) + 1);
+
+    var min = -250
+    var max = 400 
+}
+
+$(".asteroid").css("right", 400)
+

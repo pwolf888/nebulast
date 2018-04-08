@@ -84,6 +84,27 @@ $(document).ready(function () {
 
 function loadMainMenu() {
 
+   // Looping function that randomizes the position of the asteroid.
+   function refreshData(){
+
+    $(".asteroid").css("right", asteroidPosition)
+
+    x = 4;
+
+    function asteroidPosition(){
+
+       randomNumber = Math.floor((Math.random() * 400) + 1);
+
+       return randomNumber
+
+    }
+
+    setTimeout(refreshData, x*1000);
+
+   }
+
+   refreshData();
+
     $('.page__background').css('background-color', '#000 !important');
 
     var self = this;
