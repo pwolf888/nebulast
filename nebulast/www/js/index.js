@@ -85,6 +85,8 @@ $(document).ready(function () {
 
 function loadMainMenu() {
 
+
+
    // Looping function that randomizes the position of the asteroid.
    function refreshData(){
 
@@ -113,6 +115,7 @@ function loadMainMenu() {
     self.$container = $('#mainMenu');
 
     self.$page = $("<ons-page class='mainMenu'></ons-page>");
+    stars().appendTo(self.$page);
 
     // Start Button
     spaceship().appendTo(self.$page).on('click', function () {
@@ -179,7 +182,7 @@ function loadSpaceScreen() {
     self.$container = $('#spaceScreen');
     
     self.$page = $("<ons-page class='space-Screen'></ons-page>");
-
+    stars().appendTo(self.$page);
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
@@ -284,7 +287,7 @@ function loadScenarioScreen() {
     self.$container = $('#scenarioScreen').show();
 
     self.$page = $("<ons-page class='scenario-Screen'></ons-page>");
-
+    stars().appendTo(self.$page);
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
     portraitCol().appendTo(dialogueRow);
@@ -400,7 +403,7 @@ function loadSpaceStationScreen() {
     self.$container = $('#spaceStationScreen').show();
 
     self.$page = $("<ons-page class='spaceStation-Screen'></ons-page>");
-
+    stars().appendTo(self.$page);
     // Row 1 - BUY SELL
     var table = card('spaceStation').appendTo(self.$page);
     var row = uiRow('spaceStation').appendTo(table);
@@ -491,7 +494,7 @@ function loadSpaceShipScreen() {
     self.$container = $('#spaceShipScreen').show();
 
     self.$page = $("<ons-page class='spaceShip-Screen'></ons-page>");
-
+    stars().appendTo(self.$page);
     self.$container.append(self.$page);
 
 
