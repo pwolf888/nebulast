@@ -69,6 +69,7 @@ app.initialize();
 
 $(document).ready(function () {
     console.log("ready");
+
     loadMainMenu();
     
 });
@@ -96,6 +97,7 @@ function loadMainMenu() {
     spaceship().appendTo(self.$page).on('click', function () {
         $('#mainMenu').hide();
         loadSpaceScreen();
+
     });
 
     self.$container.append(self.$page);
@@ -108,8 +110,7 @@ function loadMainMenu() {
         credits: 200
 
     };
-
-    stats.food = 20;
+    window.loaded = false;
 }
 
 
@@ -141,8 +142,14 @@ function loadMainMenu() {
 
 function loadSpaceScreen() {
 
-    loadScenario();
+    // Make sure the Json is no read each time function is called
+    if(!loaded) {
+        // Preload Data
+        loadScenario();
+        loadShopData();
+        loaded = true;
 
+    }
     // Change background
     $('.page__background').css('background-image', 'BG001.jpg');
 
@@ -182,22 +189,29 @@ function loadSpaceScreen() {
     // Stat group - will be loaded in via a function
 
     var list = List('statsGroup').appendTo(self.$page);
-    
+
     ListHead().appendTo(list).on('click', function(){
         $(".stat-list").toggle();
     });
 
     var statsListContainer = hidingDiv('stat-list').appendTo(list);
 
-    listItem('food', 'food', stats.food).appendTo(statsListContainer);
-    listItem('water', 'water', stats.water).appendTo(statsListContainer);
-    listItem('fuel', 'fuel', stats.fuel).appendTo(statsListContainer);
-    listItem('crew', 'crew', stats.crew).appendTo(statsListContainer);
-    listItem('money', 'credits', stats.credits).appendTo(statsListContainer);
+    loadStats(statsListContainer);
+
  
     self.$container.append(self.$page);
     
     
+}
+
+
+// Load stats group
+function loadStats(container) {
+    listItem('food', 'food', stats.food).appendTo(container);
+    listItem('water', 'water', stats.water).appendTo(container);
+    listItem('fuel', 'fuel', stats.fuel).appendTo(container);
+    listItem('crew', 'crew', stats.crew).appendTo(container);
+    listItem('money', 'credits', stats.credits).appendTo(container);
 }
 
 // Upadate the stats to our statsgroup table
@@ -288,7 +302,7 @@ function loadScenarioScreen() {
 
     });
 
-    returnToShip('back').appendTo(self.$page).on('click', function () {
+    returnToShip('back', 'disabled').appendTo(self.$page).on('click', function () {
         $('#scenarioScreen').hide();
         loadSpaceScreen();
         $('#spaceScreen').show();
@@ -354,8 +368,10 @@ function outputText(dialogue, element) {
 
 function loadSpaceStationScreen() {
 
-    var buyData = '1 food = 50cr <br> 1 water = 40cr';
-    var sellData = '1 food = 20cr <br> 1 water = 15cr';
+    var buyData = ""+ shopObj.Quantity +" "+ shopObj.dataTypeA + " = " + shopObj.buyPriceA +"cr</br>";
+    buyData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.buyPriceB +"cr</br>";
+    var sellData = ""+ shopObj.Quantity +" "+  shopObj.dataTypeA + " = " + shopObj.sellPriceA +"cr</br>";
+    sellData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.sellPriceB +"cr</br>";
 
     var self = this;
 
@@ -374,22 +390,69 @@ function loadSpaceStationScreen() {
     paragraph('spaceStation', buyData).appendTo(colLeft);
     paragraph('spaceStation', sellData).appendTo(colRight);
 
+    // Updating shopping list
     var foodRow = uiRow('spaceStation').appendTo(colLeft);
     var waterRow = uiRow('spaceStation').appendTo(colLeft);
-    paragraph('spaceStation', 'Food').appendTo(foodRow);
-    uiButton('spaceStation', '-').appendTo(foodRow);
-    paragraph('spaceStation', '5').appendTo(foodRow);
-    uiButton('spaceStation', '+').appendTo(foodRow);
+    paragraph('spaceStation', shopObj.dataTypeA).appendTo(foodRow);
 
-    paragraph('spaceStation', 'water').appendTo(waterRow);
-    uiButton('spaceStation', '-').appendTo(waterRow);
-    paragraph('spaceStation', '5').appendTo(waterRow);
-    uiButton('spaceStation', '+').appendTo(waterRow);
+    // Minus resource button
+    uiButton('spaceStation', '-').appendTo(foodRow).on('click', function () {
+        creditUpdate(shopObj.dataTypeA, shopObj.sellPriceA, -1);
+        loadSpaceStationScreen();
+    });
 
+    paragraph('spaceStation', stats.food).appendTo(foodRow);
+
+
+    paragraph('stats-food', "food: " + stats.food).appendTo(colRight);
+    paragraph('stats-water', "water: " + stats.water).appendTo(colRight);
+    paragraph('stats-credits', "credits: " + stats.credits).appendTo(colRight);
+
+    // Add resource button
+    uiButton('spaceStation', '+').appendTo(foodRow).on('click', function () {
+        creditUpdate(shopObj.dataTypeA, -shopObj.buyPriceA, 1);
+        loadSpaceStationScreen();
+
+    });
+
+    paragraph('spaceStation', shopObj.dataTypeB).appendTo(waterRow);
+
+
+
+    // Minus resource button
+    uiButton('spaceStation', '-').appendTo(waterRow).on('click', function () {
+        creditUpdate(shopObj.dataTypeB, shopObj.sellPriceB, -1);
+        loadSpaceStationScreen();
+    });
+    paragraph('spaceStation', stats.water).appendTo(waterRow);
+
+    // Add resource button
+    uiButton('spaceStation', '+').appendTo(waterRow).on('click', function () {
+        creditUpdate(shopObj.dataTypeB, -shopObj.buyPriceB, 1);
+        loadSpaceStationScreen();
+    });
+
+    // Back Button
+    returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
+        $('#spaceStationScreen').hide();
+        loadSpaceScreen();
+        $('#spaceScreen').show();
+
+    });
 
     self.$container.append(self.$page);
 
+
 }
+
+function creditUpdate(dataType, price, qty) {
+
+    stats.credits += price;
+
+    updateStats(dataType, qty);
+
+}
+
 
 /*
 ***************************************
@@ -459,7 +522,43 @@ function loadScenario() {
 
 }
 
+// Test function to load a dummy scenario
+function loadShopData() {
 
+    window.shopObj = {
+        dataTypeA: undefined,
+        dataTypeB: undefined,
+        Quantity: undefined,
+        buyPriceA: undefined,
+        buyPriceB: undefined,
+        sellPriceA: undefined,
+        sellPriceB: undefined
+
+    };
+
+    var shop = new Promise(function (resolve, reject) {
+        // Fetch the nouns
+        $.getJSON('json/shop.json').done(function (json) {
+            // Use the closured dictionary so we can easily access later without array parsing
+            console.log(json);
+            shopObj.dataTypeA = json[0].dataType[0];
+            shopObj.dataTypeB = json[0].dataType[1];
+            shopObj.Quantity = json[0].quantity;
+            shopObj.buyPriceA = json[0].buyPrice[0];
+            shopObj.buyPriceB = json[0].buyPrice[0];
+            shopObj.sellPriceA = json[0].sellPrice[1];
+            shopObj.sellPriceB = json[0].sellPrice[1];
+
+            resolve();
+            // console.log("Output: " + scenarioObj.resultsA_dialogue);
+        }).fail(function (json) {
+            // If any dictionaries fail to load, the application has failedy
+            reject();
+        });
+    });
+
+
+}
 
 // Alert dialogue functions
 
