@@ -42,6 +42,16 @@
      background-attachment: fixed;
      background-size:  cover;
 }
+
+.spaceStation_background {
+
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-attachment: fixed;
+    z-index: 3;
+
+}
 .space-Ship {
     position: absolute;
     top: 40%;
