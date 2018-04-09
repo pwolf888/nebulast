@@ -26,6 +26,11 @@
         100%     { transform: translatex( -2000px) translatey(2000px) }
       }
 
+      @-webkit-keyframes asteroidDiag {
+        0%       { transform: translatex(-30px) translatey(-60px) }
+        100%     { transform: translatex( -2000px) translatey(2000px) }
+      }
+
 
       .pixelStar {
         position: absolute;
