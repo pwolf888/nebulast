@@ -25,14 +25,28 @@
 
 } */
 
-.paralaxFGContainer {
+/* .paralaxContainer {
     z-index: 11;
     width: auto;
     height: 1500px;
+    position: relative;
     top: 0;
     left: 0;
+} */
+
+
+
+.paralaxFG {
+
+    z-index: 11;
+    width: auto;
+    height: 1500px;
+    position: relative;
+    top: 0;
+    left: 0;
+    
     background-image: url('paralaxForeground.png') !important;
-    background-repeat: repeat !important;
+    background-repeat: repeat !important;   
     animation-duration: 10s;
     animation-name: paralaxAnimation;
     animation-iteration-count: infinite;
@@ -40,9 +54,33 @@
     -moz-animation-duration: 10s;
     -moz-animation-name: paralaxAnimation;
     -moz-animation-iteration-count: infinite; 
-    transform: translate3d(0, 0, 0);
     pointer-events: none;
+
 }
+
+.paralaxM {
+
+    z-index: 12;
+    width: auto;
+    height: 1500px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-image: url('paralaxMiddle.png') !important;
+    background-repeat: repeat !important;   
+    animation-duration: 5s;
+    animation-name: paralaxAnimation2;
+    animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-duration: 10s;
+    -moz-animation-name: paralaxAnimation2;
+    -moz-animation-iteration-count: infinite;
+    pointer-events: none;
+
+
+}
+
+
 /* .paralaxFGContainer2 {
     z-index: 11;
     width: 100vw;
@@ -100,6 +138,22 @@
 }
 
 @-webkit-keyframes paralaxAnimation {
+
+    100%     { transform: translatey(-1000px) }
+}
+
+
+@keyframes paralaxAnimation2 {
+
+    100%     { transform: translatey(-1000px) }
+  }
+
+@-moz-keyframes paralaxAnimation2 {
+
+    100%     { transform: translatey(-1000px) }
+}
+
+@-webkit-keyframes paralaxAnimation2 {
 
     100%     { transform: translatey(-1000px) }
 }
