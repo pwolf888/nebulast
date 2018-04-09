@@ -13,22 +13,37 @@
 
 }
 
+
+/* .paralaxContainer{
+    position: relative;
+    overflow: hidden;
+     margin: 0 auto; 
+    height: 1500px;
+    max-width: 500px;
+    transform: translate3d(0, 0, 0); 
+    
+
+} */
+
 .paralaxFGContainer {
     z-index: 11;
-    width: 100vw;
-    height: 100vh;
+    width: auto;
+    height: 1500px;
+    top: 0;
+    left: 0;
     background-image: url('paralaxForeground.png') !important;
     background-repeat: repeat !important;
-    animation-duration: 5s;
-    animation-name: paralaxForegroundUp;
+    animation-duration: 10s;
+    animation-name: paralaxAnimation;
     animation-iteration-count: infinite;
     -moz-animation-timing-function: linear;
-    -moz-animation-duration: 5s;
-    -moz-animation-name: paralaxForegroundUp;
+    -moz-animation-duration: 10s;
+    -moz-animation-name: paralaxAnimation;
     -moz-animation-iteration-count: infinite; 
+    transform: translate3d(0, 0, 0);
     pointer-events: none;
 }
-.paralaxFGContainer2 {
+/* .paralaxFGContainer2 {
     z-index: 11;
     width: 100vw;
     height: 100vh;
@@ -42,7 +57,7 @@
     -moz-animation-name: paralaxForegroundUp2;
     -moz-animation-iteration-count: infinite; 
     pointer-events: none;
-}
+} */
 /* .paralaxMiddle {
     position: absolute;
     bottom: 0%;
@@ -74,22 +89,22 @@
     -moz-animation-iteration-count: infinite;   
 } */
 
-@keyframes paralaxForegroundUp {
-    0%       { transform: translatey(-520px) }
-    100%     { transform: translatey(-700px) }
+@keyframes paralaxAnimation {
+
+    100%     { transform: translatey(-1000px) }
   }
 
-@-moz-keyframes paralaxForegroundUp {
-    0%       { transform: translatey(-520px) }
-    100%     { transform: translatey(-700px) }
+@-moz-keyframes paralaxAnimation {
+
+    100%     { transform: translatey(-1000px) }
 }
 
-@-webkit-keyframes paralaxForegroundUp {
-    0%       { transform: translatey(-520px) }
-    100%     { transform: translatey(-700px) }
+@-webkit-keyframes paralaxAnimation {
+
+    100%     { transform: translatey(-1000px) }
 }
 
-@keyframes paralaxForegroundUp2 {
+/* @keyframes paralaxForegroundUp2 {
     0%       { transform: translatey(20px) }
     100%     { transform: translatey(200px) }
   }
@@ -97,5 +112,5 @@
 @-moz-keyframes paralaxForegroundUp2 {
     0%       { transform: translatey(20px) }
     100%     { transform: translatey(200px) }
-}
+} */
 
