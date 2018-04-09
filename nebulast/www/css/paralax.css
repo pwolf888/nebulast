@@ -34,7 +34,15 @@
     left: 0;
 } */
 
+.paralaxContainer {
+    z-index: 11;
+    width: auto;
+    height: 1500px;
+    position: relative;
+    top: 0;
+    left: 0;
 
+}
 
 .paralaxFG {
 
@@ -63,16 +71,16 @@
     z-index: 12;
     width: auto;
     height: 1500px;
-    position: relative;
+
     top: 0;
     left: 0;
     background-image: url('paralaxMiddle.png') !important;
     background-repeat: repeat !important;   
-    animation-duration: 5s;
+    animation-duration: 10s !important;
     animation-name: paralaxAnimation2;
     animation-iteration-count: infinite;
     -moz-animation-timing-function: linear;
-    -moz-animation-duration: 10s;
+    -moz-animation-duration: 10s!important;
     -moz-animation-name: paralaxAnimation2;
     -moz-animation-iteration-count: infinite;
     pointer-events: none;
