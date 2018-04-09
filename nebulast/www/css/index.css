@@ -48,6 +48,7 @@
     position: absolute;
     width: 100%;
     height: auto;
+    bottom: 0;
     background-attachment: fixed;
     z-index: 3;
 
