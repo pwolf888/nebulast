@@ -96,9 +96,9 @@ function loadMainMenu() {
 
     self.$container = $('#mainMenu');
 
-    self.$page = $("<ons-page class='mainMenu'></ons-page>");
-    stars().appendTo(self.$page);
 
+    self.$page = $("<ons-page class='mainMenu'></ons-page>");
+    bgElements(self.$page);
     // Start Button
     spaceship().appendTo(self.$page).on('click', function () {
         $('#mainMenu').hide();
@@ -118,7 +118,11 @@ function loadMainMenu() {
     };
     window.loaded = false;
 }
-
+function bgElements(container) {
+    // stars().appendTo(container);
+    twinkles().appendTo(container);
+    asteroid().appendTo(container);
+}
 
 // Looping function that randomizes the position of the asteroid.
 function refreshData(){
@@ -181,9 +185,11 @@ function loadSpaceScreen() {
     var self = this;
     
     self.$container = $('#spaceScreen');
-    
+
     self.$page = $("<ons-page class='space-Screen'></ons-page>");
-    stars().appendTo(self.$page);
+    bgElements(self.$page);
+
+
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
@@ -288,7 +294,7 @@ function loadScenarioScreen() {
     self.$container = $('#scenarioScreen').show();
 
     self.$page = $("<ons-page class='scenario-Screen'></ons-page>");
-    stars().appendTo(self.$page);
+    
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
     portraitCol().appendTo(dialogueRow);

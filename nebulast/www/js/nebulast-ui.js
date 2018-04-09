@@ -72,13 +72,32 @@ window.listItem = function (elementClass, type, data) {
 
 };
 
-window.stars = function () {
-    var stars = $("<div id='stars'></div><div id='stars2'></div><div id='stars3'></div>");
+// window.stars = function () {
+//     var stars = $("<div id='stars'></div><div id='stars2'></div><div id='stars3'></div>");
+//
+//     return stars;
+//
+// }
 
-    return stars;
 
-}
+window.twinkles = function() {
 
+    var twinkles = $("<div></div>");
+    for(var i = 1; i < 9; i++) {
+        $("<div class=\'pixelStar"+i+"\'><img class=\'pixelStar"+i+"\'src=\'img/pixelstar.gif\'></div> ").appendTo(twinkles);
+    }
+
+    return twinkles;
+
+
+
+};
+
+window.asteroid = function () {
+    var asteroid = $("<div class='asteroid'><img class='asteroid' src='img/Commet.gif'></div>");
+
+    return asteroid;
+};
 
 /***************************************
 *
