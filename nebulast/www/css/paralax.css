@@ -1,0 +1,178 @@
+.paralaxForeground {
+    position: absolute;
+    z-index: 11;
+    background-repeat: repeat;
+
+    animation-duration: 50s;
+    animation-name: paralaxForegroundUp;
+    animation-iteration-count: infinite;
+  
+    -moz-animation-duration: 50s;
+    -moz-animation-name: paralaxForegroundUp;
+    -moz-animation-iteration-count: infinite;   
+
+}
+
+
+/* .paralaxContainer{
+    position: relative;
+    overflow: hidden;
+     margin: 0 auto; 
+    height: 1500px;
+    max-width: 500px;
+    transform: translate3d(0, 0, 0); 
+    
+
+} */
+
+/* .paralaxContainer {
+    z-index: 11;
+    width: auto;
+    height: 1500px;
+    position: relative;
+    top: 0;
+    left: 0;
+} */
+
+.paralaxContainer {
+    z-index: 11;
+    width: auto;
+    height: 1500px;
+    position: relative;
+    top: 0;
+    left: 0;
+
+}
+
+.paralaxFG {
+
+    z-index: 11;
+    width: auto;
+    height: 1500px;
+    position: relative;
+    top: 0;
+    left: 0;
+    
+    background-image: url('paralaxForeground.png') !important;
+    background-repeat: repeat !important;   
+    animation-duration: 10s;
+    animation-name: paralaxAnimation;
+    animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-duration: 10s;
+    -moz-animation-name: paralaxAnimation;
+    -moz-animation-iteration-count: infinite; 
+    pointer-events: none;
+
+}
+
+.paralaxM {
+
+    z-index: 12;
+    width: auto;
+    height: 1500px;
+
+    top: 0;
+    left: 0;
+    background-image: url('paralaxMiddle.png') !important;
+    background-repeat: repeat !important;   
+    animation-duration: 10s !important;
+    animation-name: paralaxAnimation2;
+    animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-duration: 10s!important;
+    -moz-animation-name: paralaxAnimation2;
+    -moz-animation-iteration-count: infinite;
+    pointer-events: none;
+
+
+}
+
+
+/* .paralaxFGContainer2 {
+    z-index: 11;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('paralaxForeground.png') !important;
+    background-repeat: repeat !important;
+    animation-duration: 5s;
+    animation-name: paralaxForegroundUp2;
+    animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-duration: 5s;
+    -moz-animation-name: paralaxForegroundUp2;
+    -moz-animation-iteration-count: infinite; 
+    pointer-events: none;
+} */
+/* .paralaxMiddle {
+    position: absolute;
+    bottom: 0%;
+    right: 10px;
+    z-index: 11;
+
+    animation-duration: 50s;
+    animation-name: paralaxMiddledUp;
+    animation-iteration-count: infinite;
+  
+    -moz-animation-duration: 50s;
+    -moz-animation-name: paralaxMiddleUp;
+    -moz-animation-iteration-count: infinite;   
+
+}
+
+.paralaxBackground {
+    position: absolute;
+    bottom: 0%;
+    right: 10px;
+    z-index: 11;
+
+    animation-duration: 50s;
+    animation-name: paralaxBackgroundUp;
+    animation-iteration-count: infinite;
+  
+    -moz-animation-duration: 50s;
+    -moz-animation-name: paralaxBackgroundUp;
+    -moz-animation-iteration-count: infinite;   
+} */
+
+@keyframes paralaxAnimation {
+
+    100%     { transform: translatey(-1000px) }
+  }
+
+@-moz-keyframes paralaxAnimation {
+
+    100%     { transform: translatey(-1000px) }
+}
+
+@-webkit-keyframes paralaxAnimation {
+
+    100%     { transform: translatey(-1000px) }
+}
+
+
+@keyframes paralaxAnimation2 {
+
+    100%     { transform: translatey(-1000px) }
+  }
+
+@-moz-keyframes paralaxAnimation2 {
+
+    100%     { transform: translatey(-1000px) }
+}
+
+@-webkit-keyframes paralaxAnimation2 {
+
+    100%     { transform: translatey(-1000px) }
+}
+
+/* @keyframes paralaxForegroundUp2 {
+    0%       { transform: translatey(20px) }
+    100%     { transform: translatey(200px) }
+  }
+
+@-moz-keyframes paralaxForegroundUp2 {
+    0%       { transform: translatey(20px) }
+    100%     { transform: translatey(200px) }
+} */
+
