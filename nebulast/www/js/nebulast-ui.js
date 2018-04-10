@@ -36,7 +36,7 @@ window.spaceStation = function () {
 
 window.planet = function () {
 
-    var planet = $("<ons-button class='space-planet-'modifier='outline' cancelable><img src='img/scenario001.gif'></ons-button>");
+    var planet = $("<ons-button class='space-planet-'modifier='outline' cancelable><img src='img/scenario002.gif'></ons-button>");
     return planet;
 
 };
