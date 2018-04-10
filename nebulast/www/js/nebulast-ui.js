@@ -23,26 +23,28 @@
 // Space ship button
 window.spaceship = function () {
 
-    var spaceship = $("<ons-button class='space-Ship'  modifier='outline'><img src='img/spaceship-gif.gif'></ons-button>");
+    var spaceship = $("<div class='space-Ship' ><img src='img/spaceship-gif.gif'></div>");
     return spaceship;
 };
 
 //
 window.spaceStation = function () {
 
-    var spaceStation = $("<ons-button class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></ons-button>");
+    var spaceStation = $("<div class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></div>");
     return spaceStation;
 };
 
 window.planet = function () {
 
-    var planet = $("<ons-button class='space-planet-'modifier='outline' cancelable><img src='img/scenario002.gif'></ons-button>");
+
+    var planet = $("<div class='space-planet-'modifier='outline' cancelable><img src='img/scenario001.gif'></div>");
+
     return planet;
 
 };
 
 window.blackHole = function () {
-    var blackHole = $("<ons-button class='space-Blackhole' modifier='outline'><img src='img/blackhole.gif'></ons-button>");
+    var blackHole = $("<div class='space-Blackhole' modifier='outline'><img src='img/blackhole.gif'></div>");
     return blackHole;
 };
 
@@ -72,13 +74,32 @@ window.listItem = function (elementClass, type, data) {
 
 };
 
-window.stars = function () {
-    var stars = $("<div id='stars'></div><div id='stars2'></div><div id='stars3'></div>");
+// window.stars = function () {
+//     var stars = $("<div id='stars'></div><div id='stars2'></div><div id='stars3'></div>");
+//
+//     return stars;
+//
+// }
 
-    return stars;
 
-}
+window.twinkles = function() {
 
+    var twinkles = $("<div></div>");
+    for(var i = 1; i < 9; i++) {
+        $("<div class=\'pixelStar"+i+"\'><img class=\'pixelStar"+i+"\'src=\'img/pixelstar.gif\'></div> ").appendTo(twinkles);
+    }
+
+    return twinkles;
+
+
+
+};
+
+window.asteroid = function () {
+    var asteroid = $("<div class='asteroid'><img class='asteroid' src='img/Commet.gif'></div>");
+
+    return asteroid;
+};
 
 /***************************************
 *
@@ -89,7 +110,7 @@ window.stars = function () {
 
 
 window.portraitCol = function() {
-    var portraitCol = $("<ons-col width=\'20vw\'></ons-col>");
+    var portraitCol = $("<div ></div>");
     var portraitCard = card('scenario-Portrait').appendTo(portraitCol);
     $("<ons-icon size='30px' icon='md-face'>").appendTo(portraitCard);
 
@@ -97,8 +118,8 @@ window.portraitCol = function() {
 };
 
 window.dialogueBox = function () {
-    var dialogueBox = $("<ons-col width='80vw'></ons-card></ons-col>");
-    var dialogueCard = $("<ons-card class='dialogue-box'></ons-card>").appendTo(dialogueBox);
+    var dialogueBox = $("<div style='background-color: #fff;'></div>");
+    var dialogueCard = $("<div class='dialogue-box'></div>").appendTo(dialogueBox);
 
     $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
 
@@ -110,14 +131,14 @@ window.optionButton = function(elementClass) {
     var option = uiCol(elementClass).attr('width', '100vw');
     var optionCard = card(' ').appendTo(option);
 
-    $("<ons-button class='"+elementClass+"'></ons-button>").appendTo(optionCard);
+    $("<div class='"+elementClass+"'></div>").appendTo(optionCard);
 
     return option;
 };
 
 window.returnToShip = function(elementClass, active) {
 
-    var backButton = $("<ons-button class='"+elementClass+"'"+active+">Back</ons-button>");
+    var backButton = $("<button style='background-color: #fff;' class='"+elementClass+"'"+active+">Back</button>");
 
     return backButton;
 };
@@ -133,17 +154,17 @@ window.returnToShip = function(elementClass, active) {
 ***************************************/
 
 window.card = function(elementClass) {
-    var card = $("<ons-card class='"+ elementClass +"-card'></ons-card>");
+    var card = $("<div class='"+ elementClass +"-card' style='background-color: #fff'></div>");
     return card;
 };
 
 window.uiRow = function(elementClass) {
-    var uiRow = $("<ons-row class='"+ elementClass +"-card'></ons-row>");
+    var uiRow = $("<div class='"+ elementClass +"-card'></div>");
     return uiRow;
 };
 
 window.uiCol = function(elementClass) {
-    var uiCol = $("<ons-col class='"+ elementClass +"-card'></ons-col>");
+    var uiCol = $("<div class='"+ elementClass +"-card'></div>");
     return uiCol;
 };
 
@@ -153,7 +174,7 @@ window.paragraph = function(elementClass, content) {
 };
 
 window.uiButton = function (elementClass, content) {
-    var uiButton = $("<ons-button class='" + elementClass + "-button' >"+ content +"</ons-button>");
+    var uiButton = $("<div class='" + elementClass + "-button' >"+ content +"</div>");
     return uiButton;
 };
 
