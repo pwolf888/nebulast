@@ -11,8 +11,44 @@
  UI Framework
  * *************************/
 
+/***************************************
+ *
+ * STATS NAV
+ * Interact with your spaceship, planets and spacestation and a blackhole
+ *
+ ***************************************/
+
+window.sideNav = function () {
+
+    var sideNav = $("<div class='sideNav'></div>");
 
 
+
+    return sideNav;
+
+
+};
+
+window.sideNavStat = function (type, data) {
+    var stat = $("<div class='stats' >"+type+"  ----  <div class='"+type+" dataVal'> "+data+"</div></div><br>");
+    return stat;
+};
+
+window.hamburger = function () {
+
+    var hamburger = $("<div class='hamburger' style=\"font-size:30px!important;cursor:pointer\">&#9776;</div>");
+
+    return hamburger;
+
+};
+
+window.close = function () {
+
+    var close = $("<div class='close' style='font-size:30px!important;cursor:pointer'>&times;</div>");
+
+    return close;
+
+};
 /***************************************
 *
 * Space elementClass

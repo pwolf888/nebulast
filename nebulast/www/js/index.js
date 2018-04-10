@@ -83,6 +83,14 @@ $(document).ready(function () {
 ***************************************
 */
 
+function openNav() {
+    $(".sideNav").css( "width", "50vw");
+}
+
+function closeNav() {
+    $(".sideNav").css('width', "0px");
+}
+
 function loadMainMenu() {
 
 
@@ -98,7 +106,7 @@ function loadMainMenu() {
 
 
     self.$page = $("<div class='mainMenu'></div>");
-    bgElements(self.$page);
+    bgElements('body');
     // Start Button
     spaceship().appendTo(self.$page).on('click', function () {
         $('#mainMenu').hide();
@@ -164,6 +172,7 @@ function loadSpaceScreen() {
 
     }
 
+
     
     var self = this;
     
@@ -171,7 +180,8 @@ function loadSpaceScreen() {
 
     self.$page = $("<div class='space-Screen'></div>");
 
-    bgElements(self.$page);
+    // bgElements(self.$page);
+
 
 
     // Spaceship button
@@ -202,32 +212,48 @@ function loadSpaceScreen() {
 
 
     
-    // Stat group - will be loaded in via a function
+    // // Stat group - will be loaded in via a function
 
-    var list = List('statsGroup').appendTo(self.$page);
-
-    ListHead().appendTo(list).on('click', function(){
-        $(".stat-list").toggle();
+    hamburger().appendTo(self.$page).on('click', function () {
+        openNav();
+        refreshStats();
     });
 
-    var statsListContainer = hidingDiv('stat-list').appendTo(list);
+    window.hiddenNav = sideNav().appendTo(self.$page);
+    $("<div class='sideNavHeader'>Stats</div>").appendTo(hiddenNav);
+    close().appendTo(hiddenNav).on('click', function () {
+        closeNav();
+    });
 
-    loadStats(statsListContainer);
-
+    loadStats(hiddenNav);
  
     self.$container.append(self.$page);
-    
-    
+
+
+}
+
+// Update the side nav with the most recent stats
+function refreshStats () {
+
+    $('.food').html(stats.food);
+    $('.water').html(stats.water);
+    $('.fuel').html(stats.fuel);
+    $('.crew').html(stats.crew);
+    $('.credits').html(stats.credits);
+
+
 }
 
 
 // Load stats group
 function loadStats(container) {
-    listItem('food', 'food', stats.food).appendTo(container);
-    listItem('water', 'water', stats.water).appendTo(container);
-    listItem('fuel', 'fuel', stats.fuel).appendTo(container);
-    listItem('crew', 'crew', stats.crew).appendTo(container);
-    listItem('money', 'credits', stats.credits).appendTo(container);
+
+    sideNavStat('food', stats.food ).appendTo(container);
+    sideNavStat('water', stats.water).appendTo(container);
+    sideNavStat('fuel', stats.fuel ).appendTo(container);
+    sideNavStat('crew', stats.crew ).appendTo(container);
+    sideNavStat('credits', stats.credits ).appendTo(container);
+
 }
 
 // Upadate the stats to our statsgroup table
@@ -237,7 +263,6 @@ function updateStats(result, number) {
     console.log(result);
     switch(result) {
         case "food":
-
             stats.food += number;
             break;
         case "water":
@@ -277,7 +302,7 @@ function loadScenarioScreen() {
 
     self.$container = $('#scenarioScreen').show();
 
-    self.$page = $("<div class='scenario-Screen'></div>");
+    self.$page = $("<div class='scenario-Screen-page'></div>");
     
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
@@ -297,6 +322,7 @@ function loadScenarioScreen() {
         outputText(resourceUpdate, $('.resource-Update').show());
 
         updateStats(scenarioObj.resultsA_type, scenarioObj.resultsA_number);
+
         $('.back').prop('disabled', false);
     });
 
@@ -320,7 +346,8 @@ function loadScenarioScreen() {
 
     returnToShip('back', 'disabled').appendTo(self.$page).on('click', function () {
         $('#scenarioScreen').hide();
-        loadSpaceScreen();
+
+        $('#scenarioScreen').html(' ');
         $('#spaceScreen').show();
 
     });
@@ -451,7 +478,6 @@ function loadSpaceStationScreen() {
     // Back Button
     returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
         $('#spaceStationScreen').hide();
-        loadSpaceScreen();
         $('#spaceScreen').show();
 
     });

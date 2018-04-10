@@ -145,3 +145,63 @@ body  {
 *
 ***************************************
 */
+
+
+/*
+***************************************
+*
+* SIDENAV
+*
+***************************************
+*/
+
+
+
+.sideNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+
+}
+.sideNavHeader {
+    background: #80cbc4;
+    color: #fff;
+    font-size: 25px!important;
+}
+.stats {
+    padding: 8px 8px 8px 32px;
+    width: 100vw;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 20px!important;
+    color: #818181;
+    display: inline-block;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.dataVal {
+    display:inline-block;
+    left: 50px;
+    font-size: 20px!important;
+    color: #818181;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.close {
+    position: absolute;
+
+    right: 25px !important;
+    font-size: 36px;
+
+    float: right;
+
+}
