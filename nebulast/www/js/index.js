@@ -118,8 +118,9 @@ function loadMainMenu() {
     };
     window.loaded = false;
 }
+
 function bgElements(container) {
-    // stars().appendTo(container);
+    stars().appendTo(container);
     twinkles().appendTo(container);
     asteroid().appendTo(container);
 }
@@ -169,6 +170,7 @@ function loadSpaceScreen() {
     self.$container = $('#spaceScreen');
 
     self.$page = $("<div class='space-Screen'></div>");
+
     bgElements(self.$page);
 
 
