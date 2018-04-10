@@ -136,7 +136,7 @@ function bgElements(container) {
 // Looping function that randomizes the position of the asteroid.
 function refreshData(){
 
-    $(".asteroid").css("right", asteroidPosition)
+    $(".asteroid").css("right", asteroidPosition);
 
     x = 6; //seconds
 

@@ -132,7 +132,7 @@ window.twinkles = function() {
 };
 
 window.asteroid = function () {
-    var asteroid = $("<div class='asteroid'><img class='asteroid' src='img/Commet.gif'></div>");
+    var asteroid = $("<div class='asteroid'><img class='asteroid' src='img/Commet001.gif'></div>");
 
     return asteroid;
 };
