@@ -70,10 +70,26 @@ body  {
 
 .space-planet- {
     position: absolute !important;
+
+    z-index: 999;
+}
+
+.Jungle {
     right: 150px;
     float: right;
     top: 40%;
-    z-index: 999;
+}
+
+.desert {
+    right: 20px;
+    float: right;
+    top: 10%;
+}
+
+.unknown {
+    right: 200px;
+    float: right;
+    top: 60%;
 }
 
 .space-Blackhole {

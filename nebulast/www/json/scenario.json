@@ -1,6 +1,7 @@
 
 
 [{
+    "image": "img/scenario002.gif",
     "planetType": "Jungle",
     "dialogue": "You have just landed on ZIM 34 after receiving a destress call from a fellow pilot, who has crash landed somewhere on the dense jungle planet. The crew is ready to explore what should you do Captain? ",
     "options": {
@@ -22,44 +23,51 @@
     }
   },
   {
-    "dialogue": "A dingo stole my baby?",
+    "image": "img/scenario001.gif",
+    "planetType": "desert",
+    "dialogue": "Captain there is a strange energy reading coming from Palethe 8, a dry desert planet, my scanners are showing the planet may errupt at any moment, we could save some animals?",
     "options": {
-      "a": "Ask the locals about the missing pilot",
-      "b": "Head towards the smoke emiting from the jungle in the distance"
+      "a": "The majestic long haired mongoose could be saved",
+      "b": "or the short tempered pigmy dingo"
     },
     "results": {
-      "a": [ "You have consulted the locals and they have offered to take you through the jungle safely to the pilot, they are great hunters and you scored some grub, the captain is happy to see your crew and offers to join your crew",
-        3,
+      "a": [ "The mongoose rush onto the ship and steal some of your food, mongoose cannot be trusted, everyone knows that captain.",
+        -2,
         "food"
 
       ]
     ,
-      "b": [ "After a rough and hopeless journey, losing several crew members to the local fauna you made it to the wreckage of the missing captains ship",
-        -1,
+      "b": [ "You could only find one of the dingoes, as you gaze into his eyes, you hear a voice, 'Hello mortal, I am the spirit animal ka'la'alakfu, please take me away from iminent death' I guess he wants to join the crew!",
+        1,
         "crew member"
       ]
 
     }
   },
   {
-    "dialogue": "A dingo stole my baby?",
+    "image": "img/scenario003.gif",
+    "planetType": "unknown",
+    "dialogue": "Some bounty hunters have asked for you help on their mission to find and claim the bounty of one Dingo Jones, last seen on the planet Dengel Jar IV, Shall we land captain?",
     "options": {
-      "a": "Ask the locals about the missing pilot",
-      "b": "Head towards the smoke emiting from the jungle in the distance"
+      "a": "Visit the local dive bar to find leads, be careful, Dengel Jar IV is full of pirates",
+      "b": "The bounty Hunters know of a potential hideout, Lets storm the place!!!"
     },
     "results": {
-      "a": [ "You have consulted the locals and they have offered to take you through the jungle safely to the pilot, they are great hunters and you scored some grub, the captain is happy to see your crew and offers to join your crew",
+      "a": [ " ",
         3,
-        "food"
+        " "
 
       ]
     ,
-      "b": [ "After a rough and hopeless journey, losing several crew members to the local fauna you made it to the wreckage of the missing captains ship",
+      "b": [ " ",
         -1,
-        "crew member"
+        " "
       ]
 
     }
   }
+
+
+
 ]
 

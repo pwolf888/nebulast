@@ -70,10 +70,10 @@ window.spaceStation = function () {
     return spaceStation;
 };
 
-window.planet = function () {
+window.planet = function (image, planetName) {
 
 
-    var planet = $("<div class='space-planet-'modifier='outline' cancelable><img src='img/scenario001.gif'></div>");
+    var planet = $("<div class='space-planet-  "+planetName+"' cancelable><img src='"+image+"'></div>");
 
     return planet;
 

@@ -69,7 +69,8 @@ app.initialize();
 
 $(document).ready(function () {
     console.log("ready");
-
+    loadScenario();
+    loadShopData();
     loadMainMenu();
     
 });
@@ -166,8 +167,7 @@ function loadSpaceScreen() {
     // Make sure the Json is no read each time function is called
     if(!loaded) {
         // Preload Data
-        loadScenario();
-        loadShopData();
+
         loaded = true;
 
     }
@@ -196,7 +196,7 @@ function loadSpaceScreen() {
     });
     
     // On click the user will be asked if they want to start a scenario
-    planet().appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.image[0], scenarioObj.planet[0]).appendTo(self.$page).on('click', function() {
             ons.notification.confirm({message: 'This is planet Zim 34, would you like to travel there?'})
                 .then(function(index) {
              if( index > 0) {
@@ -208,6 +208,31 @@ function loadSpaceScreen() {
         });
                                 
     });
+    planet(scenarioObj.image[1], scenarioObj.planet[1]).appendTo(self.$page).on('click', function() {
+        ons.notification.confirm({message: 'This is planet Palethe 8, would you like to travel there?'})
+            .then(function(index) {
+                if( index > 0) {
+                    console.log(index);
+                    $('#spaceScreen').hide();
+                    loadScenarioScreen();
+
+                }
+            });
+
+    });
+    planet(scenarioObj.image[2], scenarioObj.planet[2]).appendTo(self.$page).on('click', function() {
+        ons.notification.confirm({message: 'This is planet Dengel Jar IV, would you like to travel there?'})
+            .then(function(index) {
+                if( index > 0) {
+                    console.log(index);
+                    $('#spaceScreen').hide();
+                    loadScenarioScreen();
+
+                }
+            });
+
+    });
+
     blackHole().appendTo(self.$page);
 
 
@@ -524,15 +549,17 @@ function loadScenario() {
 
     window.scenarioObj = {
 
-        dialogue: undefined,
-        optionA: undefined,
-        optionB: undefined,
-        resultsA_dialogue:undefined,
-        resultsA_number: undefined,
-        resultsA_type: undefined,
-        resultsB_dialogue:undefined,
-        resultsB_number: undefined,
-        resultsB_type: undefined
+        image: [undefined,undefined,undefined],
+        planet: [undefined,undefined,undefined],
+        dialogue: [undefined,undefined,undefined],
+        optionA: [undefined,undefined,undefined],
+        optionB: [undefined,undefined,undefined],
+        resultsA_dialogue:[undefined,undefined,undefined],
+        resultsA_number: [undefined,undefined,undefined],
+        resultsA_type: [undefined,undefined,undefined],
+        resultsB_dialogue:[undefined,undefined,undefined],
+        resultsB_number: [undefined,undefined,undefined],
+        resultsB_type: [undefined,undefined,undefined]
 
     };
 
@@ -541,16 +568,22 @@ function loadScenario() {
         $.getJSON('json/scenario.json').done(function (json) {
             // Use the closured dictionary so we can easily access later without array parsing
             console.log(json);
-            scenarioObj.dialogue = json[0].dialogue;
-            scenarioObj.optionA = json[0].options["a"];
-            scenarioObj.optionB = json[0].options["b"];
 
-            scenarioObj.resultsA_dialogue = json[0].results["a"][0];
-            scenarioObj.resultsA_number = json[0].results["a"][1];
-            scenarioObj.resultsA_type = json[0].results["a"][2];
-            scenarioObj.resultsB_dialogue = json[0].results["b"][0];
-            scenarioObj.resultsB_number = json[0].results["b"][1];
-            scenarioObj.resultsB_type = json[0].results["b"][2];
+            for(var i= 0; 0< json.length; i++) {
+                scenarioObj.image[i] = json[i].image;
+                scenarioObj.planet[i] = json[i].planetType;
+                scenarioObj.dialogue[i] = json[i].dialogue;
+                scenarioObj.optionA[i] = json[i].options["a"];
+                scenarioObj.optionB[i] = json[i].options["b"];
+
+                scenarioObj.resultsA_dialogue[i] = json[i].results["a"][0];
+                scenarioObj.resultsA_number[i] = json[i].results["a"][1];
+                scenarioObj.resultsA_type[i] = json[i].results["a"][2];
+                scenarioObj.resultsB_dialogue[i] = json[i].results["b"][0];
+                scenarioObj.resultsB_number[i] = json[i].results["b"][1];
+                scenarioObj.resultsB_type[i] = json[i].results["b"][2];
+            }
+
 
 
             resolve();
