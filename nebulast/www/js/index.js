@@ -90,14 +90,14 @@ function loadMainMenu() {
    
    refreshData();
 
-    $('.page__background').css('background-color', '#000 !important');
+    $('body').css('background-color', '#000 !important');
 
     var self = this;
 
     self.$container = $('#mainMenu');
 
 
-    self.$page = $("<ons-page class='mainMenu'></ons-page>");
+    self.$page = $("<div class='mainMenu'></div>");
     bgElements(self.$page);
     // Start Button
     spaceship().appendTo(self.$page).on('click', function () {
@@ -150,23 +150,6 @@ function refreshData(){
 * Interact with your spaceship, planets and spacestation and a blackhole
 *
 ***************************************
-
-<ons-page class="spaceScreen">
-    
-    <ons-button class="spaceShip">Space ship</ons-button>
-    <ons-button class="spaceStation">Space station</ons-button>
-    <ons-button class="planet_">Planet</ons-button>
-    <ons-button class="blackHole">Black hole</ons-button>
-    <div class="statsGroup">
-        <div class='food'>Food: 3</div>
-        <div class='water'>Water: 4</div>
-        <div class='fuel'>Fuel: 10</div>
-        <div class='crew'>Crew: 4</div>
-        <div class='credits'>Credits: 5432 </div>
-    </div>
-            
-</ons-page>
-
 */
 
 function loadSpaceScreen() {
@@ -179,14 +162,13 @@ function loadSpaceScreen() {
         loaded = true;
 
     }
-    // Change background
-    $('.page__background').css('background-image', 'BG001.jpg');
+
     
     var self = this;
     
     self.$container = $('#spaceScreen');
 
-    self.$page = $("<ons-page class='space-Screen'></ons-page>");
+    self.$page = $("<div class='space-Screen'></div>");
     bgElements(self.$page);
 
 
@@ -293,7 +275,7 @@ function loadScenarioScreen() {
 
     self.$container = $('#scenarioScreen').show();
 
-    self.$page = $("<ons-page class='scenario-Screen'></ons-page>");
+    self.$page = $("<div class='scenario-Screen'></div>");
     
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
@@ -409,7 +391,7 @@ function loadSpaceStationScreen() {
 
     self.$container = $('#spaceStationScreen').show();
 
-    self.$page = $("<ons-page class='spaceStation-Screen'></ons-page>");
+    self.$page = $("<div class='spaceStation-Screen'></div>");
     stars().appendTo(self.$page);
     // Row 1 - BUY SELL
     var table = card('spaceStation').appendTo(self.$page);
@@ -500,7 +482,7 @@ function loadSpaceShipScreen() {
 
     self.$container = $('#spaceShipScreen').show();
 
-    self.$page = $("<ons-page class='spaceShip-Screen'></ons-page>");
+    self.$page = $("<div class='spaceShip-Screen'></div>");
     stars().appendTo(self.$page);
     self.$container.append(self.$page);
 
