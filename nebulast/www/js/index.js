@@ -126,6 +126,7 @@ function loadMainMenu() {
 
     };
     window.loaded = false;
+    window.number = 0;
 }
 
 function bgElements(container) {
@@ -194,18 +195,28 @@ function loadSpaceScreen() {
         $('#spaceScreen').hide();
         loadSpaceStationScreen();
     });
-    
+
+    var notifiy = notify().appendTo(self.$page);
+
+
+    uiButton('cancel', 'Cancel').appendTo(notifiy).on('click', function () {
+        $(".uiLabel").html(' ');
+        notifiy.hide();
+    });
+
+    uiButton('ok', 'Ok').appendTo(notifiy).appendTo(notifiy).on('click', function () {
+
+        $('#spaceScreen').hide();
+        loadScenarioScreen();
+    });
+
     // On click the user will be asked if they want to start a scenario
     planet(scenarioObj.image[0], scenarioObj.planet[0]).appendTo(self.$page).on('click', function() {
-            ons.notification.confirm({message: 'This is planet Zim 34, would you like to travel there?'})
-                .then(function(index) {
-             if( index > 0) {
-                 console.log(index);
-                 $('#spaceScreen').hide();
-                 loadScenarioScreen();
 
-             }
-        });
+        $(".notify").show();
+        uiLabel("This is planet Zim 34, would you like to travel there?").appendTo(notifiy);
+        number = 0;
+
                                 
     });
     planet(scenarioObj.image[1], scenarioObj.planet[1]).appendTo(self.$page).on('click', function() {
@@ -342,11 +353,11 @@ function loadScenarioScreen() {
         $('.option-A-card').hide();
         $('.option-B-card').hide();
 
-        var resourceUpdate = "You have gained " + scenarioObj.resultsA_number + " " + scenarioObj.resultsA_type + ".";
+        var resourceUpdate = "You have gained " + scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
         outputText(scenarioObj.resultsA_dialogue, $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
-        updateStats(scenarioObj.resultsA_type, scenarioObj.resultsA_number);
+        updateStats(scenarioObj.resultsA_type[number], scenarioObj.resultsA_number[number]);
 
         $('.back').prop('disabled', false);
     });
@@ -358,12 +369,12 @@ function loadScenarioScreen() {
 
 
 
-        var resourceUpdate = "You have lost " + scenarioObj.resultsB_number + " " + scenarioObj.resultsB_type + ".";
+        var resourceUpdate = "You have lost " + scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
 
         outputText(scenarioObj.resultsB_dialogue, $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
-        updateStats(scenarioObj.resultsB_type, scenarioObj.resultsB_number);
+        updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
 
         $('.back').prop('disabled', false);
 

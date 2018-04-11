@@ -137,6 +137,20 @@ window.asteroid = function () {
     return asteroid;
 };
 
+window.notify = function () {
+
+    var notify = $("<div class='notify' hidden></div>");
+
+    return notify;
+};
+
+
+window.uiLabel = function (text) {
+
+    var uiLabel = $("<label class='uiLabel'>"+text+"</label>");
+
+    return uiLabel
+};
 /***************************************
 *
 * Scenario elementClass
