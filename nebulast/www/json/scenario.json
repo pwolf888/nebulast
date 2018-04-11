@@ -1,8 +1,8 @@
 
 
 [{
-    "image": "img/scenario002.gif",
-    "planetType": "Jungle",
+    "pImage": "img/scenario002.gif",
+    "planetStyle": "Jungle",
     "dialogue": "You have just landed on ZIM 34 after receiving a destress call from a fellow pilot, who has crash landed somewhere on the dense jungle planet. The crew is ready to explore what should you do Captain? ",
     "options": {
       "a": "Ask the locals about the missing pilot",
@@ -23,8 +23,8 @@
     }
   },
   {
-    "image": "img/scenario001.gif",
-    "planetType": "desert",
+    "pImage": "img/scenario001.gif",
+    "planetStyle": "desert",
     "dialogue": "Captain there is a strange energy reading coming from Palethe 8, a dry desert planet, my scanners are showing the planet may errupt at any moment, we could save some animals?",
     "options": {
       "a": "The majestic long haired mongoose could be saved",
@@ -45,8 +45,8 @@
     }
   },
   {
-    "image": "img/scenario003.gif",
-    "planetType": "unknown",
+    "pImage": "img/scenario003.gif",
+    "planetStyle": "unknown",
     "dialogue": "Some bounty hunters have asked for you help on their mission to find and claim the bounty of one Dingo Jones, last seen on the planet Dengel Jar IV, Shall we land captain?",
     "options": {
       "a": "Visit the local dive bar to find leads, be careful, Dengel Jar IV is full of pirates",
@@ -55,13 +55,13 @@
     "results": {
       "a": [ " ",
         3,
-        " "
+        "water"
 
       ]
     ,
       "b": [ " ",
         -1,
-        " "
+        "fuel"
       ]
 
     }

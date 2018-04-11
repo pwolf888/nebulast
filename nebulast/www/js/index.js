@@ -127,6 +127,8 @@ function loadMainMenu() {
     };
     window.loaded = false;
     window.number = 0;
+
+    console.log(scenarioObj);
 }
 
 function bgElements(container) {
@@ -205,43 +207,54 @@ function loadSpaceScreen() {
     });
 
     uiButton('ok', 'Ok').appendTo(notifiy).appendTo(notifiy).on('click', function () {
-
+        notifiy.hide();
+        $(".uiLabel").html(' ');
         $('#spaceScreen').hide();
         loadScenarioScreen();
     });
 
     // On click the user will be asked if they want to start a scenario
-    planet(scenarioObj.image[0], scenarioObj.planet[0]).appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.pImage[0], scenarioObj.planet[0]).appendTo(self.$page).on('click', function() {
 
+        $('label.uiLabel').html(' ');
         $(".notify").show();
         uiLabel("This is planet Zim 34, would you like to travel there?").appendTo(notifiy);
         number = 0;
-
+        console.log(number);
                                 
     });
-    planet(scenarioObj.image[1], scenarioObj.planet[1]).appendTo(self.$page).on('click', function() {
-        ons.notification.confirm({message: 'This is planet Palethe 8, would you like to travel there?'})
-            .then(function(index) {
-                if( index > 0) {
-                    console.log(index);
-                    $('#spaceScreen').hide();
-                    loadScenarioScreen();
+    planet(scenarioObj.pImage[1], scenarioObj.planet[1]).appendTo(self.$page).on('click', function() {
+        // ons.notification.confirm({message: 'This is planet Palethe 8, would you like to travel there?'})
+        //     .then(function(index) {
+        //         if( index > 0) {
+        //             console.log(index);
+        //             $('#spaceScreen').hide();
+        //             loadScenarioScreen();
+        //
+        //         }
+        //     });
 
-                }
-            });
+        $('label.uiLabel').html(' ');
+        $(".notify").show();
+        uiLabel('This is planet Palethe 8, would you like to travel there?').appendTo(notifiy);
+        number = 1;
 
     });
-    planet(scenarioObj.image[2], scenarioObj.planet[2]).appendTo(self.$page).on('click', function() {
-        ons.notification.confirm({message: 'This is planet Dengel Jar IV, would you like to travel there?'})
-            .then(function(index) {
-                if( index > 0) {
-                    console.log(index);
-                    $('#spaceScreen').hide();
-                    loadScenarioScreen();
+    planet(scenarioObj.pImage[2], scenarioObj.planet[2]).appendTo(self.$page).on('click', function() {
+        // ons.notification.confirm({message: 'This is planet Dengel Jar IV, would you like to travel there?'})
+        //     .then(function(index) {
+        //         if( index > 0) {
+        //             console.log(index);
+        //             $('#spaceScreen').hide();
+        //             loadScenarioScreen();
+        //
+        //         }
+        //     });
 
-                }
-            });
-
+        $('label.uiLabel').html(' ');
+        $(".notify").show();
+        uiLabel('This is planet Dengel Jar IV, would you like to travel there?').appendTo(notifiy);
+        number = 2;
     });
 
     blackHole().appendTo(self.$page);
@@ -390,14 +403,13 @@ function loadScenarioScreen() {
 
     self.$container.append(self.$page);
 
-    outputText(scenarioObj.dialogue, $('.dialogue'));
+    outputText(scenarioObj.dialogue[number], $('.dialogue'));
 
-    outputText(scenarioObj.optionA, $('.option-A'));
+    outputText(scenarioObj.optionA[number], $('.option-A'));
 
-    outputText(scenarioObj.optionB, $('.option-B'));
+    outputText(scenarioObj.optionB[number], $('.option-B'));
 
 
-    console.log(scenarioObj.resultsA_dialogue);
 
 }
 
@@ -560,7 +572,7 @@ function loadScenario() {
 
     window.scenarioObj = {
 
-        image: [undefined,undefined,undefined],
+        pImage: [undefined,undefined,undefined],
         planet: [undefined,undefined,undefined],
         dialogue: [undefined,undefined,undefined],
         optionA: [undefined,undefined,undefined],
@@ -580,9 +592,11 @@ function loadScenario() {
             // Use the closured dictionary so we can easily access later without array parsing
             console.log(json);
 
-            for(var i= 0; 0< json.length; i++) {
-                scenarioObj.image[i] = json[i].image;
-                scenarioObj.planet[i] = json[i].planetType;
+
+
+            for(var i= 0; 0 < json.length; i++) {
+                scenarioObj.pImage[i] = json[i].pImage;
+                scenarioObj.planet[i] = json[i].planetStyle;
                 scenarioObj.dialogue[i] = json[i].dialogue;
                 scenarioObj.optionA[i] = json[i].options["a"];
                 scenarioObj.optionB[i] = json[i].options["b"];
@@ -596,11 +610,12 @@ function loadScenario() {
             }
 
 
-
+            console.log("yo:"+ scenarioObj);
             resolve();
             // console.log("Output: " + scenarioObj.resultsA_dialogue);
         }).fail(function (json) {
             // If any dictionaries fail to load, the application has failedy
+            console.log(json);
             reject();
         });
     });
