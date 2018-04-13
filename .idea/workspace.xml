@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8cc9880-fb14-4061-b06c-e2966a558098" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/nebulast/www/js/index.js" afterPath="$PROJECT_DIR$/nebulast/www/js/index.js" />
-      <change beforePath="$PROJECT_DIR$/nebulast/www/json/scenario.json" afterPath="$PROJECT_DIR$/nebulast/www/json/scenario.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,20 +41,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2359">
-              <caret line="209" column="23" lean-forward="false" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="-3223">
+              <caret line="419" column="22" lean-forward="false" selection-start-line="419" selection-start-column="22" selection-end-line="419" selection-end-column="22" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nebulast/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
+            <state relative-caret-position="-562">
               <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
               <folding />
             </state>
@@ -148,8 +148,8 @@
         <option value="$PROJECT_DIR$/nebulast/www/index.html" />
         <option value="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" />
         <option value="$PROJECT_DIR$/nebulast/www/css/index.css" />
-        <option value="$PROJECT_DIR$/nebulast/www/js/index.js" />
         <option value="$PROJECT_DIR$/nebulast/www/json/scenario.json" />
+        <option value="$PROJECT_DIR$/nebulast/www/js/index.js" />
       </list>
     </option>
   </component>
@@ -278,7 +278,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92929000" />
+    <option name="totallyTimeSpent" value="93885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1260" height="691" extended-state="0" />
@@ -337,7 +337,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -345,7 +347,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1815">
           <caret line="150" column="65" lean-forward="false" selection-start-line="150" selection-start-column="65" selection-end-line="150" selection-end-column="65" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -400,7 +404,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3960">
           <caret line="264" column="47" lean-forward="false" selection-start-line="264" selection-start-column="47" selection-end-line="264" selection-end-column="47" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -431,7 +437,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2730">
           <caret line="182" column="52" lean-forward="true" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -477,7 +485,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
           <caret line="361" column="12" lean-forward="false" selection-start-line="361" selection-start-column="12" selection-end-line="361" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -517,7 +527,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1815">
           <caret line="150" column="65" lean-forward="false" selection-start-line="150" selection-start-column="65" selection-end-line="150" selection-end-column="65" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -572,7 +584,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3960">
           <caret line="264" column="47" lean-forward="false" selection-start-line="264" selection-start-column="47" selection-end-line="264" selection-end-column="47" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -603,7 +617,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2730">
           <caret line="182" column="52" lean-forward="true" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -747,14 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2359">
-          <caret line="209" column="23" lean-forward="false" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nebulast/www/json/scenario.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
@@ -765,9 +773,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nebulast/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
+        <state relative-caret-position="-562">
           <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3223">
+          <caret line="419" column="22" lean-forward="false" selection-start-line="419" selection-start-column="22" selection-end-line="419" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

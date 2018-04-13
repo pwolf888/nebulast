@@ -31,7 +31,7 @@
 
 
 
-
+// Cordova stuff Do not touch *************
 
 var app = {
     // Application Constructor
@@ -63,10 +63,12 @@ var app = {
 app.initialize();
 
 
+//*****************************
 
 
 
 
+// Start project - loads the data from json and the main menu
 $(document).ready(function () {
     console.log("ready");
     loadScenario();
@@ -84,30 +86,34 @@ $(document).ready(function () {
 ***************************************
 */
 
+// Side nav open
 function openNav() {
     $(".sideNav").css( "width", "50vw");
 }
 
+// side nav close
 function closeNav() {
     $(".sideNav").css('width', "0px");
 }
 
+// Load the main menu
 function loadMainMenu() {
 
+    // Asteroid function - perhaps rename function - makes no sense..
+    refreshData();
 
-
-   
-   refreshData();
-
+    // Background set to black
     $('body').css('background-color', '#000 !important');
 
     var self = this;
 
+    // Container of the menu items
     self.$container = $('#mainMenu');
 
-
+    // page that holds all of the content
     self.$page = $("<div class='mainMenu'></div>");
     bgElements('body');
+
     // Start Button
     spaceship().appendTo(self.$page).on('click', function () {
         $('#mainMenu').hide();
@@ -115,8 +121,10 @@ function loadMainMenu() {
 
     });
 
+    // Append everything to the page
     self.$container.append(self.$page);
 
+    // Initialise the starting stats
     window.stats = {
         food: 5,
         water: 5,
@@ -125,12 +133,15 @@ function loadMainMenu() {
         credits: 200
 
     };
+
+    // Other global variabls
     window.loaded = false;
     window.number = 0;
 
     console.log(scenarioObj);
 }
 
+// Adds the asteroid, stars and twinkly stars
 function bgElements(container) {
     stars().appendTo(container);
     twinkles().appendTo(container);
@@ -165,42 +176,43 @@ function refreshData(){
 ***************************************
 */
 
+// Load the space screen
 function loadSpaceScreen() {
 
     // Make sure the Json is no read each time function is called
-    if(!loaded) {
-        // Preload Data
-
-        loaded = true;
-
-    }
+    // if(!loaded) {
+    //     // Preload Data
+    //
+    //     loaded = true;
+    //
+    // }
 
 
     
     var self = this;
-    
+
+    // Container tha holds all of the spacescreen elements
     self.$container = $('#spaceScreen');
 
+    // Page that holds all the space screen elements
     self.$page = $("<div class='space-Screen'></div>");
-
-    // bgElements(self.$page);
-
-
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
         loadSpaceShipScreen();
     });
+
     // Space station
     spaceStation().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
         loadSpaceStationScreen();
     });
 
+    // Create a hidden notification button
     var notifiy = notify().appendTo(self.$page);
 
-
+    // Append a cancel and an OK but to the notification area
     uiButton('cancel', 'Cancel').appendTo(notifiy).on('click', function () {
         $(".uiLabel").html(' ');
         notifiy.hide();
@@ -216,23 +228,18 @@ function loadSpaceScreen() {
     // On click the user will be asked if they want to start a scenario
     planet(scenarioObj.pImage[0], scenarioObj.planet[0]).appendTo(self.$page).on('click', function() {
 
+        // Remove any content inside notify label
         $('label.uiLabel').html(' ');
+        // Show the notification
         $(".notify").show();
+        // Create the label with content
         uiLabel("This is planet Zim 34, would you like to travel there?").appendTo(notifiy);
+        // Specify the correct number to read from the scenarioObj object
         number = 0;
         console.log(number);
                                 
     });
     planet(scenarioObj.pImage[1], scenarioObj.planet[1]).appendTo(self.$page).on('click', function() {
-        // ons.notification.confirm({message: 'This is planet Palethe 8, would you like to travel there?'})
-        //     .then(function(index) {
-        //         if( index > 0) {
-        //             console.log(index);
-        //             $('#spaceScreen').hide();
-        //             loadScenarioScreen();
-        //
-        //         }
-        //     });
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
@@ -241,15 +248,6 @@ function loadSpaceScreen() {
 
     });
     planet(scenarioObj.pImage[2], scenarioObj.planet[2]).appendTo(self.$page).on('click', function() {
-        // ons.notification.confirm({message: 'This is planet Dengel Jar IV, would you like to travel there?'})
-        //     .then(function(index) {
-        //         if( index > 0) {
-        //             console.log(index);
-        //             $('#spaceScreen').hide();
-        //             loadScenarioScreen();
-        //
-        //         }
-        //     });
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
@@ -257,25 +255,31 @@ function loadSpaceScreen() {
         number = 2;
     });
 
+    // Black hole button
     blackHole().appendTo(self.$page);
 
 
     
-    // // Stat group - will be loaded in via a function
+    // Stat group - will be loaded in via a function
 
     hamburger().appendTo(self.$page).on('click', function () {
         openNav();
+        // Refreshes the statistics and updates the table
         refreshStats();
     });
 
+    // Add the side nav to the screen
     window.hiddenNav = sideNav().appendTo(self.$page);
+    // Add the header title to the sidenav
     $("<div class='sideNavHeader'>Stats</div>").appendTo(hiddenNav);
     close().appendTo(hiddenNav).on('click', function () {
         closeNav();
     });
 
+    // Add the stats to the side nav
     loadStats(hiddenNav);
- 
+
+    // Append all elements to container
     self.$container.append(self.$page);
 
 
@@ -305,7 +309,7 @@ function loadStats(container) {
 
 }
 
-// Upadate the stats to our statsgroup table
+// Update the stats to the resource atainned or lost in the scenario
 function updateStats(result, number) {
 
     var result = result;
@@ -345,6 +349,7 @@ function updateStats(result, number) {
 *
 ***************************************
 */
+
 function loadScenarioScreen() {
 
     var self = this;
@@ -352,35 +357,42 @@ function loadScenarioScreen() {
     self.$container = $('#scenarioScreen').show();
 
     self.$page = $("<div class='scenario-Screen-page'></div>");
-    
+
+    // First row of the content that holds the dialogue and the portait
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
+    // Portrait
     portraitCol().appendTo(dialogueRow);
 
+    // Dialogue
     dialogueBox().appendTo(dialogueRow);
 
+    // Options row holds the options
     var optionsRow = uiRow('scenario-OptionsRow').appendTo(self.$page);
 
+    // Option A
     optionButton('option-A').appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
         $('.option-A-card').hide();
         $('.option-B-card').hide();
 
+        // Output the results of the scenario
         var resourceUpdate = "You have gained " + scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
         outputText(scenarioObj.resultsA_dialogue, $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
+        // Update the stats earned or lost
         updateStats(scenarioObj.resultsA_type[number], scenarioObj.resultsA_number[number]);
 
+        // Back button disabled
         $('.back').prop('disabled', false);
     });
 
+    // Option B
     optionButton('option-B').appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
         $('.option-A-card').hide();
         $('.option-B-card').hide();
-
-
 
         var resourceUpdate = "You have lost " + scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
 
@@ -393,6 +405,7 @@ function loadScenarioScreen() {
 
     });
 
+    // Add the back button to the screen
     returnToShip('back', 'disabled').appendTo(self.$page).on('click', function () {
         $('#scenarioScreen').hide();
 
@@ -401,8 +414,10 @@ function loadScenarioScreen() {
 
     });
 
+    // Append all elements to the container
     self.$container.append(self.$page);
 
+    // Output text one char at a time
     outputText(scenarioObj.dialogue[number], $('.dialogue'));
 
     outputText(scenarioObj.optionA[number], $('.option-A'));
