@@ -545,11 +545,14 @@ function loadSpaceStationScreen() {
 
     });
 
+    // Add all elements to page
     self.$container.append(self.$page);
 
 
 }
 
+
+// Update the credits when buying or selling resources
 function creditUpdate(dataType, price, qty) {
 
     stats.credits += price;
@@ -585,6 +588,7 @@ function loadSpaceShipScreen() {
 // Test function to load a dummy scenario
 function loadScenario() {
 
+    // Object to hold 3 scenarios at a time
     window.scenarioObj = {
 
         pImage: [undefined,undefined,undefined],
@@ -601,14 +605,17 @@ function loadScenario() {
 
     };
 
+    // Promise to load scenario.json file
     var scenario = new Promise(function (resolve, reject) {
-        // Fetch the nouns
+
+        // Fetch the scenarios
         $.getJSON('json/scenario.json').done(function (json) {
+
             // Use the closured dictionary so we can easily access later without array parsing
             console.log(json);
 
 
-
+            // iterate through all items in json and assign them to the scenarioObj
             for(var i= 0; 0 < json.length; i++) {
                 scenarioObj.pImage[i] = json[i].pImage;
                 scenarioObj.planet[i] = json[i].planetStyle;
@@ -638,7 +645,7 @@ function loadScenario() {
 
 }
 
-// Test function to load a dummy scenario
+// Load the shop data
 function loadShopData() {
 
     window.shopObj = {
@@ -653,7 +660,7 @@ function loadShopData() {
     };
 
     var shop = new Promise(function (resolve, reject) {
-        // Fetch the nouns
+        // Fetch the shopdata
         $.getJSON('json/shop.json').done(function (json) {
             // Use the closured dictionary so we can easily access later without array parsing
             console.log(json);
