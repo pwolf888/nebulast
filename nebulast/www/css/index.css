@@ -132,14 +132,23 @@ body  {
 *
 ***************************************
  */
-.scenario-Portrait-card .ons-icon{
-    font-size: 30px !important;
+
+.scenario-Portrait-card, .dialogueRow, .scenario-OptionsRow-card, .results, -card {
+
+    border-radius: 25px;
+    padding: 5px;
 
 }
 
+.scenario-Portrait-card {
+
+    width: 20vw;
+}
+.dialogueRow {
+    width: 60vw;
+}
 .name {
-    position: absolute;
-    top: 2px;
+
     font-weight: 800;
 }
 

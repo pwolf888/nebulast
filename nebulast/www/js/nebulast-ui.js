@@ -160,21 +160,26 @@ window.uiLabel = function (text) {
 
 
 window.portraitCol = function() {
-    var portraitCol = $("<div ></div>");
+    var portraitCol = $("<div class='dialogueRow' ></div>");
     var portraitCard = card('scenario-Portrait').appendTo(portraitCol);
-    $("<ons-icon size='30px' icon='md-face'>").appendTo(portraitCard);
+    $("<img src='img/diamondAi.png' class='portrait-image'>").appendTo(portraitCard);
 
-    return portraitCol;
-};
-
-window.dialogueBox = function () {
-    var dialogueBox = $("<div style='background-color: #fff;'></div>");
+    var dialogueBox = $("<div class='dialogueRow' style='background-color: #fff;'></div>").appendTo(portraitCol);
     var dialogueCard = $("<div class='dialogue-box'></div>").appendTo(dialogueBox);
 
     $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
 
-    return dialogueBox;
+    return portraitCol;
 };
+
+// window.dialogueBox = function () {
+//     var dialogueBox = $("<div class='dialogueRow' style='background-color: #fff;'></div>");
+//     var dialogueCard = $("<div class='dialogue-box'></div>").appendTo(dialogueBox);
+//
+//     $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
+//
+//     return dialogueBox;
+// };
 
 window.optionButton = function(elementClass) {
 

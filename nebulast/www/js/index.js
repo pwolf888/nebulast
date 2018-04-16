@@ -361,11 +361,11 @@ function loadScenarioScreen() {
     // First row of the content that holds the dialogue and the portait
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
-    // Portrait
+    // Portrait and dialogue
     portraitCol().appendTo(dialogueRow);
 
     // Dialogue
-    dialogueBox().appendTo(dialogueRow);
+    // dialogueBox().appendTo(dialogueRow);
 
     // Options row holds the options
     var optionsRow = uiRow('scenario-OptionsRow').appendTo(self.$page);
