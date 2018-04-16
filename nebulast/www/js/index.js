@@ -484,7 +484,13 @@ function loadSpaceStationScreen() {
     self.$container = $('#spaceStationScreen').show();
 
     self.$page = $("<div class='spaceStation-Screen'></div>");
+
+
+
     stars().appendTo(self.$page);
+    spaceStationBG().appendTo(self.$page);
+
+
     // Row 1 - BUY SELL
     var table = card('spaceStation').appendTo(self.$page);
     var row = uiRow('spaceStation').appendTo(table);
@@ -504,7 +510,8 @@ function loadSpaceStationScreen() {
     // Minus resource button
     uiButton('spaceStation', '-').appendTo(foodRow).on('click', function () {
         creditUpdate(shopObj.dataTypeA, shopObj.sellPriceA, -1);
-        loadSpaceStationScreen();
+        //loadSpaceStationScreen();
+        updateStats();
     });
 
     paragraph('spaceStation', stats.food).appendTo(foodRow);
@@ -517,7 +524,8 @@ function loadSpaceStationScreen() {
     // Add resource button
     uiButton('spaceStation', '+').appendTo(foodRow).on('click', function () {
         creditUpdate(shopObj.dataTypeA, -shopObj.buyPriceA, 1);
-        loadSpaceStationScreen();
+        //loadSpaceStationScreen();
+        updateStats();
 
     });
 
@@ -528,14 +536,14 @@ function loadSpaceStationScreen() {
     // Minus resource button
     uiButton('spaceStation', '-').appendTo(waterRow).on('click', function () {
         creditUpdate(shopObj.dataTypeB, shopObj.sellPriceB, -1);
-        loadSpaceStationScreen();
+        updateStats();
     });
     paragraph('spaceStation', stats.water).appendTo(waterRow);
 
     // Add resource button
     uiButton('spaceStation', '+').appendTo(waterRow).on('click', function () {
         creditUpdate(shopObj.dataTypeB, -shopObj.buyPriceB, 1);
-        loadSpaceStationScreen();
+        updateStats();
     });
 
     // Back Button

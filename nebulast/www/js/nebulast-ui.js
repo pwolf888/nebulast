@@ -233,7 +233,14 @@ window.uiButton = function (elementClass, content) {
     return uiButton;
 };
 
+window.spaceStationBG = function () {
 
+    var bg = $("<div class='spaceStation_background'><img class='spaceStation_background' src='img/SSbackground2.gif'></div>");
+
+    return bg;
+
+
+};
 
 /***************************************
 *
