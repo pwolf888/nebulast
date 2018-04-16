@@ -11,8 +11,44 @@
  UI Framework
  * *************************/
 
+/***************************************
+ *
+ * STATS NAV
+ * Interact with your spaceship, planets and spacestation and a blackhole
+ *
+ ***************************************/
+
+window.sideNav = function () {
+
+    var sideNav = $("<div class='sideNav'></div>");
 
 
+
+    return sideNav;
+
+
+};
+
+window.sideNavStat = function (type, data) {
+    var stat = $("<div class='stats' >"+type+"  ----  <div class='"+type+" dataVal'> "+data+"</div></div><br>");
+    return stat;
+};
+
+window.hamburger = function () {
+
+    var hamburger = $("<div class='hamburger' style=\"font-size:30px!important;cursor:pointer\">&#9776;</div>");
+
+    return hamburger;
+
+};
+
+window.close = function () {
+
+    var close = $("<div class='close' style='font-size:30px!important;cursor:pointer'>&times;</div>");
+
+    return close;
+
+};
 /***************************************
 *
 * Space elementClass
@@ -34,10 +70,10 @@ window.spaceStation = function () {
     return spaceStation;
 };
 
-window.planet = function () {
+window.planet = function (image, planetName) {
 
 
-    var planet = $("<div class='space-planet-'modifier='outline' cancelable><img src='img/scenario001.gif'></div>");
+    var planet = $("<div class='space-planet-  "+planetName+"' cancelable><img src='"+image+"'></div>");
 
     return planet;
 
@@ -96,11 +132,25 @@ window.twinkles = function() {
 };
 
 window.asteroid = function () {
-    var asteroid = $("<div class='asteroid'><img class='asteroid' src='img/Commet.gif'></div>");
+    var asteroid = $("<div class='asteroid'><img class='asteroid' src='img/Commet001.gif'></div>");
 
     return asteroid;
 };
 
+window.notify = function () {
+
+    var notify = $("<div class='notify' hidden></div>");
+
+    return notify;
+};
+
+
+window.uiLabel = function (text) {
+
+    var uiLabel = $("<label class='uiLabel'>"+text+"</label>");
+
+    return uiLabel
+};
 /***************************************
 *
 * Scenario elementClass
@@ -110,21 +160,26 @@ window.asteroid = function () {
 
 
 window.portraitCol = function() {
-    var portraitCol = $("<div ></div>");
+    var portraitCol = $("<div class='dialogueRow' ></div>");
     var portraitCard = card('scenario-Portrait').appendTo(portraitCol);
-    $("<ons-icon size='30px' icon='md-face'>").appendTo(portraitCard);
+    $("<img src='img/diamondAi.png' class='portrait-image'>").appendTo(portraitCard);
 
-    return portraitCol;
-};
-
-window.dialogueBox = function () {
-    var dialogueBox = $("<div style='background-color: #fff;'></div>");
+    var dialogueBox = $("<div class='dialogueRow' style='background-color: #fff;'></div>").appendTo(portraitCol);
     var dialogueCard = $("<div class='dialogue-box'></div>").appendTo(dialogueBox);
 
     $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
 
-    return dialogueBox;
+    return portraitCol;
 };
+
+// window.dialogueBox = function () {
+//     var dialogueBox = $("<div class='dialogueRow' style='background-color: #fff;'></div>");
+//     var dialogueCard = $("<div class='dialogue-box'></div>").appendTo(dialogueBox);
+//
+//     $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
+//
+//     return dialogueBox;
+// };
 
 window.optionButton = function(elementClass) {
 

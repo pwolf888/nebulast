@@ -60,6 +60,11 @@ Date:3/4/18
 *Data now loads in on game start, balancing will be needed later [Jonathan Turnbull]
 *Stats now update to the stats object from the scenario, basic level 1 works [Jonathan Turnbull]
 
+Date:5/4/18
+------------------------------------
+*Added assets for blackhole and first scenario [Joshua Pujol]
+*Added in the background for the first screen and made it responsive [Joshua Pujol]
+*Improved file size of background while keeping quality. [Joshua Pujol]
 
 Date: 7/4/18
 ------------------------------------
@@ -71,4 +76,53 @@ Date: 8/4/18
 *Added shop.json file [Jonathan Turnbull]
 *Data is now read in from shop.json [Jonathan Turnbull]
 *Shop is now functional[Jonathan Turnbull]
+*Added in commet asset and animated its movement [Joshua Pujol]
+*Created function for random start point for commet [Joshua Pujol]
+*Added in and placed several star gifs [Joshua Pujol]
+*Adapted css to create pixel dust paralax effect [Joshua Pujol]
+*Adjusted z index of planets for future [Joshua Pujol]
+*Tested alternative gifs created for blackhole [Joshua Pujol]
+*Adjusted css animation on commet to compensate for natural lag [Joshua Pujol]
+*Created and added screen for when you enter space station [Joshua Pujol]
 
+
+Date:9/4/18
+------------------------------------
+*Added space to top and changed css in order to improve responsiveness on all devices for space station [Joshua Pujol]
+*Adjusted function position in code [Joshua Pujol]
+*Attempted to recreate paralax effect manually with css and photoshop [Joshua Pujol]
+*Scrapped changes and reverted to old method of paralax dust [Joshua Pujol]
+*fixed stars z-index issue [Jonathan Turnbull]
+*fixed bug for Chrome [Jonathan Turnbull]
+*Refactored nebulast.ui to remove onsen as it was getting difficult to customise [Jonathan Turnbull]
+
+Date:10/4/18
+------------------------------------
+*Added in more assets created in photoshop [Joshua Pujol]
+*Added two more scenarios [Joshua Pujol]
+*Added a new background for second system screen [Joshua Pujol]
+*Ajusted color of commet to match second system screen [Joshua Pujol]
+*Onsen ui is gone [Jonathan Turnbull]
+*Fixed issue with stars not showing up on screen [Jonathan Turnbull]
+*Added a sidenav hamburger menu to display the stats[Jonathan Turnbull]
+*Fixed asteroid issue [Jonathan Turnbull]
+
+Date:11/4/18
+------------------------------------
+*There are now 3 planets and 3 different scenarios [Jonathan Turnbull]
+*Created a new notification element [Jonathan Turnbull]
+
+
+Date:13/4/18
+------------------------------------
+*Added comments to index.js [Jonathan Turnbull]
+
+
+
+Date:14/4/18
+------------------------------------
+*Index.js now fully commented [Jonathan Turnbull]
+
+Date:16/4/18
+------------------------------------
+*Added image of the ai that tells the player about the mission [Jonathan Turnbull]

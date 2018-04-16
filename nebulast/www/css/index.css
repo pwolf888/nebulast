@@ -70,10 +70,26 @@ body  {
 
 .space-planet- {
     position: absolute !important;
+
+    z-index: 999;
+}
+
+.Jungle {
     right: 150px;
     float: right;
     top: 40%;
-    z-index: 999;
+}
+
+.desert {
+    right: 20px;
+    float: right;
+    top: 10%;
+}
+
+.unknown {
+    right: 200px;
+    float: right;
+    top: 60%;
 }
 
 .space-Blackhole {
@@ -116,14 +132,23 @@ body  {
 *
 ***************************************
  */
-.scenario-Portrait-card .ons-icon{
-    font-size: 30px !important;
+
+.scenario-Portrait-card, .dialogueRow, .scenario-OptionsRow-card, .results, -card {
+
+    border-radius: 25px;
+    padding: 5px;
 
 }
 
+.scenario-Portrait-card {
+
+    width: 20vw;
+}
+.dialogueRow {
+    width: 60vw;
+}
 .name {
-    position: absolute;
-    top: 2px;
+
     font-weight: 800;
 }
 
@@ -145,3 +170,89 @@ body  {
 *
 ***************************************
 */
+
+
+/*
+***************************************
+*
+* SIDENAV
+*
+***************************************
+*/
+
+
+
+.sideNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+
+}
+.sideNavHeader {
+    background: #80cbc4;
+    color: #fff;
+    font-size: 25px!important;
+}
+.stats {
+    padding: 8px 8px 8px 32px;
+    width: 100vw;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 20px!important;
+    color: #818181;
+    display: inline-block;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.dataVal {
+    display:inline-block;
+    left: 50px;
+    font-size: 20px!important;
+    color: #818181;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.close {
+    position: absolute;
+
+    right: 25px !important;
+    font-size: 36px;
+
+    float: right;
+
+}
+
+
+
+
+.notify {
+
+
+    position: absolute;
+    color: #000;
+    background-color: #fff;
+    z-index: 99999;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+
+}
+
+.ok, .cancel, .uiLabel {
+    font-size: 20px !important;
+    position: relative;
+    color: #000 !important;
+    z-index: 10000000;
+
+}

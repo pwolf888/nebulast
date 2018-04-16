@@ -31,7 +31,7 @@
 
 
 
-
+// Cordova stuff Do not touch *************
 
 var app = {
     // Application Constructor
@@ -63,13 +63,16 @@ var app = {
 app.initialize();
 
 
+//*****************************
 
 
 
 
+// Start project - loads the data from json and the main menu
 $(document).ready(function () {
     console.log("ready");
-
+    loadScenario();
+    loadShopData();
     loadMainMenu();
     
 });
@@ -83,22 +86,34 @@ $(document).ready(function () {
 ***************************************
 */
 
+// Side nav open
+function openNav() {
+    $(".sideNav").css( "width", "50vw");
+}
+
+// side nav close
+function closeNav() {
+    $(".sideNav").css('width', "0px");
+}
+
+// Load the main menu
 function loadMainMenu() {
 
+    // Asteroid function - perhaps rename function - makes no sense..
+    refreshData();
 
-
-   
-   refreshData();
-
+    // Background set to black
     $('body').css('background-color', '#000 !important');
 
     var self = this;
 
+    // Container of the menu items
     self.$container = $('#mainMenu');
 
-
+    // page that holds all of the content
     self.$page = $("<div class='mainMenu'></div>");
-    bgElements(self.$page);
+    bgElements('body');
+
     // Start Button
     spaceship().appendTo(self.$page).on('click', function () {
         $('#mainMenu').hide();
@@ -106,8 +121,10 @@ function loadMainMenu() {
 
     });
 
+    // Append everything to the page
     self.$container.append(self.$page);
 
+    // Initialise the starting stats
     window.stats = {
         food: 5,
         water: 5,
@@ -116,9 +133,15 @@ function loadMainMenu() {
         credits: 200
 
     };
+
+    // Other global variabls
     window.loaded = false;
+    window.number = 0;
+
+    console.log(scenarioObj);
 }
 
+// Adds the asteroid, stars and twinkly stars
 function bgElements(container) {
     stars().appendTo(container);
     twinkles().appendTo(container);
@@ -128,7 +151,7 @@ function bgElements(container) {
 // Looping function that randomizes the position of the asteroid.
 function refreshData(){
 
-    $(".asteroid").css("right", asteroidPosition)
+    $(".asteroid").css("right", asteroidPosition);
 
     x = 6; //seconds
 
@@ -153,91 +176,146 @@ function refreshData(){
 ***************************************
 */
 
+// Load the space screen
 function loadSpaceScreen() {
 
     // Make sure the Json is no read each time function is called
-    if(!loaded) {
-        // Preload Data
-        loadScenario();
-        loadShopData();
-        loaded = true;
+    // if(!loaded) {
+    //     // Preload Data
+    //
+    //     loaded = true;
+    //
+    // }
 
-    }
 
     
     var self = this;
-    
+
+    // Container tha holds all of the spacescreen elements
     self.$container = $('#spaceScreen');
 
+    // Page that holds all the space screen elements
     self.$page = $("<div class='space-Screen'></div>");
-
-    bgElements(self.$page);
-
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
         loadSpaceShipScreen();
     });
+
     // Space station
     spaceStation().appendTo(self.$page).on('click', function () {
         $('#spaceScreen').hide();
         loadSpaceStationScreen();
     });
-    
-    // On click the user will be asked if they want to start a scenario
-    planet().appendTo(self.$page).on('click', function() {
-            ons.notification.confirm({message: 'This is planet Zim 34, would you like to travel there?'})
-                .then(function(index) {
-             if( index > 0) {
-                 console.log(index);
-                 $('#spaceScreen').hide();
-                 loadScenarioScreen();
 
-             }
-        });
+    // Create a hidden notification button
+    var notifiy = notify().appendTo(self.$page);
+
+    // Append a cancel and an OK but to the notification area
+    uiButton('cancel', 'Cancel').appendTo(notifiy).on('click', function () {
+        $(".uiLabel").html(' ');
+        notifiy.hide();
+    });
+
+    uiButton('ok', 'Ok').appendTo(notifiy).appendTo(notifiy).on('click', function () {
+        notifiy.hide();
+        $(".uiLabel").html(' ');
+        $('#spaceScreen').hide();
+        loadScenarioScreen();
+    });
+
+    // On click the user will be asked if they want to start a scenario
+    planet(scenarioObj.pImage[0], scenarioObj.planet[0]).appendTo(self.$page).on('click', function() {
+
+        // Remove any content inside notify label
+        $('label.uiLabel').html(' ');
+        // Show the notification
+        $(".notify").show();
+        // Create the label with content
+        uiLabel("This is planet Zim 34, would you like to travel there?").appendTo(notifiy);
+        // Specify the correct number to read from the scenarioObj object
+        number = 0;
+        console.log(number);
                                 
     });
+    planet(scenarioObj.pImage[1], scenarioObj.planet[1]).appendTo(self.$page).on('click', function() {
+
+        $('label.uiLabel').html(' ');
+        $(".notify").show();
+        uiLabel('This is planet Palethe 8, would you like to travel there?').appendTo(notifiy);
+        number = 1;
+
+    });
+    planet(scenarioObj.pImage[2], scenarioObj.planet[2]).appendTo(self.$page).on('click', function() {
+
+        $('label.uiLabel').html(' ');
+        $(".notify").show();
+        uiLabel('This is planet Dengel Jar IV, would you like to travel there?').appendTo(notifiy);
+        number = 2;
+    });
+
+    // Black hole button
     blackHole().appendTo(self.$page);
 
 
     
     // Stat group - will be loaded in via a function
 
-    var list = List('statsGroup').appendTo(self.$page);
-
-    ListHead().appendTo(list).on('click', function(){
-        $(".stat-list").toggle();
+    hamburger().appendTo(self.$page).on('click', function () {
+        openNav();
+        // Refreshes the statistics and updates the table
+        refreshStats();
     });
 
-    var statsListContainer = hidingDiv('stat-list').appendTo(list);
+    // Add the side nav to the screen
+    window.hiddenNav = sideNav().appendTo(self.$page);
+    // Add the header title to the sidenav
+    $("<div class='sideNavHeader'>Stats</div>").appendTo(hiddenNav);
+    close().appendTo(hiddenNav).on('click', function () {
+        closeNav();
+    });
 
-    loadStats(statsListContainer);
+    // Add the stats to the side nav
+    loadStats(hiddenNav);
 
- 
+    // Append all elements to container
     self.$container.append(self.$page);
-    
-    
+
+
+}
+
+// Update the side nav with the most recent stats
+function refreshStats () {
+
+    $('.food').html(stats.food);
+    $('.water').html(stats.water);
+    $('.fuel').html(stats.fuel);
+    $('.crew').html(stats.crew);
+    $('.credits').html(stats.credits);
+
+
 }
 
 
 // Load stats group
 function loadStats(container) {
-    listItem('food', 'food', stats.food).appendTo(container);
-    listItem('water', 'water', stats.water).appendTo(container);
-    listItem('fuel', 'fuel', stats.fuel).appendTo(container);
-    listItem('crew', 'crew', stats.crew).appendTo(container);
-    listItem('money', 'credits', stats.credits).appendTo(container);
+
+    sideNavStat('food', stats.food ).appendTo(container);
+    sideNavStat('water', stats.water).appendTo(container);
+    sideNavStat('fuel', stats.fuel ).appendTo(container);
+    sideNavStat('crew', stats.crew ).appendTo(container);
+    sideNavStat('credits', stats.credits ).appendTo(container);
+
 }
 
-// Upadate the stats to our statsgroup table
+// Update the stats to the resource atainned or lost in the scenario
 function updateStats(result, number) {
 
     var result = result;
     console.log(result);
     switch(result) {
         case "food":
-
             stats.food += number;
             break;
         case "water":
@@ -271,70 +349,82 @@ function updateStats(result, number) {
 *
 ***************************************
 */
+
 function loadScenarioScreen() {
 
     var self = this;
 
     self.$container = $('#scenarioScreen').show();
 
-    self.$page = $("<div class='scenario-Screen'></div>");
-    
+    self.$page = $("<div class='scenario-Screen-page'></div>");
+
+    // First row of the content that holds the dialogue and the portait
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
+    // Portrait and dialogue
     portraitCol().appendTo(dialogueRow);
 
-    dialogueBox().appendTo(dialogueRow);
+    // Dialogue
+    // dialogueBox().appendTo(dialogueRow);
 
+    // Options row holds the options
     var optionsRow = uiRow('scenario-OptionsRow').appendTo(self.$page);
 
+    // Option A
     optionButton('option-A').appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
         $('.option-A-card').hide();
         $('.option-B-card').hide();
 
-        var resourceUpdate = "You have gained " + scenarioObj.resultsA_number + " " + scenarioObj.resultsA_type + ".";
+        // Output the results of the scenario
+        var resourceUpdate = "You have gained " + scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
         outputText(scenarioObj.resultsA_dialogue, $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
-        updateStats(scenarioObj.resultsA_type, scenarioObj.resultsA_number);
+        // Update the stats earned or lost
+        updateStats(scenarioObj.resultsA_type[number], scenarioObj.resultsA_number[number]);
+
+        // Back button disabled
         $('.back').prop('disabled', false);
     });
 
+    // Option B
     optionButton('option-B').appendTo(optionsRow).on('click', function () {
         $('.dialogue').hide();
         $('.option-A-card').hide();
         $('.option-B-card').hide();
 
-
-
-        var resourceUpdate = "You have lost " + scenarioObj.resultsB_number + " " + scenarioObj.resultsB_type + ".";
+        var resourceUpdate = "You have lost " + scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
 
         outputText(scenarioObj.resultsB_dialogue, $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
-        updateStats(scenarioObj.resultsB_type, scenarioObj.resultsB_number);
+        updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
 
         $('.back').prop('disabled', false);
 
     });
 
+    // Add the back button to the screen
     returnToShip('back', 'disabled').appendTo(self.$page).on('click', function () {
         $('#scenarioScreen').hide();
-        loadSpaceScreen();
+
+        $('#scenarioScreen').html(' ');
         $('#spaceScreen').show();
 
     });
 
+    // Append all elements to the container
     self.$container.append(self.$page);
 
-    outputText(scenarioObj.dialogue, $('.dialogue'));
+    // Output text one char at a time
+    outputText(scenarioObj.dialogue[number], $('.dialogue'));
 
-    outputText(scenarioObj.optionA, $('.option-A'));
+    outputText(scenarioObj.optionA[number], $('.option-A'));
 
-    outputText(scenarioObj.optionB, $('.option-B'));
+    outputText(scenarioObj.optionB[number], $('.option-B'));
 
 
-    console.log(scenarioObj.resultsA_dialogue);
 
 }
 
@@ -451,16 +541,18 @@ function loadSpaceStationScreen() {
     // Back Button
     returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
         $('#spaceStationScreen').hide();
-        loadSpaceScreen();
         $('#spaceScreen').show();
 
     });
 
+    // Add all elements to page
     self.$container.append(self.$page);
 
 
 }
 
+
+// Update the credits when buying or selling resources
 function creditUpdate(dataType, price, qty) {
 
     stats.credits += price;
@@ -496,41 +588,56 @@ function loadSpaceShipScreen() {
 // Test function to load a dummy scenario
 function loadScenario() {
 
+    // Object to hold 3 scenarios at a time
     window.scenarioObj = {
 
-        dialogue: undefined,
-        optionA: undefined,
-        optionB: undefined,
-        resultsA_dialogue:undefined,
-        resultsA_number: undefined,
-        resultsA_type: undefined,
-        resultsB_dialogue:undefined,
-        resultsB_number: undefined,
-        resultsB_type: undefined
+        pImage: [undefined,undefined,undefined],
+        planet: [undefined,undefined,undefined],
+        dialogue: [undefined,undefined,undefined],
+        optionA: [undefined,undefined,undefined],
+        optionB: [undefined,undefined,undefined],
+        resultsA_dialogue:[undefined,undefined,undefined],
+        resultsA_number: [undefined,undefined,undefined],
+        resultsA_type: [undefined,undefined,undefined],
+        resultsB_dialogue:[undefined,undefined,undefined],
+        resultsB_number: [undefined,undefined,undefined],
+        resultsB_type: [undefined,undefined,undefined]
 
     };
 
+    // Promise to load scenario.json file
     var scenario = new Promise(function (resolve, reject) {
-        // Fetch the nouns
+
+        // Fetch the scenarios
         $.getJSON('json/scenario.json').done(function (json) {
+
             // Use the closured dictionary so we can easily access later without array parsing
             console.log(json);
-            scenarioObj.dialogue = json[0].dialogue;
-            scenarioObj.optionA = json[0].options["a"];
-            scenarioObj.optionB = json[0].options["b"];
-
-            scenarioObj.resultsA_dialogue = json[0].results["a"][0];
-            scenarioObj.resultsA_number = json[0].results["a"][1];
-            scenarioObj.resultsA_type = json[0].results["a"][2];
-            scenarioObj.resultsB_dialogue = json[0].results["b"][0];
-            scenarioObj.resultsB_number = json[0].results["b"][1];
-            scenarioObj.resultsB_type = json[0].results["b"][2];
 
 
+            // iterate through all items in json and assign them to the scenarioObj
+            for(var i= 0; 0 < json.length; i++) {
+                scenarioObj.pImage[i] = json[i].pImage;
+                scenarioObj.planet[i] = json[i].planetStyle;
+                scenarioObj.dialogue[i] = json[i].dialogue;
+                scenarioObj.optionA[i] = json[i].options["a"];
+                scenarioObj.optionB[i] = json[i].options["b"];
+
+                scenarioObj.resultsA_dialogue[i] = json[i].results["a"][0];
+                scenarioObj.resultsA_number[i] = json[i].results["a"][1];
+                scenarioObj.resultsA_type[i] = json[i].results["a"][2];
+                scenarioObj.resultsB_dialogue[i] = json[i].results["b"][0];
+                scenarioObj.resultsB_number[i] = json[i].results["b"][1];
+                scenarioObj.resultsB_type[i] = json[i].results["b"][2];
+            }
+
+
+            console.log("yo:"+ scenarioObj);
             resolve();
             // console.log("Output: " + scenarioObj.resultsA_dialogue);
         }).fail(function (json) {
             // If any dictionaries fail to load, the application has failedy
+            console.log(json);
             reject();
         });
     });
@@ -538,7 +645,7 @@ function loadScenario() {
 
 }
 
-// Test function to load a dummy scenario
+// Load the shop data
 function loadShopData() {
 
     window.shopObj = {
@@ -553,7 +660,7 @@ function loadShopData() {
     };
 
     var shop = new Promise(function (resolve, reject) {
-        // Fetch the nouns
+        // Fetch the shopdata
         $.getJSON('json/shop.json').done(function (json) {
             // Use the closured dictionary so we can easily access later without array parsing
             console.log(json);
