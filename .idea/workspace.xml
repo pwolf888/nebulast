@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8cc9880-fb14-4061-b06c-e2966a558098" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/nebulast/www/js/index.js" afterPath="$PROJECT_DIR$/nebulast/www/js/index.js" />
+      <change beforePath="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" afterPath="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,17 +18,17 @@
       <file leaf-file-name="nebulast-ui.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="238" column="0" lean-forward="true" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
+            <state relative-caret-position="208">
+              <caret line="142" column="20" lean-forward="false" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
               <folding>
-                <marker date="1523855178971" expanded="true" signature="1140:1179" ph="..." />
-                <marker date="1523855178971" expanded="true" signature="1182:1189" ph="..." />
-                <marker date="1523855178971" expanded="true" signature="1302:1341" ph="..." />
-                <marker date="1523855178971" expanded="true" signature="1343:1350" ph="×" />
-                <marker date="1523855178971" expanded="true" signature="4141:4164" ph="..." />
-                <marker date="1523855178971" expanded="true" signature="4566:4589" ph="..." />
-                <marker date="1523855178971" expanded="true" signature="5233:5256" ph="..." />
-                <marker date="1523855178971" expanded="true" signature="5560:5582" ph="..." />
+                <marker date="1523961127159" expanded="true" signature="1140:1179" ph="..." />
+                <marker date="1523961127159" expanded="true" signature="1182:1189" ph="..." />
+                <marker date="1523961127159" expanded="true" signature="1302:1341" ph="..." />
+                <marker date="1523961127159" expanded="true" signature="1343:1350" ph="×" />
+                <marker date="1523961127159" expanded="true" signature="4142:4165" ph="..." />
+                <marker date="1523961127159" expanded="true" signature="4567:4590" ph="..." />
+                <marker date="1523961127159" expanded="true" signature="5234:5257" ph="..." />
+                <marker date="1523961127159" expanded="true" signature="5561:5583" ph="..." />
               </folding>
             </state>
           </provider>
@@ -45,10 +47,19 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="625" column="86" lean-forward="false" selection-start-line="625" selection-start-column="86" selection-end-line="625" selection-end-column="86" />
+            <state relative-caret-position="511">
+              <caret line="255" column="90" lean-forward="false" selection-start-line="255" selection-start-column="90" selection-end-line="255" selection-end-column="90" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#1448#2279#0" expanded="false" />
+                <element signature="n#!!block;n#openNav#0" expanded="false" />
+                <element signature="n#!!block;n#closeNav#0" expanded="false" />
+                <element signature="n#!!block;n#loadMainMenu#0" expanded="false" />
+                <element signature="n#!!block;n#bgElements#0" expanded="false" />
+                <element signature="n#!!block;n#refreshData#0" expanded="false" />
+                <element signature="n#!!block;n#refreshStats#0" expanded="false" />
+                <element signature="n#!!block;n#loadStats#0" expanded="false" />
+                <element signature="n#!!block;n#updateStats#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -77,7 +88,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nebulast/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1438">
+            <state relative-caret-position="2025">
               <caret line="135" column="38" lean-forward="false" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
               <folding />
             </state>
@@ -172,8 +183,8 @@
         <option value="$PROJECT_DIR$/nebulast/www/json/scenario.json" />
         <option value="$PROJECT_DIR$/changelog.txt" />
         <option value="$PROJECT_DIR$/nebulast/www/index.html" />
-        <option value="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" />
         <option value="$PROJECT_DIR$/nebulast/www/css/index.css" />
+        <option value="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" />
         <option value="$PROJECT_DIR$/nebulast/www/js/index.js" />
       </list>
     </option>
@@ -299,12 +310,12 @@
       <workItem from="1522229797472" duration="5725000" />
       <workItem from="1522633635117" duration="646000" />
       <workItem from="1523350915121" duration="2561000" />
-      <workItem from="1523846086173" duration="6495000" />
+      <workItem from="1523846086173" duration="9202000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104205000" />
+    <option name="totallyTimeSpent" value="106912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1260" height="691" extended-state="0" />
@@ -364,7 +375,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -390,14 +401,14 @@
         <state relative-caret-position="930">
           <caret line="62" column="72" lean-forward="false" selection-start-line="62" selection-start-column="72" selection-end-line="62" selection-end-column="72" />
           <folding>
-            <marker date="1523855178971" expanded="true" signature="1140:1179" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1182:1189" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1302:1341" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1343:1350" ph="×" />
-            <marker date="1523855178971" expanded="true" signature="4141:4164" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="4566:4589" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5233:5256" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5560:5582" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1140:1179" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1182:1189" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1302:1341" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1343:1350" ph="×" />
+            <marker date="1523961127159" expanded="true" signature="4142:4165" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="4567:4590" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5234:5257" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5561:5583" ph="..." />
           </folding>
         </state>
       </provider>
@@ -423,6 +434,15 @@
           <caret line="264" column="47" lean-forward="false" selection-start-line="264" selection-start-column="47" selection-end-line="264" selection-end-column="47" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1448#2279#0" expanded="false" />
+            <element signature="n#!!block;n#openNav#0" expanded="false" />
+            <element signature="n#!!block;n#closeNav#0" expanded="false" />
+            <element signature="n#!!block;n#loadMainMenu#0" expanded="false" />
+            <element signature="n#!!block;n#bgElements#0" expanded="false" />
+            <element signature="n#!!block;n#refreshData#0" expanded="false" />
+            <element signature="n#!!block;n#refreshStats#0" expanded="false" />
+            <element signature="n#!!block;n#loadStats#0" expanded="false" />
+            <element signature="n#!!block;n#updateStats#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -456,6 +476,15 @@
           <caret line="182" column="52" lean-forward="true" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1448#2279#0" expanded="false" />
+            <element signature="n#!!block;n#openNav#0" expanded="false" />
+            <element signature="n#!!block;n#closeNav#0" expanded="false" />
+            <element signature="n#!!block;n#loadMainMenu#0" expanded="false" />
+            <element signature="n#!!block;n#bgElements#0" expanded="false" />
+            <element signature="n#!!block;n#refreshData#0" expanded="false" />
+            <element signature="n#!!block;n#refreshStats#0" expanded="false" />
+            <element signature="n#!!block;n#loadStats#0" expanded="false" />
+            <element signature="n#!!block;n#updateStats#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -487,14 +516,14 @@
         <state relative-caret-position="31">
           <caret line="54" column="49" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="49" />
           <folding>
-            <marker date="1523855178971" expanded="true" signature="1140:1179" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1182:1189" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1302:1341" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1343:1350" ph="×" />
-            <marker date="1523855178971" expanded="true" signature="4141:4164" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="4566:4589" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5233:5256" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5560:5582" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1140:1179" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1182:1189" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1302:1341" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1343:1350" ph="×" />
+            <marker date="1523961127159" expanded="true" signature="4142:4165" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="4567:4590" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5234:5257" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5561:5583" ph="..." />
           </folding>
         </state>
       </provider>
@@ -505,6 +534,15 @@
           <caret line="361" column="12" lean-forward="false" selection-start-line="361" selection-start-column="12" selection-end-line="361" selection-end-column="12" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1448#2279#0" expanded="false" />
+            <element signature="n#!!block;n#openNav#0" expanded="false" />
+            <element signature="n#!!block;n#closeNav#0" expanded="false" />
+            <element signature="n#!!block;n#loadMainMenu#0" expanded="false" />
+            <element signature="n#!!block;n#bgElements#0" expanded="false" />
+            <element signature="n#!!block;n#refreshData#0" expanded="false" />
+            <element signature="n#!!block;n#refreshStats#0" expanded="false" />
+            <element signature="n#!!block;n#loadStats#0" expanded="false" />
+            <element signature="n#!!block;n#updateStats#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -530,14 +568,14 @@
         <state relative-caret-position="645">
           <caret line="54" column="49" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="49" />
           <folding>
-            <marker date="1523855178971" expanded="true" signature="1140:1179" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1182:1189" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1302:1341" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1343:1350" ph="×" />
-            <marker date="1523855178971" expanded="true" signature="4141:4164" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="4566:4589" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5233:5256" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5560:5582" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1140:1179" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1182:1189" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1302:1341" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1343:1350" ph="×" />
+            <marker date="1523961127159" expanded="true" signature="4142:4165" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="4567:4590" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5234:5257" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5561:5583" ph="..." />
           </folding>
         </state>
       </provider>
@@ -548,6 +586,15 @@
           <caret line="150" column="65" lean-forward="false" selection-start-line="150" selection-start-column="65" selection-end-line="150" selection-end-column="65" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1448#2279#0" expanded="false" />
+            <element signature="n#!!block;n#openNav#0" expanded="false" />
+            <element signature="n#!!block;n#closeNav#0" expanded="false" />
+            <element signature="n#!!block;n#loadMainMenu#0" expanded="false" />
+            <element signature="n#!!block;n#bgElements#0" expanded="false" />
+            <element signature="n#!!block;n#refreshData#0" expanded="false" />
+            <element signature="n#!!block;n#refreshStats#0" expanded="false" />
+            <element signature="n#!!block;n#loadStats#0" expanded="false" />
+            <element signature="n#!!block;n#updateStats#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -573,14 +620,14 @@
         <state relative-caret-position="930">
           <caret line="62" column="72" lean-forward="false" selection-start-line="62" selection-start-column="72" selection-end-line="62" selection-end-column="72" />
           <folding>
-            <marker date="1523855178971" expanded="true" signature="1140:1179" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1182:1189" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1302:1341" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1343:1350" ph="×" />
-            <marker date="1523855178971" expanded="true" signature="4141:4164" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="4566:4589" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5233:5256" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5560:5582" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1140:1179" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1182:1189" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1302:1341" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1343:1350" ph="×" />
+            <marker date="1523961127159" expanded="true" signature="4142:4165" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="4567:4590" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5234:5257" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5561:5583" ph="..." />
           </folding>
         </state>
       </provider>
@@ -606,6 +653,15 @@
           <caret line="264" column="47" lean-forward="false" selection-start-line="264" selection-start-column="47" selection-end-line="264" selection-end-column="47" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1448#2279#0" expanded="false" />
+            <element signature="n#!!block;n#openNav#0" expanded="false" />
+            <element signature="n#!!block;n#closeNav#0" expanded="false" />
+            <element signature="n#!!block;n#loadMainMenu#0" expanded="false" />
+            <element signature="n#!!block;n#bgElements#0" expanded="false" />
+            <element signature="n#!!block;n#refreshData#0" expanded="false" />
+            <element signature="n#!!block;n#refreshStats#0" expanded="false" />
+            <element signature="n#!!block;n#loadStats#0" expanded="false" />
+            <element signature="n#!!block;n#updateStats#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -639,6 +695,15 @@
           <caret line="182" column="52" lean-forward="true" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1448#2279#0" expanded="false" />
+            <element signature="n#!!block;n#openNav#0" expanded="false" />
+            <element signature="n#!!block;n#closeNav#0" expanded="false" />
+            <element signature="n#!!block;n#loadMainMenu#0" expanded="false" />
+            <element signature="n#!!block;n#bgElements#0" expanded="false" />
+            <element signature="n#!!block;n#refreshData#0" expanded="false" />
+            <element signature="n#!!block;n#refreshStats#0" expanded="false" />
+            <element signature="n#!!block;n#loadStats#0" expanded="false" />
+            <element signature="n#!!block;n#updateStats#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -700,6 +765,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="604" column="16" lean-forward="false" selection-start-line="604" selection-start-column="16" selection-end-line="604" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -707,6 +773,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-928">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -714,6 +781,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5595">
           <caret line="65" column="17" lean-forward="false" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -755,39 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nebulast/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1438">
-          <caret line="135" column="38" lean-forward="false" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="238" column="0" lean-forward="true" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
-          <folding>
-            <marker date="1523855178971" expanded="true" signature="1140:1179" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1182:1189" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1302:1341" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="1343:1350" ph="×" />
-            <marker date="1523855178971" expanded="true" signature="4141:4164" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="4566:4589" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5233:5256" ph="..." />
-            <marker date="1523855178971" expanded="true" signature="5560:5582" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nebulast/www/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="152" column="1" lean-forward="true" selection-start-line="152" selection-start-column="1" selection-end-line="152" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/changelog.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1905">
@@ -804,12 +839,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nebulast/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2025">
+          <caret line="135" column="38" lean-forward="false" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nebulast/www/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="152" column="1" lean-forward="true" selection-start-line="152" selection-start-column="1" selection-end-line="152" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="142" column="20" lean-forward="false" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+          <folding>
+            <marker date="1523961127159" expanded="true" signature="1140:1179" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1182:1189" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1302:1341" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="1343:1350" ph="×" />
+            <marker date="1523961127159" expanded="true" signature="4142:4165" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="4567:4590" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5234:5257" ph="..." />
+            <marker date="1523961127159" expanded="true" signature="5561:5583" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="625" column="86" lean-forward="false" selection-start-line="625" selection-start-column="86" selection-end-line="625" selection-end-column="86" />
+        <state relative-caret-position="511">
+          <caret line="255" column="90" lean-forward="false" selection-start-line="255" selection-start-column="90" selection-end-line="255" selection-end-column="90" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1448#2279#0" expanded="false" />
+            <element signature="n#!!block;n#openNav#0" expanded="false" />
+            <element signature="n#!!block;n#closeNav#0" expanded="false" />
+            <element signature="n#!!block;n#loadMainMenu#0" expanded="false" />
+            <element signature="n#!!block;n#bgElements#0" expanded="false" />
+            <element signature="n#!!block;n#refreshData#0" expanded="false" />
+            <element signature="n#!!block;n#refreshStats#0" expanded="false" />
+            <element signature="n#!!block;n#loadStats#0" expanded="false" />
+            <element signature="n#!!block;n#updateStats#0" expanded="false" />
           </folding>
         </state>
       </provider>

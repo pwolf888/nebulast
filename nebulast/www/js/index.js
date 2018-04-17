@@ -210,19 +210,21 @@ function loadSpaceScreen() {
     });
 
     // Create a hidden notification button
-    var notifiy = notify().appendTo(self.$page);
+    var notification = notify().appendTo(self.$page);
 
-    // Append a cancel and an OK but to the notification area
-    uiButton('cancel', 'Cancel').appendTo(notifiy).on('click', function () {
-        $(".uiLabel").html(' ');
-        notifiy.hide();
-    });
 
-    uiButton('ok', 'Ok').appendTo(notifiy).appendTo(notifiy).on('click', function () {
-        notifiy.hide();
+
+    uiButton('ok', 'Ok').appendTo(notification).on('click', function () {
+        notification.hide();
         $(".uiLabel").html(' ');
         $('#spaceScreen').hide();
         loadScenarioScreen();
+    });
+
+    // Append a cancel and an OK but to the notification area
+    uiButton('cancel', 'Cancel').appendTo(notification).on('click', function () {
+        $(".uiLabel").html(' ');
+        notification.hide();
     });
 
     // On click the user will be asked if they want to start a scenario
@@ -233,7 +235,7 @@ function loadSpaceScreen() {
         // Show the notification
         $(".notify").show();
         // Create the label with content
-        uiLabel("This is planet Zim 34, would you like to travel there?").appendTo(notifiy);
+        uiLabel("This is planet Zim 34, would you like to travel there?").prependTo(notification);
         // Specify the correct number to read from the scenarioObj object
         number = 0;
         console.log(number);
@@ -243,7 +245,7 @@ function loadSpaceScreen() {
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
-        uiLabel('This is planet Palethe 8, would you like to travel there?').appendTo(notifiy);
+        uiLabel('This is planet Palethe 8, would you like to travel there?').prependTo(notification);
         number = 1;
 
     });
@@ -251,7 +253,7 @@ function loadSpaceScreen() {
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
-        uiLabel('This is planet Dengel Jar IV, would you like to travel there?').appendTo(notifiy);
+        uiLabel('This is planet Dengel Jar IV, would you like to travel there?').prependTo(notification);
         number = 2;
     });
 

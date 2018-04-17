@@ -139,6 +139,7 @@ window.asteroid = function () {
 
 window.notify = function () {
 
+
     var notify = $("<div class='notify' hidden></div>");
 
     return notify;
