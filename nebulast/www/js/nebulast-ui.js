@@ -73,7 +73,7 @@ window.spaceStation = function () {
 window.planet = function (image, planetName) {
 
 
-    var planet = $("<div class='space-planet-  "+planetName+"' cancelable><img src='"+image+"'></div>");
+    var planet = $("<div class='space-planet-  "+planetName+"'><img src='"+image+"'></div>");
 
     return planet;
 

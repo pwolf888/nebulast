@@ -239,6 +239,9 @@ function loadSpaceScreen() {
         // Specify the correct number to read from the scenarioObj object
         number = 0;
         console.log(number);
+
+        //Disable button on click
+        $(".space-planet-.Jungle").css({"pointer-events": 'none', "opacity": '0.8'});
                                 
     });
     planet(scenarioObj.pImage[1], scenarioObj.planet[1]).appendTo(self.$page).on('click', function() {
@@ -255,6 +258,7 @@ function loadSpaceScreen() {
         $(".notify").show();
         uiLabel('This is planet Dengel Jar IV, would you like to travel there?').prependTo(notification);
         number = 2;
+
     });
 
     // Black hole button
