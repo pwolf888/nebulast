@@ -365,7 +365,7 @@ function loadScenarioScreen() {
     // First row of the content that holds the dialogue and the portait
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
-    portraitColNew().appendTo(dialogueRow);
+    portraitColNew(scenarioObj.pImage[number]).appendTo(dialogueRow);
 
     // Portrait and dialogue
     // portraitCol().appendTo(dialogueRow);

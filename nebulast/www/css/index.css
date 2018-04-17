@@ -158,9 +158,11 @@ body  {
 .name {
 
     font-weight: 800;
-    /*position: relative;*/
-    /*top: 15px;*/
-    /*left: 5px;*/
+
+}
+
+.portrait-image {
+    padding:5px;
 }
 
 
@@ -192,9 +194,15 @@ img.portrait-image, p.name, p.dialogue, p.results {
 .back {
     position: absolute;
     bottom: 10px;
-    
+    right: 10px;
+
 }
 
+.planet-container {
+    text-align: center;
+    /*padding: 20px;*/
+    background: #000;
+}
 
  /*        
 ***************************************

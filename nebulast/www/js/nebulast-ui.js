@@ -160,11 +160,13 @@ window.uiLabel = function (text) {
 ***************************************/
 
 
-window.portraitColNew = function () {
+window.portraitColNew = function (planet) {
 
     var dialogueBox = $("<div class='dialogueBox' style='background-color: #fff;'></div>");
     $("<img src='img/diamondAi.png' class='portrait-image'>").appendTo(dialogueBox);
     $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p></div>").appendTo(dialogueBox);
+
+    $("<div class='planet-container'><img src='" + planet +"' class='portrait-image'></div>").appendTo(dialogueBox);
 
     return dialogueBox;
 };
