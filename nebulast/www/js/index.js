@@ -599,17 +599,17 @@ function loadScenario() {
     // Object to hold 3 scenarios at a time
     window.scenarioObj = {
 
-        pImage: [undefined,undefined,undefined],
-        planet: [undefined,undefined,undefined],
-        dialogue: [undefined,undefined,undefined],
-        optionA: [undefined,undefined,undefined],
-        optionB: [undefined,undefined,undefined],
-        resultsA_dialogue:[undefined,undefined,undefined],
-        resultsA_number: [undefined,undefined,undefined],
-        resultsA_type: [undefined,undefined,undefined],
-        resultsB_dialogue:[undefined,undefined,undefined],
-        resultsB_number: [undefined,undefined,undefined],
-        resultsB_type: [undefined,undefined,undefined]
+        pImage: [],
+        planet: [],
+        dialogue: [],
+        optionA: [],
+        optionB: [],
+        resultsA_dialogue:[],
+        resultsA_number: [],
+        resultsA_type: [],
+        resultsB_dialogue:[],
+        resultsB_number: [],
+        resultsB_type: []
 
     };
 
@@ -623,24 +623,21 @@ function loadScenario() {
             console.log(json);
 
 
-            // iterate through all items in json and assign them to the scenarioObj
-            for(var i= 0; 0 < json.length; i++) {
-                scenarioObj.pImage[i] = json[i].pImage;
-                scenarioObj.planet[i] = json[i].planetStyle;
-                scenarioObj.dialogue[i] = json[i].dialogue;
-                scenarioObj.optionA[i] = json[i].options["a"];
-                scenarioObj.optionB[i] = json[i].options["b"];
+            // // iterate through all items in json and assign them to the scenarioObj
+            for(var i= 0; i < json.length; i++) {
+                scenarioObj.pImage.push(json[i].pImage);
+                scenarioObj.planet.push(json[i].planetStyle);
+                scenarioObj.dialogue.push(json[i].dialogue);
+                scenarioObj.optionA.push(json[i].options["a"]);
+                scenarioObj.optionB.push(json[i].options["b"]);
 
-                scenarioObj.resultsA_dialogue[i] = json[i].results["a"][0];
-                scenarioObj.resultsA_number[i] = json[i].results["a"][1];
-                scenarioObj.resultsA_type[i] = json[i].results["a"][2];
-                scenarioObj.resultsB_dialogue[i] = json[i].results["b"][0];
-                scenarioObj.resultsB_number[i] = json[i].results["b"][1];
-                scenarioObj.resultsB_type[i] = json[i].results["b"][2];
+                scenarioObj.resultsA_dialogue.push(json[i].results["a"][0]);
+                scenarioObj.resultsA_number.push(json[i].results["a"][1]);
+                scenarioObj.resultsA_type.push(json[i].results["a"][2]);
+                scenarioObj.resultsB_dialogue.push(json[i].results["b"][0]);
+                scenarioObj.resultsB_number.push(json[i].results["b"][1]);
+                scenarioObj.resultsB_type.push(json[i].results["b"][2]);
             }
-
-
-            console.log("yo:"+ scenarioObj);
             resolve();
             // console.log("Output: " + scenarioObj.resultsA_dialogue);
         }).fail(function (json) {
