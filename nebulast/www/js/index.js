@@ -360,11 +360,15 @@ function loadScenarioScreen() {
 
     self.$page = $("<div class='scenario-Screen-page'></div>");
 
+
+
     // First row of the content that holds the dialogue and the portait
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
+    portraitColNew().appendTo(dialogueRow);
+
     // Portrait and dialogue
-    portraitCol().appendTo(dialogueRow);
+    // portraitCol().appendTo(dialogueRow);
 
     // Dialogue
     // dialogueBox().appendTo(dialogueRow);

@@ -133,30 +133,69 @@ body  {
 ***************************************
  */
 
-.scenario-Portrait-card, .dialogueRow, .scenario-OptionsRow-card, .results, -card {
+/*.scenario-Portrait-card, .dialogueRow, .scenario-OptionsRow-card, .results, -card {*/
 
-    border-radius: 25px;
-    padding: 5px;
+    /*border-radius: 25px;*/
+    /*padding: 5px;*/
 
-}
+/*}*/
 
-.scenario-Portrait-card {
+/*.scenario-dialogueRow-card {*/
+    /*width: 100vw;*/
+/*}*/
 
-    width: 20vw;
-}
-.dialogueRow {
-    width: 60vw;
+/*.scenario-Portrait-card {*/
+
+    /*width: 20vw;*/
+/*}*/
+/*.dialogueRow {*/
+    /*width: 60vw;*/
+/*}*/
+
+.dialogueBox {
+    position: relative;
 }
 .name {
 
     font-weight: 800;
+    /*position: relative;*/
+    /*top: 15px;*/
+    /*left: 5px;*/
 }
 
-.spaceStation-card {
-    z-index: 1000000;
-    background-color: blue;
 
+img.portrait-image, p.name, p.dialogue, p.results {
+    display: inline;
 }
+
+.p-box  {
+    padding: 24px;
+    display: inline;
+    position: absolute;
+
+    height:auto;
+    /*background-color: #bbdefb;*/
+}
+
+/*.spaceStation-card {*/
+    /*z-index: 1000000;*/
+    /*background-color: blue;*/
+
+/*}*/
+
+.-card {
+    padding: 15px;
+
+    margin: 5px;
+}
+
+.back {
+    position: absolute;
+    bottom: 10px;
+    
+}
+
+
  /*        
 ***************************************
 *  
