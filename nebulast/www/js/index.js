@@ -134,9 +134,10 @@ function loadMainMenu() {
 
     };
 
-    // Other global variabls
+    // Other global variables
     window.loaded = false;
     window.number = 0;
+
 
     console.log(scenarioObj);
 }
@@ -187,7 +188,7 @@ function loadSpaceScreen() {
     //
     // }
 
-
+    window.planetCount = 0;
     
     var self = this;
 
@@ -225,10 +226,11 @@ function loadSpaceScreen() {
     uiButton('cancel', 'Cancel').appendTo(notification).on('click', function () {
         $(".uiLabel").html(' ');
         notification.hide();
+        $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
     });
 
     // On click the user will be asked if they want to start a scenario
-    planet(scenarioObj.pImage[0], scenarioObj.planet[0]).appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
 
         // Remove any content inside notify label
         $('label.uiLabel').html(' ');
@@ -241,24 +243,28 @@ function loadSpaceScreen() {
         console.log(number);
 
         //Disable button on click
-        $(".space-planet-.Jungle").css({"pointer-events": 'none', "opacity": '0.8'});
+        $(".space-planet-.planet-0").css({"pointer-events": 'none', "opacity": '0.8'});
                                 
     });
-    planet(scenarioObj.pImage[1], scenarioObj.planet[1]).appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
         uiLabel('This is planet Palethe 8, would you like to travel there?').prependTo(notification);
         number = 1;
 
+        //Disable button on click
+        $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
     });
-    planet(scenarioObj.pImage[2], scenarioObj.planet[2]).appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
         uiLabel('This is planet Dengel Jar IV, would you like to travel there?').prependTo(notification);
         number = 2;
 
+        //Disable button on click
+        $(".space-planet-.planet-2").css({"pointer-events": 'none', "opacity": '0.8'});
     });
 
     // Black hole button
@@ -358,6 +364,7 @@ function updateStats(result, number) {
 
 function loadScenarioScreen() {
 
+
     var self = this;
 
     self.$container = $('#scenarioScreen').show();
@@ -388,7 +395,7 @@ function loadScenarioScreen() {
 
         // Output the results of the scenario
         var resourceUpdate = "You have gained " + scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
-        outputText(scenarioObj.resultsA_dialogue, $('.results').show());
+        outputText(scenarioObj.resultsA_dialogue[number], $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
         // Update the stats earned or lost
@@ -406,8 +413,8 @@ function loadScenarioScreen() {
 
         var resourceUpdate = "You have lost " + scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
 
-        outputText(scenarioObj.resultsB_dialogue, $('.results').show());
-        outputText(resourceUpdate, $('.resource-Update').show());
+        outputText(scenarioObj.resultsB_dialogue[number], $('p.results').show());
+        outputText(resourceUpdate, $('p.resource-Update').show());
 
         updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
 
@@ -417,12 +424,17 @@ function loadScenarioScreen() {
 
     // Add the back button to the screen
     returnToShip('back', 'disabled').appendTo(self.$page).on('click', function () {
+
+        planetCount++;
+
         $('#scenarioScreen').hide();
 
         $('#scenarioScreen').html(' ');
         $('#spaceScreen').show();
 
+        
     });
+
 
     // Append all elements to the container
     self.$container.append(self.$page);
@@ -433,6 +445,7 @@ function loadScenarioScreen() {
     outputText(scenarioObj.optionA[number], $('.option-A'));
 
     outputText(scenarioObj.optionB[number], $('.option-B'));
+
 
 
 

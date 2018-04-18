@@ -24,7 +24,8 @@
 * Interact with your spaceship, planets and spacestation and a blackhole
 *
 ***************************************
-*/ 
+*/
+
 
 * {
 
@@ -74,19 +75,19 @@ body  {
     z-index: 999;
 }
 
-.Jungle {
+.planet-0 {
     right: 150px;
     float: right;
     top: 40%;
 }
 
-.desert {
+.planet-1 {
     right: 20px;
     float: right;
     top: 10%;
 }
 
-.unknown {
+.planet-2 {
     right: 200px;
     float: right;
     top: 60%;
