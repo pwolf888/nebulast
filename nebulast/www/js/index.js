@@ -138,6 +138,22 @@ function loadMainMenu() {
     window.loaded = false;
     window.number = 0;
 
+    // Object to hold 3 scenarios at a time
+    window.scenarioObj = {
+
+        pImage: [],
+        planetBlurb: [],
+        dialogue: [],
+        optionA: [],
+        optionB: [],
+        resultsA_dialogue:[],
+        resultsA_number: [],
+        resultsA_type: [],
+        resultsB_dialogue:[],
+        resultsB_number: [],
+        resultsB_type: []
+
+    };
 
     console.log(scenarioObj);
 }
@@ -181,12 +197,11 @@ function refreshData(){
 function loadSpaceScreen() {
 
     // Make sure the Json is no read each time function is called
-    // if(!loaded) {
-    //     // Preload Data
-    //
-    //     loaded = true;
-    //
-    // }
+    if(!loaded) {
+        // Preload Data
+        loaded = true;
+
+    }
 
     window.planetCount = 0;
     
@@ -229,7 +244,9 @@ function loadSpaceScreen() {
         $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
     });
 
+
     // On click the user will be asked if they want to start a scenario
+
     planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
 
         // Remove any content inside notify label
@@ -273,11 +290,17 @@ function loadSpaceScreen() {
 
 
         // Black hole resets system and generating x amount of new planets
-        $('body').addClass('BGCLASS');
-        // Change background
+        $("#spaceScreen").html(' ');
 
+
+
+        // Change background
+        $('body').addClass('BGCLASS');
         // Change planets
 
+        removePlanets();
+        loadSpaceScreen();
+        console.log(scenarioObj);
         // Enable space station
 
 
@@ -308,8 +331,36 @@ function loadSpaceScreen() {
     self.$container.append(self.$page);
 
 
+
 }
 
+
+function removePlanets() {
+
+
+for(var i = 0; i< 3; i++) {
+
+
+
+        scenarioObj.pImage.shift();
+        scenarioObj.planetBlurb.shift();
+        scenarioObj.dialogue.shift();
+        scenarioObj.optionA.shift();
+        scenarioObj.optionB.shift();
+
+        scenarioObj.resultsA_dialogue.shift();
+        scenarioObj.resultsA_number.shift();
+        scenarioObj.resultsA_type.shift();
+        scenarioObj.resultsB_dialogue.shift();
+        scenarioObj.resultsB_number.shift();
+        scenarioObj.resultsB_type.shift();
+        }
+        console.log(scenarioObj);
+
+
+
+
+}
 // Update the side nav with the most recent stats
 function refreshStats () {
 
@@ -632,22 +683,7 @@ function loadSpaceShipScreen() {
 // Test function to load a dummy scenario
 function loadScenario() {
 
-    // Object to hold 3 scenarios at a time
-    window.scenarioObj = {
 
-        pImage: [],
-        planetBlurb: [],
-        dialogue: [],
-        optionA: [],
-        optionB: [],
-        resultsA_dialogue:[],
-        resultsA_number: [],
-        resultsA_type: [],
-        resultsB_dialogue:[],
-        resultsB_number: [],
-        resultsB_type: []
-
-    };
 
     // Promise to load scenario.json file
     var scenario = new Promise(function (resolve, reject) {
