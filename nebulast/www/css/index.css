@@ -44,6 +44,14 @@ body  {
      background-size:  cover;
 }
 
+.BGCLASS {
+    background-image: url('BG002.jpg') ;
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+}
+
 .spaceStation_background {
 
     position: absolute;

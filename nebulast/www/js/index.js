@@ -237,9 +237,10 @@ function loadSpaceScreen() {
         // Show the notification
         $(".notify").show();
         // Create the label with content
-        uiLabel("This is planet Zim 34, would you like to travel there?").prependTo(notification);
+
         // Specify the correct number to read from the scenarioObj object
         number = 0;
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
         console.log(number);
 
         //Disable button on click
@@ -250,8 +251,8 @@ function loadSpaceScreen() {
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
-        uiLabel('This is planet Palethe 8, would you like to travel there?').prependTo(notification);
         number = 1;
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
 
         //Disable button on click
         $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
@@ -260,15 +261,27 @@ function loadSpaceScreen() {
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
-        uiLabel('This is planet Dengel Jar IV, would you like to travel there?').prependTo(notification);
         number = 2;
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
 
         //Disable button on click
         $(".space-planet-.planet-2").css({"pointer-events": 'none', "opacity": '0.8'});
     });
 
     // Black hole button
-    blackHole().appendTo(self.$page);
+    blackHole().appendTo(self.$page).on('click', function () {
+
+
+        // Black hole resets system and generating x amount of new planets
+        $('body').addClass('BGCLASS');
+        // Change background
+
+        // Change planets
+
+        // Enable space station
+
+
+    });
 
 
     
@@ -432,7 +445,7 @@ function loadScenarioScreen() {
         $('#scenarioScreen').html(' ');
         $('#spaceScreen').show();
 
-        
+
     });
 
 
@@ -623,7 +636,7 @@ function loadScenario() {
     window.scenarioObj = {
 
         pImage: [],
-        planet: [],
+        planetBlurb: [],
         dialogue: [],
         optionA: [],
         optionB: [],
@@ -649,7 +662,7 @@ function loadScenario() {
             // // iterate through all items in json and assign them to the scenarioObj
             for(var i= 0; i < json.length; i++) {
                 scenarioObj.pImage.push(json[i].pImage);
-                scenarioObj.planet.push(json[i].planetStyle);
+                scenarioObj.planetBlurb.push(json[i].planetBlurb);
                 scenarioObj.dialogue.push(json[i].dialogue);
                 scenarioObj.optionA.push(json[i].options["a"]);
                 scenarioObj.optionB.push(json[i].options["b"]);
