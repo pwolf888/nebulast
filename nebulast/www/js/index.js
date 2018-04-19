@@ -492,61 +492,6 @@ function loadSpaceStationScreen() {
     spaceStationBG('spaceStation').appendTo(self.$page);
 
 
-    // Row 1 - BUY SELL
-
-    // var table = card('spaceStation').appendTo(self.$page);
-    // var row = uiRow('spaceStation').appendTo(table);
-    // var colLeft = uiCol('spaceStation').appendTo(row);
-    // var colRight = uiCol('spaceStation').appendTo(row);
-    // paragraph('spaceStation', 'Buy').appendTo(colLeft);
-    // paragraph('spaceStation', 'Sell').appendTo(colRight);
-
-    // paragraph('spaceStation', buyData).appendTo(colLeft);
-    // paragraph('spaceStation', sellData).appendTo(colRight);
-
-    // // Updating shopping list
-    // var foodRow = uiRow('spaceStation').appendTo(colLeft);
-    // var waterRow = uiRow('spaceStation').appendTo(colLeft);
-    // paragraph('spaceStation', shopObj.dataTypeA).appendTo(foodRow);
-
-    // // Minus resource button
-    // uiButton('spaceStation', '-').appendTo(foodRow).on('click', function () {
-    //     creditUpdate(shopObj.dataTypeA, shopObj.sellPriceA, -1);
-    //     //loadSpaceStationScreen();
-    //     updateStats();
-    // });
-
-    // paragraph('spaceStation', stats.food).appendTo(foodRow);
-
-
-    // paragraph('stats-food', "food: " + stats.food).appendTo(colRight);
-    // paragraph('stats-water', "water: " + stats.water).appendTo(colRight);
-    // paragraph('stats-credits', "credits: " + stats.credits).appendTo(colRight);
-
-    // // Add resource button
-    // uiButton('spaceStation', '+').appendTo(foodRow).on('click', function () {
-    //     creditUpdate(shopObj.dataTypeA, -shopObj.buyPriceA, 1);
-    //     //loadSpaceStationScreen();
-    //     updateStats();
-
-    // });
-
-    // paragraph('spaceStation', shopObj.dataTypeB).appendTo(waterRow);
-
-
-
-    // // Minus resource button
-    // uiButton('spaceStation', '-').appendTo(waterRow).on('click', function () {
-    //     creditUpdate(shopObj.dataTypeB, shopObj.sellPriceB, -1);
-    //     updateStats();
-    // });
-    // paragraph('spaceStation', stats.water).appendTo(waterRow);
-
-    // // Add resource button
-    // uiButton('spaceStation', '+').appendTo(waterRow).on('click', function () {
-    //     creditUpdate(shopObj.dataTypeB, -shopObj.buyPriceB, 1);
-    //     updateStats();
-    // });
 
     // Back Button
     returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
@@ -563,24 +508,57 @@ function loadSpaceStationScreen() {
     var shopCon = shopContainer().appendTo(self.$page);
 
     shopIcon('waterIcon').appendTo(shopCon);
-    shopIcon('waterMinusIcon').appendTo(shopCon);
+    $("<div class='waterValue'></div>").appendTo(shopCon).html(stats.water);
+    $("<div class='foodValue'></div>").appendTo(shopCon).html(stats.food);
+    $("<div class='fuelValue'></div>").appendTo(shopCon).html(stats.fuel);
+    $("<div class='coinValue'></div>").appendTo(shopCon).html(stats.credits);
+    // shopIcon('waterMinusIcon').appendTo(shopcon);
     //shopIcon('waterPlusIcon').appendTo(shopCon);
     uiButton('waterPlusIcon', ' ').appendTo(shopCon).on('click', function () {
         creditUpdate('water', -shopObj.buyPriceB, 1);
-       
+        shopValUpdate('water', stats.water);
+        shopValUpdate('coin', stats.credits);
+        console.log(stats.water);
+    });
+    uiButton('waterMinusIcon', ' ').appendTo(shopCon).on('click', function () {
+        creditUpdate('water', shopObj.sellPriceB, -1);
+        shopValUpdate('water', stats.water);
+        shopValUpdate('coin', stats.credits);
         console.log(stats.water);
     });
 
     shopIcon('foodIcon').appendTo(shopCon);
-    shopIcon('foodMinusIcon').appendTo(shopCon);
-    shopIcon('foodPlusIcon').appendTo(shopCon);
-
+    uiButton('foodPlusIcon', ' ').appendTo(shopCon).on('click', function () {
+        creditUpdate('food', -shopObj.buyPriceA, 1);
+        shopValUpdate('food', stats.food);
+        shopValUpdate('coin', stats.credits);
+        console.log(stats.food);
+    });
+    uiButton('foodMinusIcon', ' ').appendTo(shopCon).on('click', function () {
+        creditUpdate('food',  shopObj.buyPriceA, -1);
+        shopValUpdate('food', stats.food);
+        shopValUpdate('coin', stats.credits);
+        console.log(stats.food);
+    });   
     shopIcon('fuelIcon').appendTo(shopCon);
-    shopIcon('fuelMinusIcon').appendTo(shopCon);
-    shopIcon('fuelPlusIcon').appendTo(shopCon);
+    uiButton('fuelPlusIcon', ' ').appendTo(shopCon).on('click', function () {
+        creditUpdate('fuel', -shopObj.buyPriceA, 1);
+        shopValUpdate('fuel', stats.fuel);
+        shopValUpdate('coin', stats.credits);
+        console.log(stats.food);
+    }); 
+    uiButton('fuelMinusIcon', ' ').appendTo(shopCon).on('click', function () {
+        creditUpdate('fuel',  shopObj.buyPriceA, -1);
+        shopValUpdate('fuel', stats.fuel);
+        shopValUpdate('coin', stats.credits);
+        console.log(stats.food);
+    });   
+
+
+    
 
     shopIcon('coinIcon').appendTo(shopCon);
-
+    
 
     // Add all elements to page
     self.$container.append(self.$page);
@@ -588,6 +566,10 @@ function loadSpaceStationScreen() {
 
 }
 
+function shopValUpdate (resource, object) {
+    $("."+resource+"Value").html(object);
+    
+}
 
 // Update the credits when buying or selling resources
 function creditUpdate(dataType, price, qty) {
@@ -688,11 +670,14 @@ function loadShopData() {
     window.shopObj = {
         dataTypeA: undefined,
         dataTypeB: undefined,
+        dataTypeC: undefined,
         Quantity: undefined,
         buyPriceA: undefined,
         buyPriceB: undefined,
+        buyPriceC: undefined,
         sellPriceA: undefined,
-        sellPriceB: undefined
+        sellPriceB: undefined,
+        sellPriceC: undefined
 
     };
 
@@ -703,11 +688,14 @@ function loadShopData() {
             console.log(json);
             shopObj.dataTypeA = json[0].dataType[0];
             shopObj.dataTypeB = json[0].dataType[1];
+            shopObj.dataTypeC = json[0].dataType[2];
             shopObj.Quantity = json[0].quantity;
             shopObj.buyPriceA = json[0].buyPrice[0];
             shopObj.buyPriceB = json[0].buyPrice[0];
+            shopObj.buyPriceC = json[0].buyPrice[0];
             shopObj.sellPriceA = json[0].sellPrice[1];
             shopObj.sellPriceB = json[0].sellPrice[1];
+            shopObj.sellPriceC = json[0].sellPrice[1];
 
             resolve();
             // console.log("Output: " + scenarioObj.resultsA_dialogue);
