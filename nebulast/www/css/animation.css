@@ -5,7 +5,9 @@
         top: 0%;
         right: 100px;
         z-index: 10;
-          
+       
+
+    
         animation-duration: 6s;
         animation-name: asteroidDiag;
         animation-iteration-count: infinite;

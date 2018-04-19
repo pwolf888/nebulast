@@ -488,19 +488,20 @@ function loadSpaceStationScreen() {
 
 
     stars().appendTo(self.$page);
-    spaceStationBG().appendTo(self.$page);
+    spaceStationBG('spaceStation').appendTo(self.$page);
 
 
     // Row 1 - BUY SELL
-    var table = card('spaceStation').appendTo(self.$page);
-    var row = uiRow('spaceStation').appendTo(table);
-    var colLeft = uiCol('spaceStation').appendTo(row);
-    var colRight = uiCol('spaceStation').appendTo(row);
-    paragraph('spaceStation', 'Buy').appendTo(colLeft);
-    paragraph('spaceStation', 'Sell').appendTo(colRight);
 
-    paragraph('spaceStation', buyData).appendTo(colLeft);
-    paragraph('spaceStation', sellData).appendTo(colRight);
+    // var table = card('spaceStation').appendTo(self.$page);
+    // var row = uiRow('spaceStation').appendTo(table);
+    // var colLeft = uiCol('spaceStation').appendTo(row);
+    // var colRight = uiCol('spaceStation').appendTo(row);
+    // paragraph('spaceStation', 'Buy').appendTo(colLeft);
+    // paragraph('spaceStation', 'Sell').appendTo(colRight);
+
+    // paragraph('spaceStation', buyData).appendTo(colLeft);
+    // paragraph('spaceStation', sellData).appendTo(colRight);
 
     // Updating shopping list
     var foodRow = uiRow('spaceStation').appendTo(colLeft);
