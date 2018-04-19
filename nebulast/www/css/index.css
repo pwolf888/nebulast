@@ -24,7 +24,8 @@
 * Interact with your spaceship, planets and spacestation and a blackhole
 *
 ***************************************
-*/ 
+*/
+
 
 @font-face {
     font-family: 'PixelFont';
@@ -55,6 +56,16 @@ body  {
 }
 
 
+.BGCLASS {
+    background-image: url('BG002.jpg') ;
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+}
+
+
+
 .space-Ship {
     position: absolute !important;
     top: 40%;
@@ -76,19 +87,19 @@ body  {
     z-index: 999;
 }
 
-.Jungle {
+.planet-0 {
     right: 150px;
     float: right;
     top: 40%;
 }
 
-.desert {
+.planet-1 {
     right: 20px;
     float: right;
     top: 10%;
 }
 
-.unknown {
+.planet-2 {
     right: 200px;
     float: right;
     top: 60%;
@@ -135,25 +146,72 @@ body  {
 ***************************************
  */
 
-.scenario-Portrait-card, .dialogueRow, .scenario-OptionsRow-card, .results, -card {
+/*.scenario-Portrait-card, .dialogueRow, .scenario-OptionsRow-card, .results, -card {*/
 
-    border-radius: 25px;
-    padding: 5px;
+    /*border-radius: 25px;*/
+    /*padding: 5px;*/
 
-}
+/*}*/
 
-.scenario-Portrait-card {
+/*.scenario-dialogueRow-card {*/
+    /*width: 100vw;*/
+/*}*/
 
-    width: 20vw;
-}
-.dialogueRow {
-    width: 60vw;
+/*.scenario-Portrait-card {*/
+
+    /*width: 20vw;*/
+/*}*/
+/*.dialogueRow {*/
+    /*width: 60vw;*/
+/*}*/
+
+.dialogueBox {
+    position: relative;
 }
 .name {
 
     font-weight: 800;
+
 }
 
+.portrait-image {
+    padding:5px;
+}
+
+
+img.portrait-image, p.name, p.dialogue, p.results {
+    display: inline;
+}
+
+.p-box  {
+    padding: 24px;
+    display: inline;
+    position: absolute;
+
+    height:auto;
+    /*background-color: #bbdefb;*/
+}
+
+/* conflict */
+.-card {
+    padding: 15px;
+
+    margin: 5px;
+}
+
+.back {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+}
+
+.planet-container {
+    text-align: center;
+    /*padding: 20px;*/
+    background: #000;
+}
+/* conflict check if working */
 
  /*        
 ***************************************

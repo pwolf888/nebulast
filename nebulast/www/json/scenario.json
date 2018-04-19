@@ -1,8 +1,9 @@
 
 
-[{
+[
+  {
     "pImage": "img/scenario002.gif",
-    "planetStyle": "Jungle",
+    "planetBlurb": "This is planet Zim 34, would you like to travel there?",
     "dialogue": "You have just landed on ZIM 34 after receiving a destress call from a fellow pilot, who has crash landed somewhere on the dense jungle planet. The crew is ready to explore what should you do Captain? ",
     "options": {
       "a": "Ask the locals about the missing pilot",
@@ -24,7 +25,7 @@
   },
   {
     "pImage": "img/scenario001.gif",
-    "planetStyle": "desert",
+    "planetBlurb": "This is planet Palethe 8, would you like to travel there?",
     "dialogue": "Captain there is a strange energy reading coming from Palethe 8, a dry desert planet, my scanners are showing the planet may errupt at any moment, we could save some animals?",
     "options": {
       "a": "The majestic long haired mongoose could be saved",
@@ -46,7 +47,7 @@
   },
   {
     "pImage": "img/scenario003.gif",
-    "planetStyle": "unknown",
+    "planetBlurb": "This is planet Dengel Jar IV, would you like to travel there?",
     "dialogue": "Some bounty hunters have asked for you help on their mission to find and claim the bounty of one Dingo Jones, last seen on the planet Dengel Jar IV, Shall we land captain?",
     "options": {
       "a": "Visit the local dive bar to find leads, be careful, Dengel Jar IV is full of pirates",
@@ -62,6 +63,72 @@
       "b": [ " ",
         -1,
         "fuel"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario004.gif",
+    "planetBlurb": "This is planet Fisken Zeven, would you like to travel there?",
+    "dialogue": "It is super cold!",
+    "options": {
+      "a": "Get ice-cream?",
+      "b": "Don't get ice-cream?"
+    },
+    "results": {
+      "a": [ "You crew is super stoked! ",
+        5,
+        "food"
+
+      ]
+    ,
+      "b": [ "Your whole crew left you ",
+        -5,
+        "crew"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario005.gif",
+    "planetBlurb": "This is planet Harth 83, would you like to travel there?",
+    "dialogue": "Red planet is super red and rich in history blah blah blah",
+    "options": {
+      "a": "Lets go to the pool?",
+      "b": "Visit the museum?"
+    },
+    "results": {
+      "a": [ "You get water ",
+        5,
+        "water"
+
+      ]
+    ,
+      "b": [ "Your meet the museum curator and he wants to join you ",
+        1,
+        "crew"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario006.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew"
       ]
 
     }
