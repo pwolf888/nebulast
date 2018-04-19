@@ -134,6 +134,7 @@ function loadMainMenu() {
 
     };
 
+    
     // Other global variabls
     window.loaded = false;
     window.number = 0;
@@ -503,56 +504,83 @@ function loadSpaceStationScreen() {
     // paragraph('spaceStation', buyData).appendTo(colLeft);
     // paragraph('spaceStation', sellData).appendTo(colRight);
 
-    // Updating shopping list
-    var foodRow = uiRow('spaceStation').appendTo(colLeft);
-    var waterRow = uiRow('spaceStation').appendTo(colLeft);
-    paragraph('spaceStation', shopObj.dataTypeA).appendTo(foodRow);
+    // // Updating shopping list
+    // var foodRow = uiRow('spaceStation').appendTo(colLeft);
+    // var waterRow = uiRow('spaceStation').appendTo(colLeft);
+    // paragraph('spaceStation', shopObj.dataTypeA).appendTo(foodRow);
 
-    // Minus resource button
-    uiButton('spaceStation', '-').appendTo(foodRow).on('click', function () {
-        creditUpdate(shopObj.dataTypeA, shopObj.sellPriceA, -1);
-        //loadSpaceStationScreen();
-        updateStats();
-    });
+    // // Minus resource button
+    // uiButton('spaceStation', '-').appendTo(foodRow).on('click', function () {
+    //     creditUpdate(shopObj.dataTypeA, shopObj.sellPriceA, -1);
+    //     //loadSpaceStationScreen();
+    //     updateStats();
+    // });
 
-    paragraph('spaceStation', stats.food).appendTo(foodRow);
-
-
-    paragraph('stats-food', "food: " + stats.food).appendTo(colRight);
-    paragraph('stats-water', "water: " + stats.water).appendTo(colRight);
-    paragraph('stats-credits', "credits: " + stats.credits).appendTo(colRight);
-
-    // Add resource button
-    uiButton('spaceStation', '+').appendTo(foodRow).on('click', function () {
-        creditUpdate(shopObj.dataTypeA, -shopObj.buyPriceA, 1);
-        //loadSpaceStationScreen();
-        updateStats();
-
-    });
-
-    paragraph('spaceStation', shopObj.dataTypeB).appendTo(waterRow);
+    // paragraph('spaceStation', stats.food).appendTo(foodRow);
 
 
+    // paragraph('stats-food', "food: " + stats.food).appendTo(colRight);
+    // paragraph('stats-water', "water: " + stats.water).appendTo(colRight);
+    // paragraph('stats-credits', "credits: " + stats.credits).appendTo(colRight);
 
-    // Minus resource button
-    uiButton('spaceStation', '-').appendTo(waterRow).on('click', function () {
-        creditUpdate(shopObj.dataTypeB, shopObj.sellPriceB, -1);
-        updateStats();
-    });
-    paragraph('spaceStation', stats.water).appendTo(waterRow);
+    // // Add resource button
+    // uiButton('spaceStation', '+').appendTo(foodRow).on('click', function () {
+    //     creditUpdate(shopObj.dataTypeA, -shopObj.buyPriceA, 1);
+    //     //loadSpaceStationScreen();
+    //     updateStats();
 
-    // Add resource button
-    uiButton('spaceStation', '+').appendTo(waterRow).on('click', function () {
-        creditUpdate(shopObj.dataTypeB, -shopObj.buyPriceB, 1);
-        updateStats();
-    });
+    // });
+
+    // paragraph('spaceStation', shopObj.dataTypeB).appendTo(waterRow);
+
+
+
+    // // Minus resource button
+    // uiButton('spaceStation', '-').appendTo(waterRow).on('click', function () {
+    //     creditUpdate(shopObj.dataTypeB, shopObj.sellPriceB, -1);
+    //     updateStats();
+    // });
+    // paragraph('spaceStation', stats.water).appendTo(waterRow);
+
+    // // Add resource button
+    // uiButton('spaceStation', '+').appendTo(waterRow).on('click', function () {
+    //     creditUpdate(shopObj.dataTypeB, -shopObj.buyPriceB, 1);
+    //     updateStats();
+    // });
 
     // Back Button
     returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
         $('#spaceStationScreen').hide();
+        $('#spaceStationScreen').html(' ');
         $('#spaceScreen').show();
 
     });
+
+    // Josh's edit
+
+    shopScreen().appendTo(self.$page);
+
+    var shopCon = shopContainer().appendTo(self.$page);
+
+    shopIcon('waterIcon').appendTo(shopCon);
+    shopIcon('waterMinusIcon').appendTo(shopCon);
+    //shopIcon('waterPlusIcon').appendTo(shopCon);
+    uiButton('waterPlusIcon', ' ').appendTo(shopCon).on('click', function () {
+        creditUpdate('water', -shopObj.buyPriceB, 1);
+       
+        console.log(stats.water);
+    });
+
+    shopIcon('foodIcon').appendTo(shopCon);
+    shopIcon('foodMinusIcon').appendTo(shopCon);
+    shopIcon('foodPlusIcon').appendTo(shopCon);
+
+    shopIcon('fuelIcon').appendTo(shopCon);
+    shopIcon('fuelMinusIcon').appendTo(shopCon);
+    shopIcon('fuelPlusIcon').appendTo(shopCon);
+
+    shopIcon('coinIcon').appendTo(shopCon);
+
 
     // Add all elements to page
     self.$container.append(self.$page);
