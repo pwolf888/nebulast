@@ -255,6 +255,32 @@ window.spaceStationBG = function () {
 
 };
 
+
+// Joshes SS
+window.shopScreen = function () {
+    
+    var shopScreen = $("<div class='shopScreen'></div>");
+
+    return shopScreen;
+
+};
+
+
+window.shopContainer = function () {
+    
+    var shopContainer = $("<div class='shopContainer'></div>");
+
+    return shopContainer
+
+};
+
+window.shopIcon = function (elementClass) {
+
+    var shopIcon = $("<div class='"+ elementClass +"'></div>");
+    
+    return shopIcon;
+};
+
 /***************************************
 *
 * Ship elementClass
