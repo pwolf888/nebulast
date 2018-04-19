@@ -73,7 +73,7 @@ window.spaceStation = function () {
 window.planet = function (image, planetName) {
 
 
-    var planet = $("<div class='space-planet-  "+planetName+"' cancelable><img src='"+image+"'></div>");
+    var planet = $("<div class='space-planet-  "+planetName+"'><img src='"+image+"'></div>");
 
     return planet;
 
@@ -139,6 +139,7 @@ window.asteroid = function () {
 
 window.notify = function () {
 
+
     var notify = $("<div class='notify' hidden></div>");
 
     return notify;
@@ -159,18 +160,30 @@ window.uiLabel = function (text) {
 ***************************************/
 
 
-window.portraitCol = function() {
-    var portraitCol = $("<div class='dialogueRow' ></div>");
-    var portraitCard = card('scenario-Portrait').appendTo(portraitCol);
-    $("<img src='img/diamondAi.png' class='portrait-image'>").appendTo(portraitCard);
+window.portraitColNew = function (planet) {
 
-    var dialogueBox = $("<div class='dialogueRow' style='background-color: #fff;'></div>").appendTo(portraitCol);
-    var dialogueCard = $("<div class='dialogue-box'></div>").appendTo(dialogueBox);
+    var dialogueBox = $("<div class='dialogueBox' style='background-color: #fff;'></div>");
+    $("<img src='img/diamondAi.png' class='portrait-image'>").appendTo(dialogueBox);
+    $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p></div>").appendTo(dialogueBox);
 
-    $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
+    $("<div class='planet-container'><img src='" + planet +"' class='portrait-image'></div>").appendTo(dialogueBox);
 
-    return portraitCol;
+    return dialogueBox;
 };
+
+
+// window.portraitCol = function() {
+//     var portraitCol = $("<div class='dialogueRow' ></div>");
+//     var portraitCard = card('scenario-Portrait').appendTo(portraitCol);
+//     $("<img src='img/diamondAi.png' class='portrait-image'>").appendTo(portraitCard);
+//
+//     var dialogueBox = $("<div class='dialogueRow' style='background-color: #fff;'></div>").appendTo(portraitCol);
+//     var dialogueCard = $("<div class='dialogue-box'></div>").appendTo(dialogueBox);
+//
+//     $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
+//
+//     return portraitCol;
+// };
 
 // window.dialogueBox = function () {
 //     var dialogueBox = $("<div class='dialogueRow' style='background-color: #fff;'></div>");
@@ -183,7 +196,7 @@ window.portraitCol = function() {
 
 window.optionButton = function(elementClass) {
 
-    var option = uiCol(elementClass).attr('width', '100vw');
+    var option = uiCol(elementClass);
     var optionCard = card(' ').appendTo(option);
 
     $("<div class='"+elementClass+"'></div>").appendTo(optionCard);

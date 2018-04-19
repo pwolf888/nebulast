@@ -134,9 +134,26 @@ function loadMainMenu() {
 
     };
 
-    // Other global variabls
+    // Other global variables
     window.loaded = false;
     window.number = 0;
+
+    // Object to hold 3 scenarios at a time
+    window.scenarioObj = {
+
+        pImage: [],
+        planetBlurb: [],
+        dialogue: [],
+        optionA: [],
+        optionB: [],
+        resultsA_dialogue:[],
+        resultsA_number: [],
+        resultsA_type: [],
+        resultsB_dialogue:[],
+        resultsB_number: [],
+        resultsB_type: []
+
+    };
 
     console.log(scenarioObj);
 }
@@ -180,14 +197,13 @@ function refreshData(){
 function loadSpaceScreen() {
 
     // Make sure the Json is no read each time function is called
-    // if(!loaded) {
-    //     // Preload Data
-    //
-    //     loaded = true;
-    //
-    // }
+    if(!loaded) {
+        // Preload Data
+        loaded = true;
 
+    }
 
+    window.planetCount = 0;
     
     var self = this;
 
@@ -210,53 +226,85 @@ function loadSpaceScreen() {
     });
 
     // Create a hidden notification button
-    var notifiy = notify().appendTo(self.$page);
+    var notification = notify().appendTo(self.$page);
 
-    // Append a cancel and an OK but to the notification area
-    uiButton('cancel', 'Cancel').appendTo(notifiy).on('click', function () {
-        $(".uiLabel").html(' ');
-        notifiy.hide();
-    });
 
-    uiButton('ok', 'Ok').appendTo(notifiy).appendTo(notifiy).on('click', function () {
-        notifiy.hide();
+
+    uiButton('ok', 'Ok').appendTo(notification).on('click', function () {
+        notification.hide();
         $(".uiLabel").html(' ');
         $('#spaceScreen').hide();
         loadScenarioScreen();
     });
 
+    // Append a cancel and an OK but to the notification area
+    uiButton('cancel', 'Cancel').appendTo(notification).on('click', function () {
+        $(".uiLabel").html(' ');
+        notification.hide();
+        $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
+    });
+
+
     // On click the user will be asked if they want to start a scenario
-    planet(scenarioObj.pImage[0], scenarioObj.planet[0]).appendTo(self.$page).on('click', function() {
+
+    planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
 
         // Remove any content inside notify label
         $('label.uiLabel').html(' ');
         // Show the notification
         $(".notify").show();
         // Create the label with content
-        uiLabel("This is planet Zim 34, would you like to travel there?").appendTo(notifiy);
+
         // Specify the correct number to read from the scenarioObj object
         number = 0;
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
         console.log(number);
+
+        //Disable button on click
+        $(".space-planet-.planet-0").css({"pointer-events": 'none', "opacity": '0.8'});
                                 
     });
-    planet(scenarioObj.pImage[1], scenarioObj.planet[1]).appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
-        uiLabel('This is planet Palethe 8, would you like to travel there?').appendTo(notifiy);
         number = 1;
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
 
+        //Disable button on click
+        $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
     });
-    planet(scenarioObj.pImage[2], scenarioObj.planet[2]).appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
 
         $('label.uiLabel').html(' ');
         $(".notify").show();
-        uiLabel('This is planet Dengel Jar IV, would you like to travel there?').appendTo(notifiy);
         number = 2;
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
+
+        //Disable button on click
+        $(".space-planet-.planet-2").css({"pointer-events": 'none', "opacity": '0.8'});
     });
 
     // Black hole button
-    blackHole().appendTo(self.$page);
+    blackHole().appendTo(self.$page).on('click', function () {
+
+
+        // Black hole resets system and generating x amount of new planets
+        $("#spaceScreen").html(' ');
+
+
+
+        // Change background
+        $('body').addClass('BGCLASS');
+        // Change planets
+
+        removePlanets();
+        loadSpaceScreen();
+        console.log(scenarioObj);
+        // Enable space station
+
+
+    });
 
 
     
@@ -283,8 +331,36 @@ function loadSpaceScreen() {
     self.$container.append(self.$page);
 
 
+
 }
 
+
+function removePlanets() {
+
+
+for(var i = 0; i< 3; i++) {
+
+
+
+        scenarioObj.pImage.shift();
+        scenarioObj.planetBlurb.shift();
+        scenarioObj.dialogue.shift();
+        scenarioObj.optionA.shift();
+        scenarioObj.optionB.shift();
+
+        scenarioObj.resultsA_dialogue.shift();
+        scenarioObj.resultsA_number.shift();
+        scenarioObj.resultsA_type.shift();
+        scenarioObj.resultsB_dialogue.shift();
+        scenarioObj.resultsB_number.shift();
+        scenarioObj.resultsB_type.shift();
+        }
+        console.log(scenarioObj);
+
+
+
+
+}
 // Update the side nav with the most recent stats
 function refreshStats () {
 
@@ -352,17 +428,22 @@ function updateStats(result, number) {
 
 function loadScenarioScreen() {
 
+
     var self = this;
 
     self.$container = $('#scenarioScreen').show();
 
     self.$page = $("<div class='scenario-Screen-page'></div>");
 
+
+
     // First row of the content that holds the dialogue and the portait
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
+    portraitColNew(scenarioObj.pImage[number]).appendTo(dialogueRow);
+
     // Portrait and dialogue
-    portraitCol().appendTo(dialogueRow);
+    // portraitCol().appendTo(dialogueRow);
 
     // Dialogue
     // dialogueBox().appendTo(dialogueRow);
@@ -378,7 +459,7 @@ function loadScenarioScreen() {
 
         // Output the results of the scenario
         var resourceUpdate = "You have gained " + scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
-        outputText(scenarioObj.resultsA_dialogue, $('.results').show());
+        outputText(scenarioObj.resultsA_dialogue[number], $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
         // Update the stats earned or lost
@@ -396,8 +477,8 @@ function loadScenarioScreen() {
 
         var resourceUpdate = "You have lost " + scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
 
-        outputText(scenarioObj.resultsB_dialogue, $('.results').show());
-        outputText(resourceUpdate, $('.resource-Update').show());
+        outputText(scenarioObj.resultsB_dialogue[number], $('p.results').show());
+        outputText(resourceUpdate, $('p.resource-Update').show());
 
         updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
 
@@ -407,12 +488,17 @@ function loadScenarioScreen() {
 
     // Add the back button to the screen
     returnToShip('back', 'disabled').appendTo(self.$page).on('click', function () {
+
+        planetCount++;
+
         $('#scenarioScreen').hide();
 
         $('#scenarioScreen').html(' ');
         $('#spaceScreen').show();
 
+
     });
+
 
     // Append all elements to the container
     self.$container.append(self.$page);
@@ -423,6 +509,7 @@ function loadScenarioScreen() {
     outputText(scenarioObj.optionA[number], $('.option-A'));
 
     outputText(scenarioObj.optionB[number], $('.option-B'));
+
 
 
 
@@ -596,22 +683,7 @@ function loadSpaceShipScreen() {
 // Test function to load a dummy scenario
 function loadScenario() {
 
-    // Object to hold 3 scenarios at a time
-    window.scenarioObj = {
 
-        pImage: [undefined,undefined,undefined],
-        planet: [undefined,undefined,undefined],
-        dialogue: [undefined,undefined,undefined],
-        optionA: [undefined,undefined,undefined],
-        optionB: [undefined,undefined,undefined],
-        resultsA_dialogue:[undefined,undefined,undefined],
-        resultsA_number: [undefined,undefined,undefined],
-        resultsA_type: [undefined,undefined,undefined],
-        resultsB_dialogue:[undefined,undefined,undefined],
-        resultsB_number: [undefined,undefined,undefined],
-        resultsB_type: [undefined,undefined,undefined]
-
-    };
 
     // Promise to load scenario.json file
     var scenario = new Promise(function (resolve, reject) {
@@ -623,24 +695,21 @@ function loadScenario() {
             console.log(json);
 
 
-            // iterate through all items in json and assign them to the scenarioObj
-            for(var i= 0; 0 < json.length; i++) {
-                scenarioObj.pImage[i] = json[i].pImage;
-                scenarioObj.planet[i] = json[i].planetStyle;
-                scenarioObj.dialogue[i] = json[i].dialogue;
-                scenarioObj.optionA[i] = json[i].options["a"];
-                scenarioObj.optionB[i] = json[i].options["b"];
+            // // iterate through all items in json and assign them to the scenarioObj
+            for(var i= 0; i < json.length; i++) {
+                scenarioObj.pImage.push(json[i].pImage);
+                scenarioObj.planetBlurb.push(json[i].planetBlurb);
+                scenarioObj.dialogue.push(json[i].dialogue);
+                scenarioObj.optionA.push(json[i].options["a"]);
+                scenarioObj.optionB.push(json[i].options["b"]);
 
-                scenarioObj.resultsA_dialogue[i] = json[i].results["a"][0];
-                scenarioObj.resultsA_number[i] = json[i].results["a"][1];
-                scenarioObj.resultsA_type[i] = json[i].results["a"][2];
-                scenarioObj.resultsB_dialogue[i] = json[i].results["b"][0];
-                scenarioObj.resultsB_number[i] = json[i].results["b"][1];
-                scenarioObj.resultsB_type[i] = json[i].results["b"][2];
+                scenarioObj.resultsA_dialogue.push(json[i].results["a"][0]);
+                scenarioObj.resultsA_number.push(json[i].results["a"][1]);
+                scenarioObj.resultsA_type.push(json[i].results["a"][2]);
+                scenarioObj.resultsB_dialogue.push(json[i].results["b"][0]);
+                scenarioObj.resultsB_number.push(json[i].results["b"][1]);
+                scenarioObj.resultsB_type.push(json[i].results["b"][2]);
             }
-
-
-            console.log("yo:"+ scenarioObj);
             resolve();
             // console.log("Output: " + scenarioObj.resultsA_dialogue);
         }).fail(function (json) {
