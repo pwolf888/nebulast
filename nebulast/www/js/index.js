@@ -100,7 +100,7 @@ function closeNav() {
 function loadMainMenu() {
 
     // Asteroid function - perhaps rename function - makes no sense..
-    asteroidPos();
+    // asteroidPos();
 
     // Background set to black
     $('body').css('background-color', '#000 !important');
@@ -164,7 +164,7 @@ function loadMainMenu() {
 function bgElements(container) {
     stars().appendTo(container);
     twinkles().appendTo(container);
-    asteroid().appendTo(container);
+    // asteroid().appendTo(container);
 }
 
 // Looping function that randomizes the position of the asteroid.
