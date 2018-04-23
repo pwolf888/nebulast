@@ -576,7 +576,6 @@ function loadSpaceStationScreen() {
 
 
 
-
     spaceStationBG('spaceStation').appendTo(self.$page);
 
 

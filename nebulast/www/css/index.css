@@ -48,6 +48,7 @@
 
 body  {
      font-family: pix PixelFJVerdana12ptimport;
+     overflow: hidden;
      background-image: url('BG001.jpg') ;
      background-position: center center;
      background-repeat:  no-repeat;
