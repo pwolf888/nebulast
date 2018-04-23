@@ -89,3 +89,11 @@
         z-index: 10;
       }
 
+      .asteroidContainer {
+        position: absolute;
+        height: auto;
+        width: auto;
+        overflow: hidden;
+
+
+      }

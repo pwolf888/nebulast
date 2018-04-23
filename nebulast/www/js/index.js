@@ -576,7 +576,6 @@ function loadSpaceStationScreen() {
 
 
 
-    stars().appendTo(self.$page);
     spaceStationBG('spaceStation').appendTo(self.$page);
 
 
@@ -603,43 +602,59 @@ function loadSpaceStationScreen() {
     // shopIcon('waterMinusIcon').appendTo(shopcon);
     //shopIcon('waterPlusIcon').appendTo(shopCon);
     uiButton('waterPlusIcon', ' ').appendTo(shopCon).on('click', function () {
+        if (stats.credits != 0 && stats.credits >= shopObj.buyPriceB) {
         creditUpdate('water', -shopObj.buyPriceB, 1);
         shopValUpdate('water', stats.water);
         shopValUpdate('coin', stats.credits);
         console.log(stats.water);
+        }
+        
     });
     uiButton('waterMinusIcon', ' ').appendTo(shopCon).on('click', function () {
+        if (stats.water != 1) {
         creditUpdate('water', shopObj.sellPriceB, -1);
         shopValUpdate('water', stats.water);
         shopValUpdate('coin', stats.credits);
         console.log(stats.water);
+        }
     });
 
     shopIcon('foodIcon').appendTo(shopCon);
     uiButton('foodPlusIcon', ' ').appendTo(shopCon).on('click', function () {
+        if (stats.credits != 0 && stats.credits >= shopObj.buyPriceA) {
         creditUpdate('food', -shopObj.buyPriceA, 1);
         shopValUpdate('food', stats.food);
         shopValUpdate('coin', stats.credits);
         console.log(stats.food);
+        }
     });
+
     uiButton('foodMinusIcon', ' ').appendTo(shopCon).on('click', function () {
-        creditUpdate('food',  shopObj.buyPriceA, -1);
+        if (stats.food != 1) {
+        creditUpdate('food',  shopObj.sellPriceA, -1);
         shopValUpdate('food', stats.food);
         shopValUpdate('coin', stats.credits);
         console.log(stats.food);
+        }
     });   
+
     shopIcon('fuelIcon').appendTo(shopCon);
     uiButton('fuelPlusIcon', ' ').appendTo(shopCon).on('click', function () {
-        creditUpdate('fuel', -shopObj.buyPriceA, 1);
+        if (stats.credits != 0 && stats.credits >= shopObj.buyPriceC) {
+        creditUpdate('fuel', -shopObj.buyPriceC, 1);
         shopValUpdate('fuel', stats.fuel);
         shopValUpdate('coin', stats.credits);
         console.log(stats.food);
+        }
     }); 
+    
     uiButton('fuelMinusIcon', ' ').appendTo(shopCon).on('click', function () {
-        creditUpdate('fuel',  shopObj.buyPriceA, -1);
+        if (stats.fuel != 1) {
+        creditUpdate('fuel',  shopObj.sellPriceC, -1);
         shopValUpdate('fuel', stats.fuel);
         shopValUpdate('coin', stats.credits);
         console.log(stats.food);
+        }
     });   
 
 
@@ -658,6 +673,13 @@ function shopValUpdate (resource, object) {
     $("."+resource+"Value").html(object);
     
 }
+
+// function resourceValidation () {
+//     if (stats.water == 1  
+
+// }
+
+
 
 // Update the credits when buying or selling resources
 function creditUpdate(dataType, price, qty) {
@@ -761,11 +783,11 @@ function loadShopData() {
             shopObj.dataTypeC = json[0].dataType[2];
             shopObj.Quantity = json[0].quantity;
             shopObj.buyPriceA = json[0].buyPrice[0];
-            shopObj.buyPriceB = json[0].buyPrice[0];
-            shopObj.buyPriceC = json[0].buyPrice[0];
-            shopObj.sellPriceA = json[0].sellPrice[1];
+            shopObj.buyPriceB = json[0].buyPrice[1];
+            shopObj.buyPriceC = json[0].buyPrice[2];
+            shopObj.sellPriceA = json[0].sellPrice[0];
             shopObj.sellPriceB = json[0].sellPrice[1];
-            shopObj.sellPriceC = json[0].sellPrice[1];
+            shopObj.sellPriceC = json[0].sellPrice[2];
 
             resolve();
             // console.log("Output: " + scenarioObj.resultsA_dialogue);
