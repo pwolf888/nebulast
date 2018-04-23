@@ -79,6 +79,8 @@ body  {
     position: absolute !important;
     left: 70px;
     top: 20%;
+    height: 100px;
+    width: 100px;
     z-index: 999;
 }
 

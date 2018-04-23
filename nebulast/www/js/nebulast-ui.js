@@ -66,7 +66,7 @@ window.spaceship = function () {
 //
 window.spaceStation = function () {
 
-    var spaceStation = $("<div class='space-Station' modifier='outline'><img src='img/spacestation-gif.gif'></div>");
+    var spaceStation = $("<div class='space-Station' modifier='outline' ><img src='img/spacestation-gif.gif' style= 'height: 100px; width: 100px;'></div>");
     return spaceStation;
 };
 
