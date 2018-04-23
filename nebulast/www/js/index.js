@@ -100,7 +100,7 @@ function closeNav() {
 function loadMainMenu() {
 
     // Asteroid function - perhaps rename function - makes no sense..
-    refreshData();
+    asteroidPos();
 
     // Background set to black
     $('body').css('background-color', '#000 !important');
@@ -168,13 +168,13 @@ function bgElements(container) {
 }
 
 // Looping function that randomizes the position of the asteroid.
-function refreshData(){
+function asteroidPos(){
 
-    $(".asteroid").css("right", asteroidPosition);
+    $(".asteroid").css("right", asteroidRandom);
 
     x = 6; //seconds
 
-    function asteroidPosition(){
+    function asteroidRandom(){
 
        randomNumber = Math.floor((Math.random() * 650) - 250);
 
@@ -182,7 +182,7 @@ function refreshData(){
 
     }
 
-    setTimeout(refreshData, x*1000);
+    setTimeout(asteroidPos , x*1000);
 
    }
 
