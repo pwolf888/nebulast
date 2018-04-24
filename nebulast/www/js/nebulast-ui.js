@@ -59,7 +59,7 @@ window.close = function () {
 // Space ship button
 window.spaceship = function () {
 
-    var spaceship = $("<div class='space-Ship' ><img src='img/spaceship-gif.gif'></div>");
+    var spaceship = $("<div class='space-Ship' ><img src='img/Spaceship.gif' style= 'height: 120px; width: 180px;'></div>");
     return spaceship;
 };
 
