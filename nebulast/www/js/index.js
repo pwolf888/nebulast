@@ -73,7 +73,8 @@ $(document).ready(function () {
     loadScenario();
     loadShopData();
     loadMainMenu();
-    randomBGGen(RandomInt);
+    var rando = randomBGInt();
+    randomBGGen(rando);
 
     
     
@@ -109,7 +110,7 @@ function loadMainMenu() {
 
     //Randomly place bg
 
-    console.log (RandomInt);
+
     
 
 
@@ -202,27 +203,29 @@ function asteroidPos(){
    // Random number generator for randomly placing background
 
 
-function randomBGGen (RandomInt){
+function randomBGGen (randomInt) {
 
-    $("body").css("background-image", "url('img/BG00"+RandomInt+".jpg')");
+    $("body").css("background-image", "url('img/BG00" + randomInt + ".jpg')");
 
-    } 
-
-var RandomInt = "";
-
-function RandomBGInt() {
-
-RandomInt = Math.floor((Math.random() * 6) + 1);
-console.log(RandomInt);
-
-return RandomInt
 
 }
 
-window.onload = function (){
-    RandomBGInt();
+
+function randomBGInt() {
+
+    var randomInt = 0;
+    randomInt = Math.floor((Math.random() * 6) + 1);
+    console.log(randomInt);
+
+    return randomInt;
 
 }
+
+//
+// window.onload = function (){
+//     RandomBGInt();
+//
+// };
 
 
 
