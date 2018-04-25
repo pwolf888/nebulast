@@ -207,8 +207,12 @@ function randomBGGen (randomInt) {
 
     $("body").css("background-image", "url('img/BG00" + randomInt + ".jpg')");
 
+    // $("<div class='asteroid'><img class='asteroid' src='img/Commet00"+ randomInt +".gif'></div>");
+
+    
 
 }
+
 
 
 function randomBGInt() {
@@ -346,7 +350,8 @@ function loadSpaceScreen() {
 
 
         // Change background
-        $('body').addClass('BGCLASS');
+        var rando = randomBGInt();
+        randomBGGen(rando);
         // Change planets
 
         removePlanets();
