@@ -49,7 +49,7 @@
 body  {
      font-family: pix PixelFJVerdana12ptimport;
      overflow: hidden;
-     background-image: url('BG001.jpg') ;
+     background-image: url('BG004.jpg');
      background-position: center center;
      background-repeat:  no-repeat;
      background-attachment: fixed;
@@ -58,7 +58,7 @@ body  {
 
 
 .BGCLASS {
-    background-image: url('BG002.jpg') ;
+    background-image: url('BG005.jpg') ;
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;

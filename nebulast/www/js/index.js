@@ -67,14 +67,19 @@ app.initialize();
 
 
 
-
 // Start project - loads the data from json and the main menu
 $(document).ready(function () {
     console.log("ready");
     loadScenario();
     loadShopData();
     loadMainMenu();
+    randomBGGen(RandomInt);
+
     
+    
+
+    
+
 });
 
 /*
@@ -102,6 +107,12 @@ function loadMainMenu() {
     // Asteroid function - perhaps rename function - makes no sense..
     asteroidPos();
 
+    //Randomly place bg
+
+    console.log (RandomInt);
+    
+
+
     // Background set to black
     $('body').css('background-color', '#000 !important');
 
@@ -118,6 +129,7 @@ function loadMainMenu() {
     spaceship().appendTo(self.$page).on('click', function () {
         $('#mainMenu').hide();
         loadSpaceScreen();
+
 
     });
 
@@ -179,12 +191,46 @@ function asteroidPos(){
        randomNumber = Math.floor((Math.random() * 650) - 250);
 
        return randomNumber
+       
 
     }
 
     setTimeout(asteroidPos , x*1000);
 
    }
+
+   // Random number generator for randomly placing background
+
+
+function randomBGGen (RandomInt){
+
+    $("body").css("background-image", "url('img/BG00"+RandomInt+".jpg')");
+
+    } 
+
+var RandomInt = "";
+
+function RandomBGInt() {
+
+RandomInt = Math.floor((Math.random() * 6) + 1);
+console.log(RandomInt);
+
+return RandomInt
+
+}
+
+window.onload = function (){
+    RandomBGInt();
+
+}
+
+
+
+    // function RandomInt(min, max) {
+    //     min = Math.ceil(1);
+    //     max = Math.floor(6);
+    //     return Math.floor(Math.random() * (max - min)) + min; 
+    //     console.log (RandomInt);
 
 /*      
 ***************************************
