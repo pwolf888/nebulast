@@ -131,6 +131,7 @@ window.twinkles = function() {
 
 };
 
+
 window.asteroid = function (randomInt) {
     var asteroid = $("<div class='asteroid'><img class='asteroid' src='img/Commet00" + randomInt + ".gif'></div>");
     return asteroid;

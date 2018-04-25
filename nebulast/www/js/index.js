@@ -214,16 +214,34 @@ function randomBGGen (randomInt) {
 }
 
 
+var exists = [],
+randomInt;
 
 function randomBGInt() {
 
-    var randomInt = 0;
-    randomInt = Math.floor((Math.random() * 6) + 1);
-    console.log(randomInt);
+//New function that randomly generates index and then cuts it out once used. 
+    for(var l=0;l < 6;l++) {
+        do {
+        randomInt = Math.floor(Math.random()*6 + 1 );  
+        } while (exists[randomInt]);
+        exists[randomInt] = true;
 
-    return randomInt;
+        return randomInt;
 
+    }
 }
+
+
+// function randomBGInt() {
+
+//     var randomInt = 0;
+//     randomInt = Math.floor((Math.random() * 6) + 1);
+//     console.log(randomInt);
+
+//     return randomInt;
+
+// }
+
 
 //
 // window.onload = function (){
