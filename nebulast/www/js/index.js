@@ -73,10 +73,10 @@ $(document).ready(function () {
     loadScenario();
     loadShopData();
     loadMainMenu();
+    // Randomly places BG
     var rando = randomBGInt();
     randomBGGen(rando);
 
-    
     
 
     
@@ -216,18 +216,22 @@ function randomBGGen (randomInt) {
 
 var exists = [],
 randomInt;
+var bgCounter = 0;
+
 
 function randomBGInt() {
-
 //New function that randomly generates index and then cuts it out once used. 
+    bgCounter ++; 
     for(var l=0;l < 6;l++) {
         do {
+
         randomInt = Math.floor(Math.random()*6 + 1 );  
         } while (exists[randomInt]);
-        exists[randomInt] = true;
-
+        exists[randomInt] = true;{
+        
         return randomInt;
-
+        }
+        
     }
 }
 
@@ -285,6 +289,8 @@ function loadSpaceScreen() {
 
     // Page that holds all the space screen elements
     self.$page = $("<div class='space-Screen'></div>");
+
+    
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
@@ -367,9 +373,13 @@ function loadSpaceScreen() {
 
 
 
-        // Change background
-        var rando = randomBGInt();
-        randomBGGen(rando);
+
+        // Randomly places BG
+        if (bgCounter < 6) {
+            var rando = randomBGInt();
+            randomBGGen(rando);
+            }
+        
         // Change planets
 
         removePlanets();
@@ -645,8 +655,6 @@ function loadSpaceStationScreen() {
     self.$container = $('#spaceStationScreen').show();
 
     self.$page = $("<div class='spaceStation-Screen'></div>");
-
-
 
     spaceStationBG('spaceStation').appendTo(self.$page);
 
