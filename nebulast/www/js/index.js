@@ -154,9 +154,9 @@ function loadMainMenu() {
     // Initialise the starting stats
     window.stats = {
         food: 5,
-        water: 5,
+        water: 10,
         fuel: 5,
-        crew: 5,
+        crew: 1,
         credits: 200
 
     };
@@ -286,11 +286,23 @@ function randomBGInt() {
 ***************************************
 */
 
+function planetCost(crew) {
+
+// Planets = 1 food * crew, 2 water * crew, 1 fuel
+// Black hole = 2 food * crew, 4 water * crew, 2 fuel. 
+
+stats.food -= crew; 
+stats.water -= 2 * crew;
+stats.fuel -= 1;
+
+
+}
+
 // Load the space screen
 function loadSpaceScreen() {
     // Asteroid function - perhaps rename function - makes no sense..
     asteroidPos();
-    
+
     // Make sure the Json is no read each time function is called
     if(!loaded) {
         // Preload Data
@@ -328,10 +340,21 @@ function loadSpaceScreen() {
 
 
     uiButton('ok', 'Ok').appendTo(notification).on('click', function () {
-        notification.hide();
-        $(".uiLabel").html(' ');
-        $('#spaceScreen').hide();
-        loadScenarioScreen();
+        
+        if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2) {
+            notification.hide();
+            $(".uiLabel").html(' ');
+            $('#spaceScreen').hide();
+            loadScenarioScreen();
+            planetCost(stats.crew);
+
+        } else {
+            $(".uiLabel").html(' ');
+            notification.hide();
+            $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
+        }
+        
+
     });
 
     // Append a cancel and an OK but to the notification area

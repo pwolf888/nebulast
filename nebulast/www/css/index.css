@@ -542,8 +542,9 @@ img.portrait-image, p.name, p.dialogue, p.results {
 
 }
 
-.ok, .cancel, .uiLabel {
+.ok-button, .cancel-button, .uiLabel {
     font-size: 20px !important;
+    background: skyblue;
     position: relative;
     color: #000 !important;
     z-index: 10000000;
