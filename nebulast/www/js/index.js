@@ -151,6 +151,7 @@ function loadMainMenu() {
     // Append everything to the page
     self.$container.append(self.$page);
 
+
     // Initialise the starting stats
     window.stats = {
         food: 5,
@@ -199,9 +200,11 @@ function bgElements(container) {
 function asteroidPos(){
 
     console.log(rando);
-    $(".asteroid"+rando).css("right", asteroidRandom);
 
-    x = 6; //seconds
+    $(".asteroid"+rando).css("right", asteroidRandom);
+    
+
+    x = 4; //seconds
 
     function asteroidRandom(){
 
@@ -301,7 +304,7 @@ stats.fuel -= 1;
 // Load the space screen
 function loadSpaceScreen() {
     // Asteroid function - perhaps rename function - makes no sense..
-    asteroidPos();
+
 
     // Make sure the Json is no read each time function is called
     if(!loaded) {
@@ -318,8 +321,13 @@ function loadSpaceScreen() {
     self.$container = $('#spaceScreen').show();
     
     // Page that holds all the space screen elements
+
+
     self.$page = $("<div class='space-Screen'></div>");
-    asteroid(rando).appendTo(self.$page);
+    asteroidContainer().appendTo('#spaceScreen');
+    asteroid(rando).appendTo('.asteroidContainer');
+    asteroidPos();
+
     
 
     // Spaceship button

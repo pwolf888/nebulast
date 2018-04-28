@@ -130,6 +130,12 @@ window.twinkles = function() {
 
 };
 
+window.asteroidContainer = function () {
+
+    var asteroidContainer = $("<div class='asteroidContainer'></div>");
+
+    return asteroidContainer;
+}
 
 
 window.asteroid = function (randomInt) {
@@ -254,6 +260,8 @@ window.spaceStationBG = function () {
 
 
 };
+
+
 
 
 // Joshes SS

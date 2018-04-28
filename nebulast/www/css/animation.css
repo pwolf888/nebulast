@@ -8,27 +8,32 @@
        
 
     
-        animation-duration: 6s;
+        animation-duration: 4s;
         animation-name: asteroidDiag;
         animation-iteration-count: infinite;
+
           
-        -moz-animation-duration: 6s;
+        -moz-animation-duration: 4s;
         -moz-animation-name: asteroidDiag;
+        -moz-animation-timing-function: ease-out;
         -moz-animation-iteration-count: infinite;
+
       }
       
       @keyframes astroidDiag {
-          0%       { transform: translatex(-30px) translatey(-60px) }
-          100%     { transform: translatex( -2000px) translatey(2000px) }
-        }
+        0%       { transform: translatex(-30px) translatey(-200px) }
+        100%     { transform: translatex( -2000px) translatey(2000px) }
+      }
+
       
       @-moz-keyframes asteroidDiag {
-        0%       { transform: translatex(-30px) translatey(-60px) }
+        0%       { transform: translatex(-30px) translatey(-200px) }
         100%     { transform: translatex( -2000px) translatey(2000px) }
       }
 
       @-webkit-keyframes asteroidDiag {
-        0%       { transform: translatex(-30px) translatey(-60px) }
+
+        0%       { transform: translatex(-30px) translatey(-200px) }
         100%     { transform: translatex( -2000px) translatey(2000px) }
       }
 
@@ -91,9 +96,23 @@
 
       .asteroidContainer {
         position: absolute;
-        height: auto;
-        width: auto;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
         overflow: hidden;
+        bottom: 0;
+        
+
+
+
+
+        /* position: relative;
+       max-width: 100vh;
+       max-height: 100%;
+       margin: 0 auto;
+        overflow: hidden;
+
+ */
 
 
       }
