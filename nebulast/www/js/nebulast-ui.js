@@ -59,7 +59,7 @@ window.close = function () {
 // Space ship button
 window.spaceship = function () {
 
-    var spaceship = $("<div class='space-Ship' ><img src='img/spaceship-gif.gif'></div>");
+    var spaceship = $("<div class='space-Ship' ><img src='img/Spaceship.gif' style= 'height: 120px; width: 180px;'></div>");
     return spaceship;
 };
 
@@ -72,8 +72,7 @@ window.spaceStation = function () {
 
 window.planet = function (image, planetName) {
 
-
-    var planet = $("<div class='space-planet-  "+planetName+"'><img src='"+image+"'></div>");
+    var planet = $("<div class='space-planet-  "+planetName+"'><img src='"+image+"' style= 'height: 100px; width: 100px;'></div>");
 
     return planet;
 
@@ -131,9 +130,9 @@ window.twinkles = function() {
 
 };
 
-window.asteroid = function () {
-    var asteroid = $("<div class='asteroid'><img class='asteroid' src='img/Commet001.gif'></div>");
 
+window.asteroid = function (randomInt) {
+    var asteroid = $("<div class='asteroid'><img class='asteroid' src='img/Commet00" + randomInt + ".gif'></div>");
     return asteroid;
 };
 

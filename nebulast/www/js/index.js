@@ -67,14 +67,20 @@ app.initialize();
 
 
 
-
 // Start project - loads the data from json and the main menu
 $(document).ready(function () {
     console.log("ready");
     loadScenario();
     loadShopData();
     loadMainMenu();
+    // Randomly places BG
+    var rando = randomBGInt();
+    randomBGGen(rando);
+
     
+
+    
+
 });
 
 /*
@@ -112,6 +118,12 @@ function loadMainMenu() {
 
     // Asteroid function - perhaps rename function - makes no sense..
     // asteroidPos();
+
+    //Randomly place bg
+
+
+    
+
 
     // Background set to black
     $('body').css('background-color', '#000 !important');
@@ -193,12 +205,74 @@ function asteroidPos(){
        randomNumber = Math.floor((Math.random() * 650) - 250);
 
        return randomNumber
+       
 
     }
 
     setTimeout(asteroidPos , x*1000);
 
    }
+
+   // Random number generator for randomly placing background
+
+
+function randomBGGen (randomInt) {
+
+    $("body").css("background-image", "url('img/BG00" + randomInt + ".jpg')");
+
+    // $("<div class='asteroid'><img class='asteroid' src='img/Commet00"+ randomInt +".gif'></div>");
+
+    
+
+}
+
+
+var exists = [],
+randomInt;
+var bgCounter = 0;
+
+
+function randomBGInt() {
+//New function that randomly generates index and then cuts it out once used. 
+    bgCounter ++; 
+    for(var l=0;l < 6;l++) {
+        do {
+
+        randomInt = Math.floor(Math.random()*6 + 1 );  
+        } while (exists[randomInt]);
+        exists[randomInt] = true;{
+        
+        return randomInt;
+        }
+        
+    }
+}
+
+
+// function randomBGInt() {
+
+//     var randomInt = 0;
+//     randomInt = Math.floor((Math.random() * 6) + 1);
+//     console.log(randomInt);
+
+//     return randomInt;
+
+// }
+
+
+//
+// window.onload = function (){
+//     RandomBGInt();
+//
+// };
+
+
+
+    // function RandomInt(min, max) {
+    //     min = Math.ceil(1);
+    //     max = Math.floor(6);
+    //     return Math.floor(Math.random() * (max - min)) + min; 
+    //     console.log (RandomInt);
 
 /*      
 ***************************************
@@ -228,6 +302,8 @@ function loadSpaceScreen() {
 
     // Page that holds all the space screen elements
     self.$page = $("<div class='space-Screen'></div>");
+
+    
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
@@ -310,8 +386,15 @@ function loadSpaceScreen() {
 
 
 
-        // Change background
-        $('body').addClass('BGCLASS-02');
+
+
+        // Randomly places BG
+        if (bgCounter < 6) {
+            var rando = randomBGInt();
+            randomBGGen(rando);
+            }
+        
+
         // Change planets
 
         removePlanets();
@@ -590,8 +673,6 @@ function loadSpaceStationScreen() {
     self.$container = $('#spaceStationScreen').show();
 
     self.$page = $("<div class='spaceStation-Screen'></div>");
-
-
 
     spaceStationBG('spaceStation').appendTo(self.$page);
 
