@@ -2,7 +2,7 @@
 
 [
   {
-    "pImage": "img/scenario002.gif",
+    "pImage": "img/scenario2.gif",
     "planetBlurb": "This is planet Zim 34, would you like to travel there?",
     "dialogue": "You have just landed on ZIM 34 after receiving a destress call from a fellow pilot, who has crash landed somewhere on the dense jungle planet. The crew is ready to explore what should you do Captain? ",
     "options": {
@@ -24,7 +24,7 @@
     }
   },
   {
-    "pImage": "img/scenario001.gif",
+    "pImage": "img/scenario1.gif",
     "planetBlurb": "This is planet Palethe 8, would you like to travel there?",
     "dialogue": "Captain there is a strange energy reading coming from Palethe 8, a dry desert planet, my scanners are showing the planet may errupt at any moment, we could save some animals?",
     "options": {
@@ -46,7 +46,7 @@
     }
   },
   {
-    "pImage": "img/scenario003.gif",
+    "pImage": "img/scenario3.gif",
     "planetBlurb": "This is planet Dengel Jar IV, would you like to travel there?",
     "dialogue": "Some bounty hunters have asked for you help on their mission to find and claim the bounty of one Dingo Jones, last seen on the planet Dengel Jar IV, Shall we land captain?",
     "options": {
@@ -68,7 +68,7 @@
     }
   },
   {
-    "pImage": "img/scenario004.gif",
+    "pImage": "img/scenario4.gif",
     "planetBlurb": "This is planet Fisken Zeven, would you like to travel there?",
     "dialogue": "It is super cold!",
     "options": {
@@ -90,7 +90,7 @@
     }
   },
   {
-    "pImage": "img/scenario005.gif",
+    "pImage": "img/scenario5.gif",
     "planetBlurb": "This is planet Harth 83, would you like to travel there?",
     "dialogue": "Red planet is super red and rich in history blah blah blah",
     "options": {
@@ -112,7 +112,227 @@
     }
   },
   {
-    "pImage": "img/scenario006.gif",
+    "pImage": "img/scenario6.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario7.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario8.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario9.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario10.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario11.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+{
+    "pImage": "img/scenario12.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario13.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario14.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario15.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario16.gif",
     "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
     "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
     "options": {
@@ -133,6 +353,7 @@
 
     }
   }
+
 
 
 
