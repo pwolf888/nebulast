@@ -1,6 +1,6 @@
 
 
-      .asteroid {
+      .asteroid1,.asteroid2,.asteroid3,.asteroid4,.asteroid5,.asteroid6  {
         position: absolute;
         top: 0%;
         right: 100px;

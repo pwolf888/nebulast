@@ -74,8 +74,10 @@ $(document).ready(function () {
     loadShopData();
     loadMainMenu();
     // Randomly places BG
-    var rando = randomBGInt();
+    window.rando = randomBGInt();
     randomBGGen(rando);
+    // randomly place asteroid
+    
 
     
 
@@ -116,12 +118,11 @@ function closeNav() {
 // Load the main menu
 function loadMainMenu() {
 
-    // Asteroid function - perhaps rename function - makes no sense..
-    // asteroidPos();
+    
 
     //Randomly place bg
 
-
+    
     
 
 
@@ -190,13 +191,15 @@ function loadMainMenu() {
 function bgElements(container) {
     stars().appendTo(container);
     twinkles().appendTo(container);
-    // asteroid().appendTo(container);
+
+
 }
 
 // Looping function that randomizes the position of the asteroid.
 function asteroidPos(){
 
-    $(".asteroid").css("right", asteroidRandom);
+    console.log(rando);
+    $(".asteroid"+rando).css("right", asteroidRandom);
 
     x = 6; //seconds
 
@@ -285,24 +288,26 @@ function randomBGInt() {
 
 // Load the space screen
 function loadSpaceScreen() {
-
+    // Asteroid function - perhaps rename function - makes no sense..
+    asteroidPos();
+    
     // Make sure the Json is no read each time function is called
     if(!loaded) {
         // Preload Data
         loaded = true;
 
     }
-
+    
     window.planetCount = 0;
     
     var self = this;
 
     // Container tha holds all of the spacescreen elements
     self.$container = $('#spaceScreen').show();
-
+    
     // Page that holds all the space screen elements
     self.$page = $("<div class='space-Screen'></div>");
-
+    asteroid(rando).appendTo(self.$page);
     
 
     // Spaceship button
@@ -390,7 +395,7 @@ function loadSpaceScreen() {
 
         // Randomly places BG
         if (bgCounter < 6) {
-            var rando = randomBGInt();
+            rando = randomBGInt();
             randomBGGen(rando);
             }
         
