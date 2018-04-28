@@ -352,8 +352,51 @@
       ]
 
     }
-  }
+  },
+  {
+    "pImage": "img/scenario16.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
 
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario16.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
+    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "options": {
+      "a": "What is that smell?",
+      "b": "You require more vespene gas?"
+    },
+    "results": {
+      "a": [ "You gained more fuel ",
+        5,
+        "fuel"
+
+      ]
+    ,
+      "b": [ "You were attacked by aliens! ",
+        -5,
+        "crew member"
+      ]
+
+    }
+  }
 
 
 

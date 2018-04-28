@@ -928,11 +928,9 @@ function loadScenario() {
             var randomNumber = 0;
 
             console.log(numArray.length);
-            while(numArray.length != 16) {
-               
 
-               
-                randomNumber = getRandomArbitrary(0,15);
+            for(var l=0;l < 18;l++){
+                randomNumber = getRandomNumber();
                 
                 numArray.push(randomNumber);
                 
@@ -950,8 +948,8 @@ function loadScenario() {
                 scenarioObj.resultsB_number.push(json[randomNumber].results["b"][1]);
                 scenarioObj.resultsB_type.push(json[randomNumber].results["b"][2]);
 
-            }
             
+            }
             
             resolve();
             // console.log("Output: " + scenarioObj.resultsA_dialogue);
@@ -965,10 +963,27 @@ function loadScenario() {
 
 }
 
-function getRandomArbitrary(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+var existsPlanet = [],
+randomIntP;
+
+function getRandomNumber() {
+    for(var l=0;l <18;l++) {
+        do {
+
+        randomIntP = getRandomArbitrary(0,18); 
+        } while (existsPlanet[randomIntP]);
+        existsPlanet[randomIntP] = true;{
+        
+        return randomIntP;
+        }
+        
+    }
+
   }
 
+function  getRandomArbitrary(min,max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
 // Load the shop data
 function loadShopData() {
 
