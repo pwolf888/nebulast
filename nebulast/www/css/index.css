@@ -56,13 +56,27 @@ body  {
      background-size:  cover;
 }
 
+.BGCLASS-01, .BGCLASS-02 {
+
 
 .BGCLASS {
     background-image: url('BG005.jpg') ;
+
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
     background-size:  cover;
+}
+
+.BGCLASS-01 {
+    background-image: url('BG001.jpg') ;
+}
+
+
+.BGCLASS-02 {
+
+    background-image: url('BG002.jpg') ;
+
 }
 
 

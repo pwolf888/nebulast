@@ -92,6 +92,17 @@ $(document).ready(function () {
 ***************************************
 */
 
+// Game Over condition
+function gameOver() {
+    if(stats.food <= 0 || stats.water <= 0 || stats.fuel <= 0 || stats.crew <= 0) {
+        loadGameOverScreen();
+        $('#spaceScreen').html(' ');
+        $('#scenarioScreen').html(' ');
+        console.log('gameover');
+    }
+
+}
+
 // Side nav open
 function openNav() {
     $(".sideNav").css( "width", "50vw");
@@ -106,7 +117,7 @@ function closeNav() {
 function loadMainMenu() {
 
     // Asteroid function - perhaps rename function - makes no sense..
-    asteroidPos();
+    // asteroidPos();
 
     //Randomly place bg
 
@@ -116,6 +127,8 @@ function loadMainMenu() {
 
     // Background set to black
     $('body').css('background-color', '#000 !important');
+    $('body').removeClass('BGCLASS-02');
+    $('body').addClass('BGCLASS-01');
 
     var self = this;
 
@@ -177,7 +190,7 @@ function loadMainMenu() {
 function bgElements(container) {
     stars().appendTo(container);
     twinkles().appendTo(container);
-    asteroid().appendTo(container);
+    // asteroid().appendTo(container);
 }
 
 // Looping function that randomizes the position of the asteroid.
@@ -285,7 +298,7 @@ function loadSpaceScreen() {
     var self = this;
 
     // Container tha holds all of the spacescreen elements
-    self.$container = $('#spaceScreen');
+    self.$container = $('#spaceScreen').show();
 
     // Page that holds all the space screen elements
     self.$page = $("<div class='space-Screen'></div>");
@@ -374,12 +387,14 @@ function loadSpaceScreen() {
 
 
 
+
         // Randomly places BG
         if (bgCounter < 6) {
             var rando = randomBGInt();
             randomBGGen(rando);
             }
         
+
         // Change planets
 
         removePlanets();
@@ -493,7 +508,10 @@ function updateStats(result, number) {
         default:
             break;
 
+
     }
+
+    gameOver();
 
 
 
@@ -792,7 +810,34 @@ function loadSpaceShipScreen() {
 
 }
 
+function loadGameOverScreen() {
 
+
+    var self = this;
+
+    self.$container = $('#gameOverScreen').show();
+
+    self.$page = $("<div class='gameOver-Screen'></div>");
+
+    $("<div style='color: #fff;'>GAME OVER MAN</div>").appendTo(self.$page);
+
+    // Add the back button to the screen
+    returnToShip('backToMainMenu', 'active').appendTo(self.$page).on('click', function () {
+
+        $('#gameOverScreen').html(' ');
+        loadMainMenu();
+        loadScenario();
+        $('#mainMenu').show();
+
+
+    });
+
+
+    self.$container.append(self.$page);
+
+
+
+}
 
 // Test function to load a dummy scenario
 function loadScenario() {

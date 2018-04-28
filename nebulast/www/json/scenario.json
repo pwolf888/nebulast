@@ -84,7 +84,7 @@
     ,
       "b": [ "Your whole crew left you ",
         -5,
-        "crew"
+        "crew member"
       ]
 
     }
@@ -106,7 +106,7 @@
     ,
       "b": [ "Your meet the museum curator and he wants to join you ",
         1,
-        "crew"
+        "crew member"
       ]
 
     }
@@ -128,7 +128,7 @@
     ,
       "b": [ "You were attacked by aliens! ",
         -5,
-        "crew"
+        "crew member"
       ]
 
     }
