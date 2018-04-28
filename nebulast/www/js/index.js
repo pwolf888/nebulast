@@ -868,10 +868,51 @@ function loadGameOverScreen() {
 }
 
 // Test function to load a dummy scenario
+// function loadScenario() {
+
+
+
+//     // Promise to load scenario.json file
+//     var scenario = new Promise(function (resolve, reject) {
+
+//         // Fetch the scenarios
+//         $.getJSON('json/scenario.json').done(function (json) {
+
+//             // Use the closured dictionary so we can easily access later without array parsing
+//             console.log(json);
+
+
+//             // // iterate through all items in json and assign them to the scenarioObj
+//             for(var i= 0; i < json.length; i++) {
+//                 scenarioObj.pImage.push(json[i].pImage);
+//                 scenarioObj.planetBlurb.push(json[i].planetBlurb);
+//                 scenarioObj.dialogue.push(json[i].dialogue);
+//                 scenarioObj.optionA.push(json[i].options["a"]);
+//                 scenarioObj.optionB.push(json[i].options["b"]);
+
+//                 scenarioObj.resultsA_dialogue.push(json[i].results["a"][0]);
+//                 scenarioObj.resultsA_number.push(json[i].results["a"][1]);
+//                 scenarioObj.resultsA_type.push(json[i].results["a"][2]);
+//                 scenarioObj.resultsB_dialogue.push(json[i].results["b"][0]);
+//                 scenarioObj.resultsB_number.push(json[i].results["b"][1]);
+//                 scenarioObj.resultsB_type.push(json[i].results["b"][2]);
+//             }
+//             resolve();
+//             // console.log("Output: " + scenarioObj.resultsA_dialogue);
+//         }).fail(function (json) {
+//             // If any dictionaries fail to load, the application has failedy
+//             console.log(json);
+//             reject();
+//         });
+//     });
+
+
+// }
+
+// Test function to load a dummy scenario
 function loadScenario() {
 
-
-
+    
     // Promise to load scenario.json file
     var scenario = new Promise(function (resolve, reject) {
 
@@ -879,24 +920,39 @@ function loadScenario() {
         $.getJSON('json/scenario.json').done(function (json) {
 
             // Use the closured dictionary so we can easily access later without array parsing
-            console.log(json);
+            //console.log(json);
 
 
-            // // iterate through all items in json and assign them to the scenarioObj
-            for(var i= 0; i < json.length; i++) {
-                scenarioObj.pImage.push(json[i].pImage);
-                scenarioObj.planetBlurb.push(json[i].planetBlurb);
-                scenarioObj.dialogue.push(json[i].dialogue);
-                scenarioObj.optionA.push(json[i].options["a"]);
-                scenarioObj.optionB.push(json[i].options["b"]);
+            
+            var numArray = [];
+            var randomNumber = 0;
 
-                scenarioObj.resultsA_dialogue.push(json[i].results["a"][0]);
-                scenarioObj.resultsA_number.push(json[i].results["a"][1]);
-                scenarioObj.resultsA_type.push(json[i].results["a"][2]);
-                scenarioObj.resultsB_dialogue.push(json[i].results["b"][0]);
-                scenarioObj.resultsB_number.push(json[i].results["b"][1]);
-                scenarioObj.resultsB_type.push(json[i].results["b"][2]);
+            console.log(numArray.length);
+            while(numArray.length != 16) {
+               
+
+               
+                randomNumber = getRandomArbitrary(0,15);
+                
+                numArray.push(randomNumber);
+                
+                console.log("derp " +randomNumber);
+                scenarioObj.pImage.push(json[randomNumber].pImage);
+                scenarioObj.planetBlurb.push(json[randomNumber].planetBlurb);
+                scenarioObj.dialogue.push(json[randomNumber].dialogue);
+                scenarioObj.optionA.push(json[randomNumber].options["a"]);
+                scenarioObj.optionB.push(json[randomNumber].options["b"]);
+
+                scenarioObj.resultsA_dialogue.push(json[randomNumber].results["a"][0]);
+                scenarioObj.resultsA_number.push(json[randomNumber].results["a"][1]);
+                scenarioObj.resultsA_type.push(json[randomNumber].results["a"][2]);
+                scenarioObj.resultsB_dialogue.push(json[randomNumber].results["b"][0]);
+                scenarioObj.resultsB_number.push(json[randomNumber].results["b"][1]);
+                scenarioObj.resultsB_type.push(json[randomNumber].results["b"][2]);
+
             }
+            
+            
             resolve();
             // console.log("Output: " + scenarioObj.resultsA_dialogue);
         }).fail(function (json) {
@@ -908,6 +964,10 @@ function loadScenario() {
 
 
 }
+
+function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
 
 // Load the shop data
 function loadShopData() {
