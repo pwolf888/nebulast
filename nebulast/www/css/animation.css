@@ -2,38 +2,36 @@
 
       .asteroid1,.asteroid2,.asteroid3,.asteroid4,.asteroid5,.asteroid6  {
         position: absolute;
-        top: 0%;
+        top: -10%;
         right: 100px;
-        z-index: 10;
+        z-index: 100000000;
        
 
     
-        animation-duration: 4s;
+        animation-duration: 5s;
         animation-name: asteroidDiag;
         animation-iteration-count: infinite;
-
-          
-        -moz-animation-duration: 4s;
+        -moz-animation-duration: 5s;
         -moz-animation-name: asteroidDiag;
-        -moz-animation-timing-function: ease-out;
+        -moz-animation-timing-function: linear;
         -moz-animation-iteration-count: infinite;
 
       }
       
       @keyframes astroidDiag {
-        0%       { transform: translatex(-30px) translatey(-200px) }
+        0%       { transform: translatex(-30px) translatey(0px) }
         100%     { transform: translatex( -2000px) translatey(2000px) }
       }
 
       
       @-moz-keyframes asteroidDiag {
-        0%       { transform: translatex(-30px) translatey(-200px) }
+        0%       { transform: translatex(-30px) translatey(0px) }
         100%     { transform: translatex( -2000px) translatey(2000px) }
       }
 
       @-webkit-keyframes asteroidDiag {
 
-        0%       { transform: translatex(-30px) translatey(-200px) }
+        0%       { transform: translatex(-30px) translatey(0px) }
         100%     { transform: translatex( -2000px) translatey(2000px) }
       }
 
@@ -100,6 +98,7 @@
         height: 100%;
         margin: 0 auto;
         overflow: hidden;
+        z-index: -1;
         bottom: 0;
         
 
