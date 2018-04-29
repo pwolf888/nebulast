@@ -28,8 +28,8 @@
 
 
 @font-face {
-    font-family: 'PixelFont';
-    src: url('Pixel.ttf');
+    /*font-family: 'PixelFont';*/
+    /*src: url('Pixel.ttf');*/
 }
 
 
@@ -548,5 +548,24 @@ img.portrait-image, p.name, p.dialogue, p.results {
     position: relative;
     color: #000 !important;
     z-index: 10000000;
+
+}
+
+
+/***************************************
+*
+* Main Menu css
+*
+*
+***************************************/
+
+.startButton img, .loadButton img, .htpButton img {
+    width: 50%;
+    height: auto;
+    top: 50%;
+
+}
+.startButton, .loadButton, .htpButton {
+    text-align: center;
 
 }

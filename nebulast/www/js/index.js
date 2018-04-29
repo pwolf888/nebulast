@@ -128,8 +128,8 @@ function loadMainMenu() {
 
     // Background set to black
     $('body').css('background-color', '#000 !important');
-    $('body').removeClass('BGCLASS-02');
-    $('body').addClass('BGCLASS-01');
+    // $('body').removeClass('BGCLASS-02');
+    // $('body').addClass('BGCLASS-01');
 
     var self = this;
 
@@ -140,13 +140,28 @@ function loadMainMenu() {
     self.$page = $("<div class='mainMenu'></div>");
     bgElements('body');
 
+
+
+
     // Start Button
-    spaceship().appendTo(self.$page).on('click', function () {
+    startButton('startButton', 'img/NewButton.png').appendTo(self.$page).on('click', function () {
         $('#mainMenu').hide();
         loadSpaceScreen();
 
+    });
+    // Load Button
+    startButton('loadButton', 'img/LoadButton.png').appendTo(self.$page).on('click', function () {
+        // $('#mainMenu').hide();
+        // loadSpaceScreen();
 
     });
+    // HTP Button
+    startButton('htpButton', 'img/HTPButton.png').appendTo(self.$page).on('click', function () {
+        // $('#mainMenu').hide();
+        // loadSpaceScreen();
+
+    });
+
 
     // Append everything to the page
     self.$container.append(self.$page);
@@ -853,7 +868,7 @@ function loadGameOverScreen() {
     returnToShip('backToMainMenu', 'active').appendTo(self.$page).on('click', function () {
 
         $('#gameOverScreen').html(' ');
-        loadMainMenu();
+
         loadScenario();
         $('#mainMenu').show();
 

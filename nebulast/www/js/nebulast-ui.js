@@ -288,4 +288,17 @@ window.shopIcon = function (elementClass) {
 *
 ***************************************/
 
+/***************************************
+ *
+ * MainMenu Screen
+ *
+ *
+ ***************************************/
 
+window.startButton = function (elementClass, image) {
+
+    var start = $("<div class='"+elementClass+"'><img src='"+image+"'></div>");
+
+    return start;
+
+};
