@@ -302,3 +302,11 @@ window.startButton = function (elementClass, image) {
     return start;
 
 };
+
+
+window.overlay = function () {
+
+    var overlay = $("<div class='startOverlay'><img src='img/NebulastLogo.jpg'></div>");
+    return overlay;
+
+};

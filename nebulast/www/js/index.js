@@ -72,16 +72,17 @@ $(document).ready(function () {
     console.log("ready");
     loadScenario();
     loadShopData();
+
     loadMainMenu();
     // Randomly places BG
     window.rando = randomBGInt();
     randomBGGen(rando);
     // randomly place asteroid
-    
 
-    
 
-    
+
+
+
 
 });
 
@@ -100,7 +101,7 @@ function gameOver() {
         loadGameOverScreen();
         $('#spaceScreen').html(' ');
         $('#scenarioScreen').html(' ');
-        console.log('gameover');
+
     }
 
 }
@@ -138,6 +139,15 @@ function loadMainMenu() {
 
     // page that holds all of the content
     self.$page = $("<div class='mainMenu'></div>");
+
+    overlay().appendTo(self.$page).on('click', function () {
+
+        $('.startOverlay').hide();
+        
+
+    });
+
+
     bgElements('body');
 
 
@@ -199,7 +209,7 @@ function loadMainMenu() {
 
     };
 
-    console.log(scenarioObj);
+
 }
 
 // Adds the asteroid, stars and twinkly stars
@@ -213,7 +223,7 @@ function bgElements(container) {
 // Looping function that randomizes the position of the asteroid.
 function asteroidPos(){
 
-    console.log(rando);
+
     $(".asteroid"+rando).css("right", asteroidRandom);
 
     x = 6; //seconds
@@ -267,30 +277,6 @@ function randomBGInt() {
 }
 
 
-// function randomBGInt() {
-
-//     var randomInt = 0;
-//     randomInt = Math.floor((Math.random() * 6) + 1);
-//     console.log(randomInt);
-
-//     return randomInt;
-
-// }
-
-
-//
-// window.onload = function (){
-//     RandomBGInt();
-//
-// };
-
-
-
-    // function RandomInt(min, max) {
-    //     min = Math.ceil(1);
-    //     max = Math.floor(6);
-    //     return Math.floor(Math.random() * (max - min)) + min; 
-    //     console.log (RandomInt);
 
 /*      
 ***************************************
@@ -393,7 +379,7 @@ function loadSpaceScreen() {
         // Specify the correct number to read from the scenarioObj object
         number = 0;
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
-        console.log(number);
+
 
         //Disable button on click
         $(".space-planet-.planet-0").css({"pointer-events": 'none', "opacity": '0.8'});
@@ -442,7 +428,7 @@ function loadSpaceScreen() {
 
         removePlanets();
         loadSpaceScreen();
-        console.log(scenarioObj);
+
         // Enable space station
 
 
@@ -497,7 +483,7 @@ for(var i = 0; i< 3; i++) {
         scenarioObj.resultsB_number.shift();
         scenarioObj.resultsB_type.shift();
         }
-        console.log(scenarioObj);
+
 
 
 
@@ -531,7 +517,7 @@ function loadStats(container) {
 function updateStats(result, number) {
 
     var result = result;
-    console.log(result);
+
     switch(result) {
         case "food":
             stats.food += number;
@@ -747,7 +733,7 @@ function loadSpaceStationScreen() {
         creditUpdate('water', -shopObj.buyPriceB, 1);
         shopValUpdate('water', stats.water);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.water);
+
         }
         
     });
@@ -756,7 +742,7 @@ function loadSpaceStationScreen() {
         creditUpdate('water', shopObj.sellPriceB, -1);
         shopValUpdate('water', stats.water);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.water);
+
         }
     });
 
@@ -766,7 +752,7 @@ function loadSpaceStationScreen() {
         creditUpdate('food', -shopObj.buyPriceA, 1);
         shopValUpdate('food', stats.food);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.food);
+
         }
     });
 
@@ -775,7 +761,7 @@ function loadSpaceStationScreen() {
         creditUpdate('food',  shopObj.sellPriceA, -1);
         shopValUpdate('food', stats.food);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.food);
+
         }
     });   
 
@@ -785,7 +771,7 @@ function loadSpaceStationScreen() {
         creditUpdate('fuel', -shopObj.buyPriceC, 1);
         shopValUpdate('fuel', stats.fuel);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.food);
+
         }
     }); 
     
@@ -794,7 +780,7 @@ function loadSpaceStationScreen() {
         creditUpdate('fuel',  shopObj.sellPriceC, -1);
         shopValUpdate('fuel', stats.fuel);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.food);
+
         }
     });   
 
@@ -942,14 +928,14 @@ function loadScenario() {
             var numArray = [];
             var randomNumber = 0;
 
-            console.log(numArray.length);
+
 
             for(var l=0;l < 18;l++){
                 randomNumber = getRandomNumber();
                 
                 numArray.push(randomNumber);
                 
-                console.log("derp " +randomNumber);
+
                 scenarioObj.pImage.push(json[randomNumber].pImage);
                 scenarioObj.planetBlurb.push(json[randomNumber].planetBlurb);
                 scenarioObj.dialogue.push(json[randomNumber].dialogue);

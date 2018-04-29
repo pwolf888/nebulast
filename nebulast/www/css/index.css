@@ -49,7 +49,7 @@
 body  {
      font-family: pix PixelFJVerdana12ptimport;
      overflow: hidden;
-     background-image: url('NebulastLogo.jpg');
+     /*background-image: url('NebulastLogo.jpg');*/
      background-position: center center;
      background-repeat:  no-repeat;
      background-attachment: fixed;
@@ -567,5 +567,16 @@ img.portrait-image, p.name, p.dialogue, p.results {
 }
 .startButton, .loadButton, .htpButton {
     text-align: center;
+
+}
+
+.startOverlay img {
+
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    position: absolute;
 
 }
