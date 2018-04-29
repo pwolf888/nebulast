@@ -102,6 +102,8 @@ function gameOver() {
         $('#spaceScreen').html(' ');
         $('#scenarioScreen').html(' ');
 
+
+
     }
 
 }
@@ -850,6 +852,15 @@ function loadSpaceShipScreen() {
 function loadGameOverScreen() {
 
 
+    stats = {
+        food: 5,
+        water: 10,
+        fuel: 5,
+        crew: 1,
+        credits: 200
+
+    };
+
     var self = this;
 
     self.$container = $('#gameOverScreen').show();
@@ -860,6 +871,7 @@ function loadGameOverScreen() {
 
         $('#gameOverScreen').html(' ');
 
+        existsPlanet = [];
         loadScenario();
         $('#mainMenu').show();
 
