@@ -139,18 +139,16 @@ function loadMainMenu() {
 
     // page that holds all of the content
     self.$page = $("<div class='mainMenu'></div>");
-
+    menuBG().appendTo(self.$page);
     overlay().appendTo(self.$page).on('click', function () {
 
         $('.startOverlay').hide();
-        
+
 
     });
 
 
     bgElements('body');
-
-
 
 
     // Start Button
@@ -335,33 +333,37 @@ function loadSpaceScreen() {
         loadSpaceStationScreen();
     });
 
+    var notification = $("<div class='notify-container'></div>").appendTo(self.$page);
     // Create a hidden notification button
-    var notification = notify().appendTo(self.$page);
+    var notLabel = notify().appendTo(notification);
 
 
 
-    uiButton('ok', 'Ok').appendTo(notification).on('click', function () {
+
+
+    uiButton('ok', 'Ok').appendTo(notLabel).on('click', function () {
         
         if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2) {
-            notification.hide();
+            notLabel.hide();
             $(".uiLabel").html(' ');
             $('#spaceScreen').hide();
             loadScenarioScreen();
             planetCost(stats.crew);
 
         } else {
-            $(".uiLabel").html(' ');
-            notification.hide();
+            $(".uiLabel").remove();
+
+            notLabel.hide();
             $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
         }
-        
+
 
     });
 
     // Append a cancel and an OK but to the notification area
-    uiButton('cancel', 'Cancel').appendTo(notification).on('click', function () {
+    uiButton('cancel', 'Cancel').appendTo(notLabel).on('click', function () {
         $(".uiLabel").html(' ');
-        notification.hide();
+        notLabel.hide();
         $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
     });
 
@@ -371,14 +373,16 @@ function loadSpaceScreen() {
     planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
 
         // Remove any content inside notify label
-        $('label.uiLabel').html(' ');
+        $('label.uiLabel, .not-diamond').remove();
         // Show the notification
         $(".notify").show();
         // Create the label with content
 
         // Specify the correct number to read from the scenarioObj object
         number = 0;
-        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
+
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
+        diamond().prependTo(notLabel);
 
 
         //Disable button on click
@@ -387,20 +391,24 @@ function loadSpaceScreen() {
     });
     planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
 
-        $('label.uiLabel').html(' ');
+        $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
         number = 1;
-        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
+
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
+        diamond().prependTo(notLabel);
 
         //Disable button on click
         $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
     });
     planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
 
-        $('label.uiLabel').html(' ');
+        $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
         number = 2;
-        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
+
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
+        diamond().prependTo(notLabel);
 
         //Disable button on click
         $(".space-planet-.planet-2").css({"pointer-events": 'none', "opacity": '0.8'});

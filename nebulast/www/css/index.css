@@ -85,7 +85,7 @@ body  {
     position: absolute !important;
     top: 40%;
     left: 15px;
-    z-index: 999;
+    z-index: 10;
 
 }
 
@@ -95,13 +95,13 @@ body  {
     top: 20%;
     height: 100px;
     width: 100px;
-    z-index: 999;
+    z-index: 10;
 }
 
 .space-planet- {
     position: absolute !important;
 
-    z-index: 999;
+    z-index: 10;
 }
 
 .planet-0 {
@@ -525,28 +525,36 @@ img.portrait-image, p.name, p.dialogue, p.results {
 }
 
 
+.notify-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 600;
 
+}
 
 .notify {
 
 
-    position: absolute;
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #3ccaf2;
     z-index: 99999;
     text-align: center;
     margin: auto;
     width: 50%;
-    border: 3px solid green;
+    border: 3px dotted #3ccaf2;
     padding: 10px;
+
 
 }
 
 .ok-button, .cancel-button, .uiLabel {
     font-size: 20px !important;
-    background: skyblue;
+
     position: relative;
-    color: #000 !important;
+    color: #fff!important;
     z-index: 10000000;
 
 }
@@ -563,6 +571,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
     width: 50%;
     height: auto;
     top: 50%;
+    position: relative;
 
 }
 .startButton, .loadButton, .htpButton {
@@ -572,11 +581,27 @@ img.portrait-image, p.name, p.dialogue, p.results {
 
 .startOverlay img {
 
+     overflow: hidden;
+     width: 100%;
+     height: auto;
+     top: 0;
+     left: 0;
+     position: absolute;
+    z-index: 600
+
+ }
+
+.menuScreen img {
     overflow: hidden;
     width: 100%;
     height: auto;
     top: 0;
     left: 0;
     position: absolute;
+}
 
+.hamburger {
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }

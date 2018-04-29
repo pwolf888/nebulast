@@ -144,7 +144,13 @@ window.notify = function () {
 
     return notify;
 };
+window.diamond = function () {
 
+
+    var diamond = $("<div class='not-diamond'><img src='img/diamondAi.gif' ><br><br></div>");
+
+    return diamond;
+};
 
 window.uiLabel = function (text) {
 
@@ -306,7 +312,13 @@ window.startButton = function (elementClass, image) {
 
 window.overlay = function () {
 
-    var overlay = $("<div class='startOverlay'><img src='img/NebulastLogo.jpg'></div>");
+    var overlay = $("<div class='startOverlay'><img src='img/StartScreen.jpg'></div>");
     return overlay;
+
+};
+window.menuBG = function () {
+
+    var bg = $("<div class='menuScreen'><img src='img/MenuScreen.jpg'></div>");
+    return bg;
 
 };
