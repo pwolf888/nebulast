@@ -587,7 +587,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
      top: 0;
      left: 0;
      position: absolute;
-    z-index: 600
+     z-index: 600
 
  }
 
@@ -605,3 +605,16 @@ img.portrait-image, p.name, p.dialogue, p.results {
     top: 10px;
     left: 10px;
 }
+
+
+
+.image-container img{
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    top: 30%;
+    left: 0;
+    position: absolute;
+    z-index: 600;
+}
+

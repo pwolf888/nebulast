@@ -856,10 +856,7 @@ function loadGameOverScreen() {
 
     self.$page = $("<div class='gameOver-Screen'></div>");
 
-    $("<div style='color: #fff;'>GAME OVER MAN</div>").appendTo(self.$page);
-
-    // Add the back button to the screen
-    returnToShip('backToMainMenu', 'active').appendTo(self.$page).on('click', function () {
+    $("<div class='image-container'><img src='img/GameOver.png'</div>").appendTo(self.$page).on('click', function () {
 
         $('#gameOverScreen').html(' ');
 
