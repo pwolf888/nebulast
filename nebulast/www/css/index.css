@@ -34,7 +34,7 @@
 
 
 * {
-    font-family: 'PixelFont';
+    /*font-family: 'PixelFont';*/
     font-size: 12px!important;
     
 
@@ -42,7 +42,7 @@
 }
 
 .space-Screen {
-    font-family: PixelFont;
+    /*font-family: PixelFont;*/
     color: #fff;
 }
 
@@ -481,18 +481,26 @@ img.portrait-image, p.name, p.dialogue, p.results {
 
 
 .sideNav {
-    height: 100%;
-    width: 0;
+    width: 10px;
+    height: 0;
     position: fixed;
-    z-index: 10000;
-    top: 0;
-    left: 0;
-    background-color: #111;
+    z-index: 1000;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3ccaf2;
+    border: 3px dotted #fff;
     overflow: hidden;
     transition: 0.5s;
+    opacity: 0.0;
     -webkit-transition: 0.5s;
 
 }
+
+.sideNav-diamond {
+    text-align: center;
+}
+
 .sideNavHeader {
     background: #80cbc4;
     color: #fff;
@@ -500,11 +508,11 @@ img.portrait-image, p.name, p.dialogue, p.results {
 }
 .stats {
     padding: 8px 8px 8px 32px;
-    width: 100vw;
+    /*width: 100vw;*/
     white-space: nowrap;
     overflow: hidden;
     font-size: 20px!important;
-    color: #818181;
+    color: #fff;
     display: inline-block;
     -webkit-transition: 0.3s;
     transition: 0.3s;
@@ -514,7 +522,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
     display:inline-block;
     left: 50px;
     font-size: 20px!important;
-    color: #818181;
+    color: #fff;
     -webkit-transition: 0.3s;
     transition: 0.3s;
 }
@@ -562,6 +570,14 @@ img.portrait-image, p.name, p.dialogue, p.results {
     color: #fff!important;
     z-index: 10000000;
 
+}
+.hamburger img{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
 }
 
 .dialogueBox {
@@ -612,11 +628,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
     position: absolute;
 }
 
-.hamburger img{
-    position: absolute;
-    bottom: 0px;
-    text-align: center;
-}
+
 
 
 

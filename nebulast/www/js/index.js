@@ -110,12 +110,36 @@ function gameOver() {
 
 // Side nav open
 function openNav() {
-    $(".sideNav").css( "width", "50vw");
+
+
+    $(".sideNav").css( "height", "80%");
+    $(".sideNav").css("opacity", "0.8");
+
+    setTimeout(function(){
+        $(".sideNav").css("width", "30%");
+
+
+    },700);
+
+
+
+
 }
 
 // side nav close
 function closeNav() {
-    $(".sideNav").css('width', "0px");
+
+    $(".sideNav").css("width", "10px");
+
+    setTimeout(function(){
+
+        $(".sideNav").css('height', "0px");
+        $(".sideNav").css("opacity", "0.0");
+    },700);
+
+
+
+
 }
 
 // Load the main menu
@@ -457,10 +481,12 @@ function loadSpaceScreen() {
     // Add the side nav to the screen
     window.hiddenNav = sideNav().appendTo(self.$page);
     // Add the header title to the sidenav
-    $("<div class='sideNavHeader'>Stats</div>").appendTo(hiddenNav);
+    // $("<div class='sideNavHeader'>Stats</div>").appendTo(hiddenNav);
+
     close().appendTo(hiddenNav).on('click', function () {
         closeNav();
     });
+
 
     // Add the stats to the side nav
     loadStats(hiddenNav);
@@ -515,11 +541,17 @@ function refreshStats () {
 // Load stats group
 function loadStats(container) {
 
-    sideNavStat('food', stats.food ).appendTo(container);
-    sideNavStat('water', stats.water).appendTo(container);
-    sideNavStat('fuel', stats.fuel ).appendTo(container);
-    sideNavStat('crew', stats.crew ).appendTo(container);
-    sideNavStat('credits', stats.credits ).appendTo(container);
+
+    sideNavDiamond().appendTo(container);
+    var contentRowTop = $("<div class='stats-rowTop'></div>").appendTo(container);
+    sideNavStat('FoodIcon.png','food', stats.food ).appendTo(contentRowTop);
+    sideNavStat('WaterIcon.png','water', stats.water).appendTo(contentRowTop);
+    sideNavStat('FuelIcon.png','fuel', stats.fuel ).appendTo(contentRowTop);
+
+    var contentRowBottom = $("<div class='stats-rowBot'></div>").appendTo(container);
+
+    sideNavStat('CrewIcon.png','crew', stats.crew ).appendTo(contentRowBottom);
+    sideNavStat('CoinIcon.png','credits', stats.credits ).appendTo(contentRowBottom);
 
 }
 

@@ -20,7 +20,7 @@
 
 window.sideNav = function () {
 
-    var sideNav = $("<div class='sideNav'></div>");
+    var sideNav = $("<div class='sideNav' ></div>");
 
 
 
@@ -29,8 +29,8 @@ window.sideNav = function () {
 
 };
 
-window.sideNavStat = function (type, data) {
-    var stat = $("<div class='stats' >"+type+"  ----  <div class='"+type+" dataVal'> "+data+"</div></div><br>");
+window.sideNavStat = function (image, type, data) {
+    var stat = $("<div class='stats' ><img src='img/"+image+"'><div class='"+type+" dataVal'> "+data+"</div></div>");
     return stat;
 };
 
@@ -42,6 +42,14 @@ window.hamburger = function () {
 
     return hamburger;
 
+};
+
+window.sideNavDiamond = function () {
+
+
+    var diamond = $("<div class='sideNav-diamond'><img src='img/diamondAi.gif' ><br><br></div>");
+
+    return diamond;
 };
 
 window.close = function () {
