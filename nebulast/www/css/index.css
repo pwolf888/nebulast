@@ -216,6 +216,11 @@ img.portrait-image, p.name, p.dialogue, p.results {
     padding: 15px;
 
     margin: 5px;
+
+    color: #fff;
+    background-color: #3ccaf2;
+
+    border: 3px dotted #fff;
 }
 
 .back {
@@ -544,7 +549,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
     text-align: center;
     margin: auto;
     width: 50%;
-    border: 3px dotted #3ccaf2;
+    border: 3px dotted #fff;
     padding: 10px;
 
 
@@ -559,6 +564,13 @@ img.portrait-image, p.name, p.dialogue, p.results {
 
 }
 
+.dialogueBox {
+    color: #fff;
+    background-color: #3ccaf2;
+
+    border: 3px dotted #fff;
+
+}
 
 /***************************************
 *
@@ -600,10 +612,10 @@ img.portrait-image, p.name, p.dialogue, p.results {
     position: absolute;
 }
 
-.hamburger {
+.hamburger img{
     position: absolute;
-    top: 10px;
-    left: 10px;
+    bottom: 0px;
+    text-align: center;
 }
 
 

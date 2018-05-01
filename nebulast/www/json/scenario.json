@@ -69,32 +69,32 @@
   },
   {
     "pImage": "img/scenario4.gif",
-    "planetBlurb": "This is planet Fisken Zeven, would you like to travel there?",
-    "dialogue": "It is super cold!",
+    "planetBlurb": "Fisken Zeven is a frozen tundra with minimal signs of life , would you like to travel there?",
+    "dialogue": "There is a science research centre on the eastern side of the planet. My data shows that there has been no logs from the scientists in over 6 months. There are caves on the western side that could hold some resources captain.",
     "options": {
-      "a": "Get ice-cream?",
-      "b": "Don't get ice-cream?"
+      "a": "Investigate the research centre?",
+      "b": "Explore the caves?"
     },
     "results": {
-      "a": [ "You crew is super stoked! ",
-        5,
-        "food"
+      "a": [ "After melting down a thick sheet of ice over the door of the research centre, you are greeted by a deranged man, probably one of the scientists, you notice lots of human bones laying around. I guess we should take him with us.",
+        1,
+        "crew member"
 
       ]
     ,
-      "b": [ "Your whole crew left you ",
-        -5,
-        "crew member"
+      "b": [ "The crew explore the caves and locate a tribe of crystalline, they are peaceful and take the crew to visit their deity, a giant natural gas geyser!",
+        3,
+        "fuel"
       ]
 
     }
   },
   {
     "pImage": "img/scenario5.gif",
-    "planetBlurb": "This is planet Harth 83, would you like to travel there?",
-    "dialogue": "Red planet is super red and rich in history blah blah blah",
+    "planetBlurb": "The red giant Harth 83 is owned by the Harth corporation, now abandoned, home to water farmers, would you like to travel there?",
+    "dialogue": "A local farmer has sent out a distress signal, ",
     "options": {
-      "a": "Lets go to the pool?",
+      "a": "",
       "b": "Visit the museum?"
     },
     "results": {

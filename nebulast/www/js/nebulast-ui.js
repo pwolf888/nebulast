@@ -36,7 +36,9 @@ window.sideNavStat = function (type, data) {
 
 window.hamburger = function () {
 
-    var hamburger = $("<div class='hamburger' style=\"font-size:30px!important;cursor:pointer\">&#9776;</div>");
+    var hamburger = $("<div class='hamburger' style=\"font-size:30px!important;cursor:pointer\"></div>");
+
+    $("<img src='img/hamburger.gif'>").appendTo(hamburger);
 
     return hamburger;
 
@@ -168,7 +170,7 @@ window.uiLabel = function (text) {
 
 window.portraitColNew = function (planet) {
 
-    var dialogueBox = $("<div class='dialogueBox' style='background-color: #fff;'></div>");
+    var dialogueBox = $("<div class='dialogueBox' style='background-color: #3ccaf2;'></div>");
     $("<img src='img/diamondAi.gif' class='portrait-image'>").appendTo(dialogueBox);
     $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p></div>").appendTo(dialogueBox);
 
@@ -178,27 +180,6 @@ window.portraitColNew = function (planet) {
 };
 
 
-// window.portraitCol = function() {
-//     var portraitCol = $("<div class='dialogueRow' ></div>");
-//     var portraitCard = card('scenario-Portrait').appendTo(portraitCol);
-//     $("<img src='img/diamondAi.png' class='portrait-image'>").appendTo(portraitCard);
-//
-//     var dialogueBox = $("<div class='dialogueRow' style='background-color: #fff;'></div>").appendTo(portraitCol);
-//     var dialogueCard = $("<div class='dialogue-box'></div>").appendTo(dialogueBox);
-//
-//     $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
-//
-//     return portraitCol;
-// };
-
-// window.dialogueBox = function () {
-//     var dialogueBox = $("<div class='dialogueRow' style='background-color: #fff;'></div>");
-//     var dialogueCard = $("<div class='dialogue-box'></div>").appendTo(dialogueBox);
-//
-//     $("<p class='name'>diamond.ai</p><p class='dialogue'></p><p class='results' hidden></p><p class='resource-Update' hidden></p>").appendTo(dialogueCard);
-//
-//     return dialogueBox;
-// };
 
 window.optionButton = function(elementClass) {
 
@@ -228,7 +209,7 @@ window.returnToShip = function(elementClass, active) {
 ***************************************/
 
 window.card = function(elementClass) {
-    var card = $("<div class='"+ elementClass +"-card' style='background-color: #fff'></div>");
+    var card = $("<div class='"+ elementClass +"-card'></div>");
     return card;
 };
 
