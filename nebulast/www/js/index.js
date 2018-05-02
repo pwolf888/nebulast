@@ -72,16 +72,17 @@ $(document).ready(function () {
     console.log("ready");
     loadScenario();
     loadShopData();
+
     loadMainMenu();
     // Randomly places BG
     window.rando = randomBGInt();
     randomBGGen(rando);
     // randomly place asteroid
-    
 
-    
 
-    
+
+
+
 
 });
 
@@ -100,19 +101,45 @@ function gameOver() {
         loadGameOverScreen();
         $('#spaceScreen').html(' ');
         $('#scenarioScreen').html(' ');
-        console.log('gameover');
+
+
+
     }
 
 }
 
 // Side nav open
 function openNav() {
-    $(".sideNav").css( "width", "50vw");
+
+
+    $(".sideNav").css( "height", "80%");
+    $(".sideNav").css("opacity", "0.8");
+
+    setTimeout(function(){
+        $(".sideNav").css("width", "30%");
+
+
+    },700);
+
+
+
+
 }
 
 // side nav close
 function closeNav() {
-    $(".sideNav").css('width', "0px");
+
+    $(".sideNav").css("width", "10px");
+
+    setTimeout(function(){
+
+        $(".sideNav").css('height', "0px");
+        $(".sideNav").css("opacity", "0.0");
+    },700);
+
+
+
+
 }
 
 // Load the main menu
@@ -128,8 +155,8 @@ function loadMainMenu() {
 
     // Background set to black
     $('body').css('background-color', '#000 !important');
-    $('body').removeClass('BGCLASS-02');
-    $('body').addClass('BGCLASS-01');
+    // $('body').removeClass('BGCLASS-02');
+    // $('body').addClass('BGCLASS-01');
 
     var self = this;
 
@@ -138,15 +165,37 @@ function loadMainMenu() {
 
     // page that holds all of the content
     self.$page = $("<div class='mainMenu'></div>");
-    bgElements('body');
+    menuBG().appendTo(self.$page);
+    overlay().appendTo(self.$page).on('click', function () {
 
-    // Start Button
-    spaceship().appendTo(self.$page).on('click', function () {
-        $('#mainMenu').hide();
-        loadSpaceScreen();
+        $('.startOverlay').hide();
 
 
     });
+
+
+    bgElements('body');
+
+
+    // Start Button
+    startButton('startButton', 'img/NewButton.png').appendTo(self.$page).on('click', function () {
+        $('#mainMenu').hide();
+        loadSpaceScreen();
+
+    });
+    // Load Button
+    startButton('loadButton', 'img/LoadButton.png').appendTo(self.$page).on('click', function () {
+        // $('#mainMenu').hide();
+        // loadSpaceScreen();
+
+    });
+    // HTP Button
+    startButton('htpButton', 'img/HTPButton.png').appendTo(self.$page).on('click', function () {
+        // $('#mainMenu').hide();
+        // loadSpaceScreen();
+
+    });
+
 
     // Append everything to the page
     self.$container.append(self.$page);
@@ -184,7 +233,7 @@ function loadMainMenu() {
 
     };
 
-    console.log(scenarioObj);
+
 }
 
 // Adds the asteroid, stars and twinkly stars
@@ -198,7 +247,7 @@ function bgElements(container) {
 // Looping function that randomizes the position of the asteroid.
 function asteroidPos(){
 
-    console.log(rando);
+
     $(".asteroid"+rando).css("right", asteroidRandom);
 
     x = 6; //seconds
@@ -252,30 +301,6 @@ function randomBGInt() {
 }
 
 
-// function randomBGInt() {
-
-//     var randomInt = 0;
-//     randomInt = Math.floor((Math.random() * 6) + 1);
-//     console.log(randomInt);
-
-//     return randomInt;
-
-// }
-
-
-//
-// window.onload = function (){
-//     RandomBGInt();
-//
-// };
-
-
-
-    // function RandomInt(min, max) {
-    //     min = Math.ceil(1);
-    //     max = Math.floor(6);
-    //     return Math.floor(Math.random() * (max - min)) + min; 
-    //     console.log (RandomInt);
 
 /*      
 ***************************************
@@ -334,33 +359,37 @@ function loadSpaceScreen() {
         loadSpaceStationScreen();
     });
 
+    var notification = $("<div class='notify-container'></div>").appendTo(self.$page);
     // Create a hidden notification button
-    var notification = notify().appendTo(self.$page);
+    var notLabel = notify().appendTo(notification);
 
 
 
-    uiButton('ok', 'Ok').appendTo(notification).on('click', function () {
+
+
+    uiButton('ok', 'Ok').appendTo(notLabel).on('click', function () {
         
         if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2) {
-            notification.hide();
+            notLabel.hide();
             $(".uiLabel").html(' ');
             $('#spaceScreen').hide();
             loadScenarioScreen();
             planetCost(stats.crew);
 
         } else {
-            $(".uiLabel").html(' ');
-            notification.hide();
+            $(".uiLabel").remove();
+
+            notLabel.hide();
             $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
         }
-        
+
 
     });
 
     // Append a cancel and an OK but to the notification area
-    uiButton('cancel', 'Cancel').appendTo(notification).on('click', function () {
+    uiButton('cancel', 'Cancel').appendTo(notLabel).on('click', function () {
         $(".uiLabel").html(' ');
-        notification.hide();
+        notLabel.hide();
         $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
     });
 
@@ -370,15 +399,17 @@ function loadSpaceScreen() {
     planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
 
         // Remove any content inside notify label
-        $('label.uiLabel').html(' ');
+        $('label.uiLabel, .not-diamond').remove();
         // Show the notification
         $(".notify").show();
         // Create the label with content
 
         // Specify the correct number to read from the scenarioObj object
         number = 0;
-        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
-        console.log(number);
+
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
+        diamond().prependTo(notLabel);
+
 
         //Disable button on click
         $(".space-planet-.planet-0").css({"pointer-events": 'none', "opacity": '0.8'});
@@ -386,20 +417,24 @@ function loadSpaceScreen() {
     });
     planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
 
-        $('label.uiLabel').html(' ');
+        $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
         number = 1;
-        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
+
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
+        diamond().prependTo(notLabel);
 
         //Disable button on click
         $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
     });
     planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
 
-        $('label.uiLabel').html(' ');
+        $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
         number = 2;
-        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notification);
+
+        uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
+        diamond().prependTo(notLabel);
 
         //Disable button on click
         $(".space-planet-.planet-2").css({"pointer-events": 'none', "opacity": '0.8'});
@@ -427,7 +462,7 @@ function loadSpaceScreen() {
 
         removePlanets();
         loadSpaceScreen();
-        console.log(scenarioObj);
+
         // Enable space station
 
 
@@ -446,10 +481,12 @@ function loadSpaceScreen() {
     // Add the side nav to the screen
     window.hiddenNav = sideNav().appendTo(self.$page);
     // Add the header title to the sidenav
-    $("<div class='sideNavHeader'>Stats</div>").appendTo(hiddenNav);
+    // $("<div class='sideNavHeader'>Stats</div>").appendTo(hiddenNav);
+
     close().appendTo(hiddenNav).on('click', function () {
         closeNav();
     });
+
 
     // Add the stats to the side nav
     loadStats(hiddenNav);
@@ -482,7 +519,7 @@ for(var i = 0; i< 3; i++) {
         scenarioObj.resultsB_number.shift();
         scenarioObj.resultsB_type.shift();
         }
-        console.log(scenarioObj);
+
 
 
 
@@ -504,11 +541,17 @@ function refreshStats () {
 // Load stats group
 function loadStats(container) {
 
-    sideNavStat('food', stats.food ).appendTo(container);
-    sideNavStat('water', stats.water).appendTo(container);
-    sideNavStat('fuel', stats.fuel ).appendTo(container);
-    sideNavStat('crew', stats.crew ).appendTo(container);
-    sideNavStat('credits', stats.credits ).appendTo(container);
+
+    sideNavDiamond().appendTo(container);
+    var contentRowTop = $("<div class='stats-rowTop'></div>").appendTo(container);
+    sideNavStat('FoodIcon.png','food', stats.food ).appendTo(contentRowTop);
+    sideNavStat('WaterIcon.png','water', stats.water).appendTo(contentRowTop);
+    sideNavStat('FuelIcon.png','fuel', stats.fuel ).appendTo(contentRowTop);
+
+    var contentRowBottom = $("<div class='stats-rowBot'></div>").appendTo(container);
+
+    sideNavStat('CrewIcon.png','crew', stats.crew ).appendTo(contentRowBottom);
+    sideNavStat('CoinIcon.png','credits', stats.credits ).appendTo(contentRowBottom);
 
 }
 
@@ -516,7 +559,7 @@ function loadStats(container) {
 function updateStats(result, number) {
 
     var result = result;
-    console.log(result);
+
     switch(result) {
         case "food":
             stats.food += number;
@@ -732,7 +775,7 @@ function loadSpaceStationScreen() {
         creditUpdate('water', -shopObj.buyPriceB, 1);
         shopValUpdate('water', stats.water);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.water);
+
         }
         
     });
@@ -741,7 +784,7 @@ function loadSpaceStationScreen() {
         creditUpdate('water', shopObj.sellPriceB, -1);
         shopValUpdate('water', stats.water);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.water);
+
         }
     });
 
@@ -751,7 +794,7 @@ function loadSpaceStationScreen() {
         creditUpdate('food', -shopObj.buyPriceA, 1);
         shopValUpdate('food', stats.food);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.food);
+
         }
     });
 
@@ -760,7 +803,7 @@ function loadSpaceStationScreen() {
         creditUpdate('food',  shopObj.sellPriceA, -1);
         shopValUpdate('food', stats.food);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.food);
+
         }
     });   
 
@@ -770,7 +813,7 @@ function loadSpaceStationScreen() {
         creditUpdate('fuel', -shopObj.buyPriceC, 1);
         shopValUpdate('fuel', stats.fuel);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.food);
+
         }
     }); 
     
@@ -779,7 +822,7 @@ function loadSpaceStationScreen() {
         creditUpdate('fuel',  shopObj.sellPriceC, -1);
         shopValUpdate('fuel', stats.fuel);
         shopValUpdate('coin', stats.credits);
-        console.log(stats.food);
+
         }
     });   
 
@@ -841,19 +884,26 @@ function loadSpaceShipScreen() {
 function loadGameOverScreen() {
 
 
+    stats = {
+        food: 5,
+        water: 10,
+        fuel: 5,
+        crew: 1,
+        credits: 200
+
+    };
+
     var self = this;
 
     self.$container = $('#gameOverScreen').show();
 
     self.$page = $("<div class='gameOver-Screen'></div>");
 
-    $("<div style='color: #fff;'>GAME OVER MAN</div>").appendTo(self.$page);
-
-    // Add the back button to the screen
-    returnToShip('backToMainMenu', 'active').appendTo(self.$page).on('click', function () {
+    $("<div class='image-container'><img src='img/GameOver.png'</div>").appendTo(self.$page).on('click', function () {
 
         $('#gameOverScreen').html(' ');
-        loadMainMenu();
+
+        existsPlanet = [];
         loadScenario();
         $('#mainMenu').show();
 
@@ -927,14 +977,14 @@ function loadScenario() {
             var numArray = [];
             var randomNumber = 0;
 
-            console.log(numArray.length);
+
 
             for(var l=0;l < 18;l++){
                 randomNumber = getRandomNumber();
                 
                 numArray.push(randomNumber);
                 
-                console.log("derp " +randomNumber);
+
                 scenarioObj.pImage.push(json[randomNumber].pImage);
                 scenarioObj.planetBlurb.push(json[randomNumber].planetBlurb);
                 scenarioObj.dialogue.push(json[randomNumber].dialogue);

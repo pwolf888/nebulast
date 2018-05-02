@@ -126,3 +126,41 @@ Date:14/4/18
 Date:16/4/18
 ------------------------------------
 *Added image of the ai that tells the player about the mission [Jonathan Turnbull]
+
+Date:17/4/18
+------------------------------------
+* Refactored the scenario json getter [Jonathan Turnbull]
+* Flipped around label that asks to land on planet [Jonathan Turnbull]
+* Added Planet to scenario screen[Jonathan Turnbull]
+* Disabled a planet after clicking[Jonathan Turnbull]
+
+Date:18/4/18
+------------------------------------
+* Added planet blurb to scenario.json [Jonathan Turnbull]
+* Game now has 2 levels/galaxies [Jonathan Turnbull]
+
+
+Date:23/4/18
+------------------------------------
+* .gitignore file added and tested on iphone 7 [Jonathan Turnbull]
+* Screen now set to landscape on build [Jonathan Turnbull]
+* Simple gameover is functional [Jonathan Turnbull]
+* Animated diamond.ai [Jonathan Turnbull]
+
+Date:25/4/18
+------------------------------------
+* Fixed Background function [Jonathan Turnbull]
+
+Date:28/4/18
+------------------------------------
+* Josh and I worked together that day fixing bugs
+* Added planet costs
+* Random Planet generation
+
+Date:29/4/18
+------------------------------------
+* Added information for build instructions to readme [Jonathan Turnbull]
+* Main menu adde [Jonathan Turnbull]
+* Tap to start overlay added [Jonathan Turnbull]
+* Centered the notification [Jonathan Turnbull]
+* Game over screen has you died now [Jonathan Turnbull]
