@@ -92,51 +92,51 @@
   {
     "pImage": "img/scenario5.gif",
     "planetBlurb": "The red giant Harth 83 is owned by the Harth corporation, now abandoned, home to water farmers, would you like to travel there?",
-    "dialogue": "A local farmer has sent out a distress signal, ",
+    "dialogue": "A local farmer has sent out a distress signal, one of his machines has fallen into a crevasse and he cannot get it out by himself, we should help him captain!",
     "options": {
-      "a": "",
-      "b": "Visit the museum?"
+      "a": "Use the ships magnetic hook to drag it out?",
+      "b": "Use the front of the ship and boost the machine out with the turbo jets?"
     },
     "results": {
-      "a": [ "You get water ",
+      "a": [ "The magnetic hook slowly lowers down met with a clunk as it connects to the metal machine, you drag the machine out of the trench and place it back on it's wheels, the farmer is very pleased and offers you some water in return for your services. ",
         5,
         "water"
 
       ]
     ,
-      "b": [ "Your meet the museum curator and he wants to join you ",
-        1,
-        "crew member"
+      "b": [ "The ship enters the cravasse and doubles back ramming into the machine smashing it to pieces and a large chunk of the side of the cliff exposing glittering minerals, the farmer cannot believe his eyes, you done struck gold!",
+        100,
+        "credits"
       ]
 
     }
   },
   {
     "pImage": "img/scenario6.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "This is planet Gas Dwarf X102, rich in fuel resources, and something else, would you like to travel there?",
+    "dialogue": "You reach the planets surface, there are many gas geysers to tap into to gain fuel resources captain, which side should we explore?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "My scanners are showing movement on the eastern side of the planet?",
+      "b": "There is a geyser over there captain?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
+      "a": [ "You find a hive of geyser dwelling ant like creatures, the queen must be producing this vapour, they begin to advance on your crew, you are a threat to their queen! Your crew start shooting the ants, and with an almighty explosition the gas blows the ants to pieces. The left over mess is actually quite tasty.",
         5,
-        "fuel"
+        "food"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
-        "crew member"
+      "b": [ "Your crew begin tapping the geyser gaining much needed fuel. But, it is cut short when a swarm of gas ants begin advancing on your crew, you escape with a little bit less than you wanted to. ",
+        3,
+        "fuel"
       ]
 
     }
   },
   {
     "pImage": "img/scenario7.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "Planet Magma Vigo II, hot... very hot, would you like to travel there?",
+    "dialogue": "",
     "options": {
       "a": "What is that smell?",
       "b": "You require more vespene gas?"
