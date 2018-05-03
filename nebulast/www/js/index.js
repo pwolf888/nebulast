@@ -351,8 +351,8 @@ function loadSpaceScreen() {
 
 
     self.$page = $("<div class='space-Screen'></div>");
-    asteroidContainer().appendTo('#spaceScreen');
-    asteroid(rando).appendTo('.asteroidContainer');
+    // asteroidContainer().appendTo('#spaceScreen');
+    // asteroid(rando).appendTo('.asteroidContainer');
 
 
 

@@ -50,7 +50,7 @@ body  {
      font-family: pix PixelFJVerdana12ptimport;
      overflow: hidden;
      /*background-image: url('NebulastLogo.jpg');*/
-     background-position: center center;
+
      background-repeat:  no-repeat;
      background-attachment: fixed;
      background-size:  cover;
@@ -93,8 +93,8 @@ body  {
 
 .space-Station {
     position: absolute !important;
-    left: 200px;
-    top: 20%;
+    left: 165px;
+    top: 15%;
     height: 100px;
     width: 100px;
     z-index: 10;
@@ -109,7 +109,7 @@ body  {
 .planet-0 {
     right: 150px;
     float: right;
-    top: 40%;
+    top: 30%;
 }
 
 .planet-1 {
