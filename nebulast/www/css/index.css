@@ -28,13 +28,13 @@
 
 
 @font-face {
-    font-family: 'PixelFont';
-    src: url('Pixel.ttf');
+    /*font-family: 'PixelFont';*/
+    /*src: url('Pixel.ttf');*/
 }
 
 
 * {
-    font-family: 'PixelFont';
+    /*font-family: 'PixelFont';*/
     font-size: 12px!important;
     
 
@@ -42,21 +42,15 @@
 }
 
 .space-Screen {
-    font-family: PixelFont;
+    /*font-family: PixelFont;*/
     color: #fff;
 }
 
 body  {
      font-family: pix PixelFJVerdana12ptimport;
      overflow: hidden;
-     height: 100%;
-     width: 100%;
-     bottom: 0; 
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
-     background-image: url('NebulastLogo.jpg');
+     /*background-image: url('NebulastLogo.jpg');*/
+     background-position: center center;
      background-repeat:  no-repeat;
      background-attachment: fixed;
      background-size:  cover;
@@ -93,7 +87,7 @@ body  {
     position: absolute !important;
     top: 40%;
     left: 15px;
-    z-index: 999;
+    z-index: 10;
 
 }
 
@@ -103,13 +97,13 @@ body  {
     top: 20%;
     height: 100px;
     width: 100px;
-    z-index: 999;
+    z-index: 10;
 }
 
 .space-planet- {
     position: absolute !important;
 
-    z-index: 999;
+    z-index: 10;
 }
 
 .planet-0 {
@@ -224,6 +218,11 @@ img.portrait-image, p.name, p.dialogue, p.results {
     padding: 15px;
 
     margin: 5px;
+
+    color: #fff;
+    background-color: #3ccaf2;
+
+    border: 3px dotted #fff;
 }
 
 .back {
@@ -484,18 +483,26 @@ img.portrait-image, p.name, p.dialogue, p.results {
 
 
 .sideNav {
-    height: 100%;
-    width: 0;
+    width: 10px;
+    height: 0;
     position: fixed;
-    z-index: 10000;
-    top: 0;
-    left: 0;
-    background-color: #111;
+    z-index: 1000;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3ccaf2;
+    border: 3px dotted #fff;
     overflow: hidden;
     transition: 0.5s;
+    opacity: 0.0;
     -webkit-transition: 0.5s;
 
 }
+
+.sideNav-diamond {
+    text-align: center;
+}
+
 .sideNavHeader {
     background: #80cbc4;
     color: #fff;
@@ -503,11 +510,11 @@ img.portrait-image, p.name, p.dialogue, p.results {
 }
 .stats {
     padding: 8px 8px 8px 32px;
-    width: 100vw;
+    /*width: 100vw;*/
     white-space: nowrap;
     overflow: hidden;
     font-size: 20px!important;
-    color: #818181;
+    color: #fff;
     display: inline-block;
     -webkit-transition: 0.3s;
     transition: 0.3s;
@@ -517,7 +524,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
     display:inline-block;
     left: 50px;
     font-size: 20px!important;
-    color: #818181;
+    color: #fff;
     -webkit-transition: 0.3s;
     transition: 0.3s;
 }
@@ -533,28 +540,107 @@ img.portrait-image, p.name, p.dialogue, p.results {
 }
 
 
+.notify-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 600;
 
+}
 
 .notify {
 
 
-    position: absolute;
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #3ccaf2;
     z-index: 99999;
     text-align: center;
     margin: auto;
     width: 50%;
-    border: 3px solid green;
+    border: 3px dotted #fff;
     padding: 10px;
+
 
 }
 
 .ok-button, .cancel-button, .uiLabel {
     font-size: 20px !important;
-    background: skyblue;
+
     position: relative;
-    color: #000 !important;
+    color: #fff!important;
     z-index: 10000000;
 
 }
+.hamburger img{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+}
+
+.dialogueBox {
+    color: #fff;
+    background-color: #3ccaf2;
+
+    border: 3px dotted #fff;
+
+}
+
+/***************************************
+*
+* Main Menu css
+*
+*
+***************************************/
+
+.startButton img, .loadButton img, .htpButton img {
+    width: 50%;
+    height: auto;
+    top: 50%;
+    position: relative;
+
+}
+.startButton, .loadButton, .htpButton {
+    text-align: center;
+
+}
+
+.startOverlay img {
+
+     overflow: hidden;
+     width: 100%;
+     height: auto;
+     top: 0;
+     left: 0;
+     position: absolute;
+     z-index: 600
+
+ }
+
+.menuScreen img {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+
+
+
+
+.image-container img{
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    top: 30%;
+    left: 0;
+    position: absolute;
+    z-index: 600;
+}
+
