@@ -74,6 +74,7 @@ $(document).ready(function () {
     loadShopData();
 
     loadMainMenu();
+    
     // Randomly places BG
     window.rando = randomBGInt();
     randomBGGen(rando);
@@ -200,6 +201,7 @@ function loadMainMenu() {
     // Append everything to the page
     self.$container.append(self.$page);
 
+
     // Initialise the starting stats
     window.stats = {
         food: 5,
@@ -244,13 +246,16 @@ function bgElements(container) {
 
 }
 
+timer = 0;
 // Looping function that randomizes the position of the asteroid.
 function asteroidPos(){
 
 
-    $(".asteroid"+rando).css("right", asteroidRandom);
 
-    x = 6; //seconds
+    $(".asteroid"+rando).css("right", asteroidRandom);
+    
+
+    x = 5; //seconds
 
     function asteroidRandom(){
 
@@ -261,10 +266,10 @@ function asteroidPos(){
 
     }
 
-    setTimeout(asteroidPos , x*1000);
+   timer = setTimeout(asteroidPos , x*1000);
 
    }
-
+ 
    // Random number generator for randomly placing background
 
 
@@ -343,8 +348,14 @@ function loadSpaceScreen() {
     self.$container = $('#spaceScreen').show();
     
     // Page that holds all the space screen elements
+
+
     self.$page = $("<div class='space-Screen'></div>");
-    asteroid(rando).appendTo(self.$page);
+    asteroidContainer().appendTo('#spaceScreen');
+    asteroid(rando).appendTo('.asteroidContainer');
+
+
+
     
 
     // Spaceship button
@@ -443,7 +454,7 @@ function loadSpaceScreen() {
     // Black hole button
     blackHole().appendTo(self.$page).on('click', function () {
 
-
+        clearTimeout(timer);
         // Black hole resets system and generating x amount of new planets
         $("#spaceScreen").html(' ');
 

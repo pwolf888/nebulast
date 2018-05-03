@@ -61,7 +61,9 @@ body  {
 
 .BGCLASS {
     background-image: url('BG005.jpg') ;
-
+    height: 100%;
+    width: 100%;
+    bottom: 0; 
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
