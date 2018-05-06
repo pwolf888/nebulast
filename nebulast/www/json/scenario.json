@@ -3,11 +3,12 @@
 [
   {
     "pImage": "img/scenario2.gif",
-    "planetBlurb": "This is planet Zim 34, would you like to travel there?",
+    "planetBlurb": "This is planet Zim 34, a lush jungle planet, would you like to travel there?",
     "dialogue": "You have just landed on ZIM 34 after receiving a destress call from a fellow pilot, who has crash landed somewhere on the dense jungle planet. The crew is ready to explore what should you do Captain? ",
     "options": {
       "a": "Ask the locals about the missing pilot",
-      "b": "Head towards the smoke emiting from the jungle in the distance"
+      "b": "Head towards the smoke emiting from the jungle in the distance",
+      "c": "The locals mention a temple?"
     },
     "results": {
       "a": [ "You have consulted the locals and they have offered to take you through the jungle safely to the pilot, they are great hunters and you scored some grub, the captain is happy to see your crew and offers to join your crew",
@@ -20,16 +21,23 @@
         -1,
         "crew member"
       ]
+      ,
+      "c": [ "You venture forth away from the smoke and flames, telling your crew he is probably already dead... After some heroic acrobatic manoeuvre you stole the jade monkey statue, this will fetch a high price on the intergalactic black market!",
+        200,
+        "credits"
+      ]
 
     }
   },
   {
     "pImage": "img/scenario1.gif",
-    "planetBlurb": "This is planet Palethe 8, would you like to travel there?",
+    "planetBlurb": "This is planet Palethe 8, planet destruction imminant, would you like to travel there?",
     "dialogue": "Captain there is a strange energy reading coming from Palethe 8, a dry desert planet, my scanners are showing the planet may errupt at any moment, we could save some animals?",
     "options": {
-      "a": "The majestic long haired mongoose could be saved",
-      "b": "or the short tempered pigmy dingo"
+      "a": "The majestic long haired mongoose could be saved?",
+      "b": "or the short tempered pigmy dingo?",
+      "c": "or the petite bush nosed kangaroo bear?"
+
     },
     "results": {
       "a": [ "The mongoose rush onto the ship and steal some of your food, mongoose cannot be trusted, everyone knows that captain.",
@@ -43,28 +51,38 @@
         "crew member"
       ]
 
+      ,
+      "c": [ "After a wild chase, the petite bush nosed kangaroo bear brings you to an oasis, it would be a shame to lose all this water to the death of the planet!",
+        2,
+        "water"
+      ]
     }
   },
   {
     "pImage": "img/scenario3.gif",
-    "planetBlurb": "This is planet Dengel Jar IV, would you like to travel there?",
+    "planetBlurb": "Dengel Jar IV, mountains of pink rock salt, locals breathe helium, would you like to travel there?",
     "dialogue": "Some bounty hunters have asked for you help on their mission to find and claim the bounty of one Dingo Jones, last seen on the planet Dengel Jar IV, Shall we land captain?",
     "options": {
       "a": "Visit the local dive bar to find leads, be careful, Dengel Jar IV is full of pirates",
-      "b": "The bounty Hunters know of a potential hideout, Lets storm the place!!!"
+      "b": "The bounty Hunters know of a potential hideout, Lets storm the place!!!",
+      "c": "An old family friend, and mystic resides on Dengal Jar IV, pay him a visit?"
     },
     "results": {
-      "a": [ " ",
-        3,
-        "water"
+      "a": [ "You enter the dive, the sound of high pitched space shanties echo through out the establishment, you strike up a conversation with a local, after making a slight on his high pitched voice, you are asked to leave without your credits, 'Ow, my jaw!'",
+        -100,
+        "credits"
 
       ]
     ,
-      "b": [ " ",
+      "b": [ "You signal to your crew member to bust the door down, little did he know that the door was lined with explosives, KABOOM!",
         -1,
-        "fuel"
+        "crew member"
       ]
-
+    ,
+    "c": [ "Sugar Haze: At your service, good to see you again captain, hope I can be of some help. ",
+      1,
+      "crew member"
+    ]
     }
   },
   {
@@ -73,7 +91,8 @@
     "dialogue": "There is a science research centre on the eastern side of the planet. My data shows that there has been no logs from the scientists in over 6 months. There are caves on the western side that could hold some resources captain.",
     "options": {
       "a": "Investigate the research centre?",
-      "b": "Explore the caves?"
+      "b": "Explore the caves?",
+      "c": ""
     },
     "results": {
       "a": [ "After melting down a thick sheet of ice over the door of the research centre, you are greeted by a deranged man, probably one of the scientists, you notice lots of human bones laying around. I guess we should take him with us.",
