@@ -719,16 +719,25 @@ function loadScenarioScreen() {
     // Output text one char at a time
     outputText(scenarioObj.dialogue[number], $('.dialogue'));
 
-    outputText(scenarioObj.optionA[number], $('.option-A'));
+    setTimeout(function () {
+        outputText(scenarioObj.optionA[number], $('.option-A'));
+        outputText(scenarioObj.optionB[number], $('.option-B'));
+        outputText(scenarioObj.optionC[number], $('.option-C'));
+    }, 9000);
 
-    outputText(scenarioObj.optionB[number], $('.option-B'));
 
-    outputText(scenarioObj.optionC[number], $('.option-C'));
+
+
+
+
+
 
 
 
 
 }
+
+
 
 // Outputs text one char at a time.
 function outputText(dialogue, element) {
