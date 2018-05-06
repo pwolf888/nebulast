@@ -38,9 +38,29 @@ click the RUN button.
 
 cordova platform add android
 
- 
+Download and Install Node.JS
 
+Set Enviornment Variables
 
+- ensure JAVA_HOME is avalible in system variables
+
+- if not avalible create new system variable JAVA_HOME
+
+- variable value is set to jdk version 1.8 path
+
+Run command to install cordova via npm
+
+- type: npm install -g cordova
+
+Open Cordova project in Android Studios
+
+Install Phonegap/Cordova Plugin
+
+Add new Run/Debug Configuration for Phonegap/Cordova
+
+- Choose Emulate or Run depending on if you are using emulator or physical Android device.
+
+Run the project to build to Android emulator or device.
 
 #Directory 
 All content for the app is found in the 
