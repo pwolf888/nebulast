@@ -226,12 +226,16 @@ function loadMainMenu() {
         dialogue: [],
         optionA: [],
         optionB: [],
+        optionC: [],
         resultsA_dialogue:[],
         resultsA_number: [],
         resultsA_type: [],
         resultsB_dialogue:[],
         resultsB_number: [],
-        resultsB_type: []
+        resultsB_type: [],
+        resultsC_dialogue:[],
+        resultsC_number: [],
+        resultsC_type: []
 
     };
 
@@ -331,7 +335,7 @@ stats.fuel -= 1;
 // Load the space screen
 function loadSpaceScreen() {
     // Asteroid function - perhaps rename function - makes no sense..
-    asteroidPos();
+    // asteroidPos();
 
     // Make sure the Json is no read each time function is called
     if(!loaded) {
@@ -522,6 +526,7 @@ for(var i = 0; i< 3; i++) {
         scenarioObj.dialogue.shift();
         scenarioObj.optionA.shift();
         scenarioObj.optionB.shift();
+        scenarioObj.optionC.shift();
 
         scenarioObj.resultsA_dialogue.shift();
         scenarioObj.resultsA_number.shift();
@@ -529,6 +534,9 @@ for(var i = 0; i< 3; i++) {
         scenarioObj.resultsB_dialogue.shift();
         scenarioObj.resultsB_number.shift();
         scenarioObj.resultsB_type.shift();
+        scenarioObj.resultsC_dialogue.shift();
+        scenarioObj.resultsC_number.shift();
+        scenarioObj.resultsC_type.shift();
         }
 
 
@@ -640,9 +648,10 @@ function loadScenarioScreen() {
         $('.dialogue').hide();
         $('.option-A-card').hide();
         $('.option-B-card').hide();
+        $('.option-C-card').hide();
 
         // Output the results of the scenario
-        var resourceUpdate = "You have gained " + scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
+        var resourceUpdate = scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
         outputText(scenarioObj.resultsA_dialogue[number], $('.results').show());
         outputText(resourceUpdate, $('.resource-Update').show());
 
@@ -658,13 +667,33 @@ function loadScenarioScreen() {
         $('.dialogue').hide();
         $('.option-A-card').hide();
         $('.option-B-card').hide();
+        $('.option-C-card').hide();
 
-        var resourceUpdate = "You have lost " + scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
+        var resourceUpdate =  scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
 
         outputText(scenarioObj.resultsB_dialogue[number], $('p.results').show());
         outputText(resourceUpdate, $('p.resource-Update').show());
 
         updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
+
+        $('.back').prop('disabled', false);
+
+    });
+
+    // Option C
+    optionButton('option-C').appendTo(optionsRow).on('click', function () {
+        $('.dialogue').hide();
+        $('.option-A-card').hide();
+        $('.option-B-card').hide();
+        $('.option-C-card').hide();
+        
+
+        var resourceUpdate = scenarioObj.resultsC_number[number] + " " + scenarioObj.resultsC_type[number] + ".";
+
+        outputText(scenarioObj.resultsC_dialogue[number], $('p.results').show());
+        outputText(resourceUpdate, $('p.resource-Update').show());
+
+        updateStats(scenarioObj.resultsC_type[number], scenarioObj.resultsC_number[number]);
 
         $('.back').prop('disabled', false);
 
@@ -693,6 +722,8 @@ function loadScenarioScreen() {
     outputText(scenarioObj.optionA[number], $('.option-A'));
 
     outputText(scenarioObj.optionB[number], $('.option-B'));
+
+    outputText(scenarioObj.optionC[number], $('.option-C'));
 
 
 
@@ -928,47 +959,6 @@ function loadGameOverScreen() {
 
 }
 
-// Test function to load a dummy scenario
-// function loadScenario() {
-
-
-
-//     // Promise to load scenario.json file
-//     var scenario = new Promise(function (resolve, reject) {
-
-//         // Fetch the scenarios
-//         $.getJSON('json/scenario.json').done(function (json) {
-
-//             // Use the closured dictionary so we can easily access later without array parsing
-//             console.log(json);
-
-
-//             // // iterate through all items in json and assign them to the scenarioObj
-//             for(var i= 0; i < json.length; i++) {
-//                 scenarioObj.pImage.push(json[i].pImage);
-//                 scenarioObj.planetBlurb.push(json[i].planetBlurb);
-//                 scenarioObj.dialogue.push(json[i].dialogue);
-//                 scenarioObj.optionA.push(json[i].options["a"]);
-//                 scenarioObj.optionB.push(json[i].options["b"]);
-
-//                 scenarioObj.resultsA_dialogue.push(json[i].results["a"][0]);
-//                 scenarioObj.resultsA_number.push(json[i].results["a"][1]);
-//                 scenarioObj.resultsA_type.push(json[i].results["a"][2]);
-//                 scenarioObj.resultsB_dialogue.push(json[i].results["b"][0]);
-//                 scenarioObj.resultsB_number.push(json[i].results["b"][1]);
-//                 scenarioObj.resultsB_type.push(json[i].results["b"][2]);
-//             }
-//             resolve();
-//             // console.log("Output: " + scenarioObj.resultsA_dialogue);
-//         }).fail(function (json) {
-//             // If any dictionaries fail to load, the application has failedy
-//             console.log(json);
-//             reject();
-//         });
-//     });
-
-
-// }
 
 // Test function to load a dummy scenario
 function loadScenario() {
@@ -1001,6 +991,8 @@ function loadScenario() {
                 scenarioObj.dialogue.push(json[randomNumber].dialogue);
                 scenarioObj.optionA.push(json[randomNumber].options["a"]);
                 scenarioObj.optionB.push(json[randomNumber].options["b"]);
+                scenarioObj.optionC.push(json[randomNumber].options["c"]);
+
 
                 scenarioObj.resultsA_dialogue.push(json[randomNumber].results["a"][0]);
                 scenarioObj.resultsA_number.push(json[randomNumber].results["a"][1]);
@@ -1008,6 +1000,9 @@ function loadScenario() {
                 scenarioObj.resultsB_dialogue.push(json[randomNumber].results["b"][0]);
                 scenarioObj.resultsB_number.push(json[randomNumber].results["b"][1]);
                 scenarioObj.resultsB_type.push(json[randomNumber].results["b"][2]);
+                scenarioObj.resultsC_dialogue.push(json[randomNumber].results["c"][0]);
+                scenarioObj.resultsC_number.push(json[randomNumber].results["c"][1]);
+                scenarioObj.resultsC_type.push(json[randomNumber].results["c"][2]);
 
             
             }
