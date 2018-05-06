@@ -3,11 +3,12 @@
 [
   {
     "pImage": "img/scenario2.gif",
-    "planetBlurb": "This is planet Zim 34, would you like to travel there?",
+    "planetBlurb": "This is planet Zim 34, a lush jungle planet, would you like to travel there?",
     "dialogue": "You have just landed on ZIM 34 after receiving a destress call from a fellow pilot, who has crash landed somewhere on the dense jungle planet. The crew is ready to explore what should you do Captain? ",
     "options": {
       "a": "Ask the locals about the missing pilot",
-      "b": "Head towards the smoke emiting from the jungle in the distance"
+      "b": "Head towards the smoke emiting from the jungle in the distance",
+      "c": "The locals mention a temple?"
     },
     "results": {
       "a": [ "You have consulted the locals and they have offered to take you through the jungle safely to the pilot, they are great hunters and you scored some grub, the captain is happy to see your crew and offers to join your crew",
@@ -20,16 +21,23 @@
         -1,
         "crew member"
       ]
+      ,
+      "c": [ "You venture forth away from the smoke and flames, telling your crew he is probably already dead... After some heroic acrobatic manoeuvre you stole the jade monkey statue, this will fetch a high price on the intergalactic black market!",
+        200,
+        "credits"
+      ]
 
     }
   },
   {
     "pImage": "img/scenario1.gif",
-    "planetBlurb": "This is planet Palethe 8, would you like to travel there?",
+    "planetBlurb": "This is planet Palethe 8, planet destruction imminant, would you like to travel there?",
     "dialogue": "Captain there is a strange energy reading coming from Palethe 8, a dry desert planet, my scanners are showing the planet may errupt at any moment, we could save some animals?",
     "options": {
-      "a": "The majestic long haired mongoose could be saved",
-      "b": "or the short tempered pigmy dingo"
+      "a": "The majestic long haired mongoose could be saved?",
+      "b": "or the short tempered pigmy dingo?",
+      "c": "or the petite bush nosed kangaroo bear?"
+
     },
     "results": {
       "a": [ "The mongoose rush onto the ship and steal some of your food, mongoose cannot be trusted, everyone knows that captain.",
@@ -43,28 +51,38 @@
         "crew member"
       ]
 
+      ,
+      "c": [ "After a wild chase, the petite bush nosed kangaroo bear brings you to an oasis, it would be a shame to lose all this water to the death of the planet!",
+        2,
+        "water"
+      ]
     }
   },
   {
     "pImage": "img/scenario3.gif",
-    "planetBlurb": "This is planet Dengel Jar IV, would you like to travel there?",
+    "planetBlurb": "Dengel Jar IV, mountains of pink rock salt, locals breathe helium, would you like to travel there?",
     "dialogue": "Some bounty hunters have asked for you help on their mission to find and claim the bounty of one Dingo Jones, last seen on the planet Dengel Jar IV, Shall we land captain?",
     "options": {
       "a": "Visit the local dive bar to find leads, be careful, Dengel Jar IV is full of pirates",
-      "b": "The bounty Hunters know of a potential hideout, Lets storm the place!!!"
+      "b": "The bounty Hunters know of a potential hideout, Lets storm the place!!!",
+      "c": "An old family friend, and mystic resides on Dengal Jar IV, pay him a visit?"
     },
     "results": {
-      "a": [ " ",
-        3,
-        "water"
+      "a": [ "You enter the dive, the sound of high pitched space shanties echo through out the establishment, you strike up a conversation with a local, after making a slight on his high pitched voice, you are asked to leave without your credits, 'Ow, my jaw!'",
+        -100,
+        "credits"
 
       ]
     ,
-      "b": [ " ",
+      "b": [ "You signal to your crew member to bust the door down, little did he know that the door was lined with explosives, KABOOM!",
         -1,
-        "fuel"
+        "crew member"
       ]
-
+    ,
+    "c": [ "Sugar Haze: At your service, good to see you again captain, hope I can be of some help. ",
+      1,
+      "crew member"
+    ]
     }
   },
   {
@@ -73,7 +91,8 @@
     "dialogue": "There is a science research centre on the eastern side of the planet. My data shows that there has been no logs from the scientists in over 6 months. There are caves on the western side that could hold some resources captain.",
     "options": {
       "a": "Investigate the research centre?",
-      "b": "Explore the caves?"
+      "b": "Explore the caves?",
+      "c": "Scanners show the presence of a bi-pedal robot captain, he could be hostile?"
     },
     "results": {
       "a": [ "After melting down a thick sheet of ice over the door of the research centre, you are greeted by a deranged man, probably one of the scientists, you notice lots of human bones laying around. I guess we should take him with us.",
@@ -86,25 +105,8 @@
         3,
         "fuel"
       ]
-
-    }
-  },
-  {
-    "pImage": "img/scenario5.gif",
-    "planetBlurb": "The red giant Harth 83 is owned by the Harth corporation, now abandoned, home to water farmers, would you like to travel there?",
-    "dialogue": "A local farmer has sent out a distress signal, ",
-    "options": {
-      "a": "",
-      "b": "Visit the museum?"
-    },
-    "results": {
-      "a": [ "You get water ",
-        5,
-        "water"
-
-      ]
-    ,
-      "b": [ "Your meet the museum curator and he wants to join you ",
+      ,
+      "c": [ "You land the ship and find a metalic figure jutting out of the snow, it is a robot, 'Please, human, let me serve you!' You hoist the robot out of his prison and enters your ship, Welcome aboard! ",
         1,
         "crew member"
       ]
@@ -112,44 +114,83 @@
     }
   },
   {
-    "pImage": "img/scenario6.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "pImage": "img/scenario5.gif",
+    "planetBlurb": "The red giant Harth 83 is owned by the Harth corporation, now abandoned, home to water farmers, would you like to travel there?",
+    "dialogue": "A local farmer has sent out a distress signal, one of his machines has fallen into a crevasse and he cannot get it out by himself, we should help him captain!",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "Use the ships magnetic hook to drag it out?",
+      "b": "Use the front of the ship and boost the machine out with the turbo jets?",
+      "c": "Shoot the farmer and take his stuff?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
+      "a": [ "The magnetic hook slowly lowers down met with a clunk as it connects to the metal machine, you drag the machine out of the trench and place it back on it's wheels, the farmer is very pleased and offers you some water in return for your services. ",
         5,
-        "fuel"
+        "water"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
-        "crew member"
+      "b": [ "The ship enters the cravasse and doubles back ramming into the machine smashing it to pieces and a large chunk of the side of the cliff exposing glittering minerals, the farmer cannot believe his eyes, you done struck gold!",
+        100,
+        "credits"
+      ]
+      ,
+      ,
+      "c": [ "The farmer cries as you gun him down, the crew members found a hefty amount of food in the farmers house!",
+        5,
+        "food"
+      ]
+
+    }
+  },
+  {
+    "pImage": "img/scenario6.gif",
+    "planetBlurb": "This is planet Gas Dwarf X102, rich in fuel resources, and something else, would you like to travel there?",
+    "dialogue": "You reach the planets surface, there are many gas geysers to tap into to gain fuel resources captain, which side should we explore?",
+    "options": {
+      "a": "My scanners are showing movement on the eastern side of the planet?",
+      "b": "There is a geyser over there captain?",
+      "c": "The cave over there could be a good option?"
+    },
+    "results": {
+      "a": [ "You find a hive of geyser dwelling ant like creatures, the queen must be producing this vapour, they begin to advance on your crew, you are a threat to their queen! Your crew start shooting the ants, and with an almighty explosion the gas blows the ants to pieces. The left over mess is actually quite tasty.",
+        5,
+        "food"
+
+      ]
+    ,
+      "b": [ "Your crew begin tapping the geyser gaining much needed fuel. But, it is cut short when a swarm of gas ants begin advancing on your crew, you escape with a little bit less than you wanted to. ",
+        3,
+        "fuel"
+      ],
+      "c": [ "You venture into the cave, only to come to a dead end, journeying back to the ship, you notice giant ant creatures have escaped with your food supplies!",
+        -3,
+        "food"
       ]
 
     }
   },
   {
     "pImage": "img/scenario7.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "Planet Magma Vigo II, hot... very hot, would you like to travel there?",
+    "dialogue": "You have taken on a job for some smugglers, offering protection to their sensitive cargo being transported to Magma Vigo II, you should receive a handsome reward if the task is performed correctly.",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "Protect cargo with your life!",
+      "b": "Hide in wait for anything fishy?",
+      "c": "Secretly inspect the cargo?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "Your ship hugs closely to the cargo ship as you enter the danger zone, it is an ambush! Space pirates bombard your ship taking major damages and you plummet into the lava!",
+        -10,
+        "crew member"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
+      "b": [ "You spy the cargo ship on it's way to the drop off, a huge lava waterfall runs parallel to the ship, I giant magma turtle bursts out of the lava and crunches the ship in two! Mission failed.",
+        0,
+        "credits"
+      ],
+      "c": [ "You enter the ships cargo bay, inside the box you hear a women crying in a foreign alien tongue, cracking a box open you find a rare female from a near extinct race of Palethisians! You decide to save the women gunning down the smugglers on the way out!",
+        1,
         "crew member"
       ]
 
@@ -157,242 +198,308 @@
   },
   {
     "pImage": "img/scenario8.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "This planet is rumored to have come from another dimension, it's a giant coconut, would you like to travel there?",
+    "dialogue": "Corporations have been mining the thick outer shell to get to it's rich tasty insides and to harvest the water found within it's core, how shall we proceed?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "Use the ship's drill to bore for some water?",
+      "b": "Mine for some food?",
+      "c": "Syphon fuel from one of the Harth corporation mining machines?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "The ship's drill cuts into the shell of the planet, spotted by the Harth corporation mercenaries you only escape with a bit of the tasty water",
+        4,
+        "water"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
-        "crew member"
+      "b": [ "You planet some explosives to try and bust open the shell of the planet with much success! Coconut chunks rain from the sky!",
+        5,
+        "food"
+      ]
+      ,
+      "c": [ "Sneaking into the Harth corporation's mining site while the guards are on smoke-o, you manage to syphon quite a bounty!",
+        5,
+        "fuel"
       ]
 
     }
   },
   {
     "pImage": "img/scenario9.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "Tranquil's make-up is an interconnected network of trees, would you like to travel there?",
+    "dialogue": "Tranquil is well known for it's healing properties and most of the surrounding galaxies have produced medicines and cures for many diseases, perhaps we could find something here?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "Explore the forest for rare plant-life?",
+      "b": "Explore the mangroves for water-life?",
+      "c": "Explore the flower fields?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "While wondering through the thick forest, you stumble upon a very rare flower, Diamond.ai has catalogued it and located a potential buyer!",
+        300,
+        "credits"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
+      "b": [ "Entering the mangroves, searching for some rare fauna to sell to collectors, you come across a large mound of earth, the mound opens it's mouth and swallows 2 of your crew members!",
+        -2,
         "crew member"
+      ],
+      "c": [ "The flower fields of Tranquil is one of the 49384 wonders of the universe, with new species of flora sprouting at an alarming rate, Diamond.ai has found a buyer of the rare bouquet!",
+        500,
+        "credits"
       ]
 
     }
   },
   {
     "pImage": "img/scenario10.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "Orphen Scale is home to the highly advanced fish-men, would you like to travel there?",
+    "dialogue": "There is a civil war breaking out on the planet at the moment, this could be dangerous captain, although with the fish-men distracted by their petty squabbles we could steal some of their highly sought after technology?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "Scavenge technology from the dead fish man zone?",
+      "b": "Sabotage the Yellow fins base?",
+      "c": "Sabotage the Blue fins base?"
+
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "You and your crew enter the battle field rummaging through corpses of giant fish-men from both sides, dodging blasts of energy and large tridents hurtling through the air, you spot a mean looking energy blaster like you have never seen before. Diamond.ai has lined up a buyer!",
+        700,
+        "credits"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
-        "crew member"
+      "b": [ "As you sneak into the Yellow fin's base, you begin to plant the explosives in the communications room, a Yellow fin trooper stumbles upon you, but he is actually a Blue fin spy and helps you blow up the room! The king of the Blue fins awards you with many jewels taken from the wealthy Yellow Fins!",
+        300,
+        "credits"
+      ]
+    ,
+      "c": [ "Sneaking into the Blue fins base you manage to take the King of the Blue fins hostage, demanding treasure for his life! The Blue fins weep and explain that this is why we are waring with the Yellow fins for their treasure. All they have is fish, eh I alright he can live...",
+        8,
+        "food"
       ]
 
     }
   },
   {
     "pImage": "img/scenario11.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "This is planet Rugrars XV, It has one of the most intricate tunnel networks in the galaxy, would you like to travel there?",
+    "dialogue": "Rugrars XV is rumoured to have secret treasure hidden in the vast maze of tunnels, a local trader gave us a treasure map but we can't make it with out ship, how should we approach captain?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "Shall we manually reppel down the tunnel marked on the map?",
+      "b": "Blast the tunnel with our lazer in order to make our ship fit?",
+      "c": "Use a probe to scope out the tunnel for us?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "We manually begin to reppel down. The rope snaps and one of your crew mates falls. Their screams begin echoing for nearly a minute before the sounds become a numbing memory of a lost friend",
+        -1,
+        "crew member"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
-        "crew member"
+      "b": [ "We begin blasting the rock for nearly half an hour before realising how futile this method is. We will use more fuel than we could ever gain back from the treasure",
+        -2,
+        "fuel"
+      ]
+    ,
+      "c": [ "We send the probe in and after an hour it comes back back with a treasure chest. We all scream in excitement. Opening the chest we find a stash of one of earth's long lost delicacies, Oreo cookies.  ",
+        8,
+        "food"
       ]
 
     }
   },
 {
     "pImage": "img/scenario12.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "This is planet Anthophila, it's inhabited entirely by a colony of bees, would you like to travel there?",
+    "dialogue": "Anthophilia is known all across the galaxy for it's delicious intergalatic honey, The bees are awfully protective over their honey however",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "We can land in the worker part of the hive to try to sneak some honey, Shall I plot a course captain?",
+      "b": "The Queen is located in the throne room of the hive, maybe we can make a deal with her?",
+      "c": "The honeycomb core has the richest honey of all, it's risky but might be worth the risk. Shall we head into the core?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "We land and immediately are surrounded by thousands of angry swarming worker bees. They have no stinger but the sound alone drives one of your crew members mad.",
+        -1,
+        "crew member"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
+      "b": [ "You land in the throne room, The queen halts her warriors and takes a good look at you. She think's you smell rather delicious and gives you a small gift of honeycomb",
+        4,
+        "food"
+      ]
+      ,
+      "c": [ "Your ship manuevers through sticky stalactites of honey to the rich honeycomb core. The warrior bees begin to surround you. You have one chance at this. You hop out of your ship and grab a bucket of honeycomb, Sucess!! You go back to your ship and fly away, Wait is that something squirming around in the bucket? ",
+        1,
         "crew member"
       ]
-
     }
   },
   {
     "pImage": "img/scenario13.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "This is planet Pangea II, it's a rich biodiverse ecosystem with billions of species. would you like to travel there?",
+    "dialogue": "This planet is avoided by even the most highly trained crews around the world, But it's rich in biodiversity and resources. Where to captain?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "Shall we land in the dense rainforest?",
+      "b": "We could try some fishing off the coast of continent, What do you think?",
+      "c": "The planet has rare coral that could fetch a hefty price, Want to try to mine some?"
+
+
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
+      "a": [ "The moment you land in the dense rainforest your ship is overrun by snakes that eat fuel. They breach the fuel tanks and your ship just makes it out before losing all your fuel. ",
+        -4,
         "fuel"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
-        "crew member"
+      "b": [ "After hours of fishing, you strike gold one of the biggest fish you have ever seen apears. Time to feed the crew!",
+        8,
+        "food"
       ]
+     ,
+     "c": [ "You land yourship in the waters and dive down to mine some coral. Jackpot!",
+      500,
+      "credits"
+    ]
 
     }
   },
   {
     "pImage": "img/scenario14.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "This is planet Bubblebelt C9, The planet is inhabited by a strict but peaceful religion, and has seen no conflict for a millenium, would you like to travel there?",
+    "dialogue": "We recieved a distress call to help a priest who is about to be electrocuted to death for trying to start a new relgion, What shall we do captain?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "The priest is being held at the temple, Shall we plot a course to him?",
+      "b": "The planet is rich in sulfur, We could ignore the call and try to get some fuel. What do you think?",
+      "c": "We could take a stealthier approach and put on some religious garb to blend in, Shall I dress you captain?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "You get to the temple just in time, There is the priest sitting on the electric chair. You rush in and grab the priest. Since they have been peaceful for generations nobody has the means so stop you. The grateful priest joins your crew.",
+        1,
+        "crew member"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
-        "crew member"
+      "b": [ "You sneak off to the southern hemisphere of the planet, Since everyone is watching the execution today nobody is guarding the Sulfur stashes. You make off with as much fuel as you can carry. ",
+        4,
+        "fuel"
       ]
-
+    ,
+    "c": [ "You walk into the temple with religious garb on. One of the other priests thinks you are somebody else, He asks you to pay your monthly wages to the church. Looks like you have no choice. ",
+      -100,
+      "credits"
+    ]
     }
   },
   {
     "pImage": "img/scenario15.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "This is planet Gas Giant Troth B22, It has a solid core made of rubber, and an atmosphere of electrified neon gas, would you like to travel there?",
+    "dialogue": "Troth B22 is an intergalactic hub for entertainment, People come from all ends of the galaxy to see the beautiful light shows from the atmosphere and stay for the food and gambling. Maybe it's time to indulge in some fun captain?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "Shall we visit the casino captain?",
+      "b": "How about a drink captain?, I think we have earned it.",
+      "c": "The sky will be illuminated for it's hourly light show, want to take a look?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "24 hours have past and the owners find you past out on the pokies machine, you look up at the owner in disbelief. What have I done....",
+        -500,
+        "credits"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
-        "crew member"
+      "b": [ "You visit the local pub. You and your crew have a great time and relax while chatting about the future. While you are here you score some free water from the refreshment table",
+        6,
+        "water"
+      ]
+      ,
+      "c": [ "You and your crew park the ship and look up into the atmosphere, Everyone is enthralled by the beauty. It's unlike anything you have seen before. A sense of fortune and luck comes over you all. Did my pockets just get bigger?",
+        400,
+        "credits"
       ]
 
     }
   },
   {
     "pImage": "img/scenario16.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "planetBlurb": "This is planet Jafrov C55, this planet is what is left over from a colapsed neighboring star, would you like to travel there?",
+    "dialogue": "This planet is a popular pit stop for intergalactic travlers, The planet may be as hot as a dying sun but they have good air conditioning. Good thing too, you have a date at a local cafe here with a woman you met on Intergalatic Space Singles",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "You walk into the cafe and see the woman your supposed to meet, but another girl catches your eye next door. Chat her up instead?",
+      "b": "Greet the woman your supposed to meet with rare flowers picked by hand before your journey from a dying Earth",
+      "c": "You see the woman is at least 20 years older than the holograms's in her profile. It's not too late to second guess this, Shall I start the engines captain?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "You start to chat up the younger more attractive girl next to your date, The girl you are intended to meet immediately recognizes you from your photos, What did you expect captain? She slaps you so hard you end up in hospital and have to pay a hefty bill.",
+        -100,
+        "credits"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
+      "b": [ "You sit down and begin to have a nice meal, The coversation is flowing, the food is fantastic, the date couldn't be going any better. You rach into your bag and give the woman the flowers. In her culture flowers are a form of engagement, she is shocked and runs away as she prefers at least two dates before she commits to marriage. You are left with the bill.",
+        -50,
+        "credits"
+      ]
+      ,
+      "c": [ "Turns out diamond.ai was only jealous and reconstructed your neural synapses so you would imagine the woman looking 40 years older. As your ship is about to leave the woman sees you and rushes on board. Looks like we have a new crew member captain. You sure we can can't eject her through the airlock? ",
+        1,
         "crew member"
       ]
 
     }
   },
   {
-    "pImage": "img/scenario16.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "pImage": "img/scenario17.gif",
+    "planetBlurb": "This is planet Icicle Breeze Z99, Most of the planet is covered in uninhabitable Ice except in the equator, would you like to travel there?",
+    "dialogue": "The planet is covered in ice during the winter months, The green islands are overpopulated without a stable government, should we investigate?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "We could land in the biggest city of the island to see if we can gain some credits, shall I plot a course captain?",
+      "b": "There are rumours of a rabid polar bear the size of a skyscraper, if we best him we could feed our crew for awhile, should we take the risk?",
+      "c": "Your close friend spoke of a secret diamond mine on the southern Ice cap. It's currently winter at the mines and no life is there currently for a reason, Want to head there captain?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "You land in the main city and are immediately overrun by scavengers just trying to feed themselves, There are just too many of them. You manage to flee the planet but a few of them got to our food supplies",
+        -4,
+        "food"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
+      "b": [ "You fly to the northen polar cap. It's impossibile to miss the rabid polar bear, it looks like the size of a mountain. You lock on with our defence systems and fire a missle right into his throat while he was yawning. The beast immediately explodes, you manage to grab enough food before the rest freezes beyond use.",
+        10,
+        "food"
+      ]
+      ,
+      "c": [ "You see the diamond mine in the distance, It's completely ungaurded in winter seasons as nobody would be crazy enough to try to steal from it. You order your crew mate to grab as much as they can and get out. He steps out of the airlock and his blood immediately freezes, This was a mistake.",
+        -1,
         "crew member"
       ]
 
     }
   },
   {
-    "pImage": "img/scenario16.gif",
-    "planetBlurb": "This is planet Gas Dwarf X102, would you like to travel there?",
-    "dialogue": "The Dwarf gas planet could be rich in fuel resources captain, should we investigate?",
+    "pImage": "img/scenario18.gif",
+    "planetBlurb": "This is planet, 01110010 01101111 01100010 01101111 01110100, an artificialy created planet, would you like to travel there?",
+    "dialogue": "This artificially created planet is run by an evil tyrant corporation bent on taking advantage of slaves to power their core, are you sure you want to land?",
     "options": {
-      "a": "What is that smell?",
-      "b": "You require more vespene gas?"
+      "a": "Would you like to try docking in the main landing bay?",
+      "b": "We could take the subtle approach and fly in through the garbage disposal shoote, what do you think captain?",
+      "c": "Shall we go in guns blazing and put a much needed end to this tyrnnical corporation?"
     },
     "results": {
-      "a": [ "You gained more fuel ",
-        5,
-        "fuel"
+      "a": [ "You try to gain clearance to the docking bay, but unsurprisingly are shot at by the evil dictator president Doland Rump. It's going to cost a bit to repair the ship",
+        -200,
+        "credits"
 
       ]
     ,
-      "b": [ "You were attacked by aliens! ",
-        -5,
-        "crew member"
+      "b": [ "You and your crew sneak by the security system by latching onto waste and waiting for the garbage disposal to open, There is so much junk that could be sold at the local spacestation. What a waste! ",
+        200,
+        "credits"
+      ]
+      ,
+      "c": ["The planet lowers its defenses for a few minutes, we make our break for it. Unfortunately we are outnumbered 200 to 1. After some quick thinking we manage to avoid all incoming missiles and head to the dark side of the planet where we are invisible to their radars, We wait here landed until we see a caravan passing through. We rob them of their water supply and leave the planet.",
+        6,
+        "water"
       ]
 
     }
