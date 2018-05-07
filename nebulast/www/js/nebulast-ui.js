@@ -89,7 +89,7 @@ window.planet = function (image, planetName) {
 };
 
 window.blackHole = function () {
-    var blackHole = $("<div class='space-Blackhole' modifier='outline'><img src='img/blackhole.gif'></div>");
+    var blackHole = $("<div class='space-Blackhole' modifier='outline'><img class='blackhole-image' src='img/blackhole.gif'></div>");
     return blackHole;
 };
 

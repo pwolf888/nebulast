@@ -458,28 +458,28 @@ function loadSpaceScreen() {
 
     // Black hole button
     blackHole().appendTo(self.$page).on('click', function () {
-
-        clearTimeout(timer);
-        // Black hole resets system and generating x amount of new planets
-        $("#spaceScreen").html(' ');
-
-
-
-
-
-        // Randomly places BG
-        if (bgCounter < 6) {
-            rando = randomBGInt();
-            randomBGGen(rando);
+        if(stats.galaxyCount < 5){
+            clearTimeout(timer);
+            // Black hole resets system and generating x amount of new planets
+            $("#spaceScreen").html(' ');
+            // Randomly places BG
+            if (bgCounter < 6) {
+                rando = randomBGInt();
+                randomBGGen(rando);
             }
-        
 
-        // Change planets
 
-        removePlanets();
-        loadSpaceScreen();
+            // Change planets
 
-        // Enable space station
+            removePlanets();
+            loadSpaceScreen();
+
+            // Enable space station
+        } else {
+
+            $('.blackhole-image').attr('src', 'img/space_pyramid.gif');
+        }
+
 
 
     });
