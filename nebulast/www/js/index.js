@@ -208,7 +208,8 @@ function loadMainMenu() {
         water: 10,
         fuel: 5,
         crew: 1,
-        credits: 200
+        credits: 200,
+        galaxyCount: 0
 
     };
 
@@ -516,10 +517,8 @@ function loadSpaceScreen() {
 
 function removePlanets() {
 
-
-for(var i = 0; i< 3; i++) {
-
-
+if(stats.galaxyCount < 5) {
+    for(var i = 0; i< 3; i++) {
 
         scenarioObj.pImage.shift();
         scenarioObj.planetBlurb.shift();
@@ -537,11 +536,9 @@ for(var i = 0; i< 3; i++) {
         scenarioObj.resultsC_dialogue.shift();
         scenarioObj.resultsC_number.shift();
         scenarioObj.resultsC_type.shift();
-        }
-
-
-
-
+    }
+}
+    stats.galaxyCount += 1;
 
 }
 // Update the side nav with the most recent stats
@@ -571,6 +568,7 @@ function loadStats(container) {
 
     sideNavStat('CrewIcon.png','crew', stats.crew ).appendTo(contentRowBottom);
     sideNavStat('CoinIcon.png','credits', stats.credits ).appendTo(contentRowBottom);
+    sideNavStat('CoinIcon.png','galaxy', stats.galaxyCount ).appendTo(contentRowBottom);
 
 }
 
@@ -724,14 +722,6 @@ function loadScenarioScreen() {
         outputText(scenarioObj.optionB[number], $('.option-B'));
         outputText(scenarioObj.optionC[number], $('.option-C'));
     }, 9000);
-
-
-
-
-
-
-
-
 
 
 
@@ -894,10 +884,6 @@ function shopValUpdate (resource, object) {
     
 }
 
-// function resourceValidation () {
-//     if (stats.water == 1  
-
-// }
 
 
 
@@ -940,7 +926,8 @@ function loadGameOverScreen() {
         water: 10,
         fuel: 5,
         crew: 1,
-        credits: 200
+        credits: 200,
+        galaxyCount: 0
 
     };
 
