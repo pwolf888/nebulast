@@ -365,8 +365,8 @@ function loadSpaceScreen() {
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
-        $('#spaceScreen').hide();
-        loadSpaceShipScreen();
+        // $('#spaceScreen').hide();
+        // loadSpaceShipScreen();
     });
 
     // Space station
