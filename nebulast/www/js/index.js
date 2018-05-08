@@ -360,8 +360,12 @@ function loadSpaceScreen() {
     // asteroid(rando).appendTo('.asteroidContainer');
 
 
+    // Add hidden boss
+    bossButton().appendTo(self.$page).on('click', function () {
+        
 
-    
+
+    });
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
@@ -484,12 +488,15 @@ function loadSpaceScreen() {
             // Enable space station
         } else {
 
-            $('.blackhole-image').attr('src', 'img/space_pyramid.gif');
+            $('.space-Blackhole').hide();
+            $('.space-boss').show();
         }
 
 
 
     });
+
+
 
 
     

@@ -136,6 +136,15 @@ body  {
     
 }
 
+.space-boss {
+    position: absolute !important;
+    float: right;
+    left:50%;
+    transform: translateX(-50%);
+    top: 50%;
+    z-index: 999;
+}
+
 .statsGroup {
     width: 120px;
     position: absolute;
@@ -167,25 +176,6 @@ body  {
 *
 ***************************************
  */
-
-/*.scenario-Portrait-card, .dialogueRow, .scenario-OptionsRow-card, .results, -card {*/
-
-    /*border-radius: 25px;*/
-    /*padding: 5px;*/
-
-/*}*/
-
-/*.scenario-dialogueRow-card {*/
-    /*width: 100vw;*/
-/*}*/
-
-/*.scenario-Portrait-card {*/
-
-    /*width: 20vw;*/
-/*}*/
-/*.dialogueRow {*/
-    /*width: 60vw;*/
-/*}*/
 
 .dialogueBox {
     position: relative;

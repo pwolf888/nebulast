@@ -174,6 +174,16 @@ window.uiLabel = function (text) {
 
     return uiLabel
 };
+
+window.bossButton = function () {
+
+    var bossSprite = $("<div class='space-boss' hidden><img class='boss-image' src='img/space_pyramid.gif'></div>");
+    return bossSprite;
+
+};
+
+
+
 /***************************************
 *
 * Scenario elementClass
