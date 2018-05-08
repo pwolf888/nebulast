@@ -47,8 +47,8 @@
 }
 
 body  {
-     font-family: pix PixelFJVerdana12ptimport;
-     overflow: hidden;
+    
+     overflowX: hidden;
      /*background-image: url('NebulastLogo.jpg');*/
      background-position: center center;
      background-repeat:  no-repeat;
@@ -595,13 +595,27 @@ img.portrait-image, p.name, p.dialogue, p.results {
 
 }
 
-.ok-button, .cancel-button, .uiLabel {
+.uiLabel {
+    font-size: 14px !important;
+    position: relative;
+    color: #fff!important;
+    z-index: 10000000;
+}
+
+.ok-button, .cancel-button {
     font-size: 20px !important;
 
+    padding: 20px;
+    display: inline;
     position: relative;
     color: #fff!important;
     z-index: 10000000;
 
+}
+
+.notify-buttons {
+    position: relative;
+    padding: 10px;
 }
 .hamburger img{
     position: absolute;

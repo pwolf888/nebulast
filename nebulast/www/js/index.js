@@ -379,11 +379,16 @@ function loadSpaceScreen() {
     // Create a hidden notification button
     var notLabel = notify().appendTo(notification);
 
+    var contentRowTop = $("<div class='resource-cost'></div>").appendTo(notLabel);
+    sideNavStat('FoodIcon.png','food-cost', -stats.crew ).appendTo(contentRowTop);
+    sideNavStat('WaterIcon.png','water-cost', -stats.crew * 2).appendTo(contentRowTop);
+    sideNavStat('FuelIcon.png','fuel-cost', -stats.crew).appendTo(contentRowTop);
 
 
+    var notifyButtons = $('<div class="notify-buttons"></div>').appendTo(notLabel);
 
 
-    uiButton('ok', 'Ok').appendTo(notLabel).on('click', function () {
+    uiButton('ok', 'Ok').appendTo(notifyButtons).on('click', function () {
         
         if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2) {
             notLabel.hide();
@@ -403,7 +408,7 @@ function loadSpaceScreen() {
     });
 
     // Append a cancel and an OK but to the notification area
-    uiButton('cancel', 'Cancel').appendTo(notLabel).on('click', function () {
+    uiButton('cancel', 'Cancel').appendTo(notifyButtons).on('click', function () {
         $(".uiLabel").html(' ');
         notLabel.hide();
         $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
@@ -414,6 +419,8 @@ function loadSpaceScreen() {
 
     planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
 
+        // Check resourse cost
+        costUpate();
         // Remove any content inside notify label
         $('label.uiLabel, .not-diamond').remove();
         // Show the notification
@@ -432,7 +439,7 @@ function loadSpaceScreen() {
                                 
     });
     planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
-
+        costUpate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
         number = 1;
@@ -444,7 +451,7 @@ function loadSpaceScreen() {
         $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
     });
     planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
-
+        costUpate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
         number = 2;
@@ -514,7 +521,15 @@ function loadSpaceScreen() {
 
 }
 
+// Update resource cost
+function costUpate() {
+    $('.food-cost').html(-stats.crew);
+    $('.water-cost').html(-stats.crew * 2);
+    $('.fuel-cost').html(-stats.crew);
+}
 
+
+// Move to the next 3 planets in the array
 function removePlanets() {
 
 if(stats.galaxyCount < 5) {
@@ -657,7 +672,7 @@ function loadScenarioScreen() {
         updateStats(scenarioObj.resultsA_type[number], scenarioObj.resultsA_number[number]);
 
         // Back button disabled
-        $('.back').prop('disabled', false);
+        $('.back, .back2').show();
     });
 
     // Option B
@@ -674,7 +689,7 @@ function loadScenarioScreen() {
 
         updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
 
-        $('.back').prop('disabled', false);
+        $('.back, .back2').show();
 
     });
 
@@ -693,12 +708,12 @@ function loadScenarioScreen() {
 
         updateStats(scenarioObj.resultsC_type[number], scenarioObj.resultsC_number[number]);
 
-        $('.back').prop('disabled', false);
+        $('.back, .back2').show();
 
     });
 
-    // Add the back button to the screen
-    returnToShip('back', 'disabled').appendTo(self.$page).on('click', function () {
+    // // Add the back button to the screen
+    returnToShip('back', 'hidden').appendTo(self.$page).on('click', function () {
 
         planetCount++;
 
@@ -775,6 +790,7 @@ function outputText(dialogue, element) {
 
 function loadSpaceStationScreen() {
 
+
     var buyData = ""+ shopObj.Quantity +" "+ shopObj.dataTypeA + " = " + shopObj.buyPriceA +"cr</br>";
     buyData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.buyPriceB +"cr</br>";
     var sellData = ""+ shopObj.Quantity +" "+  shopObj.dataTypeA + " = " + shopObj.sellPriceA +"cr</br>";
@@ -792,6 +808,7 @@ function loadSpaceStationScreen() {
 
     // Back Button
     returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
+
         $('#spaceStationScreen').hide();
         $('#spaceStationScreen').html(' ');
         $('#spaceScreen').show();
