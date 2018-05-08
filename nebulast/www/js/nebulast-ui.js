@@ -89,7 +89,7 @@ window.planet = function (image, planetName) {
 };
 
 window.blackHole = function () {
-    var blackHole = $("<div class='space-Blackhole' modifier='outline'><img class='blackhole-image' src='img/blackhole.gif'></div>");
+    var blackHole = $("<div class='space-Blackhole'><img class='blackhole-image' src='img/blackhole.gif'></div>");
     return blackHole;
 };
 
@@ -207,7 +207,7 @@ window.optionButton = function(elementClass) {
 
 window.returnToShip = function(elementClass, active) {
 
-    var backButton = $("<button style='background-color: #fff;' class='"+elementClass+"'"+active+">Back</button>");
+    var backButton = $("<div  class='"+elementClass+"'"+active+"></div><div  class='"+elementClass+"2' " +active+"></div>");
 
     return backButton;
 };

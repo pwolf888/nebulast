@@ -229,12 +229,39 @@ img.portrait-image, p.name, p.dialogue, p.results {
 }
 
 .back {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+
+    position:absolute;
+
+    background:transparent;
+    bottom: 20px;
+    right: 20px;
     z-index: 16;
+    width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-left: 70px solid #3ccaf2;
+    border-bottom: 40px solid transparent ;
+
 
 }
+
+.back2 {
+
+    position:absolute;
+
+    bottom: 10px;
+    right: 10px;
+    z-index: 15;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-left: 80px solid #fff;
+    border-bottom: 50px solid transparent ;
+
+
+}
+
+
 
 .planet-container {
     text-align: center;

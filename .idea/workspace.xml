@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1e47459-61f6-4736-98cc-8b2a0a098ab6" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/nebulast/www/img/space_pyramid.gif" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/nebulast/www/js/index.js" afterPath="$PROJECT_DIR$/nebulast/www/js/index.js" />
+      <change beforePath="$PROJECT_DIR$/nebulast/www/css/index.css" afterPath="$PROJECT_DIR$/nebulast/www/css/index.css" />
       <change beforePath="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" afterPath="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="276">
@@ -38,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nebulast/www/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7725">
-              <caret line="518" column="23" lean-forward="false" selection-start-line="518" selection-start-column="23" selection-end-line="518" selection-end-column="23" />
+            <state relative-caret-position="237">
+              <caret line="233" column="0" lean-forward="true" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -51,18 +49,17 @@
       <file leaf-file-name="nebulast-ui.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="91" column="98" lean-forward="false" selection-start-line="91" selection-start-column="98" selection-end-line="91" selection-end-column="98" />
+            <state relative-caret-position="289">
+              <caret line="209" column="102" lean-forward="false" selection-start-line="209" selection-start-column="102" selection-end-line="209" selection-end-column="102" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1525661772591" expanded="true" signature="1153:1192" ph="..." />
-                <marker date="1525661772591" expanded="true" signature="1532:1571" ph="..." />
-                <marker date="1525661772591" expanded="true" signature="1573:1580" ph="×" />
-                <marker date="1525661772591" expanded="true" signature="1934:1962" ph="..." />
-                <marker date="1525661772591" expanded="true" signature="2157:2185" ph="..." />
-                <marker date="1525661772591" expanded="true" signature="2366:2394" ph="..." />
-                <marker date="1525661772591" expanded="true" signature="4624:4650" ph="..." />
-                <marker date="1525661772591" expanded="true" signature="5403:5426" ph="..." />
+                <marker date="1525769914222" expanded="true" signature="1153:1192" ph="..." />
+                <marker date="1525769914222" expanded="true" signature="1532:1571" ph="..." />
+                <marker date="1525769914222" expanded="true" signature="1573:1580" ph="×" />
+                <marker date="1525769914222" expanded="true" signature="1934:1962" ph="..." />
+                <marker date="1525769914222" expanded="true" signature="2157:2185" ph="..." />
+                <marker date="1525769914222" expanded="true" signature="2366:2394" ph="..." />
+                <marker date="1525769914222" expanded="true" signature="4605:4631" ph="..." />
               </folding>
             </state>
           </provider>
@@ -71,8 +68,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nebulast/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="62" lean-forward="true" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
+            <state relative-caret-position="60">
+              <caret line="4" column="57" lean-forward="true" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -105,8 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ok</find>
-      <find>nebulast</find>
       <find>ai</find>
       <find>load</find>
       <find>label</find>
@@ -134,6 +129,8 @@
       <find>side</find>
       <find>settimeout</find>
       <find>stats =</find>
+      <find>back {</find>
+      <find>back</find>
       <find>stats</find>
     </findStrings>
   </component>
@@ -146,10 +143,10 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/nebulast/www/index.html" />
         <option value="$PROJECT_DIR$/changelog.txt" />
-        <option value="$PROJECT_DIR$/nebulast/www/css/index.css" />
         <option value="$PROJECT_DIR$/nebulast/www/json/scenario.json" />
-        <option value="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" />
         <option value="$PROJECT_DIR$/nebulast/www/js/index.js" />
+        <option value="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" />
+        <option value="$PROJECT_DIR$/nebulast/www/css/index.css" />
       </list>
     </option>
   </component>
@@ -276,7 +273,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51512000" />
+    <option name="totallyTimeSpent" value="55305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1260" height="691" extended-state="0" />
@@ -456,14 +453,13 @@
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1525661772591" expanded="true" signature="1153:1192" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="1532:1571" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="1573:1580" ph="×" />
-            <marker date="1525661772591" expanded="true" signature="1934:1962" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="2157:2185" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="2366:2394" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="4624:4650" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="5403:5426" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="1153:1192" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="1532:1571" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="1573:1580" ph="×" />
+            <marker date="1525769914222" expanded="true" signature="1934:1962" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="2157:2185" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="2366:2394" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="4605:4631" ph="..." />
           </folding>
         </state>
       </provider>
@@ -623,14 +619,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nebulast/www/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7725">
-          <caret line="518" column="23" lean-forward="false" selection-start-line="518" selection-start-column="23" selection-end-line="518" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nebulast/www/img/scenario8.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -646,37 +634,36 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nebulast/www/json/scenario.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-728">
-          <caret line="135" column="7" lean-forward="false" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nebulast/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="62" lean-forward="true" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
+        <state relative-caret-position="60">
+          <caret line="4" column="57" lean-forward="true" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="91" column="98" lean-forward="false" selection-start-line="91" selection-start-column="98" selection-end-line="91" selection-end-column="98" />
+        <state relative-caret-position="289">
+          <caret line="209" column="102" lean-forward="false" selection-start-line="209" selection-start-column="102" selection-end-line="209" selection-end-column="102" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1525661772591" expanded="true" signature="1153:1192" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="1532:1571" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="1573:1580" ph="×" />
-            <marker date="1525661772591" expanded="true" signature="1934:1962" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="2157:2185" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="2366:2394" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="4624:4650" ph="..." />
-            <marker date="1525661772591" expanded="true" signature="5403:5426" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="1153:1192" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="1532:1571" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="1573:1580" ph="×" />
+            <marker date="1525769914222" expanded="true" signature="1934:1962" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="2157:2185" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="2366:2394" ph="..." />
+            <marker date="1525769914222" expanded="true" signature="4605:4631" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nebulast/www/json/scenario.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-728">
+          <caret line="135" column="7" lean-forward="false" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -687,6 +674,14 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nebulast/www/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="233" column="0" lean-forward="true" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
