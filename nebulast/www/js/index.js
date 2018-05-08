@@ -362,7 +362,7 @@ function loadSpaceScreen() {
 
     // Add hidden boss
     bossButton().appendTo(self.$page).on('click', function () {
-        
+
 
 
     });
@@ -737,13 +737,12 @@ function loadScenarioScreen() {
     self.$container.append(self.$page);
 
     // Output text one char at a time
-    outputText(scenarioObj.dialogue[number], $('.dialogue'));
-
-    setTimeout(function () {
+    outputText(scenarioObj.dialogue[number], $('.dialogue'), function () {
         outputText(scenarioObj.optionA[number], $('.option-A'));
         outputText(scenarioObj.optionB[number], $('.option-B'));
         outputText(scenarioObj.optionC[number], $('.option-C'));
-    }, 9000);
+    });
+    
 
 
 
@@ -752,7 +751,7 @@ function loadScenarioScreen() {
 
 
 // Outputs text one char at a time.
-function outputText(dialogue, element) {
+function outputText(dialogue, element, callback) {
 
 
     var text = dialogue;
@@ -774,8 +773,10 @@ function outputText(dialogue, element) {
                 function(){
                     //Slice text by 1 character and call function again
                     outputTextSlowly(text.slice(1),elem,delay);
-                },delay
+                }, delay
             );
+        } else {
+            callback();
         }
     };
 
