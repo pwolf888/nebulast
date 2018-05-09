@@ -742,7 +742,7 @@ function loadScenarioScreen() {
         outputText(scenarioObj.optionB[number], $('.option-B'));
         outputText(scenarioObj.optionC[number], $('.option-C'));
     });
-    
+
 
 
 
