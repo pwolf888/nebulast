@@ -73,10 +73,10 @@ $(document).ready(function () {
     loadScenario();
     loadShopData();
 
-    $(window).scroll(function(){
-        var scrolledY = $(window).scrollTop();
-        $('body').css('background-position', 'left ' + ((scrolledY)) + 'px');
-    });
+    // $(window).scroll(function(){
+    //     var scrolledY = $(window).scrollTop();
+    //     $('body').css('background-position', 'left ' + ((scrolledY)) + 'px');
+    // });
     loadMainMenu();
     
     // Randomly places BG
@@ -625,6 +625,8 @@ function updateStats(result, number) {
 function loadScenarioScreen() {
 
 
+    stars().remove();
+    twinkles().remove();
     var self = this;
 
     self.$container = $('#scenarioScreen').show();
