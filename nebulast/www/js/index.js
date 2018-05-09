@@ -997,17 +997,78 @@ function loadBossScreen() {
 
     self.$page = $("<div class='Boss-Screen'></div>");
 
+    // Dialogue section
     bossDialogue().appendTo(self.$page);
+
+    // Action section
     bossAction().appendTo(self.$page);
 
-
+    // Rock, Paper, Scissors container
     var rpsContainer = $("<div class='rpsButton-container'></div>").appendTo(self.$page);
-    rpsButton('rock').appendTo(rpsContainer);
-    rpsButton('paper').appendTo(rpsContainer);
-    rpsButton('scissors').appendTo(rpsContainer);
+
+    // RPS - number to keep track who won
+    var rpsNum = 0;
+    var rpsArray = [
+        "img/rock.png",
+        "img/paper.png",
+        "img/scissors.png"
+    ];
+    // Rock
+    rpsButton('rock').appendTo(rpsContainer).on('click', function () {
+        var rando = rpsRandomNumber();
+        $('.diamond-rps').attr('src', 'img/rock.png');
+        $('.boss-rps').attr('src', rpsArray[rando]);
+        rpsNum = 0;
+        if(rando === rpsNum) {
+            $('.dialogue').html('draw');
+        } else if(rando === 2) {
+            $('.dialogue').html('You Win!');
+        }else if(rando === 1) {
+            $('.dialogue').html('You Lost!');
+        }
+    });
+
+    // Paper
+    rpsButton('paper').appendTo(rpsContainer).on('click', function () {
+        var rando = rpsRandomNumber();
+        $('.diamond-rps').attr('src', 'img/paper.png');
+
+        $('.boss-rps').attr('src', rpsArray[rando]);
+        rpsNum = 1;
+        if(rando === rpsNum) {
+            $('.dialogue').html('draw');
+        } else if(rando === 2) {
+            $('.dialogue').html('You Lost!');
+        }else if(rando === 0) {
+            $('.dialogue').html('You Won!');
+        }
+    });
+
+    // Scissors
+    rpsButton('scissors').appendTo(rpsContainer).on('click', function () {
+        var rando = rpsRandomNumber();
+        $('.diamond-rps').attr('src', 'img/scissors.png');
+        $('.boss-rps').attr('src', rpsArray[rando]);
+        rpsNum = 2;
+        if(rando === rpsNum) {
+            $('.dialogue').html('draw');
+        } else if(rando === 1) {
+            $('.dialogue').html('You Won!');
+        }else if(rando === 0) {
+            $('.dialogue').html('You Lost!');
+        }
+
+    });
 
     self.$container.append(self.$page);
 
+}
+
+// Random RPS value - number between 0 and 2
+function rpsRandomNumber() {
+    var rando = Math.floor((Math.random() * 3));
+    console.log(rando);
+    return rando;
 }
 
 

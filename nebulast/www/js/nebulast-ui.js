@@ -356,8 +356,8 @@ window.bossAction = function () {
     var actionBox = $("<div class='actionBox'></div>");
     spaceship().appendTo(actionBox);
     var rps = $("<div class='rps-container'><div/>").appendTo(actionBox);
-    $("<img src='img/diamondAi.gif' class='diamond-rps'>").appendTo(rps);
-    $("<img src='img/diamondAi.gif' class='boss-rps'>").appendTo(rps);
+    $("<img src='' class='diamond-rps'>").appendTo(rps);
+    $("<img src='' class='boss-rps'>").appendTo(rps);
 
     bossButton('boss-Action').appendTo(actionBox);
 

@@ -719,5 +719,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
 
 .rspButtons {
     padding: 20px;
-
+    width: 60px;
+    height: 60px;
 }
+
