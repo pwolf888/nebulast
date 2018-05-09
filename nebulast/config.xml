@@ -19,11 +19,22 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
+    <splash platform="android" qualifier="land-ldpi" src="splash/android/LDPI.png" />
+    <splash platform="android" qualifier="land-mdpi" src="splash/android/MDPI.png" />
+    <splash platform="android" qualifier="land-hdpi" src="splash/android/HDPI.png" />
+    <splash platform="android" qualifier="land-xhdpi" src="splash/android/XHDPI.png" />
+    <splash platform="android" qualifier="land-xxhdpi" src="splash/android/XXHDPI.png" />
+    <splash platform="android" qualifier="land-xxxhdpi" src="splash/android/XXXHDPI.png" />
+    <splash src="splash.png" />
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
     <preference name="Orientation" value="landscape" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <plugin name="cordova-plugin-splashscreen" source="npm" />
     <engine name="ios" spec="^4.5.4" />
     <engine name="android" spec="^7.0.0" />
 </widget>
