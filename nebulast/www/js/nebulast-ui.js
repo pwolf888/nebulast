@@ -175,9 +175,9 @@ window.uiLabel = function (text) {
     return uiLabel
 };
 
-window.bossButton = function () {
+window.bossButton = function (elementClass) {
 
-    var bossSprite = $("<div class='space-boss'><img class='boss-image' src='img/space_pyramid.gif'></div>");
+    var bossSprite = $("<div class='"+elementClass+"'><img class='boss-image' src='img/space_pyramid.gif'></div>");
     return bossSprite;
 
 };
@@ -342,8 +342,8 @@ window.bossDialogue = function () {
 
     var dialogueBox = $("<div class='dialogueBox' style='background-color: #3ccaf2;'></div>");
     $("<img src='img/diamondAi.gif' class='portrait-image'>").appendTo(dialogueBox);
-    $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='dialogue'></p></div>").appendTo(dialogueBox);
-    $("<img src='img/space_pyramid.gif' class='portrait-image'>").appendTo(dialogueBox);
+    $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='dialogue'>testtestest</p></div>").appendTo(dialogueBox);
+    $("<img src='img/space_pyramid_digital.gif' class='portrait-image portrait-boss'>").appendTo(dialogueBox);
 
 
 
@@ -359,12 +359,16 @@ window.bossAction = function () {
     $("<img src='img/diamondAi.gif' class='diamond-rps'>").appendTo(rps);
     $("<img src='img/diamondAi.gif' class='boss-rps'>").appendTo(rps);
 
+    bossButton('boss-Action').appendTo(actionBox);
+
     return actionBox;
 
 };
 
+
+
 window.rpsButton = function (choice) {
 
-    var rps = $("<img src='img/"+choice+"' class='"+choice+"'>");
+    var rps = $("<img src='img/"+choice+".png' class='"+choice+" rspButtons'>");
     return rps;
 };

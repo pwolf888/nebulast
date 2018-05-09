@@ -678,3 +678,46 @@ img.portrait-image, p.name, p.dialogue, p.results {
     z-index: 600;
 }
 
+/***************************************
+*
+* Boss Screen css
+*
+*
+***************************************/
+
+.portrait-boss {
+    float: right;
+}
+
+.boss-Action {
+    position: absolute !important;
+    top: 50%;
+    right: 25px;
+    z-index: 10;
+}
+
+.boss-rps {
+    position: absolute;
+    float: right;
+    right: 25%;
+}
+
+.diamond-rps {
+    position: absolute;
+    float: left;
+    left: 25%;
+}
+
+.rpsButton-container {
+    position: absolute;
+    bottom: 15px;
+    left:50%;
+
+    transform: translateX(-50%);
+
+}
+
+.rspButtons {
+    padding: 20px;
+
+}

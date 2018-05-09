@@ -361,9 +361,10 @@ function loadSpaceScreen() {
 
 
     // Add hidden boss
-    bossButton().appendTo(self.$page).on('click', function () {
+    bossButton('space-boss').appendTo(self.$page).on('click', function () {
 
-
+        self.$container.hide();
+        loadBossScreen();
 
     });
 
@@ -977,6 +978,35 @@ function loadGameOverScreen() {
     self.$container.append(self.$page);
 
 
+
+}
+
+/*
+***************************************
+*
+* Ship Screen
+*
+*
+***************************************
+*/
+function loadBossScreen() {
+
+    var self = this;
+
+    self.$container = $('#bossScreen').show();
+
+    self.$page = $("<div class='Boss-Screen'></div>");
+
+    bossDialogue().appendTo(self.$page);
+    bossAction().appendTo(self.$page);
+
+
+    var rpsContainer = $("<div class='rpsButton-container'></div>").appendTo(self.$page);
+    rpsButton('rock').appendTo(rpsContainer);
+    rpsButton('paper').appendTo(rpsContainer);
+    rpsButton('scissors').appendTo(rpsContainer);
+
+    self.$container.append(self.$page);
 
 }
 
