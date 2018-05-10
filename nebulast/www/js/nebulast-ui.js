@@ -341,6 +341,7 @@ window.menuBG = function () {
 window.bossDialogue = function () {
 
     var dialogueBox = $("<div class='dialogueBox' style='background-color: #3ccaf2;'></div>");
+    $("<div class='dialogueBox bossBox' style='background-color: red;'></div>").appendTo(dialogueBox);
     $("<img src='img/diamondAi.gif' class='portrait-image'>").appendTo(dialogueBox);
     $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='dialogue'></p></div>").appendTo(dialogueBox);
     $("<img src='img/space_pyramid_digital.gif' class='portrait-image portrait-boss'>").appendTo(dialogueBox);
@@ -372,3 +373,4 @@ window.rpsButton = function (choice) {
     var rps = $("<img src='img/"+choice+".png' class='"+choice+" rspButtons'>");
     return rps;
 };
+
