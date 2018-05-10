@@ -201,7 +201,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
     padding: 24px;
     display: inline;
     position: absolute;
-
+    width:350px;
     height:auto;
     /*background-color: #bbdefb;*/
 }
@@ -722,4 +722,3 @@ img.portrait-image, p.name, p.dialogue, p.results {
     width: 60px;
     height: 60px;
 }
-

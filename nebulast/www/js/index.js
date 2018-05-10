@@ -793,7 +793,10 @@ function outputText(dialogue, element, callback) {
                 }, delay
             );
         } else {
-            callback();
+            if(callback) {
+                callback();
+            }
+
         }
     };
 
@@ -1013,6 +1016,7 @@ function loadBossScreen() {
 
     self.$page = $("<div class='Boss-Screen'></div>");
 
+
     // Dialogue section
     bossDialogue().appendTo(self.$page);
 
@@ -1020,7 +1024,7 @@ function loadBossScreen() {
     bossAction().appendTo(self.$page);
 
     // Rock, Paper, Scissors container
-    var rpsContainer = $("<div class='rpsButton-container'></div>").appendTo(self.$page);
+    var rpsContainer = $("<div class='rpsButton-container' hidden></div>").appendTo(self.$page);
 
     // RPS - number to keep track who won
     var rpsNum = 0;
@@ -1038,9 +1042,11 @@ function loadBossScreen() {
         if(rando === rpsNum) {
             $('.dialogue').html('draw');
         } else if(rando === 2) {
-            $('.dialogue').html('You Win!');
+            // Win
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_1, bossObj.boss_loss_1));
         }else if(rando === 1) {
-            $('.dialogue').html('You Lost!');
+            //Loss
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_1, bossObj.boss_win_1));
         }
     });
 
@@ -1054,9 +1060,11 @@ function loadBossScreen() {
         if(rando === rpsNum) {
             $('.dialogue').html('draw');
         } else if(rando === 2) {
-            $('.dialogue').html('You Lost!');
+            // Loss
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_2, bossObj.boss_win_2));
         }else if(rando === 0) {
-            $('.dialogue').html('You Won!');
+            // Win
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_2, bossObj.boss_loss_2));
         }
     });
 
@@ -1069,14 +1077,31 @@ function loadBossScreen() {
         if(rando === rpsNum) {
             $('.dialogue').html('draw');
         } else if(rando === 1) {
-            $('.dialogue').html('You Won!');
+            // Win
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_3, bossObj.boss_loss_3));
         }else if(rando === 0) {
-            $('.dialogue').html('You Lost!');
+            // Loss
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_3, bossObj.boss_win_3));
         }
 
     });
 
     self.$container.append(self.$page);
+
+
+    console.log(bossObj);
+    outputText(bossObj.dialogue_1, $('.dialogue'), function () {
+
+        setTimeout(function () {
+            $('.dialogue').html(' ');
+            outputText(bossObj.dialogue_2, $('.dialogue'));
+        }, 3000);
+
+        setTimeout(function () {
+            $('.rpsButton-container').fadeIn();
+        }, 5000);
+
+    });
 
 }
 
@@ -1085,6 +1110,32 @@ function rpsRandomNumber() {
     var rando = Math.floor((Math.random() * 3));
     console.log(rando);
     return rando;
+}
+
+function rpsWinLossDialogue(diamond, boss) {
+
+    $('.rpsButton-container').fadeOut();
+
+    // Remove dialogue from before
+    $('.dialogue').html(' ');
+
+    // Output diamonds text then boss text
+    outputText(diamond, $('.dialogue'), function () {
+
+        setTimeout(function () {
+            $('.dialogue').html(' ');
+            outputText(boss, $('.dialogue'));
+        }, 1000);
+
+
+
+        setTimeout(function () {
+            $('.rpsButton-container').fadeIn();
+        }, 4000);
+
+
+    });
+
 }
 
 // Loads in all data needed for boss scenario

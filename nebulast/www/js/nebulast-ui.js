@@ -342,7 +342,7 @@ window.bossDialogue = function () {
 
     var dialogueBox = $("<div class='dialogueBox' style='background-color: #3ccaf2;'></div>");
     $("<img src='img/diamondAi.gif' class='portrait-image'>").appendTo(dialogueBox);
-    $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='dialogue'>testtestest</p></div>").appendTo(dialogueBox);
+    $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='dialogue'></p></div>").appendTo(dialogueBox);
     $("<img src='img/space_pyramid_digital.gif' class='portrait-image portrait-boss'>").appendTo(dialogueBox);
 
 
