@@ -1,0 +1,29 @@
+[
+  {
+    "dialogue_1": "Captain! Something strange is happening, my systems are showing an unidentified entity is trying to take over, it is speaking in a dialect I cannot understand!",
+    "dialogue_2": "It is breaking through my firewalls Captain, communicating in 3 simple shapes, maybe they mean something! Quick the virus is taking over!",
+    "boss_loss": [
+      "XXXxxxxxxXXXXXXxxxxxxxXXXXXXXxxxxx",
+      "</3</3</3</3</3",
+      ">:( >:( >:( >:( >:( >:("
+    ],
+    "boss_win": [
+      "OOOOoooooOOOooOoOOOooOOoOOOOOOOoOOO",
+      "<3 <3 <3 <3",
+      ":D :D :D :D :D :D :D :D"
+    ],
+    "loss_dialogue": [
+      "Oh no Captain! It broke through another wall!",
+      "Help, another firewall has been corrupted!",
+      "It is breaking through my AT-field!"
+    ],
+    "win_dialogue": [
+      "Yes Captain! We can do this!",
+      "Ha Ha! Take that, the encryption is working Captain",
+      "Warp field stabilized!"
+    ],
+    "end_dialogue": "We did it Captain! We managed to show that Unknown Entity who is boss! Shall we go for cake?"
+
+  }
+
+  ]
