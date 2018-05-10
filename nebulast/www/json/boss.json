@@ -12,12 +12,12 @@
       "<3 <3 <3 <3",
       ":D :D :D :D :D :D :D :D"
     ],
-    "loss_dialogue": [
+    "diamond_loss": [
       "Oh no Captain! It broke through another wall!",
       "Help, another firewall has been corrupted!",
       "It is breaking through my AT-field!"
     ],
-    "win_dialogue": [
+    "diamond_win": [
       "Yes Captain! We can do this!",
       "Ha Ha! Take that, the encryption is working Captain",
       "Warp field stabilized!"

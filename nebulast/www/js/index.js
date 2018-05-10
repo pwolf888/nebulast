@@ -72,7 +72,7 @@ $(document).ready(function () {
     console.log("ready");
     loadScenario();
     loadShopData();
-
+    loadBossBattle();
     loadMainMenu();
     
     // Randomly places BG
@@ -146,12 +146,6 @@ function closeNav() {
 // Load the main menu
 function loadMainMenu() {
 
-    
-
-    //Randomly place bg
-
-    
-    
 
 
     // Background set to black
@@ -240,7 +234,29 @@ function loadMainMenu() {
 
     };
 
+    window.bossObj = {
 
+        dialogue_1: undefined,
+        dialogue_2: undefined,
+
+        boss_loss_1: undefined,
+        boss_loss_2: undefined,
+        boss_loss_3: undefined,
+        boss_win_1: undefined,
+        boss_win_2: undefined,
+        boss_win_3: undefined,
+
+
+        diamond_loss_1: undefined,
+        diamond_loss_2: undefined,
+        diamond_loss_3: undefined,
+        diamond_win_1: undefined,
+        diamond_win_2: undefined,
+        diamond_win_3: undefined,
+        end_dialogue: undefined
+
+
+    };
 }
 
 // Adds the asteroid, stars and twinkly stars
@@ -1071,8 +1087,48 @@ function rpsRandomNumber() {
     return rando;
 }
 
+// Loads in all data needed for boss scenario
+function loadBossBattle() {
 
-// Test function to load a dummy scenario
+
+
+    var scenario = new Promise(function (resolve, reject) {
+
+        // Fetch the scenarios
+        $.getJSON('json/boss.json').done(function (json) {
+
+            bossObj.dialogue_1 = json[0].dialogue_1;
+            bossObj.dialogue_2 = json[0].dialogue_2;
+
+            bossObj.boss_loss_1 = json[0].boss_loss[0];
+            bossObj.boss_loss_2 = json[0].boss_loss[1];
+            bossObj.boss_loss_3 = json[0].boss_loss[2];
+            bossObj.boss_win_1 = json[0].boss_win[0];
+            bossObj.boss_win_2 = json[0].boss_win[1];
+            bossObj.boss_win_3 = json[0].boss_win[2];
+
+            bossObj.diamond_loss_1 = json[0].diamond_loss[0];
+            bossObj.diamond_loss_2 = json[0].diamond_loss[1];
+            bossObj.diamond_loss_3 = json[0].diamond_loss[2];
+            bossObj.diamond_win_1 = json[0].diamond_win[0];
+            bossObj.diamond_win_2 = json[0].diamond_win[1];
+            bossObj.diamond_win_3 = json[0].diamond_win[2];
+
+            bossObj.end_dialogue = json[0].end_dialogue;
+
+
+            resolve();
+            // console.log("Output: " + scenarioObj.resultsA_dialogue);
+        }).fail(function (json) {
+            // If any dictionaries fail to load, the application has failedy
+            console.log(json);
+            reject();
+        });
+    });
+}
+
+
+// Loads all scenarios
 function loadScenario() {
 
     
