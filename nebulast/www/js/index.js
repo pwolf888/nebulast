@@ -625,8 +625,6 @@ function updateStats(result, number) {
 function loadScenarioScreen() {
 
 
-    stars().remove();
-    twinkles().remove();
     var self = this;
 
     self.$container = $('#scenarioScreen').show();
