@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1e47459-61f6-4736-98cc-8b2a0a098ab6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/nebulast/www/css/index.css" afterPath="$PROJECT_DIR$/nebulast/www/css/index.css" />
       <change beforePath="$PROJECT_DIR$/nebulast/www/js/index.js" afterPath="$PROJECT_DIR$/nebulast/www/js/index.js" />
-      <change beforePath="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" afterPath="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +16,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="1119" column="23" lean-forward="false" selection-start-line="1119" selection-start-column="23" selection-end-line="1119" selection-end-column="23" />
+            <state relative-caret-position="282">
+              <caret line="1191" column="69" lean-forward="false" selection-start-line="1191" selection-start-column="69" selection-end-line="1191" selection-end-column="69" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -263,12 +261,12 @@
       <updated>1524968243312</updated>
       <workItem from="1524968245860" duration="1837000" />
       <workItem from="1525774931805" duration="8923000" />
-      <workItem from="1525861490463" duration="11362000" />
+      <workItem from="1525861490463" duration="11661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79654000" />
+    <option name="totallyTimeSpent" value="79953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1260" height="691" extended-state="0" />
@@ -663,8 +661,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="1119" column="23" lean-forward="false" selection-start-line="1119" selection-start-column="23" selection-end-line="1119" selection-end-column="23" />
+        <state relative-caret-position="282">
+          <caret line="1191" column="69" lean-forward="false" selection-start-line="1191" selection-start-column="69" selection-end-line="1191" selection-end-column="69" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

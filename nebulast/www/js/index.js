@@ -1171,6 +1171,7 @@ function bossBoxWidth(diamondScore) {
 // Dialogue output for boss fight
 function rpsWinLossDialogue(diamond, boss) {
 
+    $('.rock, .paper, .scissors').css('pointer-events', 'none');
     $('.rpsButton-container').fadeOut();
 
     // Remove dialogue from before
@@ -1188,6 +1189,7 @@ function rpsWinLossDialogue(diamond, boss) {
 
         setTimeout(function () {
             $('.rpsButton-container').fadeIn();
+            $('.rock, .paper, .scissors').css('pointer-events', 'auto');
         }, 4000);
 
 
