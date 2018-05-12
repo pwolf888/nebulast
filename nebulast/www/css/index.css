@@ -50,10 +50,13 @@ body  {
      font-family: pix PixelFJVerdana12ptimport;
      overflow: hidden;
      /*background-image: url('NebulastLogo.jpg');*/
-     background-position: center center;
-     background-repeat:  no-repeat;
+     background-position: left top;
      background-attachment: fixed;
     
+     background-repeat:  no-repeat;
+
+     height: auto;
+     width: 100%;
      background-size:  cover;
 
      

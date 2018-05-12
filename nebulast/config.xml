@@ -18,12 +18,22 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <icon density="ldpi" src="splash/android/LDPI.png" />
+        <icon density="mdpi" src="splash/android/MDPI.png" />
+        <icon density="hdpi" src="splash/android/HDPI.png" />
+        <icon density="xhdpi" src="splash/android/XHDPI.png" />
+        <icon density="xxhdpi" src="splash/android/XXHDPI.png" />
+        <icon density="xxxhdpi" src="splash/android/XXXHDPI.png" />
     </platform>
+    <splash src="splash.png" />
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
     <preference name="Orientation" value="landscape" />
+    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <plugin name="cordova-plugin-splashscreen" source="npm" />
     <engine name="ios" spec="^4.5.4" />
     <engine name="android" spec="^7.0.0" />
 </widget>
