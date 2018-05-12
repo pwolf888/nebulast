@@ -89,7 +89,7 @@ window.planet = function (image, planetName) {
 };
 
 window.blackHole = function () {
-    var blackHole = $("<div class='space-Blackhole' modifier='outline'><img src='img/blackhole.gif'></div>");
+    var blackHole = $("<div class='space-Blackhole'><img class='blackhole-image' src='img/blackhole.gif'></div>");
     return blackHole;
 };
 
@@ -174,6 +174,16 @@ window.uiLabel = function (text) {
 
     return uiLabel
 };
+
+window.bossButton = function (elementClass) {
+
+    var bossSprite = $("<div class='"+elementClass+"'><img class='boss-image' src='img/space_pyramid.gif'></div>");
+    return bossSprite;
+
+};
+
+
+
 /***************************************
 *
 * Scenario elementClass
@@ -207,7 +217,7 @@ window.optionButton = function(elementClass) {
 
 window.returnToShip = function(elementClass, active) {
 
-    var backButton = $("<button style='background-color: #fff;' class='"+elementClass+"'"+active+">Back</button>");
+    var backButton = $("<div  class='"+elementClass+"'"+active+"></div><div  class='"+elementClass+"2' " +active+"></div>");
 
     return backButton;
 };
@@ -319,3 +329,67 @@ window.menuBG = function () {
     return bg;
 
 };
+
+
+/***************************************
+ *
+ * Boss Screen
+ *
+ *
+ ***************************************/
+
+window.bossDialogue = function () {
+
+    var dialogueBox = $("<div class='dialogueBox' style='background-color: #3ccaf2;'></div>");
+    $("<div class='dialogueBox bossBox' style='background-color: red;'></div>").appendTo(dialogueBox);
+    $("<img src='img/diamondAi.gif' class='portrait-image'>").appendTo(dialogueBox);
+    $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='dialogue'></p></div>").appendTo(dialogueBox);
+    $("<img src='img/space_pyramid_digital.gif' class='portrait-image portrait-boss'>").appendTo(dialogueBox);
+
+
+
+    return dialogueBox;
+};
+
+window.lossCredits = function () {
+
+    var dialogueBox = $("<div class='dialogueBox' style='background-color: red;'></div>");
+    $("<img src='img/space_pyramid_digital.gif' class='portrait-image'>").appendTo(dialogueBox);
+    $("<div class='p-box'><p class='name'>pyramid.ai</p><br><p class='credits-box'></p></div>").appendTo(dialogueBox);
+
+
+
+
+    return dialogueBox;
+};
+window.winCredits = function () {
+
+    var dialogueBox = $("<div class='dialogueBox' style='background-color: #3ccaf2;'></div>");
+    $("<img src='img/diamondAi.gif' class='portrait-image'>").appendTo(dialogueBox);
+    $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='credits-box'></p></div>").appendTo(dialogueBox);
+
+
+    return dialogueBox;
+};
+window.bossAction = function () {
+
+    var actionBox = $("<div class='actionBox'></div>");
+    spaceship().appendTo(actionBox);
+    var rps = $("<div class='rps-container'><div/>").appendTo(actionBox);
+    $("<img src='' class='diamond-rps'>").appendTo(rps);
+    $("<img src='' class='boss-rps'>").appendTo(rps);
+
+    bossButton('boss-Action').appendTo(actionBox);
+
+    return actionBox;
+
+};
+
+
+
+window.rpsButton = function (choice) {
+
+    var rps = $("<img src='img/"+choice+".png' class='"+choice+" rspButtons'>");
+    return rps;
+};
+

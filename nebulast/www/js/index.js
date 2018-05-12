@@ -72,11 +72,8 @@ $(document).ready(function () {
     console.log("ready");
     loadScenario();
     loadShopData();
+    loadBossBattle();
 
-    // $(window).scroll(function(){
-    //     var scrolledY = $(window).scrollTop();
-    //     $('body').css('background-position', 'left ' + ((scrolledY)) + 'px');
-    // });
     loadMainMenu();
     
     // Randomly places BG
@@ -150,12 +147,6 @@ function closeNav() {
 // Load the main menu
 function loadMainMenu() {
 
-    
-
-    //Randomly place bg
-
-    
-    
 
 
     // Background set to black
@@ -212,7 +203,8 @@ function loadMainMenu() {
         water: 10,
         fuel: 5,
         crew: 1,
-        credits: 200
+        credits: 200,
+        galaxyCount: 0
 
     };
 
@@ -243,7 +235,33 @@ function loadMainMenu() {
 
     };
 
+    window.bossObj = {
 
+        dialogue_1: undefined,
+        dialogue_2: undefined,
+
+        boss_loss_1: undefined,
+        boss_loss_2: undefined,
+        boss_loss_3: undefined,
+        boss_win_1: undefined,
+        boss_win_2: undefined,
+        boss_win_3: undefined,
+
+
+        diamond_loss_1: undefined,
+        diamond_loss_2: undefined,
+        diamond_loss_3: undefined,
+        diamond_win_1: undefined,
+        diamond_win_2: undefined,
+        diamond_win_3: undefined,
+
+        win_dialogue: undefined,
+        win_dialogue2: undefined,
+        loss_dialogue: undefined,
+        loss_dialogue2: undefined
+
+
+    };
 }
 
 // Adds the asteroid, stars and twinkly stars
@@ -363,13 +381,18 @@ function loadSpaceScreen() {
     // asteroid(rando).appendTo('.asteroidContainer');
 
 
+    // Add hidden boss
+    bossButton('space-boss').appendTo(self.$page).on('click', function () {
 
-    
+        self.$container.hide();
+        loadBossScreen();
+
+    });
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
-        $('#spaceScreen').hide();
-        loadSpaceShipScreen();
+        // $('#spaceScreen').hide();
+        // loadSpaceShipScreen();
     });
 
     // Space station
@@ -382,11 +405,16 @@ function loadSpaceScreen() {
     // Create a hidden notification button
     var notLabel = notify().appendTo(notification);
 
+    var contentRowTop = $("<div class='resource-cost'></div>").appendTo(notLabel);
+    sideNavStat('FoodIcon.png','food-cost', -stats.crew ).appendTo(contentRowTop);
+    sideNavStat('WaterIcon.png','water-cost', -stats.crew * 2).appendTo(contentRowTop);
+    sideNavStat('FuelIcon.png','fuel-cost', -stats.crew).appendTo(contentRowTop);
 
 
+    var notifyButtons = $('<div class="notify-buttons"></div>').appendTo(notLabel);
 
 
-    uiButton('ok', 'Ok').appendTo(notLabel).on('click', function () {
+    uiButton('ok', 'Ok').appendTo(notifyButtons).on('click', function () {
         
         if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2) {
             notLabel.hide();
@@ -406,7 +434,7 @@ function loadSpaceScreen() {
     });
 
     // Append a cancel and an OK but to the notification area
-    uiButton('cancel', 'Cancel').appendTo(notLabel).on('click', function () {
+    uiButton('cancel', 'Cancel').appendTo(notifyButtons).on('click', function () {
         $(".uiLabel").html(' ');
         notLabel.hide();
         $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
@@ -417,6 +445,8 @@ function loadSpaceScreen() {
 
     planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
 
+        // Check resourse cost
+        costUpate();
         // Remove any content inside notify label
         $('label.uiLabel, .not-diamond').remove();
         // Show the notification
@@ -435,7 +465,7 @@ function loadSpaceScreen() {
                                 
     });
     planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
-
+        costUpate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
         number = 1;
@@ -447,7 +477,7 @@ function loadSpaceScreen() {
         $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
     });
     planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
-
+        costUpate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
         number = 2;
@@ -461,31 +491,34 @@ function loadSpaceScreen() {
 
     // Black hole button
     blackHole().appendTo(self.$page).on('click', function () {
-
-        clearTimeout(timer);
-        // Black hole resets system and generating x amount of new planets
-        $("#spaceScreen").html(' ');
-
-
-
-
-
-        // Randomly places BG
-        if (bgCounter < 6) {
-            rando = randomBGInt();
-            randomBGGen(rando);
+        if(stats.galaxyCount < 5){
+            clearTimeout(timer);
+            // Black hole resets system and generating x amount of new planets
+            $("#spaceScreen").html(' ');
+            // Randomly places BG
+            if (bgCounter < 6) {
+                rando = randomBGInt();
+                randomBGGen(rando);
             }
-        
 
-        // Change planets
 
-        removePlanets();
-        loadSpaceScreen();
+            // Change planets
 
-        // Enable space station
+            removePlanets();
+            loadSpaceScreen();
+
+            // Enable space station
+        } else {
+
+            $('.space-Blackhole').hide();
+            $('.space-boss').show();
+        }
+
 
 
     });
+
+
 
 
     
@@ -517,13 +550,19 @@ function loadSpaceScreen() {
 
 }
 
+// Update resource cost
+function costUpate() {
+    $('.food-cost').html(-stats.crew);
+    $('.water-cost').html(-stats.crew * 2);
+    $('.fuel-cost').html(-stats.crew);
+}
 
+
+// Move to the next 3 planets in the array
 function removePlanets() {
 
-
-for(var i = 0; i< 3; i++) {
-
-
+if(stats.galaxyCount < 5) {
+    for(var i = 0; i< 3; i++) {
 
         scenarioObj.pImage.shift();
         scenarioObj.planetBlurb.shift();
@@ -541,11 +580,9 @@ for(var i = 0; i< 3; i++) {
         scenarioObj.resultsC_dialogue.shift();
         scenarioObj.resultsC_number.shift();
         scenarioObj.resultsC_type.shift();
-        }
-
-
-
-
+    }
+}
+    stats.galaxyCount += 1;
 
 }
 // Update the side nav with the most recent stats
@@ -575,6 +612,7 @@ function loadStats(container) {
 
     sideNavStat('CrewIcon.png','crew', stats.crew ).appendTo(contentRowBottom);
     sideNavStat('CoinIcon.png','credits', stats.credits ).appendTo(contentRowBottom);
+    sideNavStat('CoinIcon.png','galaxy', stats.galaxyCount ).appendTo(contentRowBottom);
 
 }
 
@@ -663,7 +701,7 @@ function loadScenarioScreen() {
         updateStats(scenarioObj.resultsA_type[number], scenarioObj.resultsA_number[number]);
 
         // Back button disabled
-        $('.back').prop('disabled', false);
+        $('.back, .back2').show();
     });
 
     // Option B
@@ -680,7 +718,7 @@ function loadScenarioScreen() {
 
         updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
 
-        $('.back').prop('disabled', false);
+        $('.back, .back2').show();
 
     });
 
@@ -699,12 +737,12 @@ function loadScenarioScreen() {
 
         updateStats(scenarioObj.resultsC_type[number], scenarioObj.resultsC_number[number]);
 
-        $('.back').prop('disabled', false);
+        $('.back, .back2').show();
 
     });
 
-    // Add the back button to the screen
-    returnToShip('back', 'disabled').appendTo(self.$page).on('click', function () {
+    // // Add the back button to the screen
+    returnToShip('back', 'hidden').appendTo(self.$page).on('click', function () {
 
         planetCount++;
 
@@ -721,21 +759,21 @@ function loadScenarioScreen() {
     self.$container.append(self.$page);
 
     // Output text one char at a time
-    outputText(scenarioObj.dialogue[number], $('.dialogue'));
-
-    outputText(scenarioObj.optionA[number], $('.option-A'));
-
-    outputText(scenarioObj.optionB[number], $('.option-B'));
-
-    outputText(scenarioObj.optionC[number], $('.option-C'));
+    outputText(scenarioObj.dialogue[number], $('.dialogue'), function () {
+        outputText(scenarioObj.optionA[number], $('.option-A'));
+        outputText(scenarioObj.optionB[number], $('.option-B'));
+        outputText(scenarioObj.optionC[number], $('.option-C'));
+    });
 
 
 
 
 }
 
+
+
 // Outputs text one char at a time.
-function outputText(dialogue, element) {
+function outputText(dialogue, element, callback) {
 
 
     var text = dialogue;
@@ -757,8 +795,13 @@ function outputText(dialogue, element) {
                 function(){
                     //Slice text by 1 character and call function again
                     outputTextSlowly(text.slice(1),elem,delay);
-                },delay
+                }, delay
             );
+        } else {
+            if(callback) {
+                callback();
+            }
+
         }
     };
 
@@ -780,6 +823,7 @@ function outputText(dialogue, element) {
 
 function loadSpaceStationScreen() {
 
+
     var buyData = ""+ shopObj.Quantity +" "+ shopObj.dataTypeA + " = " + shopObj.buyPriceA +"cr</br>";
     buyData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.buyPriceB +"cr</br>";
     var sellData = ""+ shopObj.Quantity +" "+  shopObj.dataTypeA + " = " + shopObj.sellPriceA +"cr</br>";
@@ -797,6 +841,7 @@ function loadSpaceStationScreen() {
 
     // Back Button
     returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
+
         $('#spaceStationScreen').hide();
         $('#spaceStationScreen').html(' ');
         $('#spaceScreen').show();
@@ -889,10 +934,6 @@ function shopValUpdate (resource, object) {
     
 }
 
-// function resourceValidation () {
-//     if (stats.water == 1  
-
-// }
 
 
 
@@ -935,7 +976,8 @@ function loadGameOverScreen() {
         water: 10,
         fuel: 5,
         crew: 1,
-        credits: 200
+        credits: 200,
+        galaxyCount: 0
 
     };
 
@@ -963,8 +1005,312 @@ function loadGameOverScreen() {
 
 }
 
+/*
+***************************************
+*
+* Ship Screen
+*
+*
+***************************************
+*/
+function loadBossScreen() {
 
-// Test function to load a dummy scenario
+    var self = this;
+
+    self.$container = $('#bossScreen').show();
+
+    self.$page = $("<div class='Boss-Screen'></div>");
+
+
+    // Dialogue section
+    bossDialogue().appendTo(self.$page);
+
+    // Action section
+    bossAction().appendTo(self.$page);
+
+
+    // Rock, Paper, Scissors container
+    var rpsContainer = $("<div class='rpsButton-container' hidden></div>").appendTo(self.$page);
+
+    // RPS - number to keep track who won
+    var rpsNum = 0;
+    var rpsArray = [
+        "img/rock.png",
+        "img/paper.png",
+        "img/scissors.png"
+    ];
+
+    var diamondScore = 3;
+
+    // Rock
+    rpsButton('rock').appendTo(rpsContainer).on('click', function () {
+        var rando = rpsRandomNumber();
+        $('.diamond-rps').attr('src', 'img/rock.png');
+        $('.boss-rps').attr('src', rpsArray[rando]);
+        rpsNum = 0;
+        if(rando === rpsNum) {
+            $('.dialogue').html('draw');
+        } else if(rando === 2) {
+            // Win
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_1, bossObj.boss_loss_1));
+            diamondScore +=1;
+            bossBoxWidth(diamondScore);
+
+        }else if(rando === 1) {
+            //Loss
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_1, bossObj.boss_win_1));
+            diamondScore -=1;
+            bossBoxWidth(diamondScore);
+
+        }
+
+    });
+
+    // Paper
+    rpsButton('paper').appendTo(rpsContainer).on('click', function () {
+        var rando = rpsRandomNumber();
+        $('.diamond-rps').attr('src', 'img/paper.png');
+
+        $('.boss-rps').attr('src', rpsArray[rando]);
+        rpsNum = 1;
+        if(rando === rpsNum) {
+            $('.dialogue').html('draw');
+        } else if(rando === 2) {
+            // Loss
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_2, bossObj.boss_win_2));
+            diamondScore -=1;
+            bossBoxWidth(diamondScore);
+
+
+        }else if(rando === 0) {
+            // Win
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_2, bossObj.boss_loss_2));
+            diamondScore +=1;
+            bossBoxWidth(diamondScore);
+        }
+
+    });
+
+    // Scissors
+    rpsButton('scissors').appendTo(rpsContainer).on('click', function () {
+        var rando = rpsRandomNumber();
+        $('.diamond-rps').attr('src', 'img/scissors.png');
+        $('.boss-rps').attr('src', rpsArray[rando]);
+        rpsNum = 2;
+        if(rando === rpsNum) {
+            $('.dialogue').html('draw');
+        } else if(rando === 1) {
+            // Win
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_3, bossObj.boss_loss_3));
+            diamondScore +=1;
+            bossBoxWidth(diamondScore);
+        }else if(rando === 0) {
+            // Loss
+            $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_3, bossObj.boss_win_3));
+            diamondScore -=1;
+            bossBoxWidth(diamondScore);
+        }
+
+
+    });
+
+    self.$container.append(self.$page);
+
+
+    console.log(bossObj);
+    outputText(bossObj.dialogue_1, $('.dialogue'), function () {
+
+        setTimeout(function () {
+            $('.dialogue').html(' ');
+            outputText(bossObj.dialogue_2, $('.dialogue'), function () {
+                $('.bossBox').css({"transition" : "2.0s", "width": "50%"});
+                setTimeout(function () {
+                    $('.rpsButton-container').fadeIn();
+                }, 1000);
+            });
+        }, 3000);
+
+
+
+    });
+
+
+
+}
+
+// Random RPS value - number between 0 and 2
+function rpsRandomNumber() {
+    var rando = Math.floor((Math.random() * 3));
+    console.log(rando);
+    return rando;
+}
+
+
+
+// Switch - to check the width of the bosses virus
+function bossBoxWidth(diamondScore) {
+
+    switch(diamondScore) {
+
+        case 0:
+            $('.bossBox').css('width', '100%');
+            setTimeout(function () {
+                $('#bossScreen').hide();
+                endGameScreen(diamondScore);
+            }, 5000);
+
+            break;
+        case 1:
+            $('.bossBox').css('width', '90%');
+            break;
+        case 2:
+            $('.bossBox').css('width', '70%');
+            break;
+        case 3:
+            $('.bossBox').css('width', '50%');
+            break;
+        case 4:
+            $('.bossBox').css('width', '35%');
+            break;
+        case 5:
+            $('.bossBox').css('width', '18%');
+            break;
+        case 6:
+            $('.bossBox').css('width', '0%');
+            setTimeout(function () {
+                $('#bossScreen').hide();
+                endGameScreen(diamondScore);
+            }, 5000);
+            break;
+        default:
+            break;
+
+    }
+
+
+}
+
+// Dialogue output for boss fight
+function rpsWinLossDialogue(diamond, boss) {
+
+    $('.rock, .paper, .scissors').css('pointer-events', 'none');
+    $('.rpsButton-container').fadeOut();
+
+    // Remove dialogue from before
+    $('.dialogue').html(' ');
+
+    // Output diamonds text then boss text
+    outputText(diamond, $('.dialogue'), function () {
+
+        setTimeout(function () {
+            $('.dialogue').html(' ');
+            outputText(boss, $('.dialogue'));
+        }, 1000);
+
+
+
+        setTimeout(function () {
+            $('.rpsButton-container').fadeIn();
+            $('.rock, .paper, .scissors').css('pointer-events', 'auto');
+        }, 4000);
+
+
+    });
+
+}
+// End Game and Credits
+
+function endGameScreen(score) {
+
+    console.log(bossObj.loss_dialogue);
+    var self = this;
+
+    self.$container = $('#endGame').show();
+
+    self.$page = $("<div class='End-Game-Screen'></div>");
+    if(score <= 0) {
+        console.log('0');
+        lossCredits().appendTo(self.$page);
+
+    }else if(score > 0) {
+        console.log('6');
+
+        winCredits().appendTo(self.$page);
+
+    }
+
+    self.$container.append(self.$page);
+
+    var $credits = self.$page.find('.credits-box');
+
+    if(score <= 0) {
+        outputText(bossObj.win_dialogue, $credits, function () {
+
+            setTimeout(function () {
+                $credits.html(' ');
+                outputText(bossObj.win_dialogue2, $credits);
+            }, 1000);
+
+        });
+    } else if(score <= 0) {
+        outputText(bossObj.loss_dialogue, $credits, function () {
+
+            setTimeout(function () {
+                $credits.html(' ');
+                outputText(bossObj.loss_dialogue2, $credits);
+            }, 1000);
+
+        });
+    }
+}
+
+
+
+// Loads in all data needed for boss scenario
+function loadBossBattle() {
+
+
+
+    var scenario = new Promise(function (resolve, reject) {
+
+        // Fetch the scenarios
+        $.getJSON('json/boss.json').done(function (json) {
+
+            bossObj.dialogue_1 = json[0].dialogue_1;
+            bossObj.dialogue_2 = json[0].dialogue_2;
+
+            bossObj.boss_loss_1 = json[0].boss_loss[0];
+            bossObj.boss_loss_2 = json[0].boss_loss[1];
+            bossObj.boss_loss_3 = json[0].boss_loss[2];
+            bossObj.boss_win_1 = json[0].boss_win[0];
+            bossObj.boss_win_2 = json[0].boss_win[1];
+            bossObj.boss_win_3 = json[0].boss_win[2];
+
+            bossObj.diamond_loss_1 = json[0].diamond_loss[0];
+            bossObj.diamond_loss_2 = json[0].diamond_loss[1];
+            bossObj.diamond_loss_3 = json[0].diamond_loss[2];
+            bossObj.diamond_win_1 = json[0].diamond_win[0];
+            bossObj.diamond_win_2 = json[0].diamond_win[1];
+            bossObj.diamond_win_3 = json[0].diamond_win[2];
+
+            bossObj.win_dialogue = json[0].win_dialogue;
+            bossObj.win_dialogue2 = json[0].win_dialogue2;
+            bossObj.loss_dialogue = json[0].loss_dialogue;
+            bossObj.loss_dialogue2 = json[0].loss_dialogue2;
+
+
+            resolve();
+            // console.log("Output: " + scenarioObj.resultsA_dialogue);
+        }).fail(function (json) {
+            // If any dictionaries fail to load, the application has failedy
+            console.log(json);
+            reject();
+        });
+    });
+}
+
+
+// Loads all scenarios
 function loadScenario() {
 
     

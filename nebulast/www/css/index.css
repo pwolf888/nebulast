@@ -47,8 +47,8 @@
 }
 
 body  {
-     font-family: pix PixelFJVerdana12ptimport;
-     overflow: hidden;
+
+     overflowX: hidden;
      /*background-image: url('NebulastLogo.jpg');*/
      background-position: left top;
      background-attachment: fixed;
@@ -139,6 +139,15 @@ body  {
     
 }
 
+.space-boss {
+    position: absolute !important;
+    float: right;
+    left:50%;
+    transform: translateX(-50%);
+    top: 50%;
+    z-index: 999;
+}
+
 .statsGroup {
     width: 120px;
     position: absolute;
@@ -171,25 +180,6 @@ body  {
 ***************************************
  */
 
-/*.scenario-Portrait-card, .dialogueRow, .scenario-OptionsRow-card, .results, -card {*/
-
-    /*border-radius: 25px;*/
-    /*padding: 5px;*/
-
-/*}*/
-
-/*.scenario-dialogueRow-card {*/
-    /*width: 100vw;*/
-/*}*/
-
-/*.scenario-Portrait-card {*/
-
-    /*width: 20vw;*/
-/*}*/
-/*.dialogueRow {*/
-    /*width: 60vw;*/
-/*}*/
-
 .dialogueBox {
     position: relative;
 }
@@ -214,7 +204,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
     padding: 24px;
     display: inline;
     position: absolute;
-
+    width:350px;
     height:auto;
     /*background-color: #bbdefb;*/
 }
@@ -232,12 +222,39 @@ img.portrait-image, p.name, p.dialogue, p.results {
 }
 
 .back {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+
+    position:absolute;
+
+    background:transparent;
+    bottom: 20px;
+    right: 20px;
     z-index: 16;
+    width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-left: 70px solid #3ccaf2;
+    border-bottom: 40px solid transparent ;
+
 
 }
+
+.back2 {
+
+    position:absolute;
+
+    bottom: 10px;
+    right: 10px;
+    z-index: 15;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-left: 80px solid #fff;
+    border-bottom: 50px solid transparent ;
+
+
+}
+
+
 
 .planet-container {
     text-align: center;
@@ -571,13 +588,27 @@ img.portrait-image, p.name, p.dialogue, p.results {
 
 }
 
-.ok-button, .cancel-button, .uiLabel {
+.uiLabel {
+    font-size: 14px !important;
+    position: relative;
+    color: #fff!important;
+    z-index: 10000000;
+}
+
+.ok-button, .cancel-button {
     font-size: 20px !important;
 
+    padding: 20px;
+    display: inline;
     position: relative;
     color: #fff!important;
     z-index: 10000000;
 
+}
+
+.notify-buttons {
+    position: relative;
+    padding: 10px;
 }
 .hamburger img{
     position: absolute;
@@ -595,6 +626,7 @@ img.portrait-image, p.name, p.dialogue, p.results {
     border: 3px dotted #fff;
 
 }
+
 
 /***************************************
 *
@@ -650,3 +682,66 @@ img.portrait-image, p.name, p.dialogue, p.results {
     z-index: 600;
 }
 
+/***************************************
+*
+* Boss Screen css
+*
+*
+***************************************/
+
+.portrait-boss {
+    z-index: 900;
+    right: 0;
+    position: absolute;
+}
+
+.boss-Action {
+    position: absolute !important;
+    top: 50%;
+    right: 25px;
+    z-index: 10;
+}
+
+.boss-rps {
+    position: absolute;
+    float: right;
+    right: 25%;
+}
+
+.diamond-rps {
+    position: absolute;
+    float: left;
+    left: 25%;
+}
+
+.rpsButton-container {
+    position: absolute;
+    bottom: 15px;
+    left:50%;
+
+    transform: translateX(-50%);
+
+}
+
+.rspButtons {
+    padding: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+.bossBox {
+    position: absolute;
+    right: -3px;
+    top: -4px;
+    height: 100%;
+    width: 18%;
+    z-index: 0;
+    border: 3px dotted #fff;
+    animation: blink 1s step-end infinite alternate;
+
+}
+
+@keyframes blink {
+    50% { border: 3px solid #fff; }
+    100% {border: 3px dotted #fff; }
+}
