@@ -73,6 +73,7 @@ $(document).ready(function () {
     loadScenario();
     loadShopData();
     loadBossBattle();
+
     loadMainMenu();
     
     // Randomly places BG
