@@ -22,7 +22,14 @@
       "Ha Ha! Take that, the encryption is working Captain",
       "Warp field stabilized!"
     ],
-    "end_dialogue": "We did it Captain! We managed to show that Unknown Entity who is boss! Shall we go for cake?"
+    "win_dialogue": "We did it Captain! We managed to show that Unknown Entity who is boss! Shall we go for cake?",
+    "win_dialogue2": "Blah blah blah",
+    "loss_dialogue": "Captain! I am being taken over ARRRRRRRRHHHHHHH!!!!!!0001010101010100101010101010",
+    "loss_dialogue2": "Blah Blah Blah"
+
+
+
+
 
   }
 

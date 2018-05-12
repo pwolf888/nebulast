@@ -351,7 +351,26 @@ window.bossDialogue = function () {
     return dialogueBox;
 };
 
+window.lossCredits = function () {
 
+    var dialogueBox = $("<div class='dialogueBox' style='background-color: red;'></div>");
+    $("<img src='img/space_pyramid_digital.gif' class='portrait-image'>").appendTo(dialogueBox);
+    $("<div class='p-box'><p class='name'>pyramid.ai</p><br><p class='credits-box'></p></div>").appendTo(dialogueBox);
+
+
+
+
+    return dialogueBox;
+};
+window.winCredits = function () {
+
+    var dialogueBox = $("<div class='dialogueBox' style='background-color: #3ccaf2;'></div>");
+    $("<img src='img/diamondAi.gif' class='portrait-image'>").appendTo(dialogueBox);
+    $("<div class='p-box'><p class='name'>diamond.ai</p><br><p class='credits-box'></p></div>").appendTo(dialogueBox);
+
+
+    return dialogueBox;
+};
 window.bossAction = function () {
 
     var actionBox = $("<div class='actionBox'></div>");

@@ -253,7 +253,11 @@ function loadMainMenu() {
         diamond_win_1: undefined,
         diamond_win_2: undefined,
         diamond_win_3: undefined,
-        end_dialogue: undefined
+
+        win_dialogue: undefined,
+        win_dialogue2: undefined,
+        loss_dialogue: undefined,
+        loss_dialogue2: undefined
 
 
     };
@@ -1023,6 +1027,7 @@ function loadBossScreen() {
     // Action section
     bossAction().appendTo(self.$page);
 
+
     // Rock, Paper, Scissors container
     var rpsContainer = $("<div class='rpsButton-container' hidden></div>").appendTo(self.$page);
 
@@ -1055,6 +1060,7 @@ function loadBossScreen() {
             $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_1, bossObj.boss_win_1));
             diamondScore -=1;
             bossBoxWidth(diamondScore);
+
         }
 
     });
@@ -1073,6 +1079,8 @@ function loadBossScreen() {
             $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_2, bossObj.boss_win_2));
             diamondScore -=1;
             bossBoxWidth(diamondScore);
+
+
         }else if(rando === 0) {
             // Win
             $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_2, bossObj.boss_loss_2));
@@ -1125,6 +1133,8 @@ function loadBossScreen() {
 
     });
 
+
+
 }
 
 // Random RPS value - number between 0 and 2
@@ -1134,6 +1144,8 @@ function rpsRandomNumber() {
     return rando;
 }
 
+
+
 // Switch - to check the width of the bosses virus
 function bossBoxWidth(diamondScore) {
 
@@ -1141,6 +1153,11 @@ function bossBoxWidth(diamondScore) {
 
         case 0:
             $('.bossBox').css('width', '100%');
+            setTimeout(function () {
+                $('#bossScreen').hide();
+                endGameScreen(diamondScore);
+            }, 5000);
+
             break;
         case 1:
             $('.bossBox').css('width', '90%');
@@ -1159,6 +1176,10 @@ function bossBoxWidth(diamondScore) {
             break;
         case 6:
             $('.bossBox').css('width', '0%');
+            setTimeout(function () {
+                $('#bossScreen').hide();
+                endGameScreen(diamondScore);
+            }, 5000);
             break;
         default:
             break;
@@ -1196,6 +1217,53 @@ function rpsWinLossDialogue(diamond, boss) {
     });
 
 }
+// End Game and Credits
+
+function endGameScreen(score) {
+
+    console.log(bossObj.loss_dialogue);
+    var self = this;
+
+    self.$container = $('#endGame').show();
+
+    self.$page = $("<div class='End-Game-Screen'></div>");
+    if(score <= 0) {
+        console.log('0');
+        lossCredits().appendTo(self.$page);
+
+    }else if(score > 0) {
+        console.log('6');
+
+        winCredits().appendTo(self.$page);
+
+    }
+
+    self.$container.append(self.$page);
+
+    var $credits = self.$page.find('.credits-box');
+
+    if(score <= 0) {
+        outputText(bossObj.win_dialogue, $credits, function () {
+
+            setTimeout(function () {
+                $credits.html(' ');
+                outputText(bossObj.win_dialogue2, $credits);
+            }, 1000);
+
+        });
+    } else if(score <= 0) {
+        outputText(bossObj.loss_dialogue, $credits, function () {
+
+            setTimeout(function () {
+                $credits.html(' ');
+                outputText(bossObj.loss_dialogue2, $credits);
+            }, 1000);
+
+        });
+    }
+}
+
+
 
 // Loads in all data needed for boss scenario
 function loadBossBattle() {
@@ -1224,7 +1292,10 @@ function loadBossBattle() {
             bossObj.diamond_win_2 = json[0].diamond_win[1];
             bossObj.diamond_win_3 = json[0].diamond_win[2];
 
-            bossObj.end_dialogue = json[0].end_dialogue;
+            bossObj.win_dialogue = json[0].win_dialogue;
+            bossObj.win_dialogue2 = json[0].win_dialogue2;
+            bossObj.loss_dialogue = json[0].loss_dialogue;
+            bossObj.loss_dialogue2 = json[0].loss_dialogue2;
 
 
             resolve();
