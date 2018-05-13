@@ -272,7 +272,7 @@ window.spaceStationBG = function () {
 // Joshes SS
 window.shopScreen = function () {
     
-    var shopScreen = $("<div class='shopScreen'></div>");
+    var shopScreen = $("<div class='shopScreen'><img class='shopScreen' src='img/shopScreen.png'></div>");
 
     return shopScreen;
 

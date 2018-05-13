@@ -139,6 +139,13 @@ Date:18/4/18
 * Added planet blurb to scenario.json [Jonathan Turnbull]
 * Game now has 2 levels/galaxies [Jonathan Turnbull]
 
+Date:19/4/18
+------------------------------------
+* Redesigned UI for space station [Joshua Pujol]
+* Added various icons for stats and space station [Joshua Pujol]
+* Coded in the icons for shop [Joshua Pujol]
+* Updated JSON file for shop [Joshua Pujol]
+* Added jquery to append and display icons and JSON data [Joshua Pujol]
 
 Date:23/4/18
 ------------------------------------
@@ -146,10 +153,26 @@ Date:23/4/18
 * Screen now set to landscape on build [Jonathan Turnbull]
 * Simple gameover is functional [Jonathan Turnbull]
 * Animated diamond.ai [Jonathan Turnbull]
+* Added four new background images [Joshua Pujol]
+* Fixed and imporved shop validation [Joshua Pujol]
+* Improved resolution on various assets [Joshua Pujol]
+
+Date:24/4/18
+------------------------------------
+* Designed and added new spaceship gif 
 
 Date:25/4/18
 ------------------------------------
 * Fixed Background function [Jonathan Turnbull]
+* Created function to randomly place Backgrounds [Joshua Pujol]
+* Added matching asteroid assets to Background [Joshua Pujol]
+* Improved Background function so it doesn't ever repeat [Joshua Pujol]
+
+Date:26/4/18
+------------------------------------
+* Added in first title screen [Joshua Pujol]
+* Various bug fixes with background image [Joshua Pujol]
+* Added many new assets including planets, buttons and title screen [Joshua Pujol]
 
 Date:28/4/18
 ------------------------------------
@@ -164,3 +187,21 @@ Date:29/4/18
 * Tap to start overlay added [Jonathan Turnbull]
 * Centered the notification [Jonathan Turnbull]
 * Game over screen has you died now [Jonathan Turnbull]
+* Fixed various bugs with css [Joshua Pujol]
+* Built on android for first time [Joshua Pujol]
+
+Date:3/5/18
+------------------------------------
+* Added android build details to Readme file [Joshua Pujol]
+* Various android optimsation [Joshua Pujol]
+
+Date:6/5/18
+------------------------------------
+* Jono and I added and completed all scenario JSON files for MVP 
+
+Date:9/5/18
+------------------------------------
+* Added in splash screens for android [Joshua Pujol]
+* Various android bug fixes [Joshua Pujol]
+* Various android optimisation [Joshua Pujol]
+* Increased size of bg for android [Joshua Pujol]

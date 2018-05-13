@@ -295,7 +295,6 @@ img.portrait-image, p.name, p.dialogue, p.results {
  }
 
  .shopScreen {
-    background-image: url('shopScreen.png');
     position: absolute;
     background-repeat: no-repeat;
     display: block;
