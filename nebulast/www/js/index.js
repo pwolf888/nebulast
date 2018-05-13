@@ -342,28 +342,6 @@ function randomBGInt() {
 ***************************************
 */
 
-function planetCost(crew) {
-
-// Planets = 1 food * crew, 2 water * crew, 1 fuel
-// Black hole = 2 food * crew, 4 water * crew, 2 fuel. 
-
-
-
-// Black hole money
-if(number === -1) {
-    stats.food -= crew + 1;
-    stats.water -= 2 * (crew + 1);
-    stats.fuel -= 2;
-    stats.credits += crew * 100;
-
-    // Planet resources cost
-} else if(number >= 0) {
-    stats.food -= crew;
-    stats.water -= 2 * crew;
-    stats.fuel -= 1;
-}
-
-}
 
 // Load the space screen
 function loadSpaceScreen() {
@@ -623,7 +601,7 @@ function costUpate() {
     if(number === -1) {
         console.log('-1');
         $('.food-cost').html(-stats.crew - 1);
-        $('.water-cost').html(-stats.crew * 2 - 1);
+        $('.water-cost').html(-2 * (stats.crew + 1));
         $('.fuel-cost').html(-stats.crew - 1);
         $('.credit-gain').html(stats.crew * 100);
     } else if(number >= 0) {
@@ -635,6 +613,29 @@ function costUpate() {
     }
 }
 
+// Remove the resources
+function planetCost(crew) {
+
+// Planets = 1 food * crew, 2 water * crew, 1 fuel
+// Black hole = 2 food * crew, 4 water * crew, 2 fuel.
+
+
+
+// Black hole money
+    if(number === -1) {
+        stats.food -= crew + 1;
+        stats.water -= 2 * (crew + 1);
+        stats.fuel -= 2;
+        stats.credits += crew * 100;
+
+        // Planet resources cost
+    } else if(number >= 0) {
+        stats.food -= crew;
+        stats.water -= 2 * crew;
+        stats.fuel -= 1;
+    }
+
+}
 
 // Move to the next 3 planets in the array
 function removePlanets() {
