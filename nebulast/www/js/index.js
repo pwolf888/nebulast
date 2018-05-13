@@ -347,13 +347,20 @@ function planetCost(crew) {
 // Planets = 1 food * crew, 2 water * crew, 1 fuel
 // Black hole = 2 food * crew, 4 water * crew, 2 fuel. 
 
-stats.food -= crew; 
-stats.water -= 2 * crew;
-stats.fuel -= 1;
 
-// Black hole moneys
+
+// Black hole money
 if(number === -1) {
-    stats.credits += crew * 100
+    stats.food -= crew + 1;
+    stats.water -= 2 * (crew + 1);
+    stats.fuel -= 2;
+    stats.credits += crew * 100;
+
+    // Planet resources cost
+} else if(number >= 0) {
+    stats.food -= crew;
+    stats.water -= 2 * crew;
+    stats.fuel -= 1;
 }
 
 }
@@ -502,6 +509,7 @@ function loadSpaceScreen() {
         closeNav();
         $('.credit-gain').hide();
         // Check resourse cost
+        number = 0;
         costUpate();
         // Remove any content inside notify label
         $('label.uiLabel, .not-diamond').remove();
@@ -510,7 +518,7 @@ function loadSpaceScreen() {
         // Create the label with content
 
         // Specify the correct number to read from the scenarioObj object
-        number = 0;
+
 
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
         diamond().prependTo(notLabel);
@@ -523,10 +531,11 @@ function loadSpaceScreen() {
     planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
         closeNav();
         $('.credit-gain').hide();
+        number = 1;
         costUpate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
-        number = 1;
+
 
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
         diamond().prependTo(notLabel);
@@ -537,10 +546,11 @@ function loadSpaceScreen() {
     planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
         closeNav();
         $('.credit-gain').hide();
+        number = 2;
         costUpate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
-        number = 2;
+
 
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
         diamond().prependTo(notLabel);
@@ -607,13 +617,21 @@ function loadSpaceScreen() {
 
 // Update resource cost
 function costUpate() {
-    $('.food-cost').html(-stats.crew);
-    $('.water-cost').html(-stats.crew * 2);
-    $('.fuel-cost').html(-stats.crew);
+
 
     // For black hole cost
     if(number === -1) {
+        console.log('-1');
+        $('.food-cost').html(-stats.crew - 1);
+        $('.water-cost').html(-stats.crew * 2 - 1);
+        $('.fuel-cost').html(-stats.crew - 1);
         $('.credit-gain').html(stats.crew * 100);
+    } else if(number >= 0) {
+        console.log('1');
+        // For planet
+        $('.food-cost').html(-stats.crew);
+        $('.water-cost').html(-stats.crew * 2);
+        $('.fuel-cost').html(-stats.crew);
     }
 }
 
@@ -1328,7 +1346,7 @@ function endGameScreen(score) {
             }, 1000);
 
         });
-    } else if(score <= 0) {
+    } else if(score >= 6) {
         outputText(bossObj.win_dialogue, $credits, function () {
 
             setTimeout(function () {
