@@ -1,3 +1,75 @@
 #Nebulast licences.txt
 
 #All visual assets are created by Jonathan Turnbull or Josh Pujol
+
+All assets are in the Site/nebulast/www/img
+
+-----------------------------------------------------------------
+BG001: Created by Joshua Pujol
+BG002: Created by Joshua Pujol
+BG003: Created by Joshua Pujol
+BG004: Created by Joshua Pujol
+BG005: Created by Joshua Pujol
+BG006: Created by Joshua Pujol
+blackhole: Created by Joshua Pujol
+blackhole2: Created by Joshua Pujol
+blackhole3: Created by Joshua Pujol
+CoinIcon: Created by Joshua Pujol
+CollectionButton: Created by Joshua Pujol
+Commet001: Created by Joshua Pujol
+Commet002: Created by Joshua Pujol
+Commet003: Created by Joshua Pujol
+Commet004: Created by Joshua Pujol
+Commet005: Created by Joshua Pujol
+Commet006: Created by Joshua Pujol
+CrewIcon: Created by Joshua Pujol
+DiamondAI: Created by Jonathan Turnbull 
+FoodIcon: Created by Joshua Pujol
+FuelIcon: Created by Joshua Pujol
+GameOver: Created by Joshua Pujol
+hamburger: Created by Jonathan Turnbull
+HTPButton: Created by Joshua Pujol
+LoadButton: Created by Joshua Pujol
+logo: Created by Joshua Pujol
+MenuScreen: Created by Joshua Pujol
+NewButton: Created by Joshua Pujol
+paper: Created by Jonathan Turnbull
+paralaxBackground: Created by Joshua Pujol
+paralaxForeground: Created by Joshua Pujol
+paralaxMiddle: Created by Joshua Pujol
+pixelstar: Created by Joshua Pujol
+pixelstar2: Created by Joshua Pujol
+pixelstar3: Created by Joshua Pujol
+pixelstar4: Created by Joshua Pujol
+rock: Created by Jonathan Turnbull
+scenario1: Created by Joshua Pujol
+scenario2: Created by Joshua Pujol
+scenario3: Created by Joshua Pujol
+scenario4: Created by Jonathan Turnbull
+scenario5: Created by Jonathan Turnbull
+scenario6: Created by Jonathan Turnbull
+scenario7: Created by Joshua Pujol
+scenario8: Created by Joshua Pujol
+scenario9: Created by Joshua Pujol
+scenario10: Created by Joshua Pujol
+scenario11: Created by Joshua Pujol
+scenario12: Created by Joshua Pujol
+scenario13: Created by Joshua Pujol
+scenario14: Created by Joshua Pujol
+scenario15: Created by Joshua Pujol
+scenario16: Created by Joshua Pujol
+sceanrio17: Created by Joshua Pujol
+scenario18: Created by Joshua Pujol
+scissors: Created by Jonathan Turnbull
+shopScreen: Created by Joshua Pujol
+space_pyramid: Created by Jonathan Turnbull
+space_pyramid_digital: Created by Jonathan Turnbull
+Spaceship: Created by Joshua Pujol
+spacehip-gif: Created by Joshua Pujol
+spacestation-gif: Created by Joshua Pujol
+SSbackground2: Created by Joshua Pujol
+StartScreen: Created by Joshua Pujol
+WaterIcon: Created by Joshua Pujol
+
+-----------------------------------------------------------------
+Splash screens for android Created by Joshua Pujol.
