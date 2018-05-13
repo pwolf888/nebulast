@@ -494,12 +494,18 @@ img.portrait-image, p.name, p.dialogue, p.results {
  /* 
 ***************************************
 *  
-* Ship Screen
+* game over Screen
 * 
 *
 ***************************************
 */
 
+.endGame-stats {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 /*
 ***************************************

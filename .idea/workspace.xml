@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1e47459-61f6-4736-98cc-8b2a0a098ab6" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/nebulast/www/img/GalaxyIcon.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/nebulast/www/css/index.css" afterPath="$PROJECT_DIR$/nebulast/www/css/index.css" />
       <change beforePath="$PROJECT_DIR$/nebulast/www/js/index.js" afterPath="$PROJECT_DIR$/nebulast/www/js/index.js" />
-      <change beforePath="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" afterPath="$PROJECT_DIR$/nebulast/www/js/nebulast-ui.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +19,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="542" column="68" lean-forward="false" selection-start-line="542" selection-start-column="68" selection-end-line="542" selection-end-column="68" />
+            <state relative-caret-position="49">
+              <caret line="736" column="46" lean-forward="false" selection-start-line="736" selection-start-column="46" selection-end-line="736" selection-end-column="46" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -41,8 +41,8 @@
       <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nebulast/www/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="386" column="6" lean-forward="false" selection-start-line="386" selection-start-column="6" selection-end-line="386" selection-end-column="6" />
+            <state relative-caret-position="297">
+              <caret line="505" column="14" lean-forward="true" selection-start-line="505" selection-start-column="14" selection-end-line="505" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -71,6 +71,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="scenario.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nebulast/www/json/scenario.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7080">
+              <caret line="472" column="20" lean-forward="false" selection-start-line="472" selection-start-column="9" selection-end-line="472" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nebulast/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -95,14 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>back</find>
-      <find>ok</find>
-      <find>food</find>
-      <find>return</find>
-      <find>spaceship</find>
-      <find>pyra</find>
-      <find>sidenav</find>
-      <find>overflow: hidden</find>
       <find>loadboss</find>
       <find>bossbutton</find>
       <find>space-bos</find>
@@ -115,16 +117,24 @@
       <find>.dialogue</find>
       <find>boss</find>
       <find>outputtext</find>
-      <find>stats</find>
       <find>open</find>
       <find>notify</find>
       <find>notifi</find>
       <find>credit</find>
-      <find>fuel-cost</find>
       <find>stat</find>
       <find>coin-gain</find>
       <find>refreshstats</find>
       <find>-stats</find>
+      <find>coinIcon</find>
+      <find>closeNav()</find>
+      <find>planet</find>
+      <find>-5</find>
+      <find>-</find>
+      <find>crew member</find>
+      <find>stats</find>
+      <find>gameOver</find>
+      <find>loadstats</find>
+      <find>fuel-cost</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -272,7 +282,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98390000" />
+    <option name="totallyTimeSpent" value="100454000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1260" height="691" extended-state="0" />
@@ -455,6 +465,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-94">
           <caret line="94" column="64" lean-forward="false" selection-start-line="94" selection-start-column="64" selection-end-line="94" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -608,33 +619,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nebulast/www/json/scenario.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nebulast/www/json/boss.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="15086" column="17" lean-forward="false" selection-start-line="15086" selection-start-column="17" selection-end-line="15086" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nebulast/www/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="386" column="6" lean-forward="false" selection-start-line="386" selection-start-column="6" selection-end-line="386" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -668,10 +656,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nebulast/www/json/scenario.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7080">
+          <caret line="472" column="20" lean-forward="false" selection-start-line="472" selection-start-column="9" selection-end-line="472" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nebulast/www/json/boss.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nebulast/www/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="505" column="14" lean-forward="true" selection-start-line="505" selection-start-column="14" selection-end-line="505" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nebulast/www/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="542" column="68" lean-forward="false" selection-start-line="542" selection-start-column="68" selection-end-line="542" selection-end-column="68" />
+        <state relative-caret-position="49">
+          <caret line="736" column="46" lean-forward="false" selection-start-line="736" selection-start-column="46" selection-end-line="736" selection-end-column="46" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

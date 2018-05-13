@@ -478,6 +478,7 @@ function loadSpaceScreen() {
     // On click the user will be asked if they want to start a scenario
 
     planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
+        closeNav();
         $('.credit-gain').hide();
         // Check resourse cost
         costUpate();
@@ -499,6 +500,7 @@ function loadSpaceScreen() {
                                 
     });
     planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
+        closeNav();
         $('.credit-gain').hide();
         costUpate();
         $('label.uiLabel, .not-diamond').remove();
@@ -512,6 +514,7 @@ function loadSpaceScreen() {
         $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
     });
     planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
+        closeNav();
         $('.credit-gain').hide();
         costUpate();
         $('label.uiLabel, .not-diamond').remove();
@@ -527,6 +530,7 @@ function loadSpaceScreen() {
 
     // Black hole button
     blackHole().appendTo(self.$page).on('click', function () {
+        closeNav();
         number = -1;
         $('.credit-gain').css('display', 'inline-block');
         // Check resourse cost
@@ -563,8 +567,7 @@ function loadSpaceScreen() {
 
     // Add the side nav to the screen
     window.hiddenNav = sideNav().appendTo(self.$page);
-    // Add the header title to the sidenav
-    // $("<div class='sideNavHeader'>Stats</div>").appendTo(hiddenNav);
+
 
     close().appendTo(hiddenNav).on('click', function () {
         closeNav();
@@ -648,7 +651,7 @@ function loadStats(container) {
 
     sideNavStat('CrewIcon.png','crew', stats.crew ).appendTo(contentRowBottom);
     sideNavStat('CoinIcon.png','credits', stats.credits ).appendTo(contentRowBottom);
-    sideNavStat('CoinIcon.png','galaxy', stats.galaxyCount ).appendTo(contentRowBottom);
+    sideNavStat('GalaxyIcon.png','galaxy', stats.galaxyCount ).appendTo(contentRowBottom);
 
 }
 
@@ -705,18 +708,10 @@ function loadScenarioScreen() {
 
     self.$page = $("<div class='scenario-Screen-page'></div>");
 
-
-
     // First row of the content that holds the dialogue and the portait
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
     portraitColNew(scenarioObj.pImage[number]).appendTo(dialogueRow);
-
-    // Portrait and dialogue
-    // portraitCol().appendTo(dialogueRow);
-
-    // Dialogue
-    // dialogueBox().appendTo(dialogueRow);
 
     // Options row holds the options
     var optionsRow = uiRow('scenario-OptionsRow').appendTo(self.$page);
@@ -730,14 +725,22 @@ function loadScenarioScreen() {
 
         // Output the results of the scenario
         var resourceUpdate = scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
-        outputText(scenarioObj.resultsA_dialogue[number], $('.results').show());
-        outputText(resourceUpdate, $('.resource-Update').show());
+        outputText(scenarioObj.resultsA_dialogue[number], $('.results').show(), function () {
+            outputText(resourceUpdate, $('.resource-Update').show(), function () {
 
-        // Update the stats earned or lost
-        updateStats(scenarioObj.resultsA_type[number], scenarioObj.resultsA_number[number]);
+                // Wait a second before leaving screen if game over
+                setTimeout(function () {
+                    // Update the stats earned or lost
+                    updateStats(scenarioObj.resultsA_type[number], scenarioObj.resultsA_number[number]);
 
-        // Back button disabled
-        $('.back, .back2').show();
+                    // Back button disabled
+                    $('.back, .back2').show();
+                }, 1000);
+
+            });
+
+        });
+
     });
 
     // Option B
@@ -749,12 +752,17 @@ function loadScenarioScreen() {
 
         var resourceUpdate =  scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
 
-        outputText(scenarioObj.resultsB_dialogue[number], $('p.results').show());
-        outputText(resourceUpdate, $('p.resource-Update').show());
+        outputText(scenarioObj.resultsB_dialogue[number], $('p.results').show(), function () {
+            outputText(resourceUpdate, $('p.resource-Update').show(), function () {
+                setTimeout(function () {
+                    updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
 
-        updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
+                    $('.back, .back2').show();
+                }, 1000);
 
-        $('.back, .back2').show();
+            });
+
+        });
 
     });
 
@@ -768,12 +776,20 @@ function loadScenarioScreen() {
 
         var resourceUpdate = scenarioObj.resultsC_number[number] + " " + scenarioObj.resultsC_type[number] + ".";
 
-        outputText(scenarioObj.resultsC_dialogue[number], $('p.results').show());
-        outputText(resourceUpdate, $('p.resource-Update').show());
+        outputText(scenarioObj.resultsC_dialogue[number], $('p.results').show(), function () {
+            outputText(resourceUpdate, $('p.resource-Update').show(), function () {
 
-        updateStats(scenarioObj.resultsC_type[number], scenarioObj.resultsC_number[number]);
+                setTimeout(function () {
+                    updateStats(scenarioObj.resultsC_type[number], scenarioObj.resultsC_number[number]);
+                    $('.back, .back2').show();
+                }, 1000);
 
-        $('.back, .back2').show();
+
+            });
+        });
+
+
+
 
     });
 
@@ -1007,15 +1023,7 @@ function loadSpaceShipScreen() {
 function loadGameOverScreen() {
 
 
-    stats = {
-        food: 5,
-        water: 10,
-        fuel: 5,
-        crew: 1,
-        credits: 200,
-        galaxyCount: 0
 
-    };
 
     var self = this;
 
@@ -1032,13 +1040,24 @@ function loadGameOverScreen() {
         $('#mainMenu').show();
 
 
-    });
+    }).fadeIn();
+
+    var endgameStats = $("<div class='endGame-stats'></div>").appendTo(self.$page);
+    loadStats(endgameStats);
 
 
     self.$container.append(self.$page);
 
+    stats = {
+        food: 5,
+        water: 10,
+        fuel: 5,
+        crew: 1,
+        credits: 200,
+        galaxyCount: 0
 
-
+    };
+    $('.sideNav-diamond').hide();
 }
 
 /*
