@@ -177,7 +177,7 @@ window.uiLabel = function (text) {
 
 window.bossButton = function (elementClass) {
 
-    var bossSprite = $("<div class='"+elementClass+"'><img class='boss-image' src='img/space_pyramid.gif'></div>");
+    var bossSprite = $("<div class='"+elementClass+"' hidden><img class='boss-image' src='img/space_pyramid.gif'></div>");
     return bossSprite;
 
 };

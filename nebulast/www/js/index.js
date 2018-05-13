@@ -118,7 +118,7 @@ function openNav() {
     $(".sideNav").css("opacity", "0.8");
 
     setTimeout(function(){
-        $(".sideNav").css("width", "30%");
+        $(".sideNav").css("width", "50%");
 
 
     },700);
@@ -347,10 +347,21 @@ function planetCost(crew) {
 // Planets = 1 food * crew, 2 water * crew, 1 fuel
 // Black hole = 2 food * crew, 4 water * crew, 2 fuel. 
 
-stats.food -= crew; 
-stats.water -= 2 * crew;
-stats.fuel -= 1;
 
+
+// Black hole money
+if(number === -1) {
+    stats.food -= crew + 1;
+    stats.water -= 2 * (crew + 1);
+    stats.fuel -= 2;
+    stats.credits += crew * 100;
+
+    // Planet resources cost
+} else if(number >= 0) {
+    stats.food -= crew;
+    stats.water -= 2 * crew;
+    stats.fuel -= 1;
+}
 
 }
 
@@ -391,8 +402,24 @@ function loadSpaceScreen() {
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
-        // $('#spaceScreen').hide();
-        // loadSpaceShipScreen();
+        closeNav();
+        number = -2;
+        $('.credit-gain').css('display', 'inline-block');
+        // Check resourse cost
+        costUpate();
+        // Remove any content inside notify label
+        $('label.uiLabel, .not-diamond').remove();
+        // Show the notification
+        $(".notify").show();
+        // Create the label with content
+        uiLabel('Having trouble, Captain? We could blow up the ship and start again? :D').prependTo(notLabel);
+        diamond().prependTo(notLabel);
+
+
+        //Disable button on click
+        $(".space-Ship").css({"pointer-events": 'none', "opacity": '0.8'});
+
+        $('.resource-cost').hide();
     });
 
     // Space station
@@ -410,24 +437,55 @@ function loadSpaceScreen() {
     sideNavStat('WaterIcon.png','water-cost', -stats.crew * 2).appendTo(contentRowTop);
     sideNavStat('FuelIcon.png','fuel-cost', -stats.crew).appendTo(contentRowTop);
 
+    sideNavStat('CoinIcon.png','credit-gain', stats.crew * 100).appendTo(contentRowTop);
+    $('.credit-gain').hide();
 
     var notifyButtons = $('<div class="notify-buttons"></div>').appendTo(notLabel);
 
 
     uiButton('ok', 'Ok').appendTo(notifyButtons).on('click', function () {
         
-        if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2) {
+        if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2 && number >= 0) {
             notLabel.hide();
             $(".uiLabel").html(' ');
             $('#spaceScreen').hide();
             loadScenarioScreen();
             planetCost(stats.crew);
 
-        } else {
+        } else if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2 && number === -1) {
+
+            if(stats.galaxyCount < 5){
+                planetCost(stats.crew);
+                clearTimeout(timer);
+                // Black hole resets system and generating x amount of new planets
+                $("#spaceScreen").html(' ');
+                // Randomly places BG
+                if (bgCounter < 6) {
+                    rando = randomBGInt();
+                    randomBGGen(rando);
+                }
+
+                // Change planets
+
+                removePlanets();
+                loadSpaceScreen();
+
+                // Enable space station
+            } else {
+
+                $('.space-Blackhole').hide();
+                $('.space-boss').show();
+            }
+
+        } else if(number === -2) {
+            $('.space-Screen').html(' ');
+            loadGameOverScreen();
+        } else{
             $(".uiLabel").remove();
 
             notLabel.hide();
             $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
+
         }
 
 
@@ -435,17 +493,23 @@ function loadSpaceScreen() {
 
     // Append a cancel and an OK but to the notification area
     uiButton('cancel', 'Cancel').appendTo(notifyButtons).on('click', function () {
+        $('.credit-gain').hide();
         $(".uiLabel").html(' ');
         notLabel.hide();
         $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
+        //Disable button on click
+        $(".space-Blackhole").css({"pointer-events": 'auto', "opacity": '1.0'});
+        $(".space-Ship").css({"pointer-events": 'auto', "opacity": '1.0'});
     });
 
 
     // On click the user will be asked if they want to start a scenario
 
     planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
-
+        closeNav();
+        $('.credit-gain').hide();
         // Check resourse cost
+        number = 0;
         costUpate();
         // Remove any content inside notify label
         $('label.uiLabel, .not-diamond').remove();
@@ -454,7 +518,7 @@ function loadSpaceScreen() {
         // Create the label with content
 
         // Specify the correct number to read from the scenarioObj object
-        number = 0;
+
 
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
         diamond().prependTo(notLabel);
@@ -465,10 +529,13 @@ function loadSpaceScreen() {
                                 
     });
     planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
+        closeNav();
+        $('.credit-gain').hide();
+        number = 1;
         costUpate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
-        number = 1;
+
 
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
         diamond().prependTo(notLabel);
@@ -477,10 +544,13 @@ function loadSpaceScreen() {
         $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
     });
     planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
+        closeNav();
+        $('.credit-gain').hide();
+        number = 2;
         costUpate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
-        number = 2;
+
 
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
         diamond().prependTo(notLabel);
@@ -491,30 +561,26 @@ function loadSpaceScreen() {
 
     // Black hole button
     blackHole().appendTo(self.$page).on('click', function () {
-        if(stats.galaxyCount < 5){
-            clearTimeout(timer);
-            // Black hole resets system and generating x amount of new planets
-            $("#spaceScreen").html(' ');
-            // Randomly places BG
-            if (bgCounter < 6) {
-                rando = randomBGInt();
-                randomBGGen(rando);
-            }
+        closeNav();
+        number = -1;
+        $('.credit-gain').css('display', 'inline-block');
+        // Check resourse cost
+        costUpate();
+        // Remove any content inside notify label
+        $('label.uiLabel, .not-diamond').remove();
+        // Show the notification
+        $(".notify").show();
+        // Create the label with content
+
+        // Specify the correct number to read from the scenarioObj object
 
 
-            // Change planets
-
-            removePlanets();
-            loadSpaceScreen();
-
-            // Enable space station
-        } else {
-
-            $('.space-Blackhole').hide();
-            $('.space-boss').show();
-        }
+        uiLabel('The Black Hole wil take us to a new solar system, enter the next galaxy, Captain?').prependTo(notLabel);
+        diamond().prependTo(notLabel);
 
 
+        //Disable button on click
+        $(".space-Blackhole").css({"pointer-events": 'none', "opacity": '0.8'});
 
     });
 
@@ -532,8 +598,7 @@ function loadSpaceScreen() {
 
     // Add the side nav to the screen
     window.hiddenNav = sideNav().appendTo(self.$page);
-    // Add the header title to the sidenav
-    // $("<div class='sideNavHeader'>Stats</div>").appendTo(hiddenNav);
+
 
     close().appendTo(hiddenNav).on('click', function () {
         closeNav();
@@ -552,9 +617,22 @@ function loadSpaceScreen() {
 
 // Update resource cost
 function costUpate() {
-    $('.food-cost').html(-stats.crew);
-    $('.water-cost').html(-stats.crew * 2);
-    $('.fuel-cost').html(-stats.crew);
+
+
+    // For black hole cost
+    if(number === -1) {
+        console.log('-1');
+        $('.food-cost').html(-stats.crew - 1);
+        $('.water-cost').html(-stats.crew * 2 - 1);
+        $('.fuel-cost').html(-stats.crew - 1);
+        $('.credit-gain').html(stats.crew * 100);
+    } else if(number >= 0) {
+        console.log('1');
+        // For planet
+        $('.food-cost').html(-stats.crew);
+        $('.water-cost').html(-stats.crew * 2);
+        $('.fuel-cost').html(-stats.crew);
+    }
 }
 
 
@@ -612,7 +690,7 @@ function loadStats(container) {
 
     sideNavStat('CrewIcon.png','crew', stats.crew ).appendTo(contentRowBottom);
     sideNavStat('CoinIcon.png','credits', stats.credits ).appendTo(contentRowBottom);
-    sideNavStat('CoinIcon.png','galaxy', stats.galaxyCount ).appendTo(contentRowBottom);
+    sideNavStat('GalaxyIcon.png','galaxy', stats.galaxyCount ).appendTo(contentRowBottom);
 
 }
 
@@ -669,18 +747,10 @@ function loadScenarioScreen() {
 
     self.$page = $("<div class='scenario-Screen-page'></div>");
 
-
-
     // First row of the content that holds the dialogue and the portait
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
     portraitColNew(scenarioObj.pImage[number]).appendTo(dialogueRow);
-
-    // Portrait and dialogue
-    // portraitCol().appendTo(dialogueRow);
-
-    // Dialogue
-    // dialogueBox().appendTo(dialogueRow);
 
     // Options row holds the options
     var optionsRow = uiRow('scenario-OptionsRow').appendTo(self.$page);
@@ -694,14 +764,22 @@ function loadScenarioScreen() {
 
         // Output the results of the scenario
         var resourceUpdate = scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
-        outputText(scenarioObj.resultsA_dialogue[number], $('.results').show());
-        outputText(resourceUpdate, $('.resource-Update').show());
+        outputText(scenarioObj.resultsA_dialogue[number], $('.results').show(), function () {
+            outputText(resourceUpdate, $('.resource-Update').show(), function () {
 
-        // Update the stats earned or lost
-        updateStats(scenarioObj.resultsA_type[number], scenarioObj.resultsA_number[number]);
+                // Wait a second before leaving screen if game over
+                setTimeout(function () {
+                    // Update the stats earned or lost
+                    updateStats(scenarioObj.resultsA_type[number], scenarioObj.resultsA_number[number]);
 
-        // Back button disabled
-        $('.back, .back2').show();
+                    // Back button disabled
+                    $('.back, .back2').show();
+                }, 1000);
+
+            });
+
+        });
+
     });
 
     // Option B
@@ -713,12 +791,17 @@ function loadScenarioScreen() {
 
         var resourceUpdate =  scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
 
-        outputText(scenarioObj.resultsB_dialogue[number], $('p.results').show());
-        outputText(resourceUpdate, $('p.resource-Update').show());
+        outputText(scenarioObj.resultsB_dialogue[number], $('p.results').show(), function () {
+            outputText(resourceUpdate, $('p.resource-Update').show(), function () {
+                setTimeout(function () {
+                    updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
 
-        updateStats(scenarioObj.resultsB_type[number], scenarioObj.resultsB_number[number]);
+                    $('.back, .back2').show();
+                }, 1000);
 
-        $('.back, .back2').show();
+            });
+
+        });
 
     });
 
@@ -732,16 +815,24 @@ function loadScenarioScreen() {
 
         var resourceUpdate = scenarioObj.resultsC_number[number] + " " + scenarioObj.resultsC_type[number] + ".";
 
-        outputText(scenarioObj.resultsC_dialogue[number], $('p.results').show());
-        outputText(resourceUpdate, $('p.resource-Update').show());
+        outputText(scenarioObj.resultsC_dialogue[number], $('p.results').show(), function () {
+            outputText(resourceUpdate, $('p.resource-Update').show(), function () {
 
-        updateStats(scenarioObj.resultsC_type[number], scenarioObj.resultsC_number[number]);
+                setTimeout(function () {
+                    updateStats(scenarioObj.resultsC_type[number], scenarioObj.resultsC_number[number]);
+                    $('.back, .back2').show();
+                }, 1000);
 
-        $('.back, .back2').show();
+
+            });
+        });
+
+
+
 
     });
 
-    // // Add the back button to the screen
+    // Add the back button to the screen
     returnToShip('back', 'hidden').appendTo(self.$page).on('click', function () {
 
         planetCount++;
@@ -971,15 +1062,7 @@ function loadSpaceShipScreen() {
 function loadGameOverScreen() {
 
 
-    stats = {
-        food: 5,
-        water: 10,
-        fuel: 5,
-        crew: 1,
-        credits: 200,
-        galaxyCount: 0
 
-    };
 
     var self = this;
 
@@ -996,13 +1079,24 @@ function loadGameOverScreen() {
         $('#mainMenu').show();
 
 
-    });
+    }).fadeIn();
+
+    var endgameStats = $("<div class='endGame-stats'></div>").appendTo(self.$page);
+    loadStats(endgameStats);
 
 
     self.$container.append(self.$page);
 
+    stats = {
+        food: 5,
+        water: 10,
+        fuel: 5,
+        crew: 1,
+        credits: 200,
+        galaxyCount: 0
 
-
+    };
+    $('.sideNav-diamond').hide();
 }
 
 /*
@@ -1239,25 +1333,34 @@ function endGameScreen(score) {
 
     }
 
+    // // Add the back button to the screen
+    returnToShip('back', ' ').appendTo(self.$page).on('click', function () {
+        $('#bossScreen').html(' ');
+        $('#endGame').html(' ');
+        $('#mainMenu').show();
+
+
+    });
+
     self.$container.append(self.$page);
 
     var $credits = self.$page.find('.credits-box');
 
     if(score <= 0) {
-        outputText(bossObj.win_dialogue, $credits, function () {
-
-            setTimeout(function () {
-                $credits.html(' ');
-                outputText(bossObj.win_dialogue2, $credits);
-            }, 1000);
-
-        });
-    } else if(score <= 0) {
         outputText(bossObj.loss_dialogue, $credits, function () {
 
             setTimeout(function () {
                 $credits.html(' ');
                 outputText(bossObj.loss_dialogue2, $credits);
+            }, 1000);
+
+        });
+    } else if(score >= 6) {
+        outputText(bossObj.win_dialogue, $credits, function () {
+
+            setTimeout(function () {
+                $credits.html(' ');
+                outputText(bossObj.win_dialogue2, $credits);
             }, 1000);
 
         });
