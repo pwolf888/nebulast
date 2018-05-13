@@ -148,6 +148,12 @@ body  {
     z-index: 999;
 }
 
+.stats-rowTop, .stats-rowBot {
+
+    text-align: center;
+
+}
+
 .statsGroup {
     width: 120px;
     position: absolute;
@@ -581,9 +587,9 @@ img.portrait-image, p.name, p.dialogue, p.results {
     z-index: 99999;
     text-align: center;
     margin: auto;
-    width: 50%;
+    width: 90%;
     border: 3px dotted #fff;
-    padding: 10px;
+    padding: 5px;
 
 
 }
