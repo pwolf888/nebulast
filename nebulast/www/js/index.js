@@ -395,8 +395,24 @@ function loadSpaceScreen() {
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
-        // $('#spaceScreen').hide();
-        // loadSpaceShipScreen();
+        closeNav();
+        number = -2;
+        $('.credit-gain').css('display', 'inline-block');
+        // Check resourse cost
+        costUpate();
+        // Remove any content inside notify label
+        $('label.uiLabel, .not-diamond').remove();
+        // Show the notification
+        $(".notify").show();
+        // Create the label with content
+        uiLabel('Having trouble, Captain? We could blow up the ship and start again? :D').prependTo(notLabel);
+        diamond().prependTo(notLabel);
+
+
+        //Disable button on click
+        $(".space-Ship").css({"pointer-events": 'none', "opacity": '0.8'});
+
+        $('.resource-cost').hide();
     });
 
     // Space station
@@ -454,11 +470,15 @@ function loadSpaceScreen() {
                 $('.space-boss').show();
             }
 
-        } else {
+        } else if(number === -2) {
+            $('.space-Screen').html(' ');
+            loadGameOverScreen();
+        } else{
             $(".uiLabel").remove();
 
             notLabel.hide();
             $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
+
         }
 
 
@@ -472,6 +492,7 @@ function loadSpaceScreen() {
         $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
         //Disable button on click
         $(".space-Blackhole").css({"pointer-events": 'auto', "opacity": '1.0'});
+        $(".space-Ship").css({"pointer-events": 'auto', "opacity": '1.0'});
     });
 
 
