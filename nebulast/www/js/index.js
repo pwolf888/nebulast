@@ -832,7 +832,7 @@ function loadScenarioScreen() {
 
     });
 
-    // // Add the back button to the screen
+    // Add the back button to the screen
     returnToShip('back', 'hidden').appendTo(self.$page).on('click', function () {
 
         planetCount++;
@@ -1332,6 +1332,15 @@ function endGameScreen(score) {
         winCredits().appendTo(self.$page);
 
     }
+
+    // // Add the back button to the screen
+    returnToShip('back', ' ').appendTo(self.$page).on('click', function () {
+        $('#bossScreen').html(' ');
+        $('#endGame').html(' ');
+        $('#mainMenu').show();
+
+
+    });
 
     self.$container.append(self.$page);
 
