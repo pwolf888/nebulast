@@ -96,7 +96,7 @@ $(document).ready(function () {
 function gameOver() {
     // If any stat reaches 0 triggers game over
     if (stats.food <= 0 || stats.water <= 0 || stats.fuel <= 0 || stats.crew <= 0) {
-        loadGameOverScreen();
+        loadGameOverScreen('GameOver');
         $('#spaceScreen').html(' ');
         $('#scenarioScreen').html(' ');
 
@@ -446,7 +446,7 @@ function loadSpaceScreen() {
             // Blow up the ship
         } else if (number === -2) {
             $('.space-Screen').html(' ');
-            loadGameOverScreen();
+            loadGameOverScreen('GameOver');
 
             // If not enough resources 
         } else {
@@ -489,6 +489,7 @@ function loadSpaceScreen() {
 
     // On click the user will be asked if they want to start a scenario
     planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function () {
+        $('.resource-cost').show();
         closeNav();
         $('.credit-gain').hide();
         // Planet 1 number 
@@ -511,6 +512,7 @@ function loadSpaceScreen() {
 
     });
     planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function () {
+        $('.resource-cost').show();
         closeNav();
         $('.credit-gain').hide();
         number = 1;
@@ -526,6 +528,7 @@ function loadSpaceScreen() {
         });
     });
     planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function () {
+        $('.resource-cost').show();
         closeNav();
         $('.credit-gain').hide();
         number = 2;
@@ -543,6 +546,7 @@ function loadSpaceScreen() {
 
     // Black hole button
     blackHole().appendTo(self.$page).on('click', function () {
+        $('.resource-cost').show();
         // Close nav if open
         closeNav();
         // Black hole number
@@ -1091,7 +1095,7 @@ function creditUpdate(dataType, price, qty) {
  ***************************************
  */
 // Load Game over screen
-function loadGameOverScreen() {
+function loadGameOverScreen(winlose) {
 
     // Reinitialise scenarioObj
     scenarioObj = {
@@ -1129,7 +1133,7 @@ function loadGameOverScreen() {
 
     self.$page = $("<div class='gameOver-Screen'></div>");
 
-    $("<div class='image-container' hidden><img src='img/GameOver.png'</div>").appendTo(self.$page).on('click', function () {
+    $("<div class='image-container' hidden><img src='img/"+winlose+".png'</div>").appendTo(self.$page).on('click', function () {
 
         $('#gameOverScreen').html(' ');
 
@@ -1411,7 +1415,8 @@ function endGameScreen(score) {
     returnToShip('back', ' ').appendTo(self.$page).on('click', function () {
         $('#bossScreen').html(' ');
         $('#endGame').html(' ');
-        $('#mainMenu').show();
+        $('#spaceScreen').html(' ');
+        loadGameOverScreen('Win');
 
 
     });

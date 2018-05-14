@@ -205,3 +205,31 @@ Date:9/5/18
 * Various android bug fixes [Joshua Pujol]
 * Various android optimisation [Joshua Pujol]
 * Increased size of bg for android [Joshua Pujol]
+* Rock paper scissors added for boss battle [Jonathan Turnbull]
+
+
+Date:10/5/18
+------------------------------------
+* Added boss.json [Jonathan Turnbull]
+* Boss data reads in [Jonathan Turnbull]
+* Animation added[Jonathan Turnbull]
+
+
+Date:12/5/18
+------------------------------------
+* End game complete [Jonathan Turnbull]
+
+Date:13/5/18
+------------------------------------
+* Fixing a few issues [Jonathan Turnbull]
+* Stats show on game over [Jonathan Turnbull]
+* Reset button Added [Jonathan Turnbull]
+* Resource cost of black hole fixed [Jonathan Turnbull]
+* Back button added to endgame [Jonathan Turnbull]
+* Resource display fixed [Jonathan Turnbull]
+
+
+Date:14/5/18
+------------------------------------
+* Options cannot be clicked before text output [Jonathan Turnbull]
+* Minor bug fixes before submission [Jonathan Turnbull Josh Pujol]
