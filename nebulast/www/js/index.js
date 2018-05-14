@@ -850,11 +850,19 @@ function loadScenarioScreen() {
     // Append all elements to the container
     self.$container.append(self.$page);
 
+    $(".option-A-card, .option-B-card, .option-C-card").css({"pointer-events": 'none', "opacity": '0.8'});
+
     // Output text one char at a time
     outputText(scenarioObj.dialogue[number], $('.dialogue'), function () {
-        outputText(scenarioObj.optionA[number], $('.option-A'));
-        outputText(scenarioObj.optionB[number], $('.option-B'));
-        outputText(scenarioObj.optionC[number], $('.option-C'));
+        outputText(scenarioObj.optionA[number], $('.option-A'), function () {
+            $(".option-A-card").css({"pointer-events": 'auto', "opacity": '1.0'});
+        });
+        outputText(scenarioObj.optionB[number], $('.option-B'), function () {
+            $(".option-B-card").css({"pointer-events": 'auto', "opacity": '1.0'});
+        });
+        outputText(scenarioObj.optionC[number], $('.option-C'), function () {
+            $(".option-C-card").css({"pointer-events": 'auto', "opacity": '1.0'});
+        });
     });
 
 
@@ -870,7 +878,7 @@ function outputText(dialogue, element, callback) {
 
     var text = dialogue;
     var elem = element;
-    var delay = 50;
+    var delay = 20;
 
     // http://jsfiddle.net/8ZtqL/167/
     var outputTextSlowly = function(text,elem,delay){
