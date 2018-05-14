@@ -434,7 +434,7 @@ function loadSpaceScreen() {
 
             if(stats.galaxyCount < 5){
                 planetCost(stats.crew);
-                clearTimeout(timer);
+                
                 // Black hole resets system and generating x amount of new planets
                 $("#spaceScreen").html(' ');
                 // Randomly places BG
@@ -1071,6 +1071,31 @@ function loadSpaceShipScreen() {
 function loadGameOverScreen() {
 
 
+    scenarioObj = {
+
+        pImage: [],
+        planetBlurb: [],
+        dialogue: [],
+        optionA: [],
+        optionB: [],
+        optionC: [],
+        resultsA_dialogue:[],
+        resultsA_number: [],
+        resultsA_type: [],
+        resultsB_dialogue:[],
+        resultsB_number: [],
+        resultsB_type: [],
+        resultsC_dialogue:[],
+        resultsC_number: [],
+        resultsC_type: []
+
+    };
+
+    exists = [],
+    bgCounter = 0;
+    existsPlanet = [];
+    rando = randomBGInt();
+    randomBGGen(rando);
 
 
     var self = this;
@@ -1083,8 +1108,8 @@ function loadGameOverScreen() {
 
         $('#gameOverScreen').html(' ');
 
-        existsPlanet = [];
         loadScenario();
+        
         $('#mainMenu').show();
 
 
