@@ -384,7 +384,7 @@ function loadSpaceScreen() {
         number = -2;
         $('.credit-gain').css('display', 'inline-block');
         // Check resourse cost
-        costUpate();
+        costUpdate();
         // Remove any content inside notify label
         $('label.uiLabel, .not-diamond').remove();
         // Show the notification
@@ -430,7 +430,7 @@ function loadSpaceScreen() {
             loadScenarioScreen();
             planetCost(stats.crew);
 
-        } else if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2 && number === -1) {
+        } else if(stats.food >= stats.crew + 2 && stats.water >= stats.crew * 4   && stats.fuel >= 2 && number === -1) {
 
             if(stats.galaxyCount < 5){
                 planetCost(stats.crew);
@@ -463,7 +463,7 @@ function loadSpaceScreen() {
 
             notLabel.hide();
             $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
-
+            $(".space-Blackhole").css({"pointer-events": 'auto', "opacity": '1.0'});
         }
 
 
@@ -488,7 +488,7 @@ function loadSpaceScreen() {
         $('.credit-gain').hide();
         // Check resourse cost
         number = 0;
-        costUpate();
+        costUpdate();
         // Remove any content inside notify label
         $('label.uiLabel, .not-diamond').remove();
         // Show the notification
@@ -510,7 +510,7 @@ function loadSpaceScreen() {
         closeNav();
         $('.credit-gain').hide();
         number = 1;
-        costUpate();
+        costUpdate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
 
@@ -525,7 +525,7 @@ function loadSpaceScreen() {
         closeNav();
         $('.credit-gain').hide();
         number = 2;
-        costUpate();
+        costUpdate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
 
@@ -543,7 +543,7 @@ function loadSpaceScreen() {
         number = -1;
         $('.credit-gain').css('display', 'inline-block');
         // Check resourse cost
-        costUpate();
+        costUpdate();
         // Remove any content inside notify label
         $('label.uiLabel, .not-diamond').remove();
         // Show the notification
@@ -594,7 +594,7 @@ function loadSpaceScreen() {
 }
 
 // Update resource cost
-function costUpate() {
+function costUpdate() {
 
 
     // For black hole cost
@@ -602,14 +602,14 @@ function costUpate() {
         console.log('-1');
         $('.food-cost').html(-stats.crew - 1);
         $('.water-cost').html(-2 * (stats.crew + 1));
-        $('.fuel-cost').html(-stats.crew - 1);
+        $('.fuel-cost').html(-2);
         $('.credit-gain').html(stats.crew * 100);
     } else if(number >= 0) {
         console.log('1');
         // For planet
         $('.food-cost').html(-stats.crew);
         $('.water-cost').html(-stats.crew * 2);
-        $('.fuel-cost').html(-stats.crew);
+        $('.fuel-cost').html(-1);
     }
 }
 
