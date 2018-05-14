@@ -69,90 +69,69 @@ app.initialize();
 
 // Start project - loads the data from json and the main menu
 $(document).ready(function () {
-    console.log("ready");
+    // Loading all JSON on init
     loadScenario();
     loadShopData();
     loadBossBattle();
 
+    // Loads main menu
     loadMainMenu();
-    
+
     // Randomly places BG
     window.rando = randomBGInt();
     randomBGGen(rando);
-    // randomly place asteroid
-
-
-
-
-
 
 });
 
 /*
-***************************************
-*
-* Menu
-* Nebulast, Hiscore, Collectibles
-*
-***************************************
-*/
+ ***************************************
+ *
+ * Menu
+ * Nebulast, Hiscore, Collectibles
+ *
+ ***************************************
+ */
 
 // Game Over condition
 function gameOver() {
-    if(stats.food <= 0 || stats.water <= 0 || stats.fuel <= 0 || stats.crew <= 0) {
+    // If any stat reaches 0 triggers game over
+    if (stats.food <= 0 || stats.water <= 0 || stats.fuel <= 0 || stats.crew <= 0) {
         loadGameOverScreen();
         $('#spaceScreen').html(' ');
         $('#scenarioScreen').html(' ');
-
-
 
     }
 
 }
 
-// Side nav open
+// Stats nav open
 function openNav() {
 
-
-    $(".sideNav").css( "height", "80%");
+    $(".sideNav").css("height", "80%");
     $(".sideNav").css("opacity", "0.8");
 
-    setTimeout(function(){
+    setTimeout(function () {
         $(".sideNav").css("width", "50%");
-
-
-    },700);
-
-
-
-
+    }, 700);
 }
 
-// side nav close
+// Stats nav close
 function closeNav() {
 
     $(".sideNav").css("width", "10px");
 
-    setTimeout(function(){
+    setTimeout(function () {
 
         $(".sideNav").css('height', "0px");
         $(".sideNav").css("opacity", "0.0");
-    },700);
-
-
-
-
+    }, 700);
 }
 
 // Load the main menu
 function loadMainMenu() {
 
-
-
     // Background set to black
     $('body').css('background-color', '#000 !important');
-    // $('body').removeClass('BGCLASS-02');
-    // $('body').addClass('BGCLASS-01');
 
     var self = this;
 
@@ -179,16 +158,14 @@ function loadMainMenu() {
         loadSpaceScreen();
 
     });
+
+
     // Load Button
     startButton('loadButton', 'img/LoadButton.png').appendTo(self.$page).on('click', function () {
-        // $('#mainMenu').hide();
-        // loadSpaceScreen();
 
     });
     // HTP Button
     startButton('htpButton', 'img/HTPButton.png').appendTo(self.$page).on('click', function () {
-        // $('#mainMenu').hide();
-        // loadSpaceScreen();
 
     });
 
@@ -196,6 +173,9 @@ function loadMainMenu() {
     // Append everything to the page
     self.$container.append(self.$page);
 
+    // Grey out unused buttons
+    $('.loadButton').css('opacity', '0.2');
+    $('.htpButton').css('opacity', '0.2');
 
     // Initialise the starting stats
     window.stats = {
@@ -223,18 +203,19 @@ function loadMainMenu() {
         optionA: [],
         optionB: [],
         optionC: [],
-        resultsA_dialogue:[],
+        resultsA_dialogue: [],
         resultsA_number: [],
         resultsA_type: [],
-        resultsB_dialogue:[],
+        resultsB_dialogue: [],
         resultsB_number: [],
         resultsB_type: [],
-        resultsC_dialogue:[],
+        resultsC_dialogue: [],
         resultsC_number: [],
         resultsC_type: []
 
     };
 
+    // Initialise the bossObj
     window.bossObj = {
 
         dialogue_1: undefined,
@@ -264,7 +245,7 @@ function loadMainMenu() {
     };
 }
 
-// Adds the asteroid, stars and twinkly stars
+// Adds the stars and twinkly stars
 function bgElements(container) {
     stars().appendTo(container);
     twinkles().appendTo(container);
@@ -272,96 +253,92 @@ function bgElements(container) {
 
 }
 
-timer = 0;
-// Looping function that randomizes the position of the asteroid.
-function asteroidPos(){
+// Joshes boloved asteroid will be fixed eventually
+// // Looping function that randomizes the position of the asteroid.
+// function asteroidPos() {
+
+//     $(".asteroid" + rando).css("right", asteroidRandom);
 
 
+//     x = 5; //seconds
 
-    $(".asteroid"+rando).css("right", asteroidRandom);
-    
+//     function asteroidRandom() {
 
-    x = 5; //seconds
+//         randomNumber = Math.floor((Math.random() * 650) - 250);
 
-    function asteroidRandom(){
-
-       randomNumber = Math.floor((Math.random() * 650) - 250);
-
-       return randomNumber
-       
-
-    }
-
-   timer = setTimeout(asteroidPos , x*1000);
-
-   }
- 
-   // Random number generator for randomly placing background
+//         return randomNumber
 
 
-function randomBGGen (randomInt) {
+//     }
+
+//     timer = setTimeout(asteroidPos, x * 1000);
+
+// }
+
+
+// Random number generator for randomly placing background
+function randomBGGen(randomInt) {
 
     $("body").css("background-image", "url('img/BG00" + randomInt + ".jpg')");
 
     // $("<div class='asteroid'><img class='asteroid' src='img/Commet00"+ randomInt +".gif'></div>");
 
-    
-
 }
 
-
+// Global BG variables
 var exists = [],
-randomInt;
+    randomInt;
 var bgCounter = 0;
 
-
+// function that randomly generates index and then cuts it out once used. 
 function randomBGInt() {
-//New function that randomly generates index and then cuts it out once used. 
-    bgCounter ++; 
-    for(var l=0;l < 6;l++) {
+    
+    bgCounter++;
+    for (var l = 0; l < 6; l++) {
         do {
 
-        randomInt = Math.floor(Math.random()*6 + 1 );  
+            randomInt = Math.floor(Math.random() * 6 + 1);
         } while (exists[randomInt]);
-        exists[randomInt] = true;{
-        
-        return randomInt;
+        exists[randomInt] = true; {
+
+            return randomInt;
         }
-        
+
     }
 }
 
 
 
 /*      
-***************************************
-*  
-* Space Screen
-* Interact with your spaceship, planets and spacestation and a blackhole
-*
-***************************************
-*/
+ ***************************************
+ *  
+ * Space Screen
+ * Interact with your spaceship, planets and spacestation and a blackhole
+ *
+ ***************************************
+ */
 
 
 // Load the space screen
 function loadSpaceScreen() {
-    // Asteroid function - perhaps rename function - makes no sense..
+    // Asteroid function - future purposes
     // asteroidPos();
 
     // Make sure the Json is no read each time function is called
-    if(!loaded) {
+    if (!loaded) {
         // Preload Data
         loaded = true;
 
     }
-    
+
+    // Keep track of Planets
     window.planetCount = 0;
-    
+
     var self = this;
 
     // Container tha holds all of the spacescreen elements
     self.$container = $('#spaceScreen').show();
-    
+
     // Page that holds all the space screen elements
 
 
@@ -370,7 +347,7 @@ function loadSpaceScreen() {
     // asteroid(rando).appendTo('.asteroidContainer');
 
 
-    // Add hidden boss
+    // Add hidden boss until the end of the game 6th galaxy
     bossButton('space-boss').appendTo(self.$page).on('click', function () {
 
         self.$container.hide();
@@ -380,23 +357,29 @@ function loadSpaceScreen() {
 
     // Spaceship button
     spaceship().appendTo(self.$page).on('click', function () {
+        // Close the nav if open
         closeNav();
+
+        // Ok - blow up the ship
         number = -2;
-        $('.credit-gain').css('display', 'inline-block');
-        // Check resourse cost
-        costUpdate();
+
         // Remove any content inside notify label
         $('label.uiLabel, .not-diamond').remove();
+
         // Show the notification
         $(".notify").show();
+
         // Create the label with content
         uiLabel('Having trouble, Captain? We could blow up the ship and start again? :D').prependTo(notLabel);
         diamond().prependTo(notLabel);
 
-
         //Disable button on click
-        $(".space-Ship").css({"pointer-events": 'none', "opacity": '0.8'});
+        $(".space-Ship").css({
+            "pointer-events": 'none',
+            "opacity": '0.8'
+        });
 
+        // Hide the resource cost - it is free to blow up ;)
         $('.resource-cost').hide();
     });
 
@@ -406,35 +389,41 @@ function loadSpaceScreen() {
         loadSpaceStationScreen();
     });
 
+    // Notification container
     var notification = $("<div class='notify-container'></div>").appendTo(self.$page);
     // Create a hidden notification button
     var notLabel = notify().appendTo(notification);
 
+    // Row of resource cost
     var contentRowTop = $("<div class='resource-cost'></div>").appendTo(notLabel);
-    sideNavStat('FoodIcon.png','food-cost', -stats.crew ).appendTo(contentRowTop);
-    sideNavStat('WaterIcon.png','water-cost', -stats.crew * 2).appendTo(contentRowTop);
-    sideNavStat('FuelIcon.png','fuel-cost', -stats.crew).appendTo(contentRowTop);
+    sideNavStat('FoodIcon.png', 'food-cost', -stats.crew).appendTo(contentRowTop);
+    sideNavStat('WaterIcon.png', 'water-cost', -stats.crew * 2).appendTo(contentRowTop);
+    sideNavStat('FuelIcon.png', 'fuel-cost', -stats.crew).appendTo(contentRowTop);
 
-    sideNavStat('CoinIcon.png','credit-gain', stats.crew * 100).appendTo(contentRowTop);
+    sideNavStat('CoinIcon.png', 'credit-gain', stats.crew * 100).appendTo(contentRowTop);
     $('.credit-gain').hide();
 
+    // Ok Cancel container
     var notifyButtons = $('<div class="notify-buttons"></div>').appendTo(notLabel);
 
-
+    // Ok button
     uiButton('ok', 'Ok').appendTo(notifyButtons).on('click', function () {
-        
-        if(stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2   && stats.fuel >= 2 && number >= 0) {
+
+        // Planet cost check
+        if (stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2 && stats.fuel >= 2 && number >= 0) {
             notLabel.hide();
             $(".uiLabel").html(' ');
             $('#spaceScreen').hide();
             loadScenarioScreen();
             planetCost(stats.crew);
 
-        } else if(stats.food >= stats.crew + 2 && stats.water >= stats.crew * 4   && stats.fuel >= 2 && number === -1) {
+            // Black Hole cost check
+        } else if (stats.food >= stats.crew + 2 && stats.water >= stats.crew * 4 && stats.fuel >= 2 && number === -1) {
 
-            if(stats.galaxyCount < 5){
+            // Check if it is end game or the next galaxy
+            if (stats.galaxyCount < 5) {
                 planetCost(stats.crew);
-                
+
                 // Black hole resets system and generating x amount of new planets
                 $("#spaceScreen").html(' ');
                 // Randomly places BG
@@ -444,102 +433,119 @@ function loadSpaceScreen() {
                 }
 
                 // Change planets
-
                 removePlanets();
                 loadSpaceScreen();
 
-                // Enable space station
+               // Show the boss if conditions are right
             } else {
 
                 $('.space-Blackhole').hide();
                 $('.space-boss').show();
             }
 
-        } else if(number === -2) {
+            // Blow up the ship
+        } else if (number === -2) {
             $('.space-Screen').html(' ');
             loadGameOverScreen();
-        } else{
+
+            // If not enough resources 
+        } else {
             $(".uiLabel").remove();
 
             notLabel.hide();
-            $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
-            $(".space-Blackhole").css({"pointer-events": 'auto', "opacity": '1.0'});
+            $(".space-planet-.planet-" + number + "").css({
+                "pointer-events": 'auto',
+                "opacity": '1.0'
+            });
+            $(".space-Blackhole").css({
+                "pointer-events": 'auto',
+                "opacity": '1.0'
+            });
         }
 
 
     });
 
-    // Append a cancel and an OK but to the notification area
+    // Cancel Button
     uiButton('cancel', 'Cancel').appendTo(notifyButtons).on('click', function () {
         $('.credit-gain').hide();
         $(".uiLabel").html(' ');
         notLabel.hide();
-        $(".space-planet-.planet-"+ number +"").css({"pointer-events": 'auto', "opacity": '1.0'});
-        //Disable button on click
-        $(".space-Blackhole").css({"pointer-events": 'auto', "opacity": '1.0'});
-        $(".space-Ship").css({"pointer-events": 'auto', "opacity": '1.0'});
+        $(".space-planet-.planet-" + number + "").css({
+            "pointer-events": 'auto',
+            "opacity": '1.0'
+        });
+        // Renable buttons on click
+        $(".space-Blackhole").css({
+            "pointer-events": 'auto',
+            "opacity": '1.0'
+        });
+        $(".space-Ship").css({
+            "pointer-events": 'auto',
+            "opacity": '1.0'
+        });
     });
 
 
     // On click the user will be asked if they want to start a scenario
-
-    planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.pImage[0], 'planet-0').appendTo(self.$page).on('click', function () {
         closeNav();
         $('.credit-gain').hide();
-        // Check resourse cost
+        // Planet 1 number 
         number = 0;
         costUpdate();
         // Remove any content inside notify label
         $('label.uiLabel, .not-diamond').remove();
         // Show the notification
         $(".notify").show();
-        // Create the label with content
 
         // Specify the correct number to read from the scenarioObj object
-
-
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
         diamond().prependTo(notLabel);
 
-
         //Disable button on click
-        $(".space-planet-.planet-0").css({"pointer-events": 'none', "opacity": '0.8'});
-                                
+        $(".space-planet-.planet-0").css({
+            "pointer-events": 'none',
+            "opacity": '0.8'
+        });
+
     });
-    planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.pImage[1], 'planet-1').appendTo(self.$page).on('click', function () {
         closeNav();
         $('.credit-gain').hide();
         number = 1;
         costUpdate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
-
-
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
         diamond().prependTo(notLabel);
-
         //Disable button on click
-        $(".space-planet-.planet-1").css({"pointer-events": 'none', "opacity": '0.8'});
+        $(".space-planet-.planet-1").css({
+            "pointer-events": 'none',
+            "opacity": '0.8'
+        });
     });
-    planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function() {
+    planet(scenarioObj.pImage[2], 'planet-2').appendTo(self.$page).on('click', function () {
         closeNav();
         $('.credit-gain').hide();
         number = 2;
         costUpdate();
         $('label.uiLabel, .not-diamond').remove();
         $(".notify").show();
-
-
         uiLabel(scenarioObj.planetBlurb[number]).prependTo(notLabel);
         diamond().prependTo(notLabel);
-
         //Disable button on click
-        $(".space-planet-.planet-2").css({"pointer-events": 'none', "opacity": '0.8'});
+        $(".space-planet-.planet-2").css({
+            "pointer-events": 'none',
+            "opacity": '0.8'
+        });
     });
 
     // Black hole button
     blackHole().appendTo(self.$page).on('click', function () {
+        // Close nav if open
         closeNav();
+        // Black hole number
         number = -1;
         $('.credit-gain').css('display', 'inline-block');
         // Check resourse cost
@@ -549,41 +555,33 @@ function loadSpaceScreen() {
         // Show the notification
         $(".notify").show();
         // Create the label with content
-
-        // Specify the correct number to read from the scenarioObj object
-
-
         uiLabel('The Black Hole wil take us to a new solar system, enter the next galaxy, Captain?').prependTo(notLabel);
         diamond().prependTo(notLabel);
 
-
         //Disable button on click
-        $(".space-Blackhole").css({"pointer-events": 'none', "opacity": '0.8'});
+        $(".space-Blackhole").css({
+            "pointer-events": 'none',
+            "opacity": '0.8'
+        });
 
     });
 
-
-
-
-    
-    // Stat group - will be loaded in via a function
-
+    // Stats button
     hamburger().appendTo(self.$page).on('click', function () {
         openNav();
         // Refreshes the statistics and updates the table
         refreshStats();
     });
 
-    // Add the side nav to the screen
+    // Add the stats nav to the screen
     window.hiddenNav = sideNav().appendTo(self.$page);
 
-
+    // X button inside stats nav
     close().appendTo(hiddenNav).on('click', function () {
         closeNav();
     });
 
-
-    // Add the stats to the side nav
+    // Add the stats to the stats nav
     loadStats(hiddenNav);
 
     // Append all elements to container
@@ -593,18 +591,17 @@ function loadSpaceScreen() {
 
 }
 
-// Update resource cost
+// Update resource cost visually to the notification
 function costUpdate() {
 
-
     // For black hole cost
-    if(number === -1) {
+    if (number === -1) {
         console.log('-1');
         $('.food-cost').html(-stats.crew - 1);
         $('.water-cost').html(-2 * (stats.crew + 1));
         $('.fuel-cost').html(-2);
         $('.credit-gain').html(stats.crew * 100);
-    } else if(number >= 0) {
+    } else if (number >= 0) {
         console.log('1');
         // For planet
         $('.food-cost').html(-stats.crew);
@@ -613,23 +610,21 @@ function costUpdate() {
     }
 }
 
-// Remove the resources
+// Remove the resources functionally
 function planetCost(crew) {
 
-// Planets = 1 food * crew, 2 water * crew, 1 fuel
-// Black hole = 2 food * crew, 4 water * crew, 2 fuel.
+    // Planets = 1 food * crew, 2 water * crew, 1 fuel
+    // Black hole = 2 food * crew, 2 * (crew + 1) , 2 fuel.
 
-
-
-// Black hole money
-    if(number === -1) {
+    // Black hole money
+    if (number === -1) {
         stats.food -= crew + 1;
         stats.water -= 2 * (crew + 1);
         stats.fuel -= 2;
         stats.credits += crew * 100;
 
         // Planet resources cost
-    } else if(number >= 0) {
+    } else if (number >= 0) {
         stats.food -= crew;
         stats.water -= 2 * crew;
         stats.fuel -= 1;
@@ -637,35 +632,35 @@ function planetCost(crew) {
 
 }
 
-// Move to the next 3 planets in the array
+// Remove 3 planets visited expose the next 3
 function removePlanets() {
 
-if(stats.galaxyCount < 5) {
-    for(var i = 0; i< 3; i++) {
+    if (stats.galaxyCount < 5) {
+        for (var i = 0; i < 3; i++) {
 
-        scenarioObj.pImage.shift();
-        scenarioObj.planetBlurb.shift();
-        scenarioObj.dialogue.shift();
-        scenarioObj.optionA.shift();
-        scenarioObj.optionB.shift();
-        scenarioObj.optionC.shift();
+            scenarioObj.pImage.shift();
+            scenarioObj.planetBlurb.shift();
+            scenarioObj.dialogue.shift();
+            scenarioObj.optionA.shift();
+            scenarioObj.optionB.shift();
+            scenarioObj.optionC.shift();
 
-        scenarioObj.resultsA_dialogue.shift();
-        scenarioObj.resultsA_number.shift();
-        scenarioObj.resultsA_type.shift();
-        scenarioObj.resultsB_dialogue.shift();
-        scenarioObj.resultsB_number.shift();
-        scenarioObj.resultsB_type.shift();
-        scenarioObj.resultsC_dialogue.shift();
-        scenarioObj.resultsC_number.shift();
-        scenarioObj.resultsC_type.shift();
+            scenarioObj.resultsA_dialogue.shift();
+            scenarioObj.resultsA_number.shift();
+            scenarioObj.resultsA_type.shift();
+            scenarioObj.resultsB_dialogue.shift();
+            scenarioObj.resultsB_number.shift();
+            scenarioObj.resultsB_type.shift();
+            scenarioObj.resultsC_dialogue.shift();
+            scenarioObj.resultsC_number.shift();
+            scenarioObj.resultsC_type.shift();
+        }
     }
-}
     stats.galaxyCount += 1;
 
 }
 // Update the side nav with the most recent stats
-function refreshStats () {
+function refreshStats() {
 
     $('.food').html(stats.food);
     $('.water').html(stats.water);
@@ -683,24 +678,24 @@ function loadStats(container) {
 
     sideNavDiamond().appendTo(container);
     var contentRowTop = $("<div class='stats-rowTop'></div>").appendTo(container);
-    sideNavStat('FoodIcon.png','food', stats.food ).appendTo(contentRowTop);
-    sideNavStat('WaterIcon.png','water', stats.water).appendTo(contentRowTop);
-    sideNavStat('FuelIcon.png','fuel', stats.fuel ).appendTo(contentRowTop);
+    sideNavStat('FoodIcon.png', 'food', stats.food).appendTo(contentRowTop);
+    sideNavStat('WaterIcon.png', 'water', stats.water).appendTo(contentRowTop);
+    sideNavStat('FuelIcon.png', 'fuel', stats.fuel).appendTo(contentRowTop);
 
     var contentRowBottom = $("<div class='stats-rowBot'></div>").appendTo(container);
 
-    sideNavStat('CrewIcon.png','crew', stats.crew ).appendTo(contentRowBottom);
-    sideNavStat('CoinIcon.png','credits', stats.credits ).appendTo(contentRowBottom);
-    sideNavStat('GalaxyIcon.png','galaxy', stats.galaxyCount ).appendTo(contentRowBottom);
+    sideNavStat('CrewIcon.png', 'crew', stats.crew).appendTo(contentRowBottom);
+    sideNavStat('CoinIcon.png', 'credits', stats.credits).appendTo(contentRowBottom);
+    sideNavStat('GalaxyIcon.png', 'galaxy', stats.galaxyCount).appendTo(contentRowBottom);
 
 }
 
-// Update the stats to the resource atainned or lost in the scenario
+// Update the stats to the resource attained or lost in the scenario
 function updateStats(result, number) {
 
     var result = result;
 
-    switch(result) {
+    switch (result) {
         case "food":
             stats.food += number;
             break;
@@ -722,23 +717,23 @@ function updateStats(result, number) {
 
     }
 
+    // Check if game over
     gameOver();
-
-
 
 
 }
 
 
- /*       
-***************************************
-*  
-* Scenario Screen - clicking planet
-* 
-*
-***************************************
-*/
+/*       
+ ***************************************
+ *  
+ * Scenario Screen - clicking planet
+ * 
+ *
+ ***************************************
+ */
 
+ // Load the scenario screen
 function loadScenarioScreen() {
 
 
@@ -751,6 +746,7 @@ function loadScenarioScreen() {
     // First row of the content that holds the dialogue and the portait
     var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
 
+    // Planet image
     portraitColNew(scenarioObj.pImage[number]).appendTo(dialogueRow);
 
     // Options row holds the options
@@ -758,6 +754,8 @@ function loadScenarioScreen() {
 
     // Option A
     optionButton('option-A').appendTo(optionsRow).on('click', function () {
+
+        // On click hide all options
         $('.dialogue').hide();
         $('.option-A-card').hide();
         $('.option-B-card').hide();
@@ -765,7 +763,10 @@ function loadScenarioScreen() {
 
         // Output the results of the scenario
         var resourceUpdate = scenarioObj.resultsA_number[number] + " " + scenarioObj.resultsA_type[number] + ".";
+
+        // Output results
         outputText(scenarioObj.resultsA_dialogue[number], $('.results').show(), function () {
+            // Wait for first function to finish then output the resource update and check if gameover
             outputText(resourceUpdate, $('.resource-Update').show(), function () {
 
                 // Wait a second before leaving screen if game over
@@ -790,7 +791,7 @@ function loadScenarioScreen() {
         $('.option-B-card').hide();
         $('.option-C-card').hide();
 
-        var resourceUpdate =  scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
+        var resourceUpdate = scenarioObj.resultsB_number[number] + " " + scenarioObj.resultsB_type[number] + ".";
 
         outputText(scenarioObj.resultsB_dialogue[number], $('p.results').show(), function () {
             outputText(resourceUpdate, $('p.resource-Update').show(), function () {
@@ -812,7 +813,7 @@ function loadScenarioScreen() {
         $('.option-A-card').hide();
         $('.option-B-card').hide();
         $('.option-C-card').hide();
-        
+
 
         var resourceUpdate = scenarioObj.resultsC_number[number] + " " + scenarioObj.resultsC_type[number] + ".";
 
@@ -833,35 +834,44 @@ function loadScenarioScreen() {
 
     });
 
-    // Add the back button to the screen
+    // Add the back button to the screen - return to space screen
     returnToShip('back', 'hidden').appendTo(self.$page).on('click', function () {
-
         planetCount++;
-
         $('#scenarioScreen').hide();
-
         $('#scenarioScreen').html(' ');
         $('#spaceScreen').show();
 
 
     });
 
-
     // Append all elements to the container
     self.$container.append(self.$page);
 
-    $(".option-A-card, .option-B-card, .option-C-card").css({"pointer-events": 'none', "opacity": '0.8'});
+    // Make option buttons unclickable 
+    $(".option-A-card, .option-B-card, .option-C-card").css({
+        "pointer-events": 'none',
+        "opacity": '0.8'
+    });
 
-    // Output text one char at a time
+    // Output text one char at a time and once output enable the buttons
     outputText(scenarioObj.dialogue[number], $('.dialogue'), function () {
         outputText(scenarioObj.optionA[number], $('.option-A'), function () {
-            $(".option-A-card").css({"pointer-events": 'auto', "opacity": '1.0'});
+            $(".option-A-card").css({
+                "pointer-events": 'auto',
+                "opacity": '1.0'
+            });
         });
         outputText(scenarioObj.optionB[number], $('.option-B'), function () {
-            $(".option-B-card").css({"pointer-events": 'auto', "opacity": '1.0'});
+            $(".option-B-card").css({
+                "pointer-events": 'auto',
+                "opacity": '1.0'
+            });
         });
         outputText(scenarioObj.optionC[number], $('.option-C'), function () {
-            $(".option-C-card").css({"pointer-events": 'auto', "opacity": '1.0'});
+            $(".option-C-card").css({
+                "pointer-events": 'auto',
+                "opacity": '1.0'
+            });
         });
     });
 
@@ -881,24 +891,24 @@ function outputText(dialogue, element, callback) {
     var delay = 20;
 
     // http://jsfiddle.net/8ZtqL/167/
-    var outputTextSlowly = function(text,elem,delay){
-        if(!elem){
+    var outputTextSlowly = function (text, elem, delay) {
+        if (!elem) {
             elem = $("body");
         }
-        if(!delay){
+        if (!delay) {
             delay = 300;
         }
-        if(text.length > 0){
-            //append first character
+        if (text.length > 0) {
+            // Append first character
             elem.append(text[0]);
             setTimeout(
-                function(){
-                    //Slice text by 1 character and call function again
-                    outputTextSlowly(text.slice(1),elem,delay);
+                function () {
+                    // Slice text by 1 character and call function again
+                    outputTextSlowly(text.slice(1), elem, delay);
                 }, delay
             );
         } else {
-            if(callback) {
+            if (callback) {
                 callback();
             }
 
@@ -906,28 +916,29 @@ function outputText(dialogue, element, callback) {
     };
 
 
-    outputTextSlowly(text,elem,delay);
+    outputTextSlowly(text, elem, delay);
 
 
 }
 
 
 /*        
-***************************************
-*  
-* Space Station Screen
-* 
-*
-***************************************
-*/
+ ***************************************
+ *  
+ * Space Station Screen
+ * 
+ *
+ ***************************************
+ */
 
+ // Shop screen
 function loadSpaceStationScreen() {
 
-
-    var buyData = ""+ shopObj.Quantity +" "+ shopObj.dataTypeA + " = " + shopObj.buyPriceA +"cr</br>";
-    buyData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.buyPriceB +"cr</br>";
-    var sellData = ""+ shopObj.Quantity +" "+  shopObj.dataTypeA + " = " + shopObj.sellPriceA +"cr</br>";
-    sellData += ""+ shopObj.Quantity +" "+  shopObj.dataTypeB + " = " + shopObj.sellPriceB +"cr</br>";
+    // Shop prices
+    // var buyData = "" + shopObj.Quantity + " " + shopObj.dataTypeA + " = " + shopObj.buyPriceA + "cr</br>";
+    // buyData += "" + shopObj.Quantity + " " + shopObj.dataTypeB + " = " + shopObj.buyPriceB + "cr</br>";
+    // var sellData = "" + shopObj.Quantity + " " + shopObj.dataTypeA + " = " + shopObj.sellPriceA + "cr</br>";
+    // sellData += "" + shopObj.Quantity + " " + shopObj.dataTypeB + " = " + shopObj.sellPriceB + "cr</br>";
 
     var self = this;
 
@@ -935,9 +946,8 @@ function loadSpaceStationScreen() {
 
     self.$page = $("<div class='spaceStation-Screen'></div>");
 
+    // Add the space station background
     spaceStationBG('spaceStation').appendTo(self.$page);
-
-
 
     // Back Button
     returnToShip('back', 'active').appendTo(self.$page).on('click', function () {
@@ -948,80 +958,84 @@ function loadSpaceStationScreen() {
 
     });
 
-    // Josh's edit
-
+    // Add the shop screen with buttons and such
     shopScreen().appendTo(self.$page);
-
     var shopCon = shopContainer().appendTo(self.$page);
 
+    // Add all contents into the shop container
     shopIcon('waterIcon').appendTo(shopCon);
     $("<div class='waterValue'></div>").appendTo(shopCon).html(stats.water);
     $("<div class='foodValue'></div>").appendTo(shopCon).html(stats.food);
     $("<div class='fuelValue'></div>").appendTo(shopCon).html(stats.fuel);
     $("<div class='coinValue'></div>").appendTo(shopCon).html(stats.credits);
-    // shopIcon('waterMinusIcon').appendTo(shopcon);
-    //shopIcon('waterPlusIcon').appendTo(shopCon);
+ 
+    // Buy water
     uiButton('waterPlusIcon', ' ').appendTo(shopCon).on('click', function () {
         if (stats.credits != 0 && stats.credits >= shopObj.buyPriceB) {
-        creditUpdate('water', -shopObj.buyPriceB, 1);
-        shopValUpdate('water', stats.water);
-        shopValUpdate('coin', stats.credits);
+            creditUpdate('water', -shopObj.buyPriceB, 1);
+            shopValUpdate('water', stats.water);
+            shopValUpdate('coin', stats.credits);
 
         }
-        
+
     });
+    // Sell water
     uiButton('waterMinusIcon', ' ').appendTo(shopCon).on('click', function () {
         if (stats.water != 1) {
-        creditUpdate('water', shopObj.sellPriceB, -1);
-        shopValUpdate('water', stats.water);
-        shopValUpdate('coin', stats.credits);
+            creditUpdate('water', shopObj.sellPriceB, -1);
+            shopValUpdate('water', stats.water);
+            shopValUpdate('coin', stats.credits);
 
         }
     });
 
+    // Buy Food
     shopIcon('foodIcon').appendTo(shopCon);
     uiButton('foodPlusIcon', ' ').appendTo(shopCon).on('click', function () {
         if (stats.credits != 0 && stats.credits >= shopObj.buyPriceA) {
-        creditUpdate('food', -shopObj.buyPriceA, 1);
-        shopValUpdate('food', stats.food);
-        shopValUpdate('coin', stats.credits);
+            creditUpdate('food', -shopObj.buyPriceA, 1);
+            shopValUpdate('food', stats.food);
+            shopValUpdate('coin', stats.credits);
 
         }
     });
 
+    // Sell Food
     uiButton('foodMinusIcon', ' ').appendTo(shopCon).on('click', function () {
         if (stats.food != 1) {
-        creditUpdate('food',  shopObj.sellPriceA, -1);
-        shopValUpdate('food', stats.food);
-        shopValUpdate('coin', stats.credits);
+            creditUpdate('food', shopObj.sellPriceA, -1);
+            shopValUpdate('food', stats.food);
+            shopValUpdate('coin', stats.credits);
 
         }
-    });   
+    });
 
+    // Buy Fuel
     shopIcon('fuelIcon').appendTo(shopCon);
     uiButton('fuelPlusIcon', ' ').appendTo(shopCon).on('click', function () {
         if (stats.credits != 0 && stats.credits >= shopObj.buyPriceC) {
-        creditUpdate('fuel', -shopObj.buyPriceC, 1);
-        shopValUpdate('fuel', stats.fuel);
-        shopValUpdate('coin', stats.credits);
+            creditUpdate('fuel', -shopObj.buyPriceC, 1);
+            shopValUpdate('fuel', stats.fuel);
+            shopValUpdate('coin', stats.credits);
 
         }
-    }); 
-    
+    });
+
+    // Sell Fuel
     uiButton('fuelMinusIcon', ' ').appendTo(shopCon).on('click', function () {
         if (stats.fuel != 1) {
-        creditUpdate('fuel',  shopObj.sellPriceC, -1);
-        shopValUpdate('fuel', stats.fuel);
-        shopValUpdate('coin', stats.credits);
+            creditUpdate('fuel', shopObj.sellPriceC, -1);
+            shopValUpdate('fuel', stats.fuel);
+            shopValUpdate('coin', stats.credits);
 
         }
-    });   
+    });
 
 
-    
 
+    // Show credits
     shopIcon('coinIcon').appendTo(shopCon);
-    
+
 
     // Add all elements to page
     self.$container.append(self.$page);
@@ -1029,13 +1043,11 @@ function loadSpaceStationScreen() {
 
 }
 
-function shopValUpdate (resource, object) {
-    $("."+resource+"Value").html(object);
-    
+// Show resource value
+function shopValUpdate(resource, object) {
+    $("." + resource + "Value").html(object);
+
 }
-
-
-
 
 // Update the credits when buying or selling resources
 function creditUpdate(dataType, price, qty) {
@@ -1048,29 +1060,40 @@ function creditUpdate(dataType, price, qty) {
 
 
 /*
-***************************************
-*  
-* Ship Screen
-* 
-*
-***************************************
-*/
-
-function loadSpaceShipScreen() {
-    var self = this;
-
-    self.$container = $('#spaceShipScreen').show();
-
-    self.$page = $("<div class='spaceShip-Screen'></div>");
-    stars().appendTo(self.$page);
-    self.$container.append(self.$page);
+ ***************************************
+ *  
+ * Ship Screen
+ * for future updates
+ *
+ ***************************************
+ */
 
 
-}
+// function loadSpaceShipScreen() {
+//     var self = this;
 
+//     self.$container = $('#spaceShipScreen').show();
+
+//     self.$page = $("<div class='spaceShip-Screen'></div>");
+//     stars().appendTo(self.$page);
+//     self.$container.append(self.$page);
+
+
+// }
+
+
+/*
+ ***************************************
+ *  
+ * Game Over screen
+ * 
+ *
+ ***************************************
+ */
+// Load Game over screen
 function loadGameOverScreen() {
 
-
+    // Reinitialise scenarioObj
     scenarioObj = {
 
         pImage: [],
@@ -1079,48 +1102,53 @@ function loadGameOverScreen() {
         optionA: [],
         optionB: [],
         optionC: [],
-        resultsA_dialogue:[],
+        resultsA_dialogue: [],
         resultsA_number: [],
         resultsA_type: [],
-        resultsB_dialogue:[],
+        resultsB_dialogue: [],
         resultsB_number: [],
         resultsB_type: [],
-        resultsC_dialogue:[],
+        resultsC_dialogue: [],
         resultsC_number: [],
         resultsC_type: []
 
     };
-
+    
+    // Reinitialise Background globals
     exists = [],
-    bgCounter = 0;
+        bgCounter = 0;
     existsPlanet = [];
     rando = randomBGInt();
     randomBGGen(rando);
 
 
+    // Add all the content for the gameover screen
     var self = this;
 
     self.$container = $('#gameOverScreen').show();
 
     self.$page = $("<div class='gameOver-Screen'></div>");
 
-    $("<div class='image-container'><img src='img/GameOver.png'</div>").appendTo(self.$page).on('click', function () {
+    $("<div class='image-container' hidden><img src='img/GameOver.png'</div>").appendTo(self.$page).on('click', function () {
 
         $('#gameOverScreen').html(' ');
 
         loadScenario();
-        
+
         $('#mainMenu').show();
 
 
-    }).fadeIn();
+    });
 
+    // Show the end result stats
     var endgameStats = $("<div class='endGame-stats'></div>").appendTo(self.$page);
     loadStats(endgameStats);
-
+    
+   
 
     self.$container.append(self.$page);
 
+    // Reset the stats
     stats = {
         food: 5,
         water: 10,
@@ -1130,17 +1158,19 @@ function loadGameOverScreen() {
         galaxyCount: 0
 
     };
+    $('.image-container').fadeIn(1000);
+    
     $('.sideNav-diamond').hide();
 }
 
 /*
-***************************************
-*
-* Ship Screen
-*
-*
-***************************************
-*/
+ ***************************************
+ *
+ * Boss Screen
+ *
+ *
+ ***************************************
+ */
 function loadBossScreen() {
 
     var self = this;
@@ -1168,26 +1198,31 @@ function loadBossScreen() {
         "img/scissors.png"
     ];
 
+    // Starting Score - 0 loses, 6 wins
     var diamondScore = 3;
 
     // Rock
     rpsButton('rock').appendTo(rpsContainer).on('click', function () {
+        // Random number for rock paper scissors boss
         var rando = rpsRandomNumber();
+        // Change image to corresponding picture
         $('.diamond-rps').attr('src', 'img/rock.png');
         $('.boss-rps').attr('src', rpsArray[rando]);
+        // Init rps Number 
         rpsNum = 0;
-        if(rando === rpsNum) {
+        // If it is equal = draw
+        if (rando === rpsNum) {
             $('.dialogue').html('draw');
-        } else if(rando === 2) {
+        } else if (rando === 2) {
             // Win
             $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_1, bossObj.boss_loss_1));
-            diamondScore +=1;
+            diamondScore += 1;
             bossBoxWidth(diamondScore);
 
-        }else if(rando === 1) {
+        } else if (rando === 1) {
             //Loss
             $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_1, bossObj.boss_win_1));
-            diamondScore -=1;
+            diamondScore -= 1;
             bossBoxWidth(diamondScore);
 
         }
@@ -1201,19 +1236,19 @@ function loadBossScreen() {
 
         $('.boss-rps').attr('src', rpsArray[rando]);
         rpsNum = 1;
-        if(rando === rpsNum) {
+        if (rando === rpsNum) {
             $('.dialogue').html('draw');
-        } else if(rando === 2) {
+        } else if (rando === 2) {
             // Loss
             $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_2, bossObj.boss_win_2));
-            diamondScore -=1;
+            diamondScore -= 1;
             bossBoxWidth(diamondScore);
 
 
-        }else if(rando === 0) {
+        } else if (rando === 0) {
             // Win
             $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_2, bossObj.boss_loss_2));
-            diamondScore +=1;
+            diamondScore += 1;
             bossBoxWidth(diamondScore);
         }
 
@@ -1225,17 +1260,17 @@ function loadBossScreen() {
         $('.diamond-rps').attr('src', 'img/scissors.png');
         $('.boss-rps').attr('src', rpsArray[rando]);
         rpsNum = 2;
-        if(rando === rpsNum) {
+        if (rando === rpsNum) {
             $('.dialogue').html('draw');
-        } else if(rando === 1) {
+        } else if (rando === 1) {
             // Win
             $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_win_3, bossObj.boss_loss_3));
-            diamondScore +=1;
+            diamondScore += 1;
             bossBoxWidth(diamondScore);
-        }else if(rando === 0) {
+        } else if (rando === 0) {
             // Loss
             $('.dialogue').html(rpsWinLossDialogue(bossObj.diamond_loss_3, bossObj.boss_win_3));
-            diamondScore -=1;
+            diamondScore -= 1;
             bossBoxWidth(diamondScore);
         }
 
@@ -1244,14 +1279,17 @@ function loadBossScreen() {
 
     self.$container.append(self.$page);
 
-
-    console.log(bossObj);
+    // Starting dialogue for boss battle
     outputText(bossObj.dialogue_1, $('.dialogue'), function () {
 
         setTimeout(function () {
             $('.dialogue').html(' ');
             outputText(bossObj.dialogue_2, $('.dialogue'), function () {
-                $('.bossBox').css({"transition" : "2.0s", "width": "50%"});
+                // Shows visual representaion of where the score is at 50% is middle
+                $('.bossBox').css({
+                    "transition": "2.0s",
+                    "width": "50%"
+                });
                 setTimeout(function () {
                     $('.rpsButton-container').fadeIn();
                 }, 1000);
@@ -1278,8 +1316,9 @@ function rpsRandomNumber() {
 // Switch - to check the width of the bosses virus
 function bossBoxWidth(diamondScore) {
 
-    switch(diamondScore) {
+    switch (diamondScore) {
 
+        // Loss condition 
         case 0:
             $('.bossBox').css('width', '100%');
             setTimeout(function () {
@@ -1303,6 +1342,8 @@ function bossBoxWidth(diamondScore) {
         case 5:
             $('.bossBox').css('width', '18%');
             break;
+
+            // Win condition
         case 6:
             $('.bossBox').css('width', '0%');
             setTimeout(function () {
@@ -1347,20 +1388,19 @@ function rpsWinLossDialogue(diamond, boss) {
 
 }
 // End Game and Credits
-
 function endGameScreen(score) {
 
-    console.log(bossObj.loss_dialogue);
+    
     var self = this;
 
     self.$container = $('#endGame').show();
 
     self.$page = $("<div class='End-Game-Screen'></div>");
-    if(score <= 0) {
+    if (score <= 0) {
         console.log('0');
         lossCredits().appendTo(self.$page);
 
-    }else if(score > 0) {
+    } else if (score > 0) {
         console.log('6');
 
         winCredits().appendTo(self.$page);
@@ -1378,9 +1418,11 @@ function endGameScreen(score) {
 
     self.$container.append(self.$page);
 
+    // Search for element is on the screen
     var $credits = self.$page.find('.credits-box');
 
-    if(score <= 0) {
+    // Losing dialogue
+    if (score <= 0) {
         outputText(bossObj.loss_dialogue, $credits, function () {
 
             setTimeout(function () {
@@ -1389,7 +1431,9 @@ function endGameScreen(score) {
             }, 1000);
 
         });
-    } else if(score >= 6) {
+
+        // Winning dialogue
+    } else if (score >= 6) {
         outputText(bossObj.win_dialogue, $credits, function () {
 
             setTimeout(function () {
@@ -1406,11 +1450,10 @@ function endGameScreen(score) {
 // Loads in all data needed for boss scenario
 function loadBossBattle() {
 
-
-
+    // Load the boss.json
     var scenario = new Promise(function (resolve, reject) {
 
-        // Fetch the scenarios
+        // Fetch the boss battle scenario
         $.getJSON('json/boss.json').done(function (json) {
 
             bossObj.dialogue_1 = json[0].dialogue_1;
@@ -1437,9 +1480,9 @@ function loadBossBattle() {
 
 
             resolve();
-            // console.log("Output: " + scenarioObj.resultsA_dialogue);
+           
         }).fail(function (json) {
-            // If any dictionaries fail to load, the application has failedy
+            // If any dictionaries fail to load, the application has failed
             console.log(json);
             reject();
         });
@@ -1450,28 +1493,22 @@ function loadBossBattle() {
 // Loads all scenarios
 function loadScenario() {
 
-    
     // Promise to load scenario.json file
     var scenario = new Promise(function (resolve, reject) {
 
         // Fetch the scenarios
         $.getJSON('json/scenario.json').done(function (json) {
 
-            // Use the closured dictionary so we can easily access later without array parsing
-            //console.log(json);
-
-
-            
+            // Track what numbers have been used and find another random number until all 18 are used
             var numArray = [];
             var randomNumber = 0;
 
-
-
-            for(var l=0;l < 18;l++){
+            // Push all item into the scenarioObj
+            for (var l = 0; l < 18; l++) {
                 randomNumber = getRandomNumber();
-                
+
                 numArray.push(randomNumber);
-                
+
 
                 scenarioObj.pImage.push(json[randomNumber].pImage);
                 scenarioObj.planetBlurb.push(json[randomNumber].planetBlurb);
@@ -1491,13 +1528,12 @@ function loadScenario() {
                 scenarioObj.resultsC_number.push(json[randomNumber].results["c"][1]);
                 scenarioObj.resultsC_type.push(json[randomNumber].results["c"][2]);
 
-            
+
             }
-            
+
             resolve();
-            // console.log("Output: " + scenarioObj.resultsA_dialogue);
         }).fail(function (json) {
-            // If any dictionaries fail to load, the application has failedy
+            // If any dictionaries fail to load, the application has failed
             console.log(json);
             reject();
         });
@@ -1506,25 +1542,27 @@ function loadScenario() {
 
 }
 
+// Random number generator to choose the planets
 var existsPlanet = [],
-randomIntP;
+    randomIntP;
 
 function getRandomNumber() {
-    for(var l=0;l <18;l++) {
+    for (var l = 0; l < 18; l++) {
         do {
 
-        randomIntP = getRandomArbitrary(0,18); 
+            randomIntP = getRandomArbitrary(0, 18);
         } while (existsPlanet[randomIntP]);
-        existsPlanet[randomIntP] = true;{
-        
-        return randomIntP;
+        existsPlanet[randomIntP] = true; {
+
+            return randomIntP;
         }
-        
+
     }
 
-  }
+}
 
-function  getRandomArbitrary(min,max) {
+// number between min and max
+function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 // Load the shop data
@@ -1547,7 +1585,6 @@ function loadShopData() {
     var shop = new Promise(function (resolve, reject) {
         // Fetch the shopdata
         $.getJSON('json/shop.json').done(function (json) {
-            // Use the closured dictionary so we can easily access later without array parsing
             console.log(json);
             shopObj.dataTypeA = json[0].dataType[0];
             shopObj.dataTypeB = json[0].dataType[1];
@@ -1561,19 +1598,12 @@ function loadShopData() {
             shopObj.sellPriceC = json[0].sellPrice[2];
 
             resolve();
-            // console.log("Output: " + scenarioObj.resultsA_dialogue);
+            
         }).fail(function (json) {
-            // If any dictionaries fail to load, the application has failedy
+            // If any dictionaries fail to load, the application has failed
             reject();
         });
     });
 
 
 }
-
-// Alert dialogue functions
-
-
-
-
-
