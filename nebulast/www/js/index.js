@@ -180,12 +180,12 @@ function loadMainMenu() {
 
     // Initialise the starting stats
     window.stats = {
-        food: 5,
-        water: 10,
-        fuel: 5,
-        crew: 1,
-        credits: 200,
-        galaxyCount: 0
+        food: undefined,
+        water: undefined,
+        fuel: undefined,
+        crew: undefined,
+        credits: undefined,
+        galaxyCount: undefined
 
     };
 
@@ -1138,6 +1138,7 @@ function loadGameOverScreen(winlose) {
 
         $('#gameOverScreen').html(' ');
 
+        loadStatsData();
         loadScenario();
 
         $('#mainMenu').show();
@@ -1152,17 +1153,7 @@ function loadGameOverScreen(winlose) {
    
 
     self.$container.append(self.$page);
-
-    // Reset the stats
-    stats = {
-        food: 5,
-        water: 10,
-        fuel: 5,
-        crew: 1,
-        credits: 200,
-        galaxyCount: 0
-
-    };
+    
     $('.image-container').fadeIn(1000);
     
     $('.sideNav-diamond').hide();
@@ -1617,7 +1608,7 @@ function loadShopData() {
 // Load the shop data
 function loadStatsData() {
 
-    var stats = new Promise(function (resolve, reject) {
+    var statsObj = new Promise(function (resolve, reject) {
         // Fetch the shopdata
         $.getJSON('json/stats.json').done(function (json) {
             console.log(json);
