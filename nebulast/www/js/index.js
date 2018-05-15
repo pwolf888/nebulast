@@ -73,7 +73,6 @@ $(document).ready(function () {
     loadScenario();
     loadShopData();
     loadBossBattle();
-    loadStatsData();
 
     // Loads main menu
     loadMainMenu();
@@ -1605,31 +1604,6 @@ function loadShopData() {
 
             resolve();
             
-        }).fail(function (json) {
-            // If any dictionaries fail to load, the application has failed
-            reject();
-        });
-    });
-
-
-}
-
-// Load the shop data
-function loadStatsData() {
-
-    var stats = new Promise(function (resolve, reject) {
-        // Fetch the shopdata
-        $.getJSON('json/stats.json').done(function (json) {
-            console.log(json);
-            stats.food = json[0].food;
-            stats.water = json[0].water;
-            stats.fuel = json[0].fuel;
-            stats.crew = json[0].crew;
-            stats.credits = json[0].credits;
-            stats.galaxyCount = json[0].galaxyCount;
-
-            resolve();
-
         }).fail(function (json) {
             // If any dictionaries fail to load, the application has failed
             reject();
