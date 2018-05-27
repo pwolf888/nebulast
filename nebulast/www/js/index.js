@@ -411,7 +411,7 @@ function loadSpaceScreen() {
     uiButton('ok', 'Ok').appendTo(notifyButtons).on('click', function () {
 
         // Planet cost check
-        if (stats.food >= stats.crew + 1 && stats.water >= stats.crew * 2 && stats.fuel >= 2 && number >= 0) {
+        if (stats.food > stats.crew && stats.water > stats.crew + 1 && stats.fuel > 1 && number >= 0) {
             notLabel.hide();
             $(".uiLabel").html(' ');
             $('#spaceScreen').hide();
@@ -419,7 +419,7 @@ function loadSpaceScreen() {
             planetCost(stats.crew);
 
             // Black Hole cost check
-        } else if (stats.food >= stats.crew + 2 && stats.water >= stats.crew * 4 && stats.fuel >= 2 && number === -1) {
+        } else if (stats.food > stats.crew && stats.water > stats.crew + 1 && stats.fuel > 4 && number === -1) {
 
             // Check if it is end game or the next galaxy
             if (stats.galaxyCount < 5) {
@@ -602,15 +602,15 @@ function costUpdate() {
     // For black hole cost
     if (number === -1) {
         console.log('-1');
-        $('.food-cost').html(-stats.crew - 1);
-        $('.water-cost').html(-2 * (stats.crew + 1));
-        $('.fuel-cost').html(-2);
-        $('.credit-gain').html(stats.crew * 100);
+        $('.food-cost').html(-stats.crew );
+        $('.water-cost').html(-stats.crew - 1);
+        $('.fuel-cost').html(-4);
+        $('.credit-gain').html(stats.crew * 200);
     } else if (number >= 0) {
         console.log('1');
         // For planet
         $('.food-cost').html(-stats.crew);
-        $('.water-cost').html(-stats.crew * 2);
+        $('.water-cost').html(-stats.crew - 1);
         $('.fuel-cost').html(-1);
     }
 }
@@ -623,15 +623,15 @@ function planetCost(crew) {
 
     // Black hole money
     if (number === -1) {
-        stats.food -= crew + 1;
-        stats.water -= 2 * (crew + 1);
-        stats.fuel -= 2;
-        stats.credits += crew * 100;
+        stats.food -= crew;
+        stats.water -= crew + 1;
+        stats.fuel -= 4;
+        stats.credits += 200 * crew;
 
         // Planet resources cost
     } else if (number >= 0) {
-        stats.food -= crew;
-        stats.water -= 2 * crew;
+        stats.food -= crew ;
+        stats.water -= crew + 1;
         stats.fuel -= 1;
     }
 
@@ -741,6 +741,7 @@ function updateStats(result, number) {
  // Load the scenario screen
 function loadScenarioScreen() {
 
+    $('#stars, #stars2, #stars3').hide();
 
     var self = this;
 
@@ -748,8 +749,13 @@ function loadScenarioScreen() {
 
     self.$page = $("<div class='scenario-Screen-page'></div>");
 
+
     // First row of the content that holds the dialogue and the portait
-    var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page);
+    var dialogueRow = uiRow('scenario-dialogueRow').appendTo(self.$page).on('click', function() {
+        
+        delay = 1;
+        
+    });
 
     // Planet image
     portraitColNew(scenarioObj.pImage[number]).appendTo(dialogueRow);
@@ -846,7 +852,7 @@ function loadScenarioScreen() {
         $('#scenarioScreen').html(' ');
         $('#spaceScreen').show();
 
-
+        $('#stars, #stars2, #stars3').show();
     });
 
     // Append all elements to the container
@@ -885,7 +891,7 @@ function loadScenarioScreen() {
 
 }
 
-
+var delay = 10;
 
 // Outputs text one char at a time.
 function outputText(dialogue, element, callback) {
@@ -893,7 +899,7 @@ function outputText(dialogue, element, callback) {
 
     var text = dialogue;
     var elem = element;
-    var delay = 20;
+    
 
     // http://jsfiddle.net/8ZtqL/167/
     var outputTextSlowly = function (text, elem, delay) {
@@ -1143,7 +1149,7 @@ function loadGameOverScreen(winlose) {
 
         $('#mainMenu').show();
 
-
+        $('#stars, #stars2, #stars3').show();
     });
 
     // Show the end result stats
