@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.partywolf.www" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.nomadicwolf.nebulast" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Nebulast</name>
     <description>
         A Space Survival RPG Game
@@ -18,12 +18,13 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="ldpi" src="splash/android/LDPI.png" />
-        <icon density="mdpi" src="splash/android/MDPI.png" />
-        <icon density="hdpi" src="splash/android/HDPI.png" />
-        <icon density="xhdpi" src="splash/android/XHDPI.png" />
-        <icon density="xxhdpi" src="splash/android/XXHDPI.png" />
-        <icon density="xxxhdpi" src="splash/android/XXXHDPI.png" />
+        <splash density="ldpi" src="splash/android/LDPI.png" />
+        <splash density="mdpi" src="splash/android/MDPI.png" />
+        <splash density="hdpi" src="splash/android/HDPI.png" />
+        <splash density="xhdpi" src="splash/android/XHDPI.png" />
+        <splash density="xxhdpi" src="splash/android/XXHDPI.png" />
+        <splash density="xxxhdpi" src="splash/android/XXXHDPI.png" />
+        <icon src="www/img/logo.png" />
     </platform>
     <splash src="splash.png" />
     <platform name="ios">
