@@ -852,6 +852,7 @@ function loadScenarioScreen() {
         $('#scenarioScreen').html(' ');
         $('#spaceScreen').show();
 
+        delay=10;
         $('#stars, #stars2, #stars3').show();
     });
 
@@ -1149,6 +1150,7 @@ function loadGameOverScreen(winlose) {
 
         $('#mainMenu').show();
 
+        delay = 10;
         $('#stars, #stars2, #stars3').show();
     });
 
